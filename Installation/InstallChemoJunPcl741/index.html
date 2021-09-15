@@ -1,0 +1,143 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<link rel="stylesheet" href="../importstyle.css" type="text/css">
+<link rev="made" href="mailto:h-asaoka@sra.co.jp">
+<link rel="index" href="index.html">
+<link rel="shortcut icon" href="../ChemoJun.ico">
+<title>InstallChemoJunPcl741</title>
+</head>
+<body>
+<p class="align-right">2006年08月22日 文責：<a name="TOP" href="http://www.sra.co.jp/people/h-asaoka/" target="_blank">浅岡 浩子</a></p>
+<hr>
+<h1>パーセルのインストール<br>
+（VisualWorks 7.4.1 版）</h1>
+<div class="indent">
+<p>もくじ：</p>
+<ul>
+  <li><a href="#Prologue">はじめに</a>
+  <li><a href="#Preparations">準備するもの</a>
+  <li><a href="#Install">「ケモじゅん」インストール</a>
+</ul>
+</div>
+<hr>
+<h2><a name="Prologue">はじめに</a></h2>
+<div class="indent">
+<p>パーセルのインストールをすると、システムを利用できるとともに、ソースコードを確認することができます。<br>
+VisualWorks や Jun などの開発環境をインストールする必要がありますが、バージョンアップの際、 新しいパーセルのみをダウンロードするだけで、新しいバージョンを利用することができます。<br>
+このページでは、パーセルのインストール方法を解説します。</p>
+<p>Windows &amp; Macintosh 版 での説明ですが、 それぞれ違う箇所は、以下のように背景色を変えています。</p>
+<table summary="table" border="0" cellpadding="4" cellspacing="1" width="100%">
+  <tbody>
+    <tr>
+      <td class="win" width="50%" align="center">
+      <p>Windows 版 の説明</p>
+      </td>
+      <td class="mac" width="50%" align="center">
+      <p>Macintosh 版 の説明</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p>また、これらの解説では、 <a href="http://www.sra.co.jp/people/h-asaoka/study/JunInstall/index.html" target="_blank">Jun for Smalltalk インストール</a> に沿って、すでに「じゅん」の動作に必要なものが正常にインストールされているものとします。<br>
+インストールする時に作成する各ディレクトリの場所は、以下のように決めたものとします。</p>
+<table summary="table" border="1" cellpadding="4" cellspacing="0">
+  <tbody>
+    <tr>
+      <th rowspan="2">
+      <p>$(HOME)</p>
+      </th>
+      <td class="win">
+      <p><code>c:/<i>username</i>/</code></p>
+      </td>
+    </tr>
+    <tr>
+      <td class="mac">
+      <p><code>/Users/<i>username</i>/</code></p>
+      </td>
+    </tr>
+    <tr>
+      <th><a name="InstallDirectory">インストールディレクトリ</a></th>
+      <td><code>$(HOME)/Smalltalk/vw7.4.1nc</code></td>
+    </tr>
+    <tr>
+      <th><a name="BaseDirectory">ベースディレクトリ</a></th>
+      <td><code>$(HOME)/Smalltalk/Base4vw741nc</code></td>
+    </tr>
+    <tr>
+      <th><a name="WorkDirectory">ワークディレクトリ</a></th>
+      <td><code>$(HOME)/Smalltalk/ChemoJun4vw741nc</code></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<hr>
+<h2><a name="Preparations">準備するもの</a></h2>
+<div class="indent">
+<p>以下のものが必要となります。<br>
+注：（）内の ??? は、000 もしくはバージョン番号になります。</p>
+<ul>
+  <li>Jun for Smalltalk 環境
+  <p>詳細は <a href="http://www.sra.co.jp/people/h-asaoka/study/JunInstall/index.html" target="_blank">Jun for Smalltalk インストール</a> を参照してください。</p>
+  <li>「ケモじゅん」パーセル（ChemoJun???pcl.zip）
+  <p>分子ファイルを扱うなどの操作をする際に必要となる化学系オープンソースライブラリです。</p>
+</ul>
+</div>
+<hr>
+<h2><a name="Install">「ケモじゅん」インストール</a></h2>
+<div class="indent">
+<p>「ケモじゅん」のパーセルファイルを用意します。</p>
+<ul>
+  <li>ChemoJun???pcl.zip
+</ul>
+<p>インストールディレクトリ の中の「contributed」に、 「ChemoJun」ディレクトリを新規作成します。<br>
+ここに、パーセルファイルを解凍してできるファイル（ChemoJun???.pcl, ChemoJun???.pst）を移動させます。<br>
+古いバージョンのパーセルファイルがある場合は、削除しておいてください。</p>
+<p>最終的に、以下のようになっていることを確認しましょう。</p>
+<pre>    $(<a href="#InstallDirectory">インストールディレクトリ</a>)
+        +- contributed
+            +- ChemoJun
+                +- ChemoJun???.pcl
+                +- ChemoJun???.pst</pre>
+<p>また、ワークディレクトリに「ChemoJun」ディレクトリへのショートカットを作成しておくとよいでしょう。<br>
+バージョンアップするときなど、すぐにたどることが出来て便利です。</p>
+<p>ワークディレクトリ で VisualWorks を起動します。<br>
+VisualWorks の System メニューから Load Parcel Named... を選択します。<br>
+出現するダイアログに「ChemoJun」と入力すると、 インストールディレクトリ内にあるパーセルを自動的に検索し、下の覧に表示してくれます。<br>
+ロードするパーセルが選択されていることを確認し、「OK」ボタンを押します。</p>
+<table summary="table" border="0" cellpadding="4" cellspacing="1" width="100%">
+  <tbody>
+    <tr>
+      <td class="win" width="50%" align="center"><a href="images/WinLoadParcel_1.jpg"><img src="thumbnails/WinLoadParcel_1_jpg.jpg" width="100" height="47" border="1" alt="WinLoadParcel_1_jpg.jpg"></a> <a href="images/WinLoadParcel_2.jpg"><img src="thumbnails/WinLoadParcel_2_jpg.jpg" width="85" height="100" border="1" alt="WinLoadParcel_2_jpg.jpg"></a></td>
+      <td class="mac" width="50%" align="center"><a href="images/MacLoadParcel_1.jpg"><img src="thumbnails/MacLoadParcel_1_jpg.jpg" width="100" height="47" border="1" alt="MacLoadParcel_1_jpg.jpg"></a> <a href="images/MacLoadParcel_2.jpg"><img src="thumbnails/MacLoadParcel_2_jpg.jpg" width="85" height="100" border="1" alt="MacLoadParcel_2_jpg.jpg"></a></td>
+    </tr>
+  </tbody>
+</table>
+<p>この際、パーセルファイルと、VisualWorks のバージョンが合っていないと、 パーセルファイルを読み込むことができません。<br>
+読み込めない場合は、バージョンを確認してください。</p>
+<div class="indent">
+<p><span class="attention">&lt;参考&gt;</span><br>
+VisualWorks のバージョンに対応するパーセルファイルがない場合は、ソースファイル（ChemoJun???.zip）からインストールする方法もあります。<br>
+ソースファイルからインストールする方法は、「じゅん」と同様です。<br>
+<a href="http://www.sra.co.jp/people/h-asaoka/study/JunInstall/index.html" target="_blank">Jun for Smalltalk インストール</a> を参照してください。</p>
+</div>
+<p>「ケモじゅん」が読み込まれると、 VisualWorks のランチャーにインストールされたことが表示され、ケモじゅんランチャーが開きます。<br>
+ケモじゅんランチャーを適当な場所に配置します。<br>
+ガーベジコレクションをして、VisualWorks の仮想イメージをセーブしておきましょう。</p>
+<table summary="table" border="0" cellpadding="4" cellspacing="1" width="100%">
+  <tbody>
+    <tr>
+      <td class="win" width="50%" align="center"><a href="images/WinChemoJunLauncher_E.jpg"><img src="thumbnails/WinChemoJunLauncher_E_jpg.jpg" width="100" height="87" border="1" alt="WinChemoJunLauncher_E_jpg.jpg"></a></td>
+      <td class="mac" width="50%" align="center"><a href="images/MacChemoJunLauncher_E.jpg"><img src="thumbnails/MacChemoJunLauncher_E_jpg.jpg" width="100" height="88" border="1" alt="MacChemoJunLauncher_E_jpg.jpg"></a></td>
+    </tr>
+  </tbody>
+</table>
+<p>仮想イメージを保存したら、一度、「ケモじゅん」を終了させておきましょう。<br>
+ケモじゅんで必要なメモリスペースを、次の起動時から確保するようになります。</p>
+</div>
+<hr>
+<p class="align-right"><a href="#TOP">このページの TOP へ</a></p>
+</body>
+</html>

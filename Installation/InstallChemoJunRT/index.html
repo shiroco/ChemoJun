@@ -1,0 +1,218 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<link rel="stylesheet" href="../importstyle.css" type="text/css">
+<link rev="made" href="mailto:h-asaoka@sra.co.jp">
+<link rel="index" href="index.html">
+<link rel="shortcut icon" href="../ChemoJun.ico">
+<title>InstallChemoJunRT</title>
+</head>
+<body>
+<p class="align-right">2006年08月08日 文責：<a name="TOP" href="http://www.sra.co.jp/people/h-asaoka/" target="_blank">浅岡 浩子</a></p>
+<hr>
+<h1>ランタイム版のインストール</h1>
+<div class="indent">
+<p>もくじ：</p>
+<ul>
+  <li><a href="#Prologue">はじめに</a>
+  <li><a href="#Preparations">準備するもの</a>
+  <li><a href="#RTInstall">インストール</a>
+  <li><a href="#RTStart">起動方法</a>
+  <li><a href="#RTEnd">終了方法</a>
+  <li><a href="#RTjapanese">日本語表示と英語表示の切り替え方法</a>
+</ul>
+</div>
+<hr>
+<h2><a name="Prologue">はじめに</a></h2>
+<div class="indent">
+<p>ランタイム版は、VisualWorks や Jun などの開発環境をインストールしなくても システムをすぐに使用することができます。<br>
+いろいろな人にシステムを使ってもらうのに便利です。<br>
+このページでは、ランタイム版のインストール方法を解説します。</p>
+<p>Windows &amp; Macintosh 版 での説明ですが、 それぞれ違う箇所は、以下のように背景色を変えています。</p>
+<table summary="table" border="0" cellpadding="4" cellspacing="1" width="100%">
+  <tbody>
+    <tr>
+      <td class="win" width="50%" align="center">
+      <p>Windows 版 の説明</p>
+      </td>
+      <td class="mac" width="50%" align="center">
+      <p>Macintosh 版 の説明</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<hr>
+<h2><a name="Preparations">準備するもの</a></h2>
+<div class="indent">
+<p>以下の「ケモじゅん」のランタイム版が必要となります。<br>
+注：（）内の ??? は、000 もしくはバージョン番号になります。</p>
+<p>日本語版</p>
+<table summary="table" border="0" cellpadding="4" cellspacing="1" width="100%">
+  <tbody>
+    <tr>
+      <td class="win" width="50%">
+      <p>ChemoJun???WinRTj.zip</p>
+      </td>
+      <td class="mac" width="50%">
+      <p>-- None --</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p>英語版</p>
+<table summary="table" border="0" cellpadding="4" cellspacing="1" width="100%">
+  <tbody>
+    <tr>
+      <td class="win" width="50%">
+      <p>ChemoJun???WinRTe.zip</p>
+      </td>
+      <td class="mac" width="50%">
+      <p>ChemoJun???MacRTe.dmg</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<hr>
+<h2><a name="RTInstall">インストール</a></h2>
+<div class="indent">
+<p>「ケモじゅん」の ランタイム版ファイル を用意します。<br>
+好きな環境のものを選んでください。</p>
+<p>ランタイム版ファイル をハードディスクの中の適当なディレクトリに展開します。<br>
+展開すると、次のようなフォルダやファイルが作成されます。</p>
+<p>Win - 日本語版</p>
+<pre class="win">ChemoJun???WinRTj
+    +- ChemoJunMolData/
+    |   +- *folders*/
+    |        +- *.mol
+    |        +- *.2D.mol
+    +- ja/
+    |   +- chemoJunDictionary.idx
+    |   +- chemoJunDictionary.lbl
+    |   +- junDictionary.idx
+    |   +- junDictionary.lbl
+    +- ChemoJun???RT.im
+    +- glu32.dll
+    +- herald.bmp
+    +- herald.wav
+    +- JunWinQT.dll
+    +- opengl32.dll
+    +- ReadMe.txt
+    +- visual.bat
+    +- visual.exe</pre>
+<p>Win - 英語版</p>
+<pre class="win">ChemoJun???WinRTe
+    +- ChemoJunMolData/
+    |   +- *folders*/
+    |        +- *.mol
+    |        +- *.2D.mol
+    +- ChemoJun???RT.im
+    +- glu32.dll
+    +- herald.bmp
+    +- herald.wav
+    +- JunWinQT.dll
+    +- opengl32.dll
+    +- ReadMe.txt
+    +- visual.bat
+    +- visual.exe</pre>
+<p>Mac - 英語版</p>
+<pre class="mac">ChemoJun???MacRTe
+    +- ChemoJunMolData/
+    |   +- *folders*/
+    |        +- *.mol
+    |        +- *.2D.mol
+    +- ChemoJun???RT.im
+    +- JunMacOSXInterface.dylib
+    +- ReadMe.txt
+    +- visual.app</pre>
+<p>圧縮ファイルがマウントされた状態ではなく、必ずハードディスク内に上記のフォルダをコピーしてください。<br>
+このフォルダを「ランタイム版ディレクトリ」とします。<br>
+これでインストールは終了です。</p>
+</div>
+<hr>
+<h2><a name="RTStart">起動方法</a></h2>
+<div class="indent">
+<p>以下のように起動します。</p>
+<table summary="table" border="0" cellpadding="4" cellspacing="1" width="100%">
+  <tbody>
+    <tr>
+      <td class="win" valign="top">
+      <p>ランタイム版ディレクトリ内にあるバッチファイル「visual.bat」 をダブルクリックして、起動します。</p>
+      </td>
+    </tr>
+    <tr>
+      <td class="mac" valign="top">
+      <p>ランタイム版ディレクトリ内の「visual.app」（仮想マシン）をダブルクリックして、「ChemoJun???RT.im」（仮想イメージ）を選択して「Open」ボタンを押します。</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p>起動すると、スクリーンの左上にケモじゅんランチャーが出現します。</p>
+<table summary="table" border="0" cellpadding="4" cellspacing="1" width="100%">
+  <tbody>
+    <tr>
+      <td class="win" width="50%" align="center"><a href="images/WinChemoJunLauncher.jpg"><img src="thumbnails/WinChemoJunLauncher_jpg.jpg" width="100" height="82" border="1" alt="WinChemoJunLauncher_jpg.jpg"></a></td>
+      <td class="mac" width="50%" align="center"><a href="images/MacChemoJunLauncher_E.jpg"><img src="thumbnails/MacChemoJunLauncher_E_jpg.jpg" width="100" height="83" border="1" alt="MacChemoJunLauncher_E_jpg.jpg"></a></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<hr>
+<h2><a name="RTEnd">終了方法</a></h2>
+<div class="indent">
+<p>終了するにはケモじゅんランチャーを閉じます。<br>
+ランチャーの「×」アイコンをクリックします。<br>
+「本当に終了しますか？【Really quit?】」という確認ダイアログが出ますので、「はい【Yes】」のボタンを押します。</p>
+<table summary="table" border="0" cellpadding="4" cellspacing="1" width="100%">
+  <tbody>
+    <tr>
+      <td class="win" width="50%" align="center"><a href="images/WinLauncher_closeDialog.jpg"><img src="thumbnails/WinLauncher_closeDialog_jpg.jpg" width="100" height="52" border="1" alt="WinLauncher_closeDialog_jpg.jpg"></a></td>
+      <td class="mac" width="50%" align="center"><a href="images/MacLauncher_closeDialog.jpg"><img src="thumbnails/MacLauncher_closeDialog_jpg.jpg" width="100" height="54" border="1" alt="MacLauncher_closeDialog_jpg.jpg"></a></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<hr>
+<h2><a name="RTjapanese">日本語表示と英語表示の切り替え方法</a></h2>
+<div class="indent">
+<p>日本語版のメニューやメッセージは、デフォルトで日本語になっています。<br>
+ランタイム版ディレクトリの直下にある「ja」ディレクトリを移動させることで、メニューなどを日本語と英語に切り替えることができます。</p>
+<br>
+<strong>英語表示にする場合</strong>
+<div class="indent">
+<p>システムを起動中の場合は、終了しておきます。<br>
+「ja」のディレクトリを他の場所へ移動します。<br>
+システムを起動すると、英語表示になります。</p>
+<table summary="table" border="0" cellpadding="4" cellspacing="1" width="100%">
+  <tbody>
+    <tr>
+      <td class="win" width="50%" align="center"><a href="images/WinChemoJunLauncher_E.jpg"><img src="thumbnails/WinChemoJunLauncher_E_jpg.jpg" width="100" height="82" border="1" alt="WinChemoJunLauncher_E_jpg.jpg"></a></td>
+      <td class="mac" width="50%" align="center">No Printing !</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<br>
+<strong>日本語表示にする場合</strong>
+<div class="indent">
+<p>システムを起動中の場合は、終了しておきます。<br>
+「ja」のディレクトリをランタイム版ディレクトリの直下に戻します。<br>
+システムを起動すると、日本語表示になります。</p>
+<table summary="table" border="0" cellpadding="4" cellspacing="1" width="100%">
+  <tbody>
+    <tr>
+      <td class="win" width="50%" align="center"><a href="images/WinChemoJunLauncher.jpg"><img src="thumbnails/WinChemoJunLauncher_jpg.jpg" width="100" height="82" border="1" alt="WinChemoJunLauncher_jpg.jpg"></a></td>
+      <td class="mac" width="50%" align="center">No Printing !</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<p class="attention">※「ja」のディレクトリを移動する際は、必ず起動中のシステムを終了させてから行ってください。</p>
+</div>
+<hr>
+<p class="align-right"><a href="#TOP">このページの TOP へ</a></p>
+</body>
+</html>

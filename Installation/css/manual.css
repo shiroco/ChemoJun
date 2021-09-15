@@ -1,0 +1,96 @@
+/* ******************************* */
+/*  manual.css                     */
+/*  Created: 2006.02.14            */
+/*  Updated: 2006.02.16            */
+/* ******************************* */
+
+@charset "Shift_JIS";
+
+/* top menu */
+table.top-menu {
+	margin				: 0px;
+	padding				: 0px;
+	border				: none;
+}
+table.top-menu td {
+	margin				: 0px;
+	padding				: 0px;
+	line-height			: 1.6em;
+	white-space			: nowrap;
+}
+td.top-menu-logo {
+	width				: 100px;
+}
+
+/* background color's table */
+table.bgtable {
+	border				: none;
+}
+table.bgtable td {
+	padding				: 0em;
+}
+.win {
+	color				: #000000;
+	background-color	: #AAFFFF;
+	border-style		: dotted;
+	border-color		: #AAFFFF;
+	border-width		: 2px 2px 2px 2px;
+}
+.mac {
+	color				: #000000;
+	background-color	: #FFFF80;
+	border-style		: double;
+	border-color		: #FFFF80;
+	border-width		: 2px 2px 2px 2px;
+}
+p.win, p.mac {
+	margin				: 0em 1.0em 0em 1.0em;
+}
+
+/* update, editor, link to page top */
+p.page-top, p.page-bottom {
+	font-size 			: 0.9em;
+	text-align			: right;
+}
+
+/* hx */
+h2.title {
+	text-align			: center;
+}
+
+/* Misc */
+.format {
+	color				: #000000;
+	background-color	: #CCCCCC;
+	border-style		: solid;
+	border-color		: #555555;
+	border-width		: 1px 2px 2px 1px;
+}
+pre.example {
+	color				: #000000;
+	background-color	: #EEEEEE;
+	border-style		: dashed;
+	border-color		: #555555;
+	border-width		: 1px 1px 1px 1px;
+}
+pre.file {
+	color				: #000000;
+	background-color	: #DDDDFF;
+	border-style		: solid;
+	border-color		: #555555;
+	border-width		: 1px 1px 1px 1px;
+}
+span.command {
+	font-weight			: bold;
+	font-style			: normal;
+}
+span.folder {
+	font-weight			: bolder;
+	font-style			: normal;
+}
+span.replaceable {
+	color				: #336600;
+	background-color	: transparent;
+	font-weight			: bolder;
+	font-style			: italic;
+}
