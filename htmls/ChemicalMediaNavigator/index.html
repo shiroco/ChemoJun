@@ -1,0 +1,59 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<TITLE>化学メディアナビゲータ（ChemoJunChemicalMediaNavigator）</TITLE>
+</HEAD>
+<BODY bgcolor="#ffffff">
+<H2>化学メディアナビゲータ（ChemoJunChemicalMediaNavigator）</H2>
+<P>ファイルナビゲータ（JunFileNavigator）、マルチメディア画像モデル（JunMultiMediaImageModel）、マルチメディア映像モデル（JunMultiMediaMovieModel）、マルチメディア文章モデル（JunMultiMediaTextModel）などを集約したじゅんのアプリケーションであるマルチメディアナビゲータ（JunMultiMediaNavigator）を継承して作成されています。</P>
+<CENTER>
+<TABLE border="0" cellpadding="8">
+  <TBODY>
+    <TR>
+      <TD align="center"><A href="htmls/map.html" target="_blank"><IMG src="thumbnails/ChemicalMediaNavigator.jpg" width="187" height="218" border="0" align="middle"></A></TD>
+    </TR>
+    <TR>
+      <TD align="center" valign="middle">化学メディアナビゲータの構造</TD>
+    </TR>
+  </TBODY>
+</TABLE>
+</CENTER>
+<P>新たに集約されたオブジェクトとして加わったものは、分子ビューア（ChemoJunMoleculeViewer）をスーパクラスにする分子モデル（ChemoJunMoleculeModel）であり、これによって画像・映像・文章などに加えて、MDL形式の分子ファイル（モルファイル）を見る（ナビゲートする）ための機能がつけ加わります。</P>
+<CENTER>
+<TABLE border="0">
+  <TBODY>
+    <TR>
+      <TD align="center" valign="middle"><A href="images/Image.jpg" target="_blank"><IMG src="thumbnails/Image.jpg" width="127" height="157" border="0"></A></TD>
+      <TD align="center" valign="middle"><A href="images/Movie.jpg" target="_blank"><IMG src="thumbnails/Movie.jpg" width="127" height="157" border="0"></A></TD>
+      <TD align="center" valign="middle"><A href="images/Text.jpg" target="_blank"><IMG src="thumbnails/Text.jpg" width="127" height="157" border="0"></A></TD>
+      <TD align="center" valign="middle"><A href="images/Other.jpg" target="_blank"><IMG src="thumbnails/Other.jpg" width="127" height="157" border="0"></A></TD>
+      <TD align="center" valign="middle"><A href="images/Molecule.jpg" target="_blank"><IMG src="thumbnails/Molecule.jpg" width="127" height="157" border="0"></A></TD>
+    </TR>
+    <TR>
+      <TD align="center" valign="middle">画像</TD>
+      <TD align="center" valign="middle">映像</TD>
+      <TD align="center" valign="middle">文章</TD>
+      <TD align="center" valign="middle">ダンプ</TD>
+      <TD align="center" valign="middle">分子</TD>
+    </TR>
+  </TBODY>
+</TABLE>
+</CENTER>
+<P>このビジュアル構造は、ファイルモデルを下部に配置し、画像モデル・映像モデル・文章モデル、そして、分子モデルがオーバーレイ構造を採ります。</P>
+<CENTER>
+<TABLE border="0">
+  <TBODY>
+    <TR>
+      <TD align="center" valign="middle"><A href="images/Structure.jpg" target="_blank"><IMG src="thumbnails/Structure.jpg" width="182" height="181" border="0"></A></TD>
+    </TR>
+    <TR>
+      <TD align="center" valign="middle">オーバーレイ構造</TD>
+    </TR>
+  </TBODY>
+</TABLE>
+</CENTER>
+<P>ファイルモデルで、あるファイルが選択されると、その種別（拡張子）によって、適合するモデルが一つだけ選択され、そのモデルに対応したビューとコントローラが可視化され、制御が委ねられます。残りの他のモデルは不可視となります。そのタイミングはファイルモデルのファイル名が変更されたときですから、ファイルモデルのファイル名を保持するオブジェクトの依存物として、化学メディアナビゲータがチェンジ＆アップデートのブロードキャストを受信するように作られています。</P>
+<HR>
+</BODY>
+</HTML>
