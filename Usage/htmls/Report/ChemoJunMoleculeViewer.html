@@ -1,0 +1,182 @@
+<HTML>
+<HEAD>
+<TITLE>ChemoJunMoleculeViewer</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+
+<A HREF="index.html"><B>index</B></A><BR>
+<HR>
+
+<H2>ChemoJunMoleculeViewer</H2>
+
+ChemoJun050 (2006/08/08) Copyright 2002-2006 National Institute of Informatics, Research Organization of Information and Systems.
+
+<P>
+<I>superclass:</I>
+</P>
+<UL>
+<LI><B><A HREF="ChemoJunAbstractViewer.html">ChemoJunAbstractViewer</A></B>
+</UL>
+
+<P>
+<I>instance variables:</I>
+</P>
+<UL>
+<LI><B>moleculeObject</B>
+<LI><B>messageSymbol</B>
+<LI><B>exceptHydrogen</B>
+<LI><B>exceptIndex</B>
+<LI><B>indexExpression</B>
+<LI><B>indexExpressionBlock</B>
+<LI><B>cameraButton</B>
+</UL>
+
+<P>
+<I>class instance variables:</I>
+</P>
+<UL>
+</UL>
+
+<P>
+<I>class variabels:</I>
+</P>
+<UL>
+</UL>
+
+<P>
+<I>pool variabels:</I>
+</P>
+<UL>
+</UL>
+
+<P>
+<I>instance methods:</I>
+</P>
+<OL>
+<LI><B>asGraph</B> <I>[converting]</I><BR>
+<LI><B>asGrapher</B> <I>[converting]</I><BR>
+<LI><B>atomConnections</B> <I>[accessing]</I><BR>
+<LI><B>atomConnectionsDo:</B> aBlock <I>[enumerating]</I><BR>
+<LI><B>atomObjects</B> <I>[accessing]</I><BR>
+<LI><B>atomObjectsAndIndexesDo:</B> aBlock <I>[enumerating]</I><BR>
+<LI><B>atomObjectsDo:</B> aBlock <I>[enumerating]</I><BR>
+<LI><B>beInvisibleCameraButton</B> <I>[buttons]</I><BR>
+<LI><B>beVisibleCameraButton</B> <I>[buttons]</I><BR>
+<LI><B>browseManual</B> <I>[menu messages]</I><BR>
+<LI><B>cameraButton</B> <I>[buttons]</I><BR>
+<LI><B>cameraButtonSpecWrapper</B> <I>[buttons]</I><BR>
+<LI><B>cameraButtonView</B> <I>[interface opening]</I><BR>
+<LI><B>clickAt:</B> mouse2dPoint <I>[actions]</I><BR>
+<LI><B>cloneViewer</B> <I>[private]</I><BR>
+<LI><B>computeDisplayInformationInView:</B> aView <I>[private]</I><BR>
+<LI><B>computeDisplayOffsetFor:</B> atomObject <I>[private]</I><BR>
+<LI><B>computeDisplayOffsetFor:</B> atomObject <B>fromAtom:</B> fromAtom <B>toAtom:</B> toAtom <B>inView:</B> aView <I>[private]</I><BR>
+<LI><B>computeDisplayOffsetsInView:</B> aView <I>[private]</I><BR>
+<LI><B>computeModifierDisplayInformationInView:</B> aView <I>[private]</I><BR>
+<LI><B>computeOffsetOfModifier:</B> atomObject <B>fromAtom:</B> fromAtom <B>toAtom:</B> toAtom <B>inView:</B> aView <I>[private]</I><BR>
+<LI><B>computeOffsetOfSerialNumber:</B> atomObject <B>fromAtom:</B> fromAtom <B>toAtom:</B> toAtom <B>inView:</B> aView <I>[private]</I><BR>
+<LI><B>computeSerialNumberDisplayInformationInView:</B> aView <I>[private]</I><BR>
+<LI><B>convertModifierStringToImage:</B> aString <B>focusAtomIndex:</B> anIndex <I>[private]</I><BR>
+<LI><B>defaultBaseName</B> <I>[defaults]</I><BR>
+<LI><B>defaultColorOfSerialNumber</B> <I>[defaults]</I><BR>
+<LI><B>defaultDisplayOffsetLength</B> <I>[defaults]</I><BR>
+<LI><B>defaultEyePoint</B> <I>[defaults]</I><BR>
+<LI><B>defaultMessageSymbol</B> <I>[defaults]</I><BR>
+<LI><B>defaultMinimumBoxOfSerialNumber</B> <I>[defaults]</I><BR>
+<LI><B>defaultMoleculeObjectClass</B> <I>[defaults]</I><BR>
+<LI><B>defaultMolFileReaderClass</B> <I>[defaults]</I><BR>
+<LI><B>defaultString</B> <I>[defaults]</I><BR>
+<LI><B>defaultStyleOfSerialNumber</B> <I>[defaults]</I><BR>
+<LI><B>defaultUpVector</B> <I>[defaults]</I><BR>
+<LI><B>defaultWindowLabel</B> <I>[defaults]</I><BR>
+<LI><B>displayInformationInView:</B> aView <I>[displaying]</I><BR>
+<LI><B>displayModifierInView:</B> aView <I>[displaying]</I><BR>
+<LI><B>displayObject</B> <I>[accessing]</I><BR>
+<LI><B>displaySerialInView:</B> aView <I>[displaying]</I><BR>
+<LI><B>displaySuperimposeInView:</B> aView <I>[displaying]</I><BR>
+<LI><B>exceptHydrogen</B> <I>[accessing]</I><BR>
+<LI><B>exceptHydrogen:</B> aBoolean <I>[accessing]</I><BR>
+<LI><B>exceptIndex</B> <I>[accessing]</I><BR>
+<LI><B>exceptIndex:</B> aBoolean <I>[accessing]</I><BR>
+<LI><B>fileName</B> <I>[accessing]</I><BR>
+<LI><B>flushDisplayAttributes</B> <I>[flushing]</I><BR>
+<LI><B>flushDisplayObject</B> <I>[flushing]</I><BR>
+<LI><B>flushModifierAttributes</B> <I>[flushing]</I><BR>
+<LI><B>flushSerialNumberAttributes</B> <I>[flushing]</I><BR>
+<LI><B>focus:</B> aRectangle1 <B>to:</B> aRectangle2 <I>[manipulating]</I><BR>
+<LI><B>grab:</B> deltaPoint <I>[manipulating]</I><BR>
+<LI><B>grab:</B> from2dPoint <B>xy:</B> to2dPoint <I>[manipulating]</I><BR>
+<LI><B>hasModifier:</B> atomObject <I>[testing]</I><BR>
+<LI><B>highResolution</B> <I>[menu messages]</I><BR>
+<LI><B>informationString</B> <I>[accessing]</I><BR>
+<LI><B>initialize</B> <I>[initialize-release]</I><BR>
+<LI><B>is2d</B> <I>[testing]</I><BR>
+<LI><B>is3d</B> <I>[testing]</I><BR>
+<LI><B>isMoleculeViewer</B> <I>[testing]</I><BR>
+<LI><B>lowResolution</B> <I>[menu messages]</I><BR>
+<LI><B>mediumResolution</B> <I>[menu messages]</I><BR>
+<LI><B>messageSymbol</B> <I>[accessing]</I><BR>
+<LI><B>messageSymbol:</B> aSymbol <I>[accessing]</I><BR>
+<LI><B>modifierImage:</B> atomObject <I>[accessing modifiers]</I><BR>
+<LI><B>modifierImage:</B> atomObject <B>fromAtom:</B> fromAtom <B>toAtom:</B> toAtom <B>inView:</B> aView <I>[accessing modifiers]</I><BR>
+<LI><B>moleculeFromReader:</B> aReader <I>[menu messages]</I><BR>
+<LI><B>moleculeObject</B> <I>[accessing]</I><BR>
+<LI><B>moleculeObject:</B> aMolecule <I>[accessing]</I><BR>
+<LI><B>moleculeText</B> <I>[accessing]</I><BR>
+<LI><B>numberOfAtoms</B> <I>[accessing]</I><BR>
+<LI><B>openMolecule</B> <I>[menu messages]</I><BR>
+<LI><B>postBuildWith:</B> aBuilder <I>[interface opening]</I><BR>
+<LI><B>saveAsFile</B> <I>[menu messages]</I><BR>
+<LI><B>saveFileTo:</B> moleculeFilename <I>[menu messages]</I><BR>
+<LI><B>serialNumberComposedText:</B> atomObject <I>[accessing]</I><BR>
+<LI><B>setIndexExpression:</B> aString <B>setIndexExpressionBlock:</B> aBlock <I>[private]</I><BR>
+<LI><B>setWindowLabel</B> <I>[interface opening]</I><BR>
+<LI><B>showMoleculeAsBallAndStick</B> <I>[menu messages]</I><BR>
+<LI><B>showMoleculeAsPlane</B> <I>[menu messages]</I><BR>
+<LI><B>showMoleculeAsSpaceFill</B> <I>[menu messages]</I><BR>
+<LI><B>showMoleculeAsStick</B> <I>[menu messages]</I><BR>
+<LI><B>showMoleculeAsStickAndSpaceFill</B> <I>[menu messages]</I><BR>
+<LI><B>toggleHydrogen</B> <I>[menu messages]</I><BR>
+<LI><B>toggleIndex</B> <I>[menu messages]</I><BR>
+<LI><B>updateMiscMenuIndication</B> <I>[menu accessing]</I><BR>
+<LI><B>updateStringHolder:</B> aPoint <I>[updating]</I><BR>
+<LI><B>updateViewMenuIndication</B> <I>[menu accessing]</I><BR>
+<LI><B>wheelActionInTopCenterBox:</B> wheelUpBoolean <I>[wheel actions]</I><BR>
+</OL>
+
+<P>
+<I>class methods:</I>
+</P>
+<OL>
+<LI><B>copyright</B> <I>[copyright]</I><BR>
+<LI><B>defaultExceptSerialNumber</B> <I>[defaults]</I><BR>
+<LI><B>defaultMoleculeObjectClass</B> <I>[defaults]</I><BR>
+<LI><B>defaultMolFileReaderClass</B> <I>[defaults]</I><BR>
+<LI><B>example1</B> <I>[examples]</I><BR>
+ChemoJunMoleculeViewer example1.
+<LI><B>example2</B> <I>[examples]</I><BR>
+ChemoJunMoleculeViewer example2.
+<LI><B>example3</B> <I>[examples]</I><BR>
+ChemoJunMoleculeViewer example3.
+<LI><B>example4</B> <I>[examples]</I><BR>
+ChemoJunMoleculeViewer example4.
+<LI><B>example5</B> <I>[examples]</I><BR>
+ChemoJunMoleculeViewer example5.
+<LI><B>example6</B> <I>[examples]</I><BR>
+ChemoJunMoleculeViewer example6.
+<LI><B>fileName:</B> moleculeFilename <I>[instance creation]</I><BR>
+<LI><B>menuBar</B> <I>[resources]</I><BR>
+Tools.MenuEditor new openOnClass: self andSelector: #menuBar
+<LI><B>moleculeObject:</B> moleculeObject <I>[instance creation]</I><BR>
+<LI><B>system</B> <I>[copyright]</I><BR>
+<LI><B>version</B> <I>[copyright]</I><BR>
+<LI><B>windowSpec</B> <I>[interface specs]</I><BR>
+Tools.UIPainter new openOnClass: self andSelector: #windowSpec
+</OL>
+
+
+<HR>
+<A HREF="index.html"><B>index</B></A><BR>
+
+</BODY>
+</HTML>

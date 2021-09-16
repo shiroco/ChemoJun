@@ -1,0 +1,214 @@
+<HTML>
+<HEAD>
+<TITLE>ChemoJunAbstractFileReader</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<A HREF="../index.html#ChemoJunAbstractFileReader"><IMG SRC="../images/index.jpg" ALT="index" ALIGN="top" BORDER=1></A>
+<A HREF="../xrefsC.html#ChemoJunAbstractFileReader"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+2006/08/08 17:41:24
+<HR>
+<!-- (class_name) { -->
+<H2>
+<A NAME="Class.ChemoJunAbstractFileReader">ChemoJunAbstractFileReader</A>
+</H2>
+<!-- } (class_name) -->
+<!-- (comment) { -->
+<P>
+<A NAME="Comment.ChemoJunAbstractFileReader">
+ChemoJun050 (2006/08/08) Copyright 2002-2006 National Institute of Informatics, Research Organization of Information and Systems.
+</A>
+</P>
+<!-- } (comment) -->
+<!-- (category) { -->
+<P>
+<A NAME="Category.ChemoJun-Abstract-Objects"><I>category:</I></A></P>
+<UL>
+<LI><B>
+ChemoJun-Abstract-Objects
+</B>
+<A HREF="../xrefsC.html#ChemoJun-Abstract-Objects"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+</UL>
+<!-- } (category) -->
+<!-- (inheritance) { -->
+<P>
+<A NAME="Inheritance.ChemoJunAbstractFileReader"><I>inheritance:</I></A>
+</P>
+<UL>
+<LI TYPE="square">Object
+<UL>
+<LI TYPE="square"><A HREF="ChemoJunAbstractFile.html">ChemoJunAbstractFile</A>
+<UL>
+<LI TYPE="square"><B>ChemoJunAbstractFileReader</B>
+<UL>
+<LI TYPE="square"><A HREF="ChemoJunMolFileReader.html">ChemoJunMolFileReader</A>
+</UL>
+<UL>
+<LI TYPE="square"><A HREF="ChemoJunSdFileReader.html">ChemoJunSdFileReader</A>
+</UL>
+<UL>
+<LI TYPE="square"><A HREF="ChemoJunTextFileReader.html">ChemoJunTextFileReader</A>
+</UL>
+</UL>
+</UL>
+</UL>
+<!-- } (inheritance) -->
+<!-- (instance_variables) { -->
+<P>
+<A NAME="InstanceVariables.ChemoJunAbstractFileReader">
+<I>instance variables:</I>
+</A>
+</P>
+<UL>
+<!-- commentList { -->
+<LI><A NAME="InstanceVariable.commentList"><B>commentList</B></A>
+<A HREF="../xrefsC.html#commentList"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<!-- } commentList -->
+</UL>
+<!-- } (instance_variables) -->
+<!-- (class_instance_variables) { -->
+<P>
+<A NAME="ClassInstanceVariables.ChemoJunAbstractFileReader">
+<I>class instance variables:</I>
+</A>
+</P>
+<UL>
+</UL>
+<!-- } (class_instance_variables) -->
+<!-- (class_variables) { -->
+<P>
+<A NAME="ClassVariables.ChemoJunAbstractFileReader">
+<I>class variables:</I>
+</A>
+</P>
+<UL>
+</UL>
+<!-- } (class_variables) -->
+<!-- (pool_variables) { -->
+<P>
+<A NAME="PoolVariables.ChemoJunAbstractFileReader">
+<I>pool variables:</I>
+</A>
+</P>
+<UL>
+</UL>
+<!-- } (pool_variables) -->
+<!-- (instance_methods) { -->
+<P>
+<A NAME="InstanceMethods.ChemoJunAbstractFileReader">
+<I>instance methods:</I>
+</A>
+</P>
+<OL>
+<LI><!-- commentList { -->
+<A NAME="InstanceMethod.commentList"><B>commentList</B> <I>[accessing]</I></A>
+<A HREF="../xrefsC.html#commentList"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	commentList isNil ifTrue: [commentList := OrderedCollection new].
+	^commentList</PRE>
+<!-- } commentList -->
+<LI><!-- fileName: { -->
+<A NAME="InstanceMethod.fileName:"><B>fileName:</B> aFilename <I>[accessing]</I></A>
+<A HREF="../xrefsF.html#fileName:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	| theFilename |
+	theFilename := aFilename asFilename.
+	fileName = theFilename 
+		ifFalse: 
+			[super fileName: theFilename.
+			Cursor read showWhile: [self read]]</PRE>
+<!-- } fileName: -->
+<LI><!-- initialize { -->
+<A NAME="InstanceMethod.initialize"><B>initialize</B> <I>[initialize-release]</I></A>
+<A HREF="../xrefsI.html#initialize"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	super initialize.
+	commentList := nil</PRE>
+<!-- } initialize -->
+<LI><!-- read { -->
+<A NAME="InstanceMethod.read"><B>read</B> <I>[reading]</I></A>
+<A HREF="../xrefsR.html#read"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	| aStream |
+	self fileName isNil ifTrue: [^nil].
+	self 
+		assert: [aStream := self fileName readStream]
+		do: [Cursor read showWhile: [self readFrom: aStream]]
+		ensure: [aStream close]</PRE>
+<!-- } read -->
+<LI><!-- readFrom: { -->
+<A NAME="InstanceMethod.readFrom:"><B>readFrom:</B> aStream <I>[reading]</I></A>
+<A HREF="../xrefsR.html#readFrom:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	^self</PRE>
+<!-- } readFrom: -->
+</OL>
+<!-- } (instance_methods) -->
+<!-- (class_methods) { -->
+<P>
+<A NAME="ClassMethods.ChemoJunAbstractFileReader">
+<I>class methods:</I>
+</A>
+</P>
+<OL>
+<LI><!-- copyright { -->
+<A NAME="ClassMethod.copyright"><B>copyright</B> <I>[copyright]</I></A>
+<A HREF="../xrefsC.html#copyright"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^'ChemoJun050 (2006/08/08) Copyright 2002-2006 National Institute of Informatics, Research Organization of Information and Systems.'</PRE>
+<!-- } copyright -->
+<LI><!-- defaultRequestMessageString { -->
+<A NAME="ClassMethod.defaultRequestMessageString"><B>defaultRequestMessageString</B> <I>[defaults]</I></A>
+<A HREF="../xrefsD.html#defaultRequestMessageString"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^(#jun_Select_a_file_ &gt;&gt; 'Select a file.') asString</PRE>
+<!-- } defaultRequestMessageString -->
+<LI><!-- request: { -->
+<A NAME="ClassMethod.request:"><B>request:</B> messageString <I>[utilities]</I></A>
+<A HREF="../xrefsR.html#request:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	&quot;ChemoJunAbstractFileReader request: ChemoJunAbstractFileReader defaultRequestMessageString.&quot;
+
+	| labels values menu aFilename aReader |
+	labels := self defaultFileDescriptions.
+	values := self defaultFilePatterns.
+	menu := Menu labelList: labels values: values.
+	aFilename := ChemoJunFileRequesterDialog 
+				requestFilename: messageString
+				fileTypeMenu: menu
+				initialFileType: values first.
+	aFilename isNil ifTrue: [^nil].
+	aReader := self fileName: aFilename.
+	aReader isNil ifTrue: [^nil].
+	^aReader</PRE>
+<!-- } request: -->
+<LI><!-- system { -->
+<A NAME="ClassMethod.system"><B>system</B> <I>[copyright]</I></A>
+<A HREF="../xrefsS.html#system"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^'ChemoJun'</PRE>
+<!-- } system -->
+<LI><!-- version { -->
+<A NAME="ClassMethod.version"><B>version</B> <I>[copyright]</I></A>
+<A HREF="../xrefsV.html#version"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^'050'</PRE>
+<!-- } version -->
+</OL>
+<!-- } (class_methods) -->
+<HR>
+<A HREF="../index.html#ChemoJunAbstractFileReader"><IMG SRC="../images/index.jpg" ALT="index" ALIGN="top" BORDER=1></A>
+<A HREF="../xrefsC.html#ChemoJunAbstractFileReader"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<!-- This Document was generated by JunEncyclopedia. -->
+<!-- JunEncyclopedia was developed by AOKI Atsushi. -->
+</BODY>
+</HTML>

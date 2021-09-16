@@ -1,0 +1,203 @@
+<HTML>
+<HEAD>
+<TITLE>ChemoJunMoleculeCatalogueView</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<A HREF="../index.html#ChemoJunMoleculeCatalogueView"><IMG SRC="../images/index.jpg" ALT="index" ALIGN="top" BORDER=1></A>
+<A HREF="../xrefsC.html#ChemoJunMoleculeCatalogueView"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+2006/08/08 17:41:28
+<HR>
+<!-- (class_name) { -->
+<H2>
+<A NAME="Class.ChemoJunMoleculeCatalogueView">ChemoJunMoleculeCatalogueView</A>
+</H2>
+<!-- } (class_name) -->
+<!-- (comment) { -->
+<P>
+<A NAME="Comment.ChemoJunMoleculeCatalogueView">
+ChemoJun050 (2006/08/08) Copyright 2002-2006 National Institute of Informatics, Research Organization of Information and Systems.
+</A>
+</P>
+<!-- } (comment) -->
+<!-- (category) { -->
+<P>
+<A NAME="Category.ChemoJun-Display-Catalogue"><I>category:</I></A></P>
+<UL>
+<LI><B>
+ChemoJun-Display-Catalogue
+</B>
+<A HREF="../xrefsC.html#ChemoJun-Display-Catalogue"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+</UL>
+<!-- } (category) -->
+<!-- (inheritance) { -->
+<P>
+<A NAME="Inheritance.ChemoJunMoleculeCatalogueView"><I>inheritance:</I></A>
+</P>
+<UL>
+<LI TYPE="square">Object
+<UL>
+<LI TYPE="square">VisualComponent
+<UL>
+<LI TYPE="square">VisualPart
+<UL>
+<LI TYPE="square">DependentPart
+<UL>
+<LI TYPE="square">View
+<UL>
+<LI TYPE="square">SimpleView
+<UL>
+<LI TYPE="square">ScrollingView
+<UL>
+<LI TYPE="square"><B>ChemoJunMoleculeCatalogueView</B>
+</UL>
+</UL>
+</UL>
+</UL>
+</UL>
+</UL>
+</UL>
+</UL>
+<!-- } (inheritance) -->
+<!-- (instance_variables) { -->
+<P>
+<A NAME="InstanceVariables.ChemoJunMoleculeCatalogueView">
+<I>instance variables:</I>
+</A>
+</P>
+<UL>
+</UL>
+<!-- } (instance_variables) -->
+<!-- (class_instance_variables) { -->
+<P>
+<A NAME="ClassInstanceVariables.ChemoJunMoleculeCatalogueView">
+<I>class instance variables:</I>
+</A>
+</P>
+<UL>
+</UL>
+<!-- } (class_instance_variables) -->
+<!-- (class_variables) { -->
+<P>
+<A NAME="ClassVariables.ChemoJunMoleculeCatalogueView">
+<I>class variables:</I>
+</A>
+</P>
+<UL>
+</UL>
+<!-- } (class_variables) -->
+<!-- (pool_variables) { -->
+<P>
+<A NAME="PoolVariables.ChemoJunMoleculeCatalogueView">
+<I>pool variables:</I>
+</A>
+</P>
+<UL>
+</UL>
+<!-- } (pool_variables) -->
+<!-- (instance_methods) { -->
+<P>
+<A NAME="InstanceMethods.ChemoJunMoleculeCatalogueView">
+<I>instance methods:</I>
+</A>
+</P>
+<OL>
+<LI><!-- bounds: { -->
+<A NAME="InstanceMethod.bounds:"><B>bounds:</B> newBounds <I>[bounds accessing]</I></A>
+<A HREF="../xrefsB.html#bounds:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	super bounds: newBounds.
+	
+	[| viewWidth imageWidth columnSize |
+	self model isEmpty ifTrue: [^nil].
+	viewWidth := self bounds width.
+	imageWidth := self model elements first image width.
+	columnSize := (viewWidth / imageWidth) floor.
+	self model arrange: columnSize] 
+			yourself</PRE>
+<!-- } bounds: -->
+<LI><!-- defaultControllerClass { -->
+<A NAME="InstanceMethod.defaultControllerClass"><B>defaultControllerClass</B> <I>[controller accessing]</I></A>
+<A HREF="../xrefsD.html#defaultControllerClass"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^ChemoJunMoleculeCatalogueController</PRE>
+<!-- } defaultControllerClass -->
+<LI><!-- displayOn: { -->
+<A NAME="InstanceMethod.displayOn:"><B>displayOn:</B> graphicsContext <I>[displaying]</I></A>
+<A HREF="../xrefsD.html#displayOn:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	self model displayOn: graphicsContext</PRE>
+<!-- } displayOn: -->
+<LI><!-- preferredBounds { -->
+<A NAME="InstanceMethod.preferredBounds"><B>preferredBounds</B> <I>[display box accessing]</I></A>
+<A HREF="../xrefsP.html#preferredBounds"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	self model isNil 
+		ifTrue: [^Screen default bounds]
+		ifFalse: [^self model boundingBox]</PRE>
+<!-- } preferredBounds -->
+<LI><!-- scrollOffset { -->
+<A NAME="InstanceMethod.scrollOffset"><B>scrollOffset</B> <I>[private]</I></A>
+<A HREF="../xrefsS.html#scrollOffset"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^scrollOffset value</PRE>
+<!-- } scrollOffset -->
+<LI><!-- update: { -->
+<A NAME="InstanceMethod.update:"><B>update:</B> aSymbol <I>[updating]</I></A>
+<A HREF="../xrefsU.html#update:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	self isOpen ifFalse: [^self].
+	(#(#redisplay #clearAndRedisplay) includes: aSymbol) 
+		ifTrue: 
+			[aSymbol = #redisplay ifTrue: [self displayOn: self graphicsContext].
+			aSymbol = #clearAndRedisplay 
+				ifTrue: 
+					[self clearInside.
+					self displayOn: self graphicsContext]]
+		ifFalse: [super update: aSymbol].
+	self fixScrollingOffset</PRE>
+<!-- } update: -->
+</OL>
+<!-- } (instance_methods) -->
+<!-- (class_methods) { -->
+<P>
+<A NAME="ClassMethods.ChemoJunMoleculeCatalogueView">
+<I>class methods:</I>
+</A>
+</P>
+<OL>
+<LI><!-- copyright { -->
+<A NAME="ClassMethod.copyright"><B>copyright</B> <I>[copyright]</I></A>
+<A HREF="../xrefsC.html#copyright"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^'ChemoJun050 (2006/08/08) Copyright 2002-2006 National Institute of Informatics, Research Organization of Information and Systems.'</PRE>
+<!-- } copyright -->
+<LI><!-- system { -->
+<A NAME="ClassMethod.system"><B>system</B> <I>[copyright]</I></A>
+<A HREF="../xrefsS.html#system"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^'ChemoJun'</PRE>
+<!-- } system -->
+<LI><!-- version { -->
+<A NAME="ClassMethod.version"><B>version</B> <I>[copyright]</I></A>
+<A HREF="../xrefsV.html#version"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^'050'</PRE>
+<!-- } version -->
+</OL>
+<!-- } (class_methods) -->
+<HR>
+<A HREF="../index.html#ChemoJunMoleculeCatalogueView"><IMG SRC="../images/index.jpg" ALT="index" ALIGN="top" BORDER=1></A>
+<A HREF="../xrefsC.html#ChemoJunMoleculeCatalogueView"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<!-- This Document was generated by JunEncyclopedia. -->
+<!-- JunEncyclopedia was developed by AOKI Atsushi. -->
+</BODY>
+</HTML>

@@ -1,0 +1,2375 @@
+<HTML>
+<HEAD>
+<TITLE>ChemoJunMoleculeCatalogue</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<A HREF="../index.html#ChemoJunMoleculeCatalogue"><IMG SRC="../images/index.jpg" ALT="index" ALIGN="top" BORDER=1></A>
+<A HREF="../xrefsC.html#ChemoJunMoleculeCatalogue"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+2006/08/08 17:41:27
+<HR>
+<!-- (class_name) { -->
+<H2>
+<A NAME="Class.ChemoJunMoleculeCatalogue">ChemoJunMoleculeCatalogue</A>
+</H2>
+<!-- } (class_name) -->
+<!-- (comment) { -->
+<P>
+<A NAME="Comment.ChemoJunMoleculeCatalogue">
+ChemoJun050 (2006/08/08) Copyright 2002-2006 National Institute of Informatics, Research Organization of Information and Systems.
+</A>
+</P>
+<!-- } (comment) -->
+<!-- (category) { -->
+<P>
+<A NAME="Category.ChemoJun-Display-Catalogue"><I>category:</I></A></P>
+<UL>
+<LI><B>
+ChemoJun-Display-Catalogue
+</B>
+<A HREF="../xrefsC.html#ChemoJun-Display-Catalogue"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+</UL>
+<!-- } (category) -->
+<!-- (inheritance) { -->
+<P>
+<A NAME="Inheritance.ChemoJunMoleculeCatalogue"><I>inheritance:</I></A>
+</P>
+<UL>
+<LI TYPE="square">Object
+<UL>
+<LI TYPE="square">Model
+<UL>
+<LI TYPE="square">ApplicationModel
+<UL>
+<LI TYPE="square">JunApplicationModel
+<UL>
+<LI TYPE="square"><B>ChemoJunMoleculeCatalogue</B>
+</UL>
+</UL>
+</UL>
+</UL>
+</UL>
+<!-- } (inheritance) -->
+<!-- (instance_variables) { -->
+<P>
+<A NAME="InstanceVariables.ChemoJunMoleculeCatalogue">
+<I>instance variables:</I>
+</A>
+</P>
+<UL>
+<!-- boundingBox { -->
+<LI><A NAME="InstanceVariable.boundingBox"><B>boundingBox</B></A>
+<A HREF="../xrefsB.html#boundingBox"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<!-- } boundingBox -->
+<!-- catalogueElements { -->
+<LI><A NAME="InstanceVariable.catalogueElements"><B>catalogueElements</B></A>
+<A HREF="../xrefsC.html#catalogueElements"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<!-- } catalogueElements -->
+<!-- catalogueFilename { -->
+<LI><A NAME="InstanceVariable.catalogueFilename"><B>catalogueFilename</B></A>
+<A HREF="../xrefsC.html#catalogueFilename"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<!-- } catalogueFilename -->
+<!-- columnSize { -->
+<LI><A NAME="InstanceVariable.columnSize"><B>columnSize</B></A>
+<A HREF="../xrefsC.html#columnSize"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<!-- } columnSize -->
+<!-- menuBar { -->
+<LI><A NAME="InstanceVariable.menuBar"><B>menuBar</B></A>
+<A HREF="../xrefsM.html#menuBar"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<!-- } menuBar -->
+<!-- preferenceTable { -->
+<LI><A NAME="InstanceVariable.preferenceTable"><B>preferenceTable</B></A>
+<A HREF="../xrefsP.html#preferenceTable"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<!-- } preferenceTable -->
+<!-- selectedElements { -->
+<LI><A NAME="InstanceVariable.selectedElements"><B>selectedElements</B></A>
+<A HREF="../xrefsS.html#selectedElements"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<!-- } selectedElements -->
+</UL>
+<!-- } (instance_variables) -->
+<!-- (class_instance_variables) { -->
+<P>
+<A NAME="ClassInstanceVariables.ChemoJunMoleculeCatalogue">
+<I>class instance variables:</I>
+</A>
+</P>
+<UL>
+<!-- catalogueProgress { -->
+<LI><A NAME="ClassInstanceVariable.catalogueProgress"><B>catalogueProgress</B> <I>UndefinedObject</I></A>
+<A HREF="../xrefsC.html#catalogueProgress"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<!-- } catalogueProgress -->
+</UL>
+<!-- } (class_instance_variables) -->
+<!-- (class_variables) { -->
+<P>
+<A NAME="ClassVariables.ChemoJunMoleculeCatalogue">
+<I>class variables:</I>
+</A>
+</P>
+<UL>
+</UL>
+<!-- } (class_variables) -->
+<!-- (pool_variables) { -->
+<P>
+<A NAME="PoolVariables.ChemoJunMoleculeCatalogue">
+<I>pool variables:</I>
+</A>
+</P>
+<UL>
+</UL>
+<!-- } (pool_variables) -->
+<!-- (instance_methods) { -->
+<P>
+<A NAME="InstanceMethods.ChemoJunMoleculeCatalogue">
+<I>instance methods:</I>
+</A>
+</P>
+<OL>
+<LI><!-- addSelection: { -->
+<A NAME="InstanceMethod.addSelection:"><B>addSelection:</B> catalogueElement <I>[selecting]</I></A>
+<A HREF="../xrefsA.html#addSelection:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	self selections: self selections , (Array with: catalogueElement)</PRE>
+<!-- } addSelection: -->
+<LI><!-- arrangeColumnSize { -->
+<A NAME="InstanceMethod.arrangeColumnSize"><B>arrangeColumnSize</B> <I>[menu messages]</I></A>
+<A HREF="../xrefsA.html#arrangeColumnSize"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	| numberOfColumns aString savedSelections |
+	self isEmpty ifTrue: [^nil].
+	numberOfColumns := self columnSize.
+	aString := JunDialog 
+				request: (#chemoJun_How_many_column_size_ &gt;&gt; 'How many column size?') 
+						asString
+				initialAnswer: numberOfColumns printString.
+	(aString isNil or: [aString isEmpty]) ifTrue: [^nil].
+	numberOfColumns := aString asNumber asInteger.
+	numberOfColumns &lt; 1 ifTrue: [^nil].
+	self 
+		assert: [savedSelections := self selections]
+		do: [self columnSize: numberOfColumns]
+		ensure: [self selections: savedSelections].
+	self fitWindowSize</PRE>
+<!-- } arrangeColumnSize -->
+<LI><!-- asImage { -->
+<A NAME="InstanceMethod.asImage"><B>asImage</B> <I>[converting]</I></A>
+<A HREF="../xrefsA.html#asImage"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	| anImage aPixmap |
+	anImage := nil.
+	JunControlUtility 
+		assert: [aPixmap := Pixmap extent: self boundingBox extent]
+		do: 
+			[| graphicsContext |
+			graphicsContext := aPixmap graphicsContext.
+			graphicsContext paint: self backgroundColor.
+			graphicsContext displayRectangle: aPixmap bounds.
+			self displayOn: graphicsContext.
+			anImage := aPixmap asImage]
+		ensure: [aPixmap close].
+	^anImage</PRE>
+<!-- } asImage -->
+<LI><!-- asImageOfElement: { -->
+<A NAME="InstanceMethod.asImageOfElement:"><B>asImageOfElement:</B> element <I>[converting]</I></A>
+<A HREF="../xrefsA.html#asImageOfElement:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	^self 
+		asImageOfElement: element
+		selectionColor: self selectionColor
+		backgroundColor: self backgroundColor</PRE>
+<!-- } asImageOfElement: -->
+<LI><!-- asImageOfElement:selectionColor:backgroundColor: { -->
+<A NAME="InstanceMethod.asImageOfElement:selectionColor:backgroundColor:"><B>asImageOfElement:</B> element <B>selectionColor:</B> selectionColor <B>backgroundColor:</B> backgroundColor <I>[converting]</I></A>
+<A HREF="../xrefsA.html#asImageOfElement:selectionColor:backgroundColor:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	| aPixmap anImage |
+	JunControlUtility 
+		assert: [aPixmap := Pixmap extent: self pixmapExtent]
+		do: 
+			[self 
+				displayElement: element
+				index: (self elements indexOf: element)
+				into: aPixmap
+				selectionColor: selectionColor
+				backgroundColor: backgroundColor.
+			anImage := aPixmap asImage]
+		ensure: [aPixmap close].
+	^anImage</PRE>
+<!-- } asImageOfElement:selectionColor:backgroundColor: -->
+<LI><!-- asImageOfElements: { -->
+<A NAME="InstanceMethod.asImageOfElements:"><B>asImageOfElements:</B> elements <I>[converting]</I></A>
+<A HREF="../xrefsA.html#asImageOfElements:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	^self 
+		asImageOfElements: elements
+		selectionColor: self selectionColor
+		backgroundColor: self backgroundColor</PRE>
+<!-- } asImageOfElements: -->
+<LI><!-- asImageOfElements:selectionColor:backgroundColor: { -->
+<A NAME="InstanceMethod.asImageOfElements:selectionColor:backgroundColor:"><B>asImageOfElements:</B> elements <B>selectionColor:</B> selectionColor <B>backgroundColor:</B> backgroundColor <I>[converting]</I></A>
+<A HREF="../xrefsA.html#asImageOfElements:selectionColor:backgroundColor:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	| numberOfLimit elementImages offsetPoint aPixmap aMask pixmapContext maskContext aPoint figureImage shapeImage |
+	numberOfLimit := 16.
+	elementImages := (elements 
+				copyFrom: (elements size - (numberOfLimit - 1) max: 1)
+				to: elements size) collect: 
+						[:element | 
+						self 
+							asImageOfElement: element
+							selectionColor: selectionColor
+							backgroundColor: backgroundColor].
+	offsetPoint := 13 @ 13.
+	JunControlUtility 
+		assert: 
+			[aPixmap := Pixmap extent: self pixmapExtent 
+								+ (offsetPoint * (elementImages size - 1) asPoint).
+			aMask := Mask extent: aPixmap extent]
+		do: 
+			[pixmapContext := aPixmap graphicsContext.
+			pixmapContext paint: ColorValue white.
+			pixmapContext displayRectangle: aPixmap bounds.
+			maskContext := aMask graphicsContext.
+			maskContext paint: CoverageValue transparent.
+			maskContext displayRectangle: aMask bounds.
+			maskContext paint: CoverageValue opaque.
+			aPoint := aPixmap bounds bottomLeft - (0 @ self pixmapExtent y).
+			elementImages do: 
+					[:elementImage | 
+					elementImage displayOn: pixmapContext at: aPoint.
+					maskContext displayRectangle: (aPoint extent: elementImage extent).
+					aPoint := aPoint + (offsetPoint x @ offsetPoint y negated)].
+			figureImage := aPixmap asImage.
+			shapeImage := aMask asImage]
+		ensure: 
+			[aPixmap close.
+			aMask close].
+	^OpaqueImage figure: figureImage shape: shapeImage</PRE>
+<!-- } asImageOfElements:selectionColor:backgroundColor: -->
+<LI><!-- backgroundColor { -->
+<A NAME="InstanceMethod.backgroundColor"><B>backgroundColor</B> <I>[displaying]</I></A>
+<A HREF="../xrefsB.html#backgroundColor"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^ColorValue 
+		scaledRed: 7700
+		scaledGreen: 7700
+		scaledBlue: 7700</PRE>
+<!-- } backgroundColor -->
+<LI><!-- boundingBox { -->
+<A NAME="InstanceMethod.boundingBox"><B>boundingBox</B> <I>[bounds accessing]</I></A>
+<A HREF="../xrefsB.html#boundingBox"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	boundingBox ifNil: [boundingBox := Point zero extent: Point zero].
+	^boundingBox</PRE>
+<!-- } boundingBox -->
+<LI><!-- browseManual { -->
+<A NAME="InstanceMethod.browseManual"><B>browseManual</B> <I>[menu messages]</I></A>
+<A HREF="../xrefsB.html#browseManual"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	JunURL browse: (ChemoJunUtility 
+				manualUriStringConstruct: 'ChemoJunMoleculeCatalogue/index.html')</PRE>
+<!-- } browseManual -->
+<LI><!-- catalogueElementsToLispList { -->
+<A NAME="InstanceMethod.catalogueElementsToLispList"><B>catalogueElementsToLispList</B> <I>[lisp support]</I></A>
+<A HREF="../xrefsC.html#catalogueElementsToLispList"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	| aList |
+	aList := JunLispCons cell.
+	aList head: #catalogueElements.
+	self elements collect: [:element | aList add: element toLispList].
+	^aList</PRE>
+<!-- } catalogueElementsToLispList -->
+<LI><!-- catalogueView { -->
+<A NAME="InstanceMethod.catalogueView"><B>catalogueView</B> <I>[interface opening]</I></A>
+<A HREF="../xrefsC.html#catalogueView"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	| aView |
+	aView := self class defaultMolecueCatalogueViewClass model: self.
+	(aView controller)
+		menuHolder: [self yellowButtonMenu];
+		performer: self.
+	^aView</PRE>
+<!-- } catalogueView -->
+<LI><!-- clearAndRedisplay { -->
+<A NAME="InstanceMethod.clearAndRedisplay"><B>clearAndRedisplay</B> <I>[displaying]</I></A>
+<A HREF="../xrefsC.html#clearAndRedisplay"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	self changed: #clearAndRedisplay.
+	self updateMenuIndication</PRE>
+<!-- } clearAndRedisplay -->
+<LI><!-- clearSelections { -->
+<A NAME="InstanceMethod.clearSelections"><B>clearSelections</B> <I>[selecting]</I></A>
+<A HREF="../xrefsC.html#clearSelections"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	self selections: Array new</PRE>
+<!-- } clearSelections -->
+<LI><!-- columnSize { -->
+<A NAME="InstanceMethod.columnSize"><B>columnSize</B> <I>[accessing]</I></A>
+<A HREF="../xrefsC.html#columnSize"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	columnSize ifNil: [columnSize := self class defaultColumnSize].
+	^columnSize</PRE>
+<!-- } columnSize -->
+<LI><!-- columnSize: { -->
+<A NAME="InstanceMethod.columnSize:"><B>columnSize:</B> numberOfColumns <I>[accessing]</I></A>
+<A HREF="../xrefsC.html#columnSize:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	columnSize := numberOfColumns.
+	self elements: self elements</PRE>
+<!-- } columnSize: -->
+<LI><!-- columnSizeToLispList { -->
+<A NAME="InstanceMethod.columnSizeToLispList"><B>columnSizeToLispList</B> <I>[lisp support]</I></A>
+<A HREF="../xrefsC.html#columnSizeToLispList"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	| alist |
+	alist := JunLispCons cell.
+	alist head: #columnSize.
+	alist tail: self columnSize.
+	^alist</PRE>
+<!-- } columnSizeToLispList -->
+<LI><!-- condenseElements { -->
+<A NAME="InstanceMethod.condenseElements"><B>condenseElements</B> <I>[menu messages]</I></A>
+<A HREF="../xrefsC.html#condenseElements"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	| savedSelections |
+	self 
+		assert: [savedSelections := self selections]
+		do: [self elements: (self elements select: [:element | element isNotVoid])]
+		ensure: [self selections: savedSelections].
+	self clearAndRedisplay</PRE>
+<!-- } condenseElements -->
+<LI><!-- defaultWindowLabel { -->
+<A NAME="InstanceMethod.defaultWindowLabel"><B>defaultWindowLabel</B> <I>[defaults]</I></A>
+<A HREF="../xrefsD.html#defaultWindowLabel"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^(#chemoJun_Molecular_Catalogue &gt;&gt; 'Molecular Catalogue') asString</PRE>
+<!-- } defaultWindowLabel -->
+<LI><!-- displayElement:index:into: { -->
+<A NAME="InstanceMethod.displayElement:index:into:"><B>displayElement:</B> element <B>index:</B> index <B>into:</B> aPixmap <I>[displaying]</I></A>
+<A HREF="../xrefsD.html#displayElement:index:into:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	^self 
+		displayElement: element
+		index: index
+		into: aPixmap
+		selectionColor: self selectionColor
+		backgroundColor: self backgroundColor</PRE>
+<!-- } displayElement:index:into: -->
+<LI><!-- displayElement:index:into:selectionColor:backgroundColor: { -->
+<A NAME="InstanceMethod.displayElement:index:into:selectionColor:backgroundColor:"><B>displayElement:</B> element <B>index:</B> index <B>into:</B> aPixmap <B>selectionColor:</B> selectionColor <B>backgroundColor:</B> backgroundColor <I>[displaying]</I></A>
+<A HREF="../xrefsD.html#displayElement:index:into:selectionColor:backgroundColor:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	| pixmapContext |
+	pixmapContext := aPixmap graphicsContext.
+	pixmapContext paint: ColorValue white.
+	pixmapContext displayRectangle: aPixmap bounds.
+	self 
+		displaySelection: element
+		pixmapOn: pixmapContext
+		selectionColor: selectionColor
+		backgroundColor: backgroundColor.
+	self displayElement: element pixmapOn: pixmapContext.
+	self displayName: element pixmapOn: pixmapContext.
+	self displayIndex: index pixmapOn: pixmapContext.
+	^aPixmap</PRE>
+<!-- } displayElement:index:into:selectionColor:backgroundColor: -->
+<LI><!-- displayElement:pixmapOn: { -->
+<A NAME="InstanceMethod.displayElement:pixmapOn:"><B>displayElement:</B> element <B>pixmapOn:</B> pixmapContext <I>[displaying]</I></A>
+<A HREF="../xrefsD.html#displayElement:pixmapOn:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	element thumbnail ifNil: 
+			[pixmapContext paint: element class defaultEmptyColor.
+			pixmapContext 
+				displayRectangle: (self selectionMargin extent: element extent)]
+		ifNotNil: [:it | it displayOn: pixmapContext at: self selectionMargin]</PRE>
+<!-- } displayElement:pixmapOn: -->
+<LI><!-- displayIndex:pixmapOn: { -->
+<A NAME="InstanceMethod.displayIndex:pixmapOn:"><B>displayIndex:</B> index <B>pixmapOn:</B> pixmapContext <I>[displaying]</I></A>
+<A HREF="../xrefsD.html#displayIndex:pixmapOn:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	| aStyle composedText aBox |
+	self visibleCatalogIndex 
+		ifTrue: 
+			[aStyle := TextAttributes styleNamed: #small
+						ifAbsent: [TextAttributes default].
+			composedText := ComposedText withText: index printString style: aStyle.
+			aBox := composedText bounds.
+			aBox := aBox align: aBox topLeft
+						with: pixmapContext medium bounds topLeft + self selectionMargin + (0 @ -3).
+			pixmapContext paint: ColorValue blue.
+			composedText displayOn: pixmapContext at: aBox origin]</PRE>
+<!-- } displayIndex:pixmapOn: -->
+<LI><!-- displayName:pixmapOn: { -->
+<A NAME="InstanceMethod.displayName:pixmapOn:"><B>displayName:</B> element <B>pixmapOn:</B> pixmapContext <I>[displaying]</I></A>
+<A HREF="../xrefsD.html#displayName:pixmapOn:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	| aString aStyle composedText howMany loopPredicate aBox |
+	self visibleFileName 
+		ifTrue: 
+			[aString := element baseNameString.
+			aStyle := TextAttributes styleNamed: #default
+						ifAbsent: [TextAttributes default].
+			composedText := ComposedText withText: aString asText style: aStyle.
+			howMany := 1.
+			loopPredicate := 
+					[composedText bounds width &gt; element extent x 
+						and: [aString size - howMany &gt; 3]].
+			[loopPredicate value] whileTrue: 
+					[composedText := ComposedText 
+								withText: (aString contractTo: aString size - howMany) asText
+								style: aStyle.
+					howMany := howMany + 1].
+			aBox := composedText bounds.
+			aBox := aBox align: aBox corner
+						with: pixmapContext medium bounds corner - self selectionMargin + (0 @ 2).
+			pixmapContext paint: ColorValue black.
+			composedText displayOn: pixmapContext at: aBox origin]</PRE>
+<!-- } displayName:pixmapOn: -->
+<LI><!-- displayOn: { -->
+<A NAME="InstanceMethod.displayOn:"><B>displayOn:</B> graphicsContext <I>[displaying]</I></A>
+<A HREF="../xrefsD.html#displayOn:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	| aPixmap |
+	JunControlUtility 
+		assert: [aPixmap := Pixmap extent: self pixmapExtent]
+		do: 
+			[self elements with: (1 to: self elements size)
+				do: 
+					[:element :index | 
+					| box |
+					box := element bounds expandedBy: self class defaultThumbnailMargin.
+					(box intersects: graphicsContext clippingBounds) 
+						ifTrue: 
+							[self 
+								displayElement: element
+								index: index
+								into: aPixmap.
+							aPixmap displayOn: graphicsContext
+								at: element bounds origin - self selectionMargin]]]
+		ensure: [aPixmap close]</PRE>
+<!-- } displayOn: -->
+<LI><!-- displaySelection:pixmapOn:selectionColor:backgroundColor: { -->
+<A NAME="InstanceMethod.displaySelection:pixmapOn:selectionColor:backgroundColor:"><B>displaySelection:</B> element <B>pixmapOn:</B> pixmapContext <B>selectionColor:</B> selectionColor <B>backgroundColor:</B> backgroundColor <I>[displaying]</I></A>
+<A HREF="../xrefsD.html#displaySelection:pixmapOn:selectionColor:backgroundColor:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	(self selections includes: element) 
+		ifTrue: [pixmapContext paint: selectionColor]
+		ifFalse: [pixmapContext paint: backgroundColor].
+	pixmapContext displayRectangle: pixmapContext medium bounds</PRE>
+<!-- } displaySelection:pixmapOn:selectionColor:backgroundColor: -->
+<LI><!-- dropElements:toCatalogue: { -->
+<A NAME="InstanceMethod.dropElements:toCatalogue:"><B>dropElements:</B> elements <B>toCatalogue:</B> catalogue <I>[actions]</I></A>
+<A HREF="../xrefsD.html#dropElements:toCatalogue:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	| selections |
+	catalogue ifNil: [^nil].
+	selections := (elements asSortedCollection: 
+					[:e1 :e2 | 
+					(self elements indexOf: e1) &lt; (self elements indexOf: e2)]) 
+				collect: [:element | element copy].
+	catalogue elements: catalogue elements , selections.
+	catalogue selections: selections.
+	catalogue scrollFor: selections first.
+	catalogue clearAndRedisplay</PRE>
+<!-- } dropElements:toCatalogue: -->
+<LI><!-- dropTargetCatalogue { -->
+<A NAME="InstanceMethod.dropTargetCatalogue"><B>dropTargetCatalogue</B> <I>[actions]</I></A>
+<A HREF="../xrefsD.html#dropTargetCatalogue"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	| aPoint aController aWindow aModel |
+	aPoint := JunSensorUtility cursorPoint.
+	aController := (ScheduledControllers
+				updateControllerOrder;
+				scheduledControllers) reverse 
+				detect: 
+					[:controller | 
+					aWindow := controller view.
+					aWindow displayBox containsPoint: aPoint]
+				ifNone: [nil].
+	aController ifNil: [^nil].
+	aModel := aController model.
+	aModel = self ifTrue: [^nil].
+	(aModel isKindOf: self class) ifFalse: [^nil].
+	^aModel</PRE>
+<!-- } dropTargetCatalogue -->
+<LI><!-- elements { -->
+<A NAME="InstanceMethod.elements"><B>elements</B> <I>[accessing]</I></A>
+<A HREF="../xrefsE.html#elements"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	catalogueElements ifNil: [catalogueElements := OrderedCollection new].
+	^catalogueElements</PRE>
+<!-- } elements -->
+<LI><!-- elements: { -->
+<A NAME="InstanceMethod.elements:"><B>elements:</B> aCollection <I>[accessing]</I></A>
+<A HREF="../xrefsE.html#elements:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	catalogueElements := aCollection.
+	boundingBox := Point zero extent: Point zero.
+	catalogueElements with: (0 to: catalogueElements size - 1)
+		do: 
+			[:element :n | 
+			| y x |
+			y := n // self columnSize + 1.
+			x := n \\ self columnSize + 1.
+			element ifNotNil: 
+					[:it | 
+					| originPoint displayBox |
+					originPoint := it class defaultThumbnailExtent * ((x - 1) @ (y - 1)).
+					displayBox := originPoint 
+								extent: (it thumbnail ifNil: [it class defaultThumbnailExtent]
+										ifNotNil: [:thumbnail | thumbnail extent]).
+					displayBox := displayBox 
+								translatedBy: self class defaultThumbnailMargin * (x @ y).
+					it bounds: displayBox.
+					boundingBox := boundingBox merge: displayBox]].
+	boundingBox := boundingBox origin 
+				corner: boundingBox corner + self class defaultThumbnailMargin.
+	selectedElements := nil</PRE>
+<!-- } elements: -->
+<LI><!-- filename { -->
+<A NAME="InstanceMethod.filename"><B>filename</B> <I>[accessing]</I></A>
+<A HREF="../xrefsF.html#filename"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^catalogueFilename</PRE>
+<!-- } filename -->
+<LI><!-- filename: { -->
+<A NAME="InstanceMethod.filename:"><B>filename:</B> aFilename <I>[accessing]</I></A>
+<A HREF="../xrefsF.html#filename:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	aFilename ifNil: [catalogueFilename := nil]
+		ifNotNil: [:it | catalogueFilename := it asFilename].
+	self setWindowLabel</PRE>
+<!-- } filename: -->
+<LI><!-- fitWindowSize { -->
+<A NAME="InstanceMethod.fitWindowSize"><B>fitWindowSize</B> <I>[interface opening]</I></A>
+<A HREF="../xrefsF.html#fitWindowSize"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	| aWindow aView windowExtent viewExtent widgetExtent viewWidth |
+	(aWindow := self getWindow) ifNil: [^nil].
+	(aView := self getView) ifNil: [^nil].
+	windowExtent := aWindow displayBox extent.
+	viewExtent := aView bounds extent.
+	widgetExtent := windowExtent - viewExtent.
+	viewWidth := self class defaultThumbnailMargin x * (self columnSize + 1) 
+				+ (self class defaultThumbnailExtent x * self columnSize).
+	windowExtent := viewWidth @ viewExtent y + widgetExtent.
+	windowExtent := windowExtent max: aWindow minimumSize.
+	aWindow displayBox extent = windowExtent ifTrue: [^nil].
+	aWindow displayBox: ((aWindow displayBox origin extent: windowExtent) 
+				intersect: Screen default bounds)</PRE>
+<!-- } fitWindowSize -->
+<LI><!-- getView { -->
+<A NAME="InstanceMethod.getView"><B>getView</B> <I>[private]</I></A>
+<A HREF="../xrefsG.html#getView"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	| aView |
+	aView := self dependents detect: 
+					[:each | 
+					(each isKindOf: self class defaultMolecueCatalogueViewClass) 
+						and: [each model = self]]
+				ifNone: [nil].
+	aView isNil ifTrue: [^nil].
+	^aView</PRE>
+<!-- } getView -->
+<LI><!-- hasVoidElement { -->
+<A NAME="InstanceMethod.hasVoidElement"><B>hasVoidElement</B> <I>[testing]</I></A>
+<A HREF="../xrefsH.html#hasVoidElement"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^(self elements detect: [:element | element isVoid] ifNone: [nil]) notNil</PRE>
+<!-- } hasVoidElement -->
+<LI><!-- htmlTo:with: { -->
+<A NAME="InstanceMethod.htmlTo:with:"><B>htmlTo:</B> aFilename <B>with:</B> aCollection <I>[private]</I></A>
+<A HREF="../xrefsH.html#htmlTo:with:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	JunProgress new do: 
+			[:progress | 
+			| aStream |
+			aCollection with: (1 to: aCollection size)
+				do: 
+					[:assoc :index | 
+					| element filename stream |
+					element := assoc key.
+					progress message: element baseNameString.
+					filename := assoc value last asFilename.
+					stream := JunJpegImageStream on: filename writeStream.
+					
+					[Cursor write showWhile: 
+							[element isVoid 
+								ifTrue: [stream nextPutImage: element defaultThumbnail]
+								ifFalse: [stream nextPutImage: element thumbnail asImage]]] 
+							ensure: [stream close].
+					filename := assoc value first asFilename.
+					stream := JunJpegImageStream on: filename writeStream.
+					
+					[Cursor write showWhile: 
+							[element isVoid 
+								ifTrue: [stream nextPutImage: element defaultImage]
+								ifFalse: [stream nextPutImage: element image asImage]]] 
+							ensure: [stream close].
+					progress value: index / aCollection size].
+			JunControlUtility 
+				assert: [aStream := aFilename writeStream]
+				do: 
+					[aStream 
+						nextPutAll: '&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot;&gt;
+&lt;html lang=&quot;ja&quot;&gt;
+&lt;head&gt;
+&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=Shift_JIS&quot;&gt;
+&lt;meta http-equiv=&quot;Content-Style-Type&quot; content=&quot;text/css&quot;&gt;
+&lt;link rev=&quot;made&quot; href=&quot;mailto:cheminfo@nii.ac.jp&quot;&gt;
+&lt;link rel=&quot;index&quot; href=&quot;index.html&quot;&gt;
+&lt;title&gt;Molecular Catalogue&lt;/title&gt;
+&lt;style type=&quot;text/css&quot;&gt;
+&lt;!--
+body {
+  background-color : #ffffff;
+  margin : 20px;
+  padding : 10px;
+  font-family : serif;
+  font-size : 10pt;
+}
+img.borderless {
+  border-width : 0px;
+  vertical-align : middle;
+}
+table.belt {
+  border-style : solid;
+  border-width : 0px;
+  border-color : #000000;
+  background-color : #cccccc;
+  padding : 0px 0px;
+}
+table.content {
+  border-style : solid;
+  border-width : 0px;
+  border-color : #000000;
+  padding : 2px 4px;
+}
+table.element {
+  border-style : solid;
+  border-width : 0px;
+  border-color : #000000;
+  padding : 0px 0px;
+}
+td.element {
+  text-align : right;
+  font-size : 8pt;
+  padding : 0px 0px;
+  background-color : #ffffff;
+}
+td.center-small-white {
+  text-align : center;
+  font-size : 8pt;
+  padding : 0px 0px;
+  background-color : #ffffff;
+}
+td.left-small-white {
+  text-align : left;
+  font-size : 8pt;
+  padding : 0px 0px;
+  background-color : #ffffff;
+}
+td.right-small-white {
+  text-align : right;
+  font-size : 8pt;
+  padding : 0px 0px;
+  background-color : #ffffff;
+}
+--&gt;
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;table class=&quot;belt&quot; summary=&quot;belt&quot;&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;
+      &lt;table class=&quot;content&quot; summary=&quot;content&quot;&gt;
+        &lt;tbody&gt;
+'.
+					10 timesRepeat: [aStream space].
+					aStream nextPutAll: '&lt;tr&gt;'.
+					aStream cr.
+					aCollection with: (1 to: aCollection size)
+						do: 
+							[:assoc :index | 
+							| element image thumbnail alt |
+							element := assoc key.
+							image := (Filename splitPath: assoc value first asString) last.
+							thumbnail := (Filename splitPath: assoc value last asString) last.
+							alt := (Filename splitExtension: thumbnail) first.
+							12 timesRepeat: [aStream space].
+							aStream nextPutAll: '&lt;td class=&quot;element&quot;&gt;'.
+							aStream cr.
+							12 timesRepeat: [aStream space].
+							aStream nextPutAll: '&lt;table class=&quot;element&quot; summary=&quot;element&quot;&gt;'.
+							aStream cr.
+							14 timesRepeat: [aStream space].
+							aStream nextPutAll: '&lt;tbody&gt;'.
+							aStream cr.
+							self visibleCatalogIndex 
+								ifTrue: 
+									[16 timesRepeat: [aStream space].
+									aStream nextPutAll: '&lt;tr&gt;'.
+									aStream cr.
+									18 timesRepeat: [aStream space].
+									aStream nextPutAll: '&lt;td class=&quot;left-small-white&quot;&gt;'.
+									aStream nextPutAll: index printString.
+									aStream nextPutAll: '&lt;/td&gt;'.
+									aStream cr.
+									16 timesRepeat: [aStream space].
+									aStream nextPutAll: '&lt;/tr&gt;'.
+									aStream cr].
+							16 timesRepeat: [aStream space].
+							aStream nextPutAll: '&lt;tr&gt;'.
+							aStream cr.
+							18 timesRepeat: [aStream space].
+							aStream nextPutAll: '&lt;td class=&quot;center-small-white&quot;&gt;'.
+							aStream nextPutAll: '&lt;a href=&quot;images/'.
+							aStream nextPutAll: image.
+							aStream nextPutAll: '&quot;&gt;'.
+							aStream nextPutAll: '&lt;img class=&quot;borderless&quot; src=&quot;thumbnails/'.
+							aStream nextPutAll: thumbnail.
+							aStream nextPutAll: '&quot; width=&quot;'.
+							aStream nextPutAll: element class defaultThumbnailExtent x printString.
+							aStream nextPutAll: '&quot; height=&quot;'.
+							aStream nextPutAll: element class defaultThumbnailExtent y printString.
+							aStream nextPutAll: '&quot; alt=&quot;'.
+							aStream nextPutAll: alt.
+							aStream nextPutAll: '&quot;&gt;'.
+							aStream nextPutAll: '&lt;/a&gt;'.
+							aStream nextPutAll: '&lt;/td&gt;'.
+							aStream cr.
+							16 timesRepeat: [aStream space].
+							aStream nextPutAll: '&lt;/tr&gt;'.
+							aStream cr.
+							self visibleFileName 
+								ifTrue: 
+									[16 timesRepeat: [aStream space].
+									aStream nextPutAll: '&lt;tr&gt;'.
+									aStream cr.
+									18 timesRepeat: [aStream space].
+									aStream nextPutAll: '&lt;td class=&quot;right-small-white&quot;&gt;'.
+									element baseNameString isEmpty 
+										ifTrue: [aStream nextPutAll: '&amp;nbsp;']
+										ifFalse: [aStream nextPutAll: element baseNameString].
+									aStream nextPutAll: '&lt;/td&gt;'.
+									aStream cr.
+									16 timesRepeat: [aStream space].
+									aStream nextPutAll: '&lt;/tr&gt;'.
+									aStream cr].
+							14 timesRepeat: [aStream space].
+							aStream nextPutAll: '&lt;/tbody&gt;'.
+							aStream cr.
+							12 timesRepeat: [aStream space].
+							aStream nextPutAll: '&lt;/table&gt;'.
+							aStream cr.
+							12 timesRepeat: [aStream space].
+							aStream nextPutAll: '&lt;/td&gt;'.
+							aStream cr.
+							(index \\ columnSize = 0 and: [index ~= aCollection size]) 
+								ifTrue: 
+									[10 timesRepeat: [aStream space].
+									aStream nextPutAll: '&lt;/tr&gt;'.
+									aStream cr.
+									10 timesRepeat: [aStream space].
+									aStream nextPutAll: '&lt;tr&gt;'.
+									aStream cr]].
+					10 timesRepeat: [aStream space].
+					aStream nextPutAll: '&lt;/tr&gt;'.
+					aStream cr.
+					aStream 
+						nextPutAll: '        &lt;/tbody&gt;
+      &lt;/table&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/body&gt;
+&lt;/html&gt;']
+				ensure: [aStream close]]</PRE>
+<!-- } htmlTo:with: -->
+<LI><!-- initialize { -->
+<A NAME="InstanceMethod.initialize"><B>initialize</B> <I>[initialize-release]</I></A>
+<A HREF="../xrefsI.html#initialize"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	super initialize.
+	catalogueElements := nil.
+	columnSize := nil.
+	boundingBox := nil.
+	selectedElements := nil.
+	catalogueFilename := nil.
+	preferenceTable := nil.
+	menuBar := nil</PRE>
+<!-- } initialize -->
+<LI><!-- isAllSelections { -->
+<A NAME="InstanceMethod.isAllSelections"><B>isAllSelections</B> <I>[testing]</I></A>
+<A HREF="../xrefsI.html#isAllSelections"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	self selections isEmpty ifTrue: [^false].
+	^(self elements reject: [:element | self selections includes: element]) 
+		isEmpty</PRE>
+<!-- } isAllSelections -->
+<LI><!-- isAllVoidSelections { -->
+<A NAME="InstanceMethod.isAllVoidSelections"><B>isAllVoidSelections</B> <I>[testing]</I></A>
+<A HREF="../xrefsI.html#isAllVoidSelections"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	self selections isEmpty ifTrue: [^false].
+	^(self selections select: [:element | element isNotVoid]) isEmpty</PRE>
+<!-- } isAllVoidSelections -->
+<LI><!-- isEmpty { -->
+<A NAME="InstanceMethod.isEmpty"><B>isEmpty</B> <I>[testing]</I></A>
+<A HREF="../xrefsI.html#isEmpty"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^self elements ifNil: [true] ifNotNil: [:it | it isEmpty]</PRE>
+<!-- } isEmpty -->
+<LI><!-- keyboardDispatchTable { -->
+<A NAME="InstanceMethod.keyboardDispatchTable"><B>keyboardDispatchTable</B> <I>[keyboard]</I></A>
+<A HREF="../xrefsK.html#keyboardDispatchTable"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	| aTable |
+	aTable := Dictionary new.
+	aTable add: #Left -&gt; [self scrollLeft].
+	aTable add: #Right -&gt; [self scrollRight].
+	aTable add: #Up -&gt; [self scrollUp].
+	aTable add: #Down -&gt; [self scrollDown].
+	^aTable</PRE>
+<!-- } keyboardDispatchTable -->
+<LI><!-- keyboardDispathDebug { -->
+<A NAME="InstanceMethod.keyboardDispathDebug"><B>keyboardDispathDebug</B> <I>[keyboard]</I></A>
+<A HREF="../xrefsK.html#keyboardDispathDebug"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^false</PRE>
+<!-- } keyboardDispathDebug -->
+<LI><!-- keyboardEvent:fromController: { -->
+<A NAME="InstanceMethod.keyboardEvent:fromController:"><B>keyboardEvent:</B> event <B>fromController:</B> controller <I>[keyboard]</I></A>
+<A HREF="../xrefsK.html#keyboardEvent:fromController:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	| dispatchTable keyValue messageSelector |
+	self keyboardDispathDebug 
+		ifTrue: 
+			[Transcript
+				cr;
+				show: event keyValue printString].
+	controller isControlActive ifFalse: [^event].
+	self getView ifNil: [^event].
+	controller viewHasCursor ifFalse: [^event].
+	dispatchTable := self keyboardDispatchTable.
+	dispatchTable isNil ifTrue: [^event].
+	keyValue := event keyValue.
+	messageSelector := dispatchTable at: keyValue ifAbsent: [nil].
+	((messageSelector isKindOf: Symbol) 
+		and: [self respondsTo: messageSelector]) 
+			ifTrue: 
+				[self perform: messageSelector.
+				^nil].
+	(messageSelector isKindOf: BlockClosure) 
+		ifTrue: 
+			[messageSelector value.
+			^nil].
+	^event</PRE>
+<!-- } keyboardEvent:fromController: -->
+<LI><!-- menuBar { -->
+<A NAME="InstanceMethod.menuBar"><B>menuBar</B> <I>[menu accessing]</I></A>
+<A HREF="../xrefsM.html#menuBar"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	menuBar isNil ifTrue: [menuBar := self class menuBar].
+	^menuBar</PRE>
+<!-- } menuBar -->
+<LI><!-- moleculeObjects { -->
+<A NAME="InstanceMethod.moleculeObjects"><B>moleculeObjects</B> <I>[accessing]</I></A>
+<A HREF="../xrefsM.html#moleculeObjects"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	| moleculeObjects |
+	moleculeObjects := OrderedCollection new.
+	self elements 
+		do: [:element | element moleculeObject ifNotNil: [:it | moleculeObjects add: it]].
+	^moleculeObjects</PRE>
+<!-- } moleculeObjects -->
+<LI><!-- move1Elements:toElement: { -->
+<A NAME="InstanceMethod.move1Elements:toElement:"><B>move1Elements:</B> elements <B>toElement:</B> target <I>[actions]</I></A>
+<A HREF="../xrefsM.html#move1Elements:toElement:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	| attractiveElement attractiveElements elementCollection elementIndex targetIndex headCollection tailCollection |
+	attractiveElement := elements last.
+	attractiveElements := (elements asSortedCollection: 
+					[:e1 :e2 | 
+					(self elements indexOf: e1) &lt; (self elements indexOf: e2)]) 
+				asOrderedCollection.
+	elementCollection := self elements copy asOrderedCollection.
+	elementIndex := elementCollection 
+				findFirst: [:each | each = attractiveElement].
+	elementIndex &lt; 1 ifTrue: [^nil].
+	targetIndex := elementCollection findFirst: [:each | each = target].
+	targetIndex &lt; 1 ifTrue: [^nil].
+	elementIndex &lt; targetIndex 
+		ifTrue: 
+			[headCollection := elementCollection copyFrom: 1 to: targetIndex.
+			tailCollection := elementCollection copyFrom: targetIndex + 1
+						to: elementCollection size]
+		ifFalse: 
+			[headCollection := elementCollection copyFrom: 1 to: targetIndex - 1.
+			tailCollection := elementCollection copyFrom: targetIndex
+						to: elementCollection size].
+	attractiveElements 
+		do: [:element | headCollection remove: element ifAbsent: [nil]].
+	attractiveElements 
+		do: [:element | tailCollection remove: element ifAbsent: [nil]].
+	elementCollection := OrderedCollection new.
+	elementCollection addAll: headCollection.
+	attractiveElements remove: attractiveElement.
+	attractiveElements do: 
+			[:element | 
+			elementCollection size = (targetIndex - 1) 
+				ifTrue: [elementCollection add: attractiveElement].
+			elementCollection add: element].
+	elementCollection size = (targetIndex - 1) 
+		ifTrue: [elementCollection add: attractiveElement].
+	elementCollection addAll: tailCollection.
+	self elements: elementCollection.
+	self selections: elements.
+	self redisplay</PRE>
+<!-- } move1Elements:toElement: -->
+<LI><!-- move2Elements:toElement: { -->
+<A NAME="InstanceMethod.move2Elements:toElement:"><B>move2Elements:</B> elements <B>toElement:</B> target <I>[actions]</I></A>
+<A HREF="../xrefsM.html#move2Elements:toElement:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	| attractiveElement attractiveElements elementCollection elementIndex targetIndex headCollection tailCollection voidElements |
+	attractiveElement := elements last.
+	attractiveElements := (elements asSortedCollection: 
+					[:e1 :e2 | 
+					(self elements indexOf: e1) &lt; (self elements indexOf: e2)]) 
+				asOrderedCollection.
+	attractiveElements remove: attractiveElement.
+	attractiveElements addFirst: attractiveElement.
+	elementCollection := self elements copy asOrderedCollection.
+	elementIndex := elementCollection 
+				findFirst: [:element | element = attractiveElement].
+	elementIndex &lt; 1 ifTrue: [^nil].
+	targetIndex := elementCollection findFirst: [:element | element = target].
+	targetIndex &lt; 1 ifTrue: [^nil].
+	headCollection := elementCollection copyFrom: 1 to: targetIndex - 1.
+	tailCollection := elementCollection copyFrom: targetIndex
+				to: elementCollection size.
+	headCollection with: (1 to: headCollection size)
+		do: 
+			[:element :index | 
+			(attractiveElements includes: element) 
+				ifTrue: 
+					[headCollection at: index put: self class defaultCatalogueVoidClass new]].
+	tailCollection with: (1 to: tailCollection size)
+		do: 
+			[:element :index | 
+			(attractiveElements includes: element) 
+				ifTrue: 
+					[tailCollection at: index put: self class defaultCatalogueVoidClass new]].
+	voidElements := tailCollection select: [:element | element isVoid].
+	voidElements isEmpty 
+		ifFalse: 
+			[(voidElements copyFrom: 1
+				to: (attractiveElements size min: voidElements size)) 
+					do: [:void | tailCollection remove: void]].
+	elementCollection := OrderedCollection new.
+	elementCollection addAll: headCollection.
+	elementCollection addAll: attractiveElements.
+	elementCollection addAll: tailCollection.
+	self elements: elementCollection.
+	self selections: elements.
+	self clearAndRedisplay</PRE>
+<!-- } move2Elements:toElement: -->
+<LI><!-- moveElements:toElement: { -->
+<A NAME="InstanceMethod.moveElements:toElement:"><B>moveElements:</B> elements <B>toElement:</B> target <I>[actions]</I></A>
+<A HREF="../xrefsM.html#moveElements:toElement:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	(JunSensorUtility shiftDown or: [JunSensorUtility altDown]) 
+		ifTrue: [self move2Elements: elements toElement: target]
+		ifFalse: [self move1Elements: elements toElement: target]</PRE>
+<!-- } moveElements:toElement: -->
+<LI><!-- multiSelections { -->
+<A NAME="InstanceMethod.multiSelections"><B>multiSelections</B> <I>[preferences]</I></A>
+<A HREF="../xrefsM.html#multiSelections"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^self preferenceTable at: #multiSelections ifAbsentPut: [true]</PRE>
+<!-- } multiSelections -->
+<LI><!-- multiSelections: { -->
+<A NAME="InstanceMethod.multiSelections:"><B>multiSelections:</B> aBoolean <I>[preferences]</I></A>
+<A HREF="../xrefsM.html#multiSelections:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	self preferenceTable at: #multiSelections put: aBoolean = true</PRE>
+<!-- } multiSelections: -->
+<LI><!-- openCatalogueElement: { -->
+<A NAME="InstanceMethod.openCatalogueElement:"><B>openCatalogueElement:</B> element <I>[menu messages]</I></A>
+<A HREF="../xrefsO.html#openCatalogueElement:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	^self openCatalogueElement: element at: nil</PRE>
+<!-- } openCatalogueElement: -->
+<LI><!-- openCatalogueElement:at: { -->
+<A NAME="InstanceMethod.openCatalogueElement:at:"><B>openCatalogueElement:</B> element <B>at:</B> point <I>[menu messages]</I></A>
+<A HREF="../xrefsO.html#openCatalogueElement:at:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	| viewer |
+	viewer := nil.
+	(element filename notNil and: [element filename exists]) 
+		ifTrue: 
+			[Cursor wait showWhile: 
+					[viewer := element class defaultMoleculeViewerClass 
+								fileName: element filename.
+					element toPreferences: viewer.
+					self getWindow ifNil: [viewer open]
+						ifNotNil: 
+							[:window | 
+							| box |
+							element viewerExtent ifNil: [box := 0 @ 0 extent: 400 @ 400]
+								ifNotNil: [:it | box := 0 @ 0 extent: it].
+							point ifNil: [box := box align: box center with: window displayBox center]
+								ifNotNil: [box := box align: box origin with:  point].
+							viewer openIn: box].
+					element projectionTable ifNil: [viewer resetView]
+						ifNotNil: [:it | viewer projectionTable: it].
+					viewer cameraButton 
+						compute: [:value | self pressedCameraButtonOf: element in: viewer].
+					viewer beVisibleCameraButton]].
+	^viewer</PRE>
+<!-- } openCatalogueElement:at: -->
+<LI><!-- openCatalogueFile { -->
+<A NAME="InstanceMethod.openCatalogueFile"><B>openCatalogueFile</B> <I>[menu messages]</I></A>
+<A HREF="../xrefsO.html#openCatalogueFile"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	| catalogue |
+	catalogue := self class request.
+	catalogue ifNil: [^nil].
+	self columnSize: catalogue columnSize.
+	self elements: catalogue elements.
+	self selections: catalogue selections.
+	self filename: catalogue filename.
+	self preferenceTable: catalogue preferenceTable.
+	self fitWindowSize.
+	self updateMenuIndication</PRE>
+<!-- } openCatalogueFile -->
+<LI><!-- openMoleculeViewer { -->
+<A NAME="InstanceMethod.openMoleculeViewer"><B>openMoleculeViewer</B> <I>[menu messages]</I></A>
+<A HREF="../xrefsO.html#openMoleculeViewer"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	| collection point |
+	collection := OrderedCollection new.
+	point := nil.
+	self selections do: 
+			[:element | 
+			| viewer |
+			viewer := self openCatalogueElement: element at: point.
+			viewer ifNil: [point := nil]
+				ifNotNil: 
+					[:it | 
+					collection add: it.
+					point := it getWindow displayBox origin translatedBy: 25 @ 25].
+			(JunSensorUtility shiftDown or: [JunSensorUtility altDown]) 
+				ifTrue: 
+					[collection 
+						do: [:each | each closeTogetherWhenShiftDownOrAltDown: collection].
+					^nil]].
+	collection 
+		do: [:each | each closeTogetherWhenShiftDownOrAltDown: collection]</PRE>
+<!-- } openMoleculeViewer -->
+<LI><!-- openSDFile { -->
+<A NAME="InstanceMethod.openSDFile"><B>openSDFile</B> <I>[menu messages]</I></A>
+<A HREF="../xrefsO.html#openSDFile"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	| aReader moleculeObjects aDirectory filenameCollection elementCollection |
+	aReader := ChemoJunSdFileReader request.
+	aReader isNil ifTrue: [^nil].
+	(moleculeObjects := aReader moleculeObjects) isEmpty ifTrue: [^nil].
+	aDirectory := (aReader fileName asString , '.sbd') asFilename.
+	aDirectory exists ifFalse: [aDirectory makeDirectory].
+	filenameCollection := OrderedCollection new: moleculeObjects size.
+	moleculeObjects with: (1 to: moleculeObjects size)
+		do: 
+			[:moleculeObject :nth | 
+			| aWriter aString aCollection aFilename |
+			aWriter := ChemoJunMolFileWriter moleculeObject: moleculeObject.
+			aFilename := (aDirectory 
+						construct: aReader baseName , aReader extension , '.' , nth printString 
+								, '.mol') 
+							asFilename.
+			aString := moleculeObject molfileHeaderBlock at: 2.
+			(aString size &gt;= 10 and: [(aString copyFrom: 3 to: 10) = 'ChemoJun']) 
+				ifTrue: 
+					[aString := moleculeObject molfileHeaderBlock at: 1.
+					aCollection := aReader separate: aString.
+					(aCollection size = 3 
+						and: [aCollection first = '-' and: [aCollection last = '-']]) 
+							ifTrue: 
+								[aFilename := (aDirectory construct: (aCollection at: 2) , '.mol') 
+											asFilename]].
+			aWriter fileName: aFilename.
+			aWriter write.
+			filenameCollection add: aFilename].
+	elementCollection := self class elementsFrom: filenameCollection.
+	self elements: self elements , elementCollection.
+	self redisplay</PRE>
+<!-- } openSDFile -->
+<LI><!-- pixmapExtent { -->
+<A NAME="InstanceMethod.pixmapExtent"><B>pixmapExtent</B> <I>[displaying]</I></A>
+<A HREF="../xrefsP.html#pixmapExtent"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	| aBox |
+	aBox := (Point zero extent: self class defaultThumbnailExtent) 
+				expandedBy: self selectionMargin.
+	^aBox extent</PRE>
+<!-- } pixmapExtent -->
+<LI><!-- postOpenWith: { -->
+<A NAME="InstanceMethod.postOpenWith:"><B>postOpenWith:</B> aBuilder <I>[interface opening]</I></A>
+<A HREF="../xrefsP.html#postOpenWith:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	super postOpenWith: aBuilder.
+	self fitWindowSize</PRE>
+<!-- } postOpenWith: -->
+<LI><!-- preferenceTable { -->
+<A NAME="InstanceMethod.preferenceTable"><B>preferenceTable</B> <I>[preferences]</I></A>
+<A HREF="../xrefsP.html#preferenceTable"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	preferenceTable ifNil: [preferenceTable := JunAttributeTable new].
+	^preferenceTable</PRE>
+<!-- } preferenceTable -->
+<LI><!-- preferenceTable: { -->
+<A NAME="InstanceMethod.preferenceTable:"><B>preferenceTable:</B> attributeTable <I>[preferences]</I></A>
+<A HREF="../xrefsP.html#preferenceTable:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	preferenceTable := attributeTable</PRE>
+<!-- } preferenceTable: -->
+<LI><!-- preferenceTableToLispList { -->
+<A NAME="InstanceMethod.preferenceTableToLispList"><B>preferenceTableToLispList</B> <I>[lisp support]</I></A>
+<A HREF="../xrefsP.html#preferenceTableToLispList"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	| alist |
+	alist := JunLispCons cell.
+	alist head: #preferenceTable.
+	alist tail: self preferenceTable toLispList.
+	^alist</PRE>
+<!-- } preferenceTableToLispList -->
+<LI><!-- pressedCameraButtonOf:in: { -->
+<A NAME="InstanceMethod.pressedCameraButtonOf:in:"><B>pressedCameraButtonOf:</B> anElement <B>in:</B> aViewer <I>[actions]</I></A>
+<A HREF="../xrefsP.html#pressedCameraButtonOf:in:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	| anImage |
+	aViewer ifNil: [^nil].
+	anImage := aViewer asImage.
+	anImage ifNil: [^nil].
+	anImage := anElement decoratedImage: anImage.
+	anElement
+		fromPreferences: aViewer;
+		thumbnail: anImage;
+		computeMappingPoints: aViewer.
+	self changed</PRE>
+<!-- } pressedCameraButtonOf:in: -->
+<LI><!-- printOn: { -->
+<A NAME="InstanceMethod.printOn:"><B>printOn:</B> aStream <I>[printing]</I></A>
+<A HREF="../xrefsP.html#printOn:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	self toLispList printOn: aStream</PRE>
+<!-- } printOn: -->
+<LI><!-- quitDoing { -->
+<A NAME="InstanceMethod.quitDoing"><B>quitDoing</B> <I>[menu messages]</I></A>
+<A HREF="../xrefsQ.html#quitDoing"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	self closeRequest</PRE>
+<!-- } quitDoing -->
+<LI><!-- redisplay { -->
+<A NAME="InstanceMethod.redisplay"><B>redisplay</B> <I>[displaying]</I></A>
+<A HREF="../xrefsR.html#redisplay"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	self changed: #redisplay.
+	self updateMenuIndication</PRE>
+<!-- } redisplay -->
+<LI><!-- removeElements { -->
+<A NAME="InstanceMethod.removeElements"><B>removeElements</B> <I>[menu messages]</I></A>
+<A HREF="../xrefsR.html#removeElements"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	| selections elements |
+	(selections := self selections) isEmpty ifTrue: [^nil].
+	(JunDialog confirm: #jun_Really_remove_ &gt;&gt; 'Really remove?') 
+		ifFalse: [^nil].
+	elements := self elements 
+				reject: [:element | selections includes: element].
+	self elements: elements.
+	self clearSelections.
+	self changed</PRE>
+<!-- } removeElements -->
+<LI><!-- removeSelection: { -->
+<A NAME="InstanceMethod.removeSelection:"><B>removeSelection:</B> catalogueElement <I>[selecting]</I></A>
+<A HREF="../xrefsR.html#removeSelection:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	self selections: ((self selections copy)
+				remove: catalogueElement ifAbsent: [nil];
+				yourself)</PRE>
+<!-- } removeSelection: -->
+<LI><!-- requestNewImageFilename { -->
+<A NAME="InstanceMethod.requestNewImageFilename"><B>requestNewImageFilename</B> <I>[menu messages]</I></A>
+<A HREF="../xrefsR.html#requestNewImageFilename"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	&quot;ChemoJunMoleculeCatalogue new requestNewImageFilename.&quot;
+
+	| labels values menu message aFilename |
+	labels := Array 
+				with: (Array with: (#jun_Image_files &gt;&gt; 'Image files') asString).
+	values := Array with: JunSystem defaultImageExtensionPatterns.
+	menu := Menu labelList: labels values: values.
+	message := #jun_Input_an_image_file_ &gt;&gt; 'Input an image file.' 
+				expandMacrosWith: 'image'.
+	aFilename := ChemoJunFileRequesterDialog 
+				requestNewFilename: message
+				initialFilename: self defaultBaseName , '.jpg'
+				fileTypeMenu: menu
+				initialFileType: values first.
+	aFilename isNil ifTrue: [^nil].
+	^aFilename</PRE>
+<!-- } requestNewImageFilename -->
+<LI><!-- saveAsCatalogue { -->
+<A NAME="InstanceMethod.saveAsCatalogue"><B>saveAsCatalogue</B> <I>[menu messages]</I></A>
+<A HREF="../xrefsS.html#saveAsCatalogue"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	| labels values menu filename |
+	self isEmpty ifTrue: [^nil].
+	labels := Array with: (Array 
+						with: (#chemoJun_Molecular_catalogue_files &gt;&gt; 'Molecular catalogue files') 
+								asString)
+				with: (Array with: (#jun_All_files &gt;&gt; 'All files') asString).
+	values := Array with: #('*.catalogue' '*.CATALOGUE') with: #('*').
+	menu := Menu labelList: labels values: values.
+	filename := ChemoJunFileRequesterDialog 
+				requestNewFilename: (#chemoJun_Input_a_catalogue_file_ 
+						&gt;&gt; 'Input a catalogue file.') asString
+				initialFilename: self defaultBaseName , '.catalogue'
+				fileTypeMenu: menu
+				initialFileType: values first.
+	filename isNil ifTrue: [^nil].
+	self saveCatalogueTo: filename.
+	self filename: filename</PRE>
+<!-- } saveAsCatalogue -->
+<LI><!-- saveAsHTML { -->
+<A NAME="InstanceMethod.saveAsHTML"><B>saveAsHTML</B> <I>[menu messages]</I></A>
+<A HREF="../xrefsS.html#saveAsHTML"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	| baseDirectory imageDirectory thumbnailDirectory aCollection aFilename |
+	self isEmpty ifTrue: [^nil].
+	baseDirectory := ChemoJunFileRequesterDialog 
+				requestNewDirectory: (#jun_Input_a_directory_ &gt;&gt; 'Input a directory.') 
+						asString
+				initialFilename: self defaultBaseName.
+	baseDirectory ifNil: [^nil].
+	baseDirectory exists ifFalse: [baseDirectory makeDirectory].
+	imageDirectory := baseDirectory construct: 'images'.
+	imageDirectory exists ifFalse: [imageDirectory makeDirectory].
+	thumbnailDirectory := baseDirectory construct: 'thumbnails'.
+	thumbnailDirectory exists ifFalse: [thumbnailDirectory makeDirectory].
+	aCollection := OrderedCollection new: self elements size.
+	self elements with: (1 to: self elements size)
+		do: 
+			[:element :index | 
+			| aString imageFilename thumbnailFilename |
+			aString := index printString.
+			8 - aString size timesRepeat: [aString := '0' , aString].
+			aString := aString , '.jpg'.
+			imageFilename := imageDirectory construct: aString.
+			thumbnailFilename := thumbnailDirectory construct: aString.
+			aCollection 
+				add: element -&gt; (Array with: imageFilename with: thumbnailFilename)].
+	aFilename := baseDirectory construct: 'index.html'.
+	Cursor write showWhile: [self htmlTo: aFilename with: aCollection].
+	JunURL browse: aFilename asURI asString</PRE>
+<!-- } saveAsHTML -->
+<LI><!-- saveAsImage { -->
+<A NAME="InstanceMethod.saveAsImage"><B>saveAsImage</B> <I>[menu messages]</I></A>
+<A HREF="../xrefsS.html#saveAsImage"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	| aBoolean anImage aFilename |
+	aBoolean := JunSensorUtility shiftDown or: [JunSensorUtility altDown].
+	anImage := self asImage.
+	anImage isNil ifTrue: [^nil].
+	aBoolean 
+		ifTrue: 
+			[anImage := anImage convertToPalette: JunImageProcessor grayPalette256
+						renderedBy: NearestPaint new].
+	aFilename := self requestNewImageFilename.
+	aFilename isNil ifTrue: [^nil].
+	self writeImage: anImage to: aFilename.
+	^anImage</PRE>
+<!-- } saveAsImage -->
+<LI><!-- saveAsSDFile { -->
+<A NAME="InstanceMethod.saveAsSDFile"><B>saveAsSDFile</B> <I>[menu messages]</I></A>
+<A HREF="../xrefsS.html#saveAsSDFile"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	| aWriter moleculeObjects |
+	self elements isEmpty ifTrue: [^nil].
+	aWriter := ChemoJunSdFileWriter 
+				requestInitialFileName: self defaultBaseName , '.sd'.
+	aWriter isNil ifTrue: [^nil].
+	moleculeObjects := self moleculeObjects.
+	aWriter moleculeObjects: moleculeObjects.
+	aWriter write.
+	^aWriter</PRE>
+<!-- } saveAsSDFile -->
+<LI><!-- saveCatalogue { -->
+<A NAME="InstanceMethod.saveCatalogue"><B>saveCatalogue</B> <I>[menu messages]</I></A>
+<A HREF="../xrefsS.html#saveCatalogue"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	self isEmpty ifTrue: [^nil].
+	self filename ifNil: [self saveAsCatalogue]
+		ifNotNil: [:it | self saveCatalogueTo: it]</PRE>
+<!-- } saveCatalogue -->
+<LI><!-- saveCatalogueTo: { -->
+<A NAME="InstanceMethod.saveCatalogueTo:"><B>saveCatalogueTo:</B> aFilename <I>[menu messages]</I></A>
+<A HREF="../xrefsS.html#saveCatalogueTo:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	| aStream |
+	JunControlUtility 
+		assert: [aStream := aFilename asFilename writeStream]
+		do: 
+			[aStream
+				nextPutAll: '%';
+				cr.
+			aStream
+				nextPutAll: '%';
+				space;
+				nextPutAll: 'Molecular Catalogue';
+				space;
+				nextPutAll: 'created by';
+				space;
+				nextPutAll: ChemoJunSystem system , ChemoJunSystem version;
+				space;
+				nextPutAll: 'at';
+				space;
+				nextPutAll: JunCalendarModel stringFromDateAndTime;
+				cr.
+			aStream
+				nextPutAll: '%';
+				cr.
+			self toLispList saveOn: aStream]
+		ensure: [aStream close]</PRE>
+<!-- } saveCatalogueTo: -->
+<LI><!-- scrollDown { -->
+<A NAME="InstanceMethod.scrollDown"><B>scrollDown</B> <I>[scrolling]</I></A>
+<A HREF="../xrefsS.html#scrollDown"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	self selections size = 1 
+		ifTrue: 
+			[| index down |
+			index := self elements indexOf: self selection.
+			down := OrderedCollection new.
+			(index + self columnSize to: self elements size by: self columnSize) 
+				do: [:i | down add: (self elements at: i)].
+			index := index 
+						+ (self columnSize * (down findFirst: [:element | element isNotVoid])).
+			index &lt;= self elements size 
+				ifTrue: 
+					[| element |
+					element := self elements at: index.
+					self selection: element.
+					self scrollFor: element.
+					self redisplay]]
+		ifFalse: 
+			[self getView 
+				ifNotNil: [:aView | aView scrollBy: 0 @ self scrollGrid y negated]]</PRE>
+<!-- } scrollDown -->
+<LI><!-- scrollFor: { -->
+<A NAME="InstanceMethod.scrollFor:"><B>scrollFor:</B> element <I>[scrolling]</I></A>
+<A HREF="../xrefsS.html#scrollFor:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	self getView ifNotNil: 
+			[:aView | 
+			| elementBox viewBox mergeBox |
+			elementBox := element bounds.
+			viewBox := aView bounds.
+			mergeBox := elementBox merge: viewBox.
+			mergeBox = viewBox 
+				ifFalse: 
+					[| scrollAmount marginPoint |
+					scrollAmount := aView scrollOffset negated.
+					marginPoint := self class defaultThumbnailMargin.
+					elementBox top &lt; viewBox top 
+						ifTrue: [scrollAmount := scrollAmount x @ (elementBox top - marginPoint y)].
+					elementBox bottom &gt; viewBox bottom 
+						ifTrue: 
+							[scrollAmount := scrollAmount x 
+										@ (elementBox bottom - viewBox height + marginPoint y)].
+					elementBox left &lt; viewBox left 
+						ifTrue: [scrollAmount := (elementBox left - marginPoint x) @ scrollAmount y].
+					elementBox right &gt; viewBox right 
+						ifTrue: 
+							[scrollAmount := (elementBox right - viewBox width + marginPoint x) 
+										@ scrollAmount y].
+					scrollAmount := scrollAmount negated.
+					aView scrollTo: scrollAmount]]</PRE>
+<!-- } scrollFor: -->
+<LI><!-- scrollGrid { -->
+<A NAME="InstanceMethod.scrollGrid"><B>scrollGrid</B> <I>[scrolling]</I></A>
+<A HREF="../xrefsS.html#scrollGrid"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^self class defaultThumbnailExtent + self class defaultThumbnailMargin</PRE>
+<!-- } scrollGrid -->
+<LI><!-- scrollLeft { -->
+<A NAME="InstanceMethod.scrollLeft"><B>scrollLeft</B> <I>[scrolling]</I></A>
+<A HREF="../xrefsS.html#scrollLeft"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	self selections size = 1 
+		ifTrue: 
+			[| index left |
+			index := self elements indexOf: self selection.
+			left := (self elements copyFrom: 1 to: index - 1) reverse.
+			index := index - (left findFirst: [:element | element isNotVoid]).
+			index &gt; 0 
+				ifTrue: 
+					[| element |
+					element := self elements at: index.
+					self selection: element.
+					self scrollFor: element.
+					self redisplay]]
+		ifFalse: 
+			[self getView ifNotNil: [:aView | aView scrollBy: self scrollGrid x @ 0]]</PRE>
+<!-- } scrollLeft -->
+<LI><!-- scrollRight { -->
+<A NAME="InstanceMethod.scrollRight"><B>scrollRight</B> <I>[scrolling]</I></A>
+<A HREF="../xrefsS.html#scrollRight"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	self selections size = 1 
+		ifTrue: 
+			[| index right |
+			index := self elements indexOf: self selection.
+			right := self elements copyFrom: index + 1 to: self elements size.
+			index := index + (right findFirst: [:element | element isNotVoid]).
+			index &lt;= self elements size 
+				ifTrue: 
+					[| element |
+					element := self elements at: index.
+					self selection: element.
+					self scrollFor: element.
+					self redisplay]]
+		ifFalse: 
+			[self getView 
+				ifNotNil: [:aView | aView scrollBy: self scrollGrid x negated @ 0]]</PRE>
+<!-- } scrollRight -->
+<LI><!-- scrollUp { -->
+<A NAME="InstanceMethod.scrollUp"><B>scrollUp</B> <I>[scrolling]</I></A>
+<A HREF="../xrefsS.html#scrollUp"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	self selections size = 1 
+		ifTrue: 
+			[| index up |
+			index := self elements indexOf: self selection.
+			up := OrderedCollection new.
+			(index - self columnSize to: 1 by: self columnSize negated) 
+				do: [:i | up add: (self elements at: i)].
+			index := index 
+						- (self columnSize * (up findFirst: [:element | element isNotVoid])).
+			index &gt; 0 
+				ifTrue: 
+					[| element |
+					element := self elements at: index.
+					self selection: element.
+					self scrollFor: element.
+					self redisplay]]
+		ifFalse: 
+			[self getView ifNotNil: [:aView | aView scrollBy: 0 @ self scrollGrid y]]</PRE>
+<!-- } scrollUp -->
+<LI><!-- selectAll { -->
+<A NAME="InstanceMethod.selectAll"><B>selectAll</B> <I>[menu messages]</I></A>
+<A HREF="../xrefsS.html#selectAll"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	self selections: self elements.
+	self redisplay</PRE>
+<!-- } selectAll -->
+<LI><!-- selectDirectory { -->
+<A NAME="InstanceMethod.selectDirectory"><B>selectDirectory</B> <I>[menu messages]</I></A>
+<A HREF="../xrefsS.html#selectDirectory"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	| directory catalogue |
+	directory := ChemoJunFileRequesterDialog requestDirectory.
+	directory isNil ifTrue: [^nil].
+	catalogue := self class directory: directory.
+	self elements: self elements , catalogue elements.
+	self filename: catalogue filename.
+	self redisplay</PRE>
+<!-- } selectDirectory -->
+<LI><!-- selectedElementsToLispList { -->
+<A NAME="InstanceMethod.selectedElementsToLispList"><B>selectedElementsToLispList</B> <I>[lisp support]</I></A>
+<A HREF="../xrefsS.html#selectedElementsToLispList"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	| aList |
+	aList := JunLispCons cell.
+	aList head: #selectedElements.
+	self selections 
+		collect: [:element | aList add: (self elements indexOf: element)].
+	^aList</PRE>
+<!-- } selectedElementsToLispList -->
+<LI><!-- selection { -->
+<A NAME="InstanceMethod.selection"><B>selection</B> <I>[selecting]</I></A>
+<A HREF="../xrefsS.html#selection"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	self selections isEmpty ifTrue: [^nil].
+	^self selections last</PRE>
+<!-- } selection -->
+<LI><!-- selection: { -->
+<A NAME="InstanceMethod.selection:"><B>selection:</B> element <I>[selecting]</I></A>
+<A HREF="../xrefsS.html#selection:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	element ifNil: [self selections: Array new]
+		ifNotNil: [:it | self selections: (Array with: it)]</PRE>
+<!-- } selection: -->
+<LI><!-- selectionColor { -->
+<A NAME="InstanceMethod.selectionColor"><B>selectionColor</B> <I>[displaying]</I></A>
+<A HREF="../xrefsS.html#selectionColor"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^ColorValue red</PRE>
+<!-- } selectionColor -->
+<LI><!-- selectionMargin { -->
+<A NAME="InstanceMethod.selectionMargin"><B>selectionMargin</B> <I>[displaying]</I></A>
+<A HREF="../xrefsS.html#selectionMargin"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^2 @ 2</PRE>
+<!-- } selectionMargin -->
+<LI><!-- selections { -->
+<A NAME="InstanceMethod.selections"><B>selections</B> <I>[selecting]</I></A>
+<A HREF="../xrefsS.html#selections"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	selectedElements ifNil: [selectedElements := OrderedCollection new].
+	^selectedElements</PRE>
+<!-- } selections -->
+<LI><!-- selections: { -->
+<A NAME="InstanceMethod.selections:"><B>selections:</B> elementCollection <I>[selecting]</I></A>
+<A HREF="../xrefsS.html#selections:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	selectedElements := elementCollection asOrderedCollection 
+				select: [:element | element notNil and: [element isNotVoid]].
+	selectedElements isEmpty 
+		ifTrue: [self updateEditMenuIndication]
+		ifFalse: [self redisplay]</PRE>
+<!-- } selections: -->
+<LI><!-- setWindowLabel { -->
+<A NAME="InstanceMethod.setWindowLabel"><B>setWindowLabel</B> <I>[interface opening]</I></A>
+<A HREF="../xrefsS.html#setWindowLabel"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	| aWindow aFilename aString |
+	aWindow := self getWindow.
+	aWindow isNil ifTrue: [^nil].
+	aWindow model = self ifFalse: [^nil].
+	self filename isNil ifTrue: [^aWindow label: self defaultWindowLabel].
+	aFilename := self filename asFilename.
+	aString := (Filename splitPath: aFilename asString) last.
+	aWindow label: self defaultWindowLabel , ' [' , aString , ']'</PRE>
+<!-- } setWindowLabel -->
+<LI><!-- singleSelection { -->
+<A NAME="InstanceMethod.singleSelection"><B>singleSelection</B> <I>[preferences]</I></A>
+<A HREF="../xrefsS.html#singleSelection"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^self multiSelections not</PRE>
+<!-- } singleSelection -->
+<LI><!-- singleSelection: { -->
+<A NAME="InstanceMethod.singleSelection:"><B>singleSelection:</B> aBoolean <I>[preferences]</I></A>
+<A HREF="../xrefsS.html#singleSelection:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	^self multiSelections: (aBoolean = true) not</PRE>
+<!-- } singleSelection: -->
+<LI><!-- toggleCatalogIndex { -->
+<A NAME="InstanceMethod.toggleCatalogIndex"><B>toggleCatalogIndex</B> <I>[menu messages]</I></A>
+<A HREF="../xrefsT.html#toggleCatalogIndex"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	self visibleCatalogIndex: self visibleCatalogIndex not.
+	self redisplay</PRE>
+<!-- } toggleCatalogIndex -->
+<LI><!-- toggleFileName { -->
+<A NAME="InstanceMethod.toggleFileName"><B>toggleFileName</B> <I>[menu messages]</I></A>
+<A HREF="../xrefsT.html#toggleFileName"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	self visibleFileName: self visibleFileName not.
+	self redisplay</PRE>
+<!-- } toggleFileName -->
+<LI><!-- toLispList { -->
+<A NAME="InstanceMethod.toLispList"><B>toLispList</B> <I>[lisp support]</I></A>
+<A HREF="../xrefsT.html#toLispList"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	| aList |
+	aList := JunLispCons cell.
+	aList head: self class name.
+	aList add: self columnSizeToLispList.
+	aList add: self catalogueElementsToLispList.
+	self selections isEmpty 
+		ifFalse: [aList add: self selectedElementsToLispList].
+	self preferenceTable isEmpty 
+		ifFalse: [aList add: self preferenceTableToLispList].
+	^aList</PRE>
+<!-- } toLispList -->
+<LI><!-- updateEditMenuIndication { -->
+<A NAME="InstanceMethod.updateEditMenuIndication"><B>updateEditMenuIndication</B> <I>[menu accessing]</I></A>
+<A HREF="../xrefsU.html#updateEditMenuIndication"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	| menuItem aMenu |
+	menuItem := self menuItemLabeled: 'Edit' inMenu: self menuBar.
+	menuItem isNil ifTrue: [^self].
+	aMenu := menuItem submenu.
+	aMenu notNil 
+		ifTrue: 
+			[menuItem := aMenu menuItemWithValue: #openMoleculeViewer ifNone: [nil].
+			menuItem notNil 
+				ifTrue: 
+					[(self isEmpty or: [self selections isEmpty or: [self isAllVoidSelections]]) 
+						ifTrue: [menuItem disable]
+						ifFalse: [menuItem enable]].
+			menuItem := aMenu menuItemWithValue: #removeElements ifNone: [nil].
+			menuItem notNil 
+				ifTrue: 
+					[(self isEmpty or: [self selections isEmpty or: [self isAllVoidSelections]]) 
+						ifTrue: [menuItem disable]
+						ifFalse: [menuItem enable]].
+			menuItem := aMenu menuItemWithValue: #selectAll ifNone: [nil].
+			menuItem notNil 
+				ifTrue: 
+					[(self isEmpty or: [self isAllSelections]) 
+						ifTrue: [menuItem disable]
+						ifFalse: [menuItem enable]]]</PRE>
+<!-- } updateEditMenuIndication -->
+<LI><!-- updateFileMenuIndication { -->
+<A NAME="InstanceMethod.updateFileMenuIndication"><B>updateFileMenuIndication</B> <I>[menu accessing]</I></A>
+<A HREF="../xrefsU.html#updateFileMenuIndication"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	| menuItem aMenu |
+	menuItem := self menuItemLabeled: 'File' inMenu: self menuBar.
+	menuItem isNil ifTrue: [^self].
+	aMenu := menuItem submenu.
+	aMenu notNil 
+		ifTrue: 
+			[menuItem := aMenu menuItemWithValue: #saveCatalogue ifNone: [nil].
+			menuItem notNil 
+				ifTrue: [self isEmpty ifTrue: [menuItem disable] ifFalse: [menuItem enable]].
+			menuItem := aMenu menuItemWithValue: #saveAsCatalogue ifNone: [nil].
+			menuItem notNil 
+				ifTrue: [self isEmpty ifTrue: [menuItem disable] ifFalse: [menuItem enable]].
+			menuItem := aMenu menuItemWithValue: #saveAsSDFile ifNone: [nil].
+			menuItem notNil 
+				ifTrue: [self isEmpty ifTrue: [menuItem disable] ifFalse: [menuItem enable]].
+			menuItem := aMenu menuItemWithValue: #saveAsImage ifNone: [nil].
+			menuItem notNil 
+				ifTrue: [self isEmpty ifTrue: [menuItem disable] ifFalse: [menuItem enable]].
+			menuItem := aMenu menuItemWithValue: #saveAsHTML ifNone: [nil].
+			menuItem notNil 
+				ifTrue: [self isEmpty ifTrue: [menuItem disable] ifFalse: [menuItem enable]]]</PRE>
+<!-- } updateFileMenuIndication -->
+<LI><!-- updateMenuIndication { -->
+<A NAME="InstanceMethod.updateMenuIndication"><B>updateMenuIndication</B> <I>[menu accessing]</I></A>
+<A HREF="../xrefsU.html#updateMenuIndication"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	self updateFileMenuIndication.
+	self updateEditMenuIndication.
+	self updateViewMenuIndication</PRE>
+<!-- } updateMenuIndication -->
+<LI><!-- updateViewMenuIndication { -->
+<A NAME="InstanceMethod.updateViewMenuIndication"><B>updateViewMenuIndication</B> <I>[menu accessing]</I></A>
+<A HREF="../xrefsU.html#updateViewMenuIndication"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	| menuItem aMenu |
+	menuItem := self menuItemLabeled: 'View' inMenu: self menuBar.
+	menuItem isNil ifTrue: [^self].
+	aMenu := menuItem submenu.
+	aMenu notNil 
+		ifTrue: 
+			[menuItem := aMenu menuItemWithValue: #toggleCatalogIndex ifNone: [nil].
+			menuItem notNil 
+				ifTrue: 
+					[menuItem enable.
+					self visibleCatalogIndex ifTrue: [menuItem beOn] ifFalse: [menuItem beOff]].
+			menuItem := aMenu menuItemWithValue: #toggleFileName ifNone: [nil].
+			menuItem notNil 
+				ifTrue: 
+					[menuItem enable.
+					self visibleFileName ifTrue: [menuItem beOn] ifFalse: [menuItem beOff]].
+			menuItem := aMenu menuItemWithValue: #arrangeColumnSize ifNone: [nil].
+			menuItem notNil 
+				ifTrue: [self isEmpty ifTrue: [menuItem disable] ifFalse: [menuItem enable]].
+			menuItem := aMenu menuItemWithValue: #condenseElements ifNone: [nil].
+			menuItem notNil 
+				ifTrue: 
+					[self hasVoidElement ifTrue: [menuItem enable] ifFalse: [menuItem disable]]]</PRE>
+<!-- } updateViewMenuIndication -->
+<LI><!-- visibleCatalogIndex { -->
+<A NAME="InstanceMethod.visibleCatalogIndex"><B>visibleCatalogIndex</B> <I>[preferences]</I></A>
+<A HREF="../xrefsV.html#visibleCatalogIndex"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^self preferenceTable at: #visibleCatalogIndex ifAbsentPut: [false]</PRE>
+<!-- } visibleCatalogIndex -->
+<LI><!-- visibleCatalogIndex: { -->
+<A NAME="InstanceMethod.visibleCatalogIndex:"><B>visibleCatalogIndex:</B> aBoolean <I>[preferences]</I></A>
+<A HREF="../xrefsV.html#visibleCatalogIndex:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	self preferenceTable at: #visibleCatalogIndex put: aBoolean = true</PRE>
+<!-- } visibleCatalogIndex: -->
+<LI><!-- visibleFileName { -->
+<A NAME="InstanceMethod.visibleFileName"><B>visibleFileName</B> <I>[preferences]</I></A>
+<A HREF="../xrefsV.html#visibleFileName"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^self preferenceTable at: #visibleFileName ifAbsentPut: [true]</PRE>
+<!-- } visibleFileName -->
+<LI><!-- visibleFileName: { -->
+<A NAME="InstanceMethod.visibleFileName:"><B>visibleFileName:</B> aBoolean <I>[preferences]</I></A>
+<A HREF="../xrefsV.html#visibleFileName:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	self preferenceTable at: #visibleFileName put: aBoolean = true</PRE>
+<!-- } visibleFileName: -->
+<LI><!-- where: { -->
+<A NAME="InstanceMethod.where:"><B>where:</B> aPoint <I>[selecting]</I></A>
+<A HREF="../xrefsW.html#where:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	^self elements detect: [:element | element bounds containsPoint: aPoint]
+		ifNone: [nil]</PRE>
+<!-- } where: -->
+<LI><!-- which: { -->
+<A NAME="InstanceMethod.which:"><B>which:</B> aPoint <I>[selecting]</I></A>
+<A HREF="../xrefsW.html#which:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	^(self where: aPoint) ifNil: [nil]
+		ifNotNil: [:element | element isVoid ifTrue: [nil] ifFalse: [element]]</PRE>
+<!-- } which: -->
+<LI><!-- yellowButtonMenu { -->
+<A NAME="InstanceMethod.yellowButtonMenu"><B>yellowButtonMenu</B> <I>[menu accessing]</I></A>
+<A HREF="../xrefsY.html#yellowButtonMenu"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	self updateEditMenuIndication.
+	^(self menuItemLabeled: 'Edit' inMenu: self menuBar) submenu</PRE>
+<!-- } yellowButtonMenu -->
+</OL>
+<!-- } (instance_methods) -->
+<!-- (class_methods) { -->
+<P>
+<A NAME="ClassMethods.ChemoJunMoleculeCatalogue">
+<I>class methods:</I>
+</A>
+</P>
+<OL>
+<LI><!-- catalogueElementsFromTable:for: { -->
+<A NAME="ClassMethod.catalogueElementsFromTable:for:"><B>catalogueElementsFromTable:</B> aTable <B>for:</B> aCatalogue <I>[lisp support]</I></A>
+<A HREF="../xrefsC.html#catalogueElementsFromTable:for:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	| aList catalogueElements |
+	aList := aTable at: #catalogueElements ifAbsent: [^aCatalogue].
+	catalogueElements := OrderedCollection new: aList size.
+	(self catalogueProgress)
+		message: String new;
+		value: 0;
+		do: 
+				[aList do: 
+						[:list | 
+						| element |
+						list ifNil: [element := nil]
+							ifNotNil: 
+								[element := ((Smalltalk at: list head) fromLispList: list)
+											thumbnail;
+											yourself].
+						catalogueElements add: element.
+						self catalogueProgress value: catalogueElements size / aList size]].
+	aCatalogue elements: catalogueElements.
+	^aCatalogue</PRE>
+<!-- } catalogueElementsFromTable:for: -->
+<LI><!-- catalogueProgress { -->
+<A NAME="ClassMethod.catalogueProgress"><B>catalogueProgress</B> <I>[accessing]</I></A>
+<A HREF="../xrefsC.html#catalogueProgress"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	catalogueProgress ifNil: [catalogueProgress := JunProgress new].
+	^catalogueProgress</PRE>
+<!-- } catalogueProgress -->
+<LI><!-- columnSizeFromTable:for: { -->
+<A NAME="ClassMethod.columnSizeFromTable:for:"><B>columnSizeFromTable:</B> aTable <B>for:</B> aCatalogue <I>[lisp support]</I></A>
+<A HREF="../xrefsC.html#columnSizeFromTable:for:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	| columnSize |
+	columnSize := aTable at: #columnSize ifAbsent: [^aCatalogue].
+	aCatalogue columnSize: columnSize.
+	^aCatalogue</PRE>
+<!-- } columnSizeFromTable:for: -->
+<LI><!-- copyright { -->
+<A NAME="ClassMethod.copyright"><B>copyright</B> <I>[copyright]</I></A>
+<A HREF="../xrefsC.html#copyright"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^'ChemoJun050 (2006/08/08) Copyright 2002-2006 National Institute of Informatics, Research Organization of Information and Systems.'</PRE>
+<!-- } copyright -->
+<LI><!-- defaultCatalogueElementClass { -->
+<A NAME="ClassMethod.defaultCatalogueElementClass"><B>defaultCatalogueElementClass</B> <I>[defaults]</I></A>
+<A HREF="../xrefsD.html#defaultCatalogueElementClass"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^ChemoJunMoleculeCatalogueElement</PRE>
+<!-- } defaultCatalogueElementClass -->
+<LI><!-- defaultCatalogueVoidClass { -->
+<A NAME="ClassMethod.defaultCatalogueVoidClass"><B>defaultCatalogueVoidClass</B> <I>[defaults]</I></A>
+<A HREF="../xrefsD.html#defaultCatalogueVoidClass"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^ChemoJunMoleculeCatalogueVoid</PRE>
+<!-- } defaultCatalogueVoidClass -->
+<LI><!-- defaultColumnSize { -->
+<A NAME="ClassMethod.defaultColumnSize"><B>defaultColumnSize</B> <I>[defaults]</I></A>
+<A HREF="../xrefsD.html#defaultColumnSize"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^5</PRE>
+<!-- } defaultColumnSize -->
+<LI><!-- defaultMolecueCatalogueViewClass { -->
+<A NAME="ClassMethod.defaultMolecueCatalogueViewClass"><B>defaultMolecueCatalogueViewClass</B> <I>[defaults]</I></A>
+<A HREF="../xrefsD.html#defaultMolecueCatalogueViewClass"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^ChemoJunMoleculeCatalogueView</PRE>
+<!-- } defaultMolecueCatalogueViewClass -->
+<LI><!-- defaultThumbnailExtent { -->
+<A NAME="ClassMethod.defaultThumbnailExtent"><B>defaultThumbnailExtent</B> <I>[defaults]</I></A>
+<A HREF="../xrefsD.html#defaultThumbnailExtent"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^self defaultCatalogueElementClass defaultThumbnailExtent</PRE>
+<!-- } defaultThumbnailExtent -->
+<LI><!-- defaultThumbnailMargin { -->
+<A NAME="ClassMethod.defaultThumbnailMargin"><B>defaultThumbnailMargin</B> <I>[defaults]</I></A>
+<A HREF="../xrefsD.html#defaultThumbnailMargin"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^6 @ 6</PRE>
+<!-- } defaultThumbnailMargin -->
+<LI><!-- directories: { -->
+<A NAME="ClassMethod.directories:"><B>directories:</B> directoryFilenames <I>[instance creation]</I></A>
+<A HREF="../xrefsD.html#directories:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	| filenameCollection |
+	filenameCollection := OrderedCollection new.
+	directoryFilenames do: 
+			[:each | 
+			| directoryName |
+			directoryName := each asFilename.
+			(directoryName exists and: [directoryName isDirectory]) 
+				ifTrue: 
+					[filenameCollection addAll: (JunFileModel 
+								dive: directoryName
+								level: 1
+								patterns: #('*.mol' '*.MOL'))]].
+	^(self new)
+		elements: (self elementsFrom: filenameCollection);
+		yourself</PRE>
+<!-- } directories: -->
+<LI><!-- directory: { -->
+<A NAME="ClassMethod.directory:"><B>directory:</B> directoryFilename <I>[instance creation]</I></A>
+<A HREF="../xrefsD.html#directory:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	^self directories: (Array with: directoryFilename)</PRE>
+<!-- } directory: -->
+<LI><!-- elementsFrom: { -->
+<A NAME="ClassMethod.elementsFrom:"><B>elementsFrom:</B> filenameCollection <I>[utilities]</I></A>
+<A HREF="../xrefsE.html#elementsFrom:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	| elementCollection |
+	elementCollection := OrderedCollection new: filenameCollection size.
+	(self catalogueProgress)
+		message: String new;
+		value: 0;
+		do: 
+				[filenameCollection do: 
+						[:aFilename | 
+						| anElement |
+						aFilename ifNil: 
+								[self catalogueProgress message: String new.
+								anElement := self defaultCatalogueElementClass new]
+							ifNotNil: 
+								[self catalogueProgress 
+									message: (Filename splitPath: aFilename asString) last.
+								anElement := (self defaultCatalogueElementClass filename: aFilename)
+											thumbnail;
+											yourself].
+						elementCollection add: anElement.
+						self catalogueProgress 
+							value: elementCollection size / filenameCollection size.
+						JunSensorUtility shiftDown ifTrue: [^elementCollection]]].
+	^elementCollection</PRE>
+<!-- } elementsFrom: -->
+<LI><!-- example1 { -->
+<A NAME="ClassMethod.example1"><B>example1</B> <I>[examples]</I></A>
+<A HREF="../xrefsE.html#example1"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	&quot;ChemoJunMoleculeCatalogue example1.&quot;
+
+	| moleculeCatalogue |
+	(moleculeCatalogue := ChemoJunMoleculeCatalogue request) ifNil: [^nil].
+	JunImageDisplayModel show: moleculeCatalogue asImage.
+	^moleculeCatalogue</PRE>
+<!-- } example1 -->
+<LI><!-- example2 { -->
+<A NAME="ClassMethod.example2"><B>example2</B> <I>[examples]</I></A>
+<A HREF="../xrefsE.html#example2"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	&quot;ChemoJunMoleculeCatalogue example2.&quot;
+
+	| moleculeCatalogue |
+	moleculeCatalogue := ChemoJunMoleculeCatalogue new.
+	moleculeCatalogue open.
+	^moleculeCatalogue</PRE>
+<!-- } example2 -->
+<LI><!-- example3 { -->
+<A NAME="ClassMethod.example3"><B>example3</B> <I>[examples]</I></A>
+<A HREF="../xrefsE.html#example3"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	&quot;ChemoJunMoleculeCatalogue example3.&quot;
+
+	| moleculeCatalogue selectedElements |
+	(moleculeCatalogue := ChemoJunMoleculeCatalogue request) ifNil: [^nil].
+	moleculeCatalogue multiSelections: true.
+	selectedElements := OrderedCollection new.
+	moleculeCatalogue elements with: (1 to: moleculeCatalogue elements size)
+		do: [:element :index | index even ifTrue: [selectedElements add: element]].
+	moleculeCatalogue selections: selectedElements.
+	moleculeCatalogue open.
+	^moleculeCatalogue</PRE>
+<!-- } example3 -->
+<LI><!-- example4 { -->
+<A NAME="ClassMethod.example4"><B>example4</B> <I>[examples]</I></A>
+<A HREF="../xrefsE.html#example4"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	&quot;ChemoJunMoleculeCatalogue example4.&quot;
+
+	| aDirectory moleculeCatalogue |
+	(aDirectory := ChemoJunFileRequesterDialog requestDirectory) ifNil: [^nil].
+	moleculeCatalogue := ChemoJunMoleculeCatalogue directory: aDirectory.
+	moleculeCatalogue open.
+	^moleculeCatalogue</PRE>
+<!-- } example4 -->
+<LI><!-- example5 { -->
+<A NAME="ClassMethod.example5"><B>example5</B> <I>[examples]</I></A>
+<A HREF="../xrefsE.html#example5"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	&quot;ChemoJunMoleculeCatalogue example5.&quot;
+
+	| aDirectory moleculeCatalogue |
+	(aDirectory := ChemoJunFileRequesterDialog requestDirectory) ifNil: [^nil].
+	moleculeCatalogue := ChemoJunMoleculeCatalogue 
+				directories: (Array with: aDirectory with: aDirectory).
+	moleculeCatalogue open.
+	^moleculeCatalogue</PRE>
+<!-- } example5 -->
+<LI><!-- example6 { -->
+<A NAME="ClassMethod.example6"><B>example6</B> <I>[examples]</I></A>
+<A HREF="../xrefsE.html#example6"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	&quot;ChemoJunMoleculeCatalogue example6.&quot;
+
+	| aDirectory moleculeCatalogue lispList |
+	(aDirectory := ChemoJunFileRequesterDialog requestDirectory) ifNil: [^nil].
+	moleculeCatalogue := ChemoJunMoleculeCatalogue directory: aDirectory.
+	lispList := moleculeCatalogue toLispList.
+	Transcript
+		clear;
+		show: lispList saveString.
+	moleculeCatalogue := moleculeCatalogue class fromLispList: lispList.
+	lispList := moleculeCatalogue toLispList.
+	Transcript
+		cr;
+		show: lispList saveString.
+	^moleculeCatalogue</PRE>
+<!-- } example6 -->
+<LI><!-- filename: { -->
+<A NAME="ClassMethod.filename:"><B>filename:</B> catalogueFilename <I>[instance creation]</I></A>
+<A HREF="../xrefsF.html#filename:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	| aStream aList aCatalogue |
+	JunControlUtility 
+		assert: [aStream := catalogueFilename asFilename readStream]
+		do: [Cursor read showWhile: [aList := JunLispParser parse: aStream]]
+		ensure: [aStream close].
+	Cursor wait showWhile: 
+			[aCatalogue := (self fromLispList: aList)
+						filename: catalogueFilename;
+						yourself].
+	^aCatalogue</PRE>
+<!-- } filename: -->
+<LI><!-- fromLispList: { -->
+<A NAME="ClassMethod.fromLispList:"><B>fromLispList:</B> aList <I>[lisp support]</I></A>
+<A HREF="../xrefsF.html#fromLispList:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	| aClass aTable aCatalogue |
+	aClass := Smalltalk at: aList head.
+	aTable := self tableFromLispList: aList tail.
+	aCatalogue := aClass new.
+	self columnSizeFromTable: aTable for: aCatalogue.
+	self catalogueElementsFromTable: aTable for: aCatalogue.
+	self selectedElementsFromTable: aTable for: aCatalogue.
+	self preferenceTableFromTable: aTable for: aCatalogue.
+	^aCatalogue</PRE>
+<!-- } fromLispList: -->
+<LI><!-- menuBar { -->
+<A NAME="ClassMethod.menuBar"><B>menuBar</B> <I>[resources]</I></A>
+<A HREF="../xrefsM.html#menuBar"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	&quot;Tools.MenuEditor new openOnClass: self andSelector: #menuBar&quot;
+
+	&lt;resource: #menu&gt;
+	^#(#{UI.Menu} #(
+			#(#{UI.MenuItem} 
+				#rawLabel: 
+				#(#{Kernel.UserMessage} 
+					#key: #jun_File 
+					#defaultString: 'File' ) 
+				#submenu: #(#{UI.Menu} #(
+						#(#{UI.MenuItem} 
+							#rawLabel: 
+							#(#{Kernel.UserMessage} 
+								#key: #jun_New 
+								#defaultString: 'New' ) 
+							#value: #newModel ) 
+						#(#{UI.MenuItem} 
+							#rawLabel: 
+							#(#{Kernel.UserMessage} 
+								#key: #chemoJun_Select_Directory 
+								#defaultString: 'Select Directory' ) 
+							#value: #selectDirectory ) 
+						#(#{UI.MenuItem} 
+							#rawLabel: 
+							#(#{Kernel.UserMessage} 
+								#key: #chemoJun_Open_Catalogue_File 
+								#defaultString: 'Open Catalogue File' ) 
+							#value: #openCatalogueFile ) 
+						#(#{UI.MenuItem} 
+							#rawLabel: 
+							#(#{Kernel.UserMessage} 
+								#key: #chemoJun_Open_SD_File 
+								#defaultString: 'Open SD File' ) 
+							#value: #openSDFile ) 
+						#(#{UI.MenuItem} 
+							#rawLabel: 
+							#(#{Kernel.UserMessage} 
+								#key: #chemoJun_Save_Catalogue_File 
+								#defaultString: 'Save Catalogue File' ) 
+							#value: #saveCatalogue ) 
+						#(#{UI.MenuItem} 
+							#rawLabel: 
+							#(#{Kernel.UserMessage} 
+								#key: #chemoJun_Save_as_Catalogue_File 
+								#defaultString: 'Save as Catalogue File' ) 
+							#value: #saveAsCatalogue ) 
+						#(#{UI.MenuItem} 
+							#rawLabel: 
+							#(#{Kernel.UserMessage} 
+								#key: #chemoJun_Save_as_SD_File 
+								#defaultString: 'Save as SD File' ) 
+							#value: #saveAsSDFile ) 
+						#(#{UI.MenuItem} 
+							#rawLabel: 
+							#(#{Kernel.UserMessage} 
+								#key: #chemoJun_Save_as_Image 
+								#defaultString: 'Save as Image' ) 
+							#value: #saveAsImage ) 
+						#(#{UI.MenuItem} 
+							#rawLabel: 
+							#(#{Kernel.UserMessage} 
+								#key: #chemoJun_Save_as_HTML 
+								#defaultString: 'Save as HTML' ) 
+							#value: #saveAsHTML ) 
+						#(#{UI.MenuItem} 
+							#rawLabel: 
+							#(#{Kernel.UserMessage} 
+								#key: #jun_Quit 
+								#defaultString: 'Quit' ) 
+							#value: #quitDoing ) ) #(1 3 3 2 1 ) nil ) ) 
+			#(#{UI.MenuItem} 
+				#rawLabel: 
+				#(#{Kernel.UserMessage} 
+					#key: #jun_Edit 
+					#defaultString: 'Edit' ) 
+				#submenu: #(#{UI.Menu} #(
+						#(#{UI.MenuItem} 
+							#rawLabel: 
+							#(#{Kernel.UserMessage} 
+								#key: #chemoJun_Open_Molecular_Viewer 
+								#defaultString: 'Open Molecular Viewer' ) 
+							#value: #openMoleculeViewer ) 
+						#(#{UI.MenuItem} 
+							#rawLabel: 
+							#(#{Kernel.UserMessage} 
+								#key: #jun_Remove 
+								#defaultString: 'Remove' ) 
+							#value: #removeElements ) 
+						#(#{UI.MenuItem} 
+							#rawLabel: 
+							#(#{Kernel.UserMessage} 
+								#key: #jun_Select_all 
+								#defaultString: 'Select All' ) 
+							#value: #selectAll ) ) #(2 1 ) nil ) ) 
+			#(#{UI.MenuItem} 
+				#rawLabel: 
+				#(#{Kernel.UserMessage} 
+					#key: #chemoJun_View 
+					#defaultString: 'View' ) 
+				#submenu: #(#{UI.Menu} #(
+						#(#{UI.MenuItem} 
+							#rawLabel: 
+							#(#{Kernel.UserMessage} 
+								#key: #chemoJun_Show_Indexes 
+								#defaultString: 'Indexes' ) 
+							#value: #toggleCatalogIndex ) 
+						#(#{UI.MenuItem} 
+							#rawLabel: 
+							#(#{Kernel.UserMessage} 
+								#key: #chemoJun_Show_File_Name 
+								#defaultString: 'File Name' ) 
+							#value: #toggleFileName ) 
+						#(#{UI.MenuItem} 
+							#rawLabel: 
+							#(#{Kernel.UserMessage} 
+								#key: #chemoJun_Column_Size 
+								#defaultString: 'Column Size' ) 
+							#value: #arrangeColumnSize ) 
+						#(#{UI.MenuItem} 
+							#rawLabel: 
+							#(#{Kernel.UserMessage} 
+								#key: #chemoJun_Condense 
+								#defaultString: 'Condense' ) 
+							#value: #condenseElements ) ) #(2 2 ) nil ) ) 
+			#(#{UI.MenuItem} 
+				#rawLabel: 
+				#(#{Kernel.UserMessage} 
+					#key: #jun_Misc 
+					#defaultString: 'Misc' ) 
+				#submenu: #(#{UI.Menu} #(
+						#(#{UI.MenuItem} 
+							#rawLabel: 
+							#(#{Kernel.UserMessage} 
+								#key: #jun_Manual 
+								#defaultString: 'Manual' ) 
+							#value: #browseManual ) 
+						#(#{UI.MenuItem} 
+							#rawLabel: 
+							#(#{Kernel.UserMessage} 
+								#key: #jun_Inspect 
+								#defaultString: 'Inspect' ) 
+							#value: #inspectModel ) ) #(1 1 ) nil ) ) ) #(4 ) nil ) decodeAsLiteralArray</PRE>
+<!-- } menuBar -->
+<LI><!-- preferenceTableFromTable:for: { -->
+<A NAME="ClassMethod.preferenceTableFromTable:for:"><B>preferenceTableFromTable:</B> aTable <B>for:</B> aCatalogue <I>[lisp support]</I></A>
+<A HREF="../xrefsP.html#preferenceTableFromTable:for:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	| aList preferenceTable |
+	aList := aTable at: #preferenceTable ifAbsent: [^aCatalogue].
+	preferenceTable := JunAttributeTable fromLispList: aList.
+	aCatalogue preferenceTable: preferenceTable.
+	^aCatalogue</PRE>
+<!-- } preferenceTableFromTable:for: -->
+<LI><!-- request { -->
+<A NAME="ClassMethod.request"><B>request</B> <I>[utilities]</I></A>
+<A HREF="../xrefsR.html#request"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	&quot;ChemoJunMoleculeCatalogue request.&quot;
+
+	| labels values menu filename catalogue |
+	labels := Array with: (Array 
+						with: (#chemoJun_Molecular_catalogue_files &gt;&gt; 'Molecular catalogue files') 
+								asString)
+				with: (Array with: (#jun_All_files &gt;&gt; 'All files') asString).
+	values := Array with: #('*.catalogue' '*.CATALOGUE') with: #('*').
+	menu := Menu labelList: labels values: values.
+	filename := ChemoJunFileRequesterDialog 
+				requestFilename: (#chemoJun_Select_a_catalogue_file_ 
+						&gt;&gt; 'Select a catalogue file.') asString
+				fileTypeMenu: menu
+				initialFileType: values first.
+	filename isNil ifTrue: [^nil].
+	catalogue := self filename: filename.
+	^catalogue</PRE>
+<!-- } request -->
+<LI><!-- selectedElementsFromTable:for: { -->
+<A NAME="ClassMethod.selectedElementsFromTable:for:"><B>selectedElementsFromTable:</B> aTable <B>for:</B> aCatalogue <I>[lisp support]</I></A>
+<A HREF="../xrefsS.html#selectedElementsFromTable:for:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	| aList |
+	aList := aTable at: #selectedElements ifAbsent: [^aCatalogue].
+	aCatalogue 
+		selections: (aList collect: [:index | aCatalogue elements at: index]) 
+				asArray.
+	^aCatalogue</PRE>
+<!-- } selectedElementsFromTable:for: -->
+<LI><!-- system { -->
+<A NAME="ClassMethod.system"><B>system</B> <I>[copyright]</I></A>
+<A HREF="../xrefsS.html#system"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^'ChemoJun'</PRE>
+<!-- } system -->
+<LI><!-- tableFromLispList: { -->
+<A NAME="ClassMethod.tableFromLispList:"><B>tableFromLispList:</B> aList <I>[lisp support]</I></A>
+<A HREF="../xrefsT.html#tableFromLispList:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	| aTable |
+	aTable := JunAttributeTable new.
+	aList do: [:pair | aTable at: pair head put: pair tail].
+	^aTable</PRE>
+<!-- } tableFromLispList: -->
+<LI><!-- version { -->
+<A NAME="ClassMethod.version"><B>version</B> <I>[copyright]</I></A>
+<A HREF="../xrefsV.html#version"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^'050'</PRE>
+<!-- } version -->
+<LI><!-- windowSpec { -->
+<A NAME="ClassMethod.windowSpec"><B>windowSpec</B> <I>[interface specs]</I></A>
+<A HREF="../xrefsW.html#windowSpec"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	&quot;Tools.UIPainter new openOnClass: self andSelector: #windowSpec&quot;
+
+	&lt;resource: #canvas&gt;
+	^#(#{UI.FullSpec} 
+		#window: 
+		#(#{UI.WindowSpec} 
+			#label: 
+			#(#{Kernel.UserMessage} 
+				#key: #chemoJun_Molecular_Catalogue 
+				#defaultString: 'Molecular Catalogue' ) 
+			#min: #(#{Core.Point} 300 300 ) 
+			#max: #(#{Core.Point} 0 0 ) 
+			#bounds: #(#{Graphics.Rectangle} 700 468 1397 1050 ) 
+			#flags: 4 
+			#menu: #menuBar 
+			#colors: 
+			#(#{UI.LookPreferences} 
+				#setBackgroundColor: #(#{Graphics.ColorValue} 7700 7700 7700 ) ) ) 
+		#component: 
+		#(#{UI.SpecCollection} 
+			#collection: #(
+				#(#{UI.ArbitraryComponentSpec} 
+					#layout: #(#{Graphics.LayoutFrame} 1 0 1 0 -1 1 -1 1 ) 
+					#name: #catalogueView 
+					#flags: 11 
+					#component: #catalogueView ) ) ) )</PRE>
+<!-- } windowSpec -->
+</OL>
+<!-- } (class_methods) -->
+<HR>
+<A HREF="../index.html#ChemoJunMoleculeCatalogue"><IMG SRC="../images/index.jpg" ALT="index" ALIGN="top" BORDER=1></A>
+<A HREF="../xrefsC.html#ChemoJunMoleculeCatalogue"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<!-- This Document was generated by JunEncyclopedia. -->
+<!-- JunEncyclopedia was developed by AOKI Atsushi. -->
+</BODY>
+</HTML>

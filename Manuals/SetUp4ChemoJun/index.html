@@ -1,0 +1,209 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<link rel="stylesheet" href="../importstyle.css" type="text/css">
+<link rev="made" href="mailto:h-asaoka@sra.co.jp">
+<link rel="index" href="index.html">
+<link rel="shortcut icon" href="../ChemoJun.ico">
+<title>SetUp4ChemoJun</title>
+</head>
+<body>
+<p class="align-right">2006年08月22日 文責：<a name="TOP" href="http://www.sra.co.jp/people/h-asaoka/" target="_blank">浅岡 浩子</a></p>
+<hr>
+<h1>初期設定</h1>
+<div class="indent">
+<p>もくじ：</p>
+<ul>
+  <li><a href="#Prologue">はじめに</a>
+  <li><a href="#SetEnvFile">環境設定ファイル</a>
+  <li><a href="#ManualInstall">使用手引きのインストール</a>
+  <li><a href="#SelectMolData">分子ファイルのデータ選択</a>
+</ul>
+</div>
+<hr>
+<h2><a name="Prologue">はじめに</a></h2>
+<div class="indent">
+<p>これらの解説では、「ケモじゅん」インストール に沿って、すでに ChemoJun の動作に必要なものが正常にインストールされているものとします。</p>
+<p>Windows &amp; Macintosh 版 での説明ですが、 それぞれ違う箇所は、以下のように背景色を変えています。</p>
+<table summary="table" border="0" cellpadding="4" cellspacing="1" width="100%">
+  <tbody>
+    <tr>
+      <td class="win" align="center">
+      <p>Windows 版 の説明</p>
+      </td>
+      <td class="mac" align="center">
+      <p>Macintosh 版 の説明</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p>以下のような場合の設定例になります。</p>
+<table summary="table" border="1" cellpadding="4" cellspacing="0">
+  <tbody>
+    <tr>
+      <th rowspan="2">
+      <p>$(HOME)</p>
+      </th>
+      <td class="win">
+      <p><code>c:/<i>username</i>/</code></p>
+      </td>
+    </tr>
+    <tr>
+      <td class="mac">
+      <p><code>/Users/<i>username</i>/</code></p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p>自分の環境に合わせてパスの指定を修正してください。</p>
+</div>
+<hr>
+<h2><a name="SetEnvFile">環境設定ファイル</a></h2>
+<div class="indent">
+<p>ワークディレクトリの直下に、「SetEnv.txt」という環境設定ファイルを作成します。</p>
+<pre>    $(ワークディレクトリ)
+        +- SetEnv.txt</pre>
+<p>ただし、このファイルは、システムをデフォルト状態で利用する場合は特に必要ありません。<br>
+このページに書かれている項目を実行する際、必要に応じて作成してください。</p>
+<p>このファイルに、以下のようなフォーマットで環境変数を設定します。</p>
+<pre class="format">setenv&nbsp;<em>環境変数の名前</em>&nbsp;'<em>環境変数の値</em>'</pre>
+<p>「ケモじゅん」に関係する環境変数の名前とデフォルトの値は以下になります。</p>
+<ul>
+  <li><code><strong>ChemoJunWebPageUri</strong></code><br>
+  http://research.nii.ac.jp/~cheminfo/ChemoJun/<br>
+  （国立情報学研究所 「ケモじゅん」のページ）<br>
+  ランチャーの「Misc」-&gt;「Web Page」で開く参照先になります。
+  <li><code><strong>ChemoJunMailUri</strong></code><br>
+  mailto:cheminfo@@nii.ac.jp<br>
+  （国立情報学研究所の担当者）<br>
+  ランチャーの「Misc」-&gt;「E-mail」で開くメールの宛先になります。
+  <li><code><strong>ChemoJunManualBaseUri</strong></code><br>
+  http://research.nii.ac.jp/~cheminfo/ChemoJun/Documents/Manuals/<br>
+  （国立情報学研究所 「ケモじゅん」のページ内の使用手引き） <br>
+  ランチャーの「Misc」-&gt;「Manual」で開く参照先になります。
+  <li><code><strong>ChemoJunMolDataUri</strong></code><br>
+  $(WorkDirectory)/ChemoJunMolData<br>
+  （ワークディレクトリの直下の「ChemoJunMolData」フォルダ） <br>
+  ランチャーの「Tools」-&gt;「* - Select Data」で一覧される分子ファイルの格納先になります。
+</ul>
+<p>サンプルファイル：「<a href="SetEnv.txt">SetEnv.txt</a>」</p>
+<p class="attention">※ 「@@」の部分は、「@」に変更してください。</p>
+<p>行の最初に「#」 (シャープ)が記述されていると、その行はコメントとなります。<br>
+設定されていないことと同じになりますので、一時的に設定を解除したい場合や、設定に関する覚え書などを記述する場合に利用してください。</p>
+<p>同じ環境変数の名前のものを複数記述すると、ファイルの下の位置に記述されているものが有効になります。</p>
+</div>
+<hr>
+<h2><a name="ManualInstall">使用手引きのインストール</a></h2>
+<div class="indent">
+<p>「ケモじゅん」の使用手引きは、 ランチャーや各ツールの「Misc」-&gt;「Manual」メニューを選んだ時に、ウェブブラウザで表示されます。<br>
+デフォルトでは、「ケモじゅん」の公開サーバ内のページを参照するようになっています。<br>
+ネットワーク環境を利用せず、ローカルにダウンロードしたマニュアルを参照したい場合は以下の手順を行ってください。</p>
+<p>ケモじゅんHPから、「ケモじゅん」の使用手引きのファイルを一式ダウンロードします。</p>
+<ul>
+  <li>ChemoJunManuals.zip
+</ul>
+<p>ダウンロードしたファイルを解凍すると、以下のようなフォルダやファイルが作成されます。</p>
+<pre>Manuals
+    +- index.html
+    +- *.html
+    +- images/
+    |   :
+    +- ChemoJunLauncher/
+        :</pre>
+<p>このフォルダを自分の好きな場所に移動します。<br>
+「Manuals」というフォルダ名を変更しても構いません。<br>
+基本的にはどんな場所に移動しても構いませんが、日本語コードが入っているパス（ex. 「デスクトップ」）を利用することは避けてください。</p>
+<p>その後、<a href="#SetEnvFile">環境設定ファイル</a>に、「<code><strong>ChemoJunManualBaseUri</strong></code>」という環境変数名で、マニュアルフォルダの場所を<strong>絶対パス</strong>で指定します。<br>
+ランチャーや各ツールの「Misc」-&gt;「Manual」メニューを選んだ時に、インストールした場所にあるマニュアルが表示されれば、正常に設定されています。</p>
+</div>
+<h3>設定例</h3>
+<div class="indent">
+<p>ホームディレクトリの直下に、「ChemoJunManuals」というフォルダを作成します。<br>
+その中に解凍した「Manuals」フォルダの中身を移動します。</p>
+<pre>$(HOME)
+    +- ChemoJunManuals/
+        +- index.html
+        +- *.html
+        +- images/
+        |    :
+        +- ChemoJunLauncher/</pre>
+<p>以下のように環境変数を設定します。</p>
+<table summary="table" border="0" cellpadding="4" cellspacing="1" width="100%">
+  <tbody>
+    <tr>
+      <td class="win">
+      <pre>setenv ChemoJunManualBaseUri 'file:///c:/<i>username</i>/ChemoJunManuals/'</pre>
+      </td>
+    </tr>
+    <tr>
+      <td class="mac">
+      <pre>setenv ChemoJunManualBaseUri 'file:///Users/<i>username</i>/ChemoJunManuals/'</pre>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<hr>
+<h2><a name="SelectMolData">分子ファイルのデータ選択</a></h2>
+<div class="indent">
+<p>ランチャーの「Tools」-&gt;「* - Select Data」メニューを選ぶと、 あるフォルダ内にあるフォルダや分子ファイル群を一覧で表示します。<br>
+デフォルトでは、ワークディレクトリの直下にある「<strong>ChemoJunMolData</strong>」フォルダ内を検索するようになっています。</p>
+<pre>$(ワークディレクトリ)
+    +- ChemoJunMolData/
+        +- alcohols/
+        |    +- *.mol
+        |    +- *.2D.mol
+        +- aldehyde/
+        |    +- *.mol
+        |    +- *.2D.mol
+        +- alkanes/
+             :</pre>
+<p>このようなフォルダがない場合は、ランチャーの「Tools」-&gt;「* - Select Data」メニューを選んでもダイアログが表示されません。<br>
+分子ファイルのデータを、上記のような場所へ用意してください。</p>
+</div>
+<h3>別フォルダにある分子ファイルを参照するには</h3>
+<div class="indent">
+<p>別のフォルダ内を参照したい場合は以下の手順を行います。</p>
+<p>分子ファイルを格納するフォルダを用意します。<br>
+基本的にはどんなフォルダ名でも構いませんが、日本語コードが入っているパス（ex. 「デスクトップ」）を利用することは避けてください。<br>
+日本語コードを利用すると、環境によって正常に表示されない場合があります。</p>
+<p>その後、<a href="#SetEnvFile">環境設定ファイル</a>に、「<code><strong>ChemoJunMolDataUri</strong></code>」という環境変数名で、 フォルダの場所を<strong>絶対パス</strong>で指定します。<br>
+ランチャーの「Tools」-&gt;「* - Select Data」メニューを選んだ時に、その場所にあるフォルダや分子ファイルが表示されれば、正常に設定されています。</p>
+<p>ただし、指定したトップフォルダの中にあるサブフォルダ内（１階層目のみ）の分子ファイルしか一覧しません。</p>
+</div>
+<h2>設定例</h2>
+<div class="indent">
+<p>ホームディレクトリの直下に、「Molfile」というフォルダを作成します。<br>
+その中に、分子ファイルが入っている状態にしておきます。</p>
+<pre>$(HOME)
+    +- Molfile/
+        +- folder1/
+        |    +- *.mol
+        |    +- *.2D.mol
+        +- folder2/
+        |    +- *.mol
+        |    +- *.2D.mol
+        +- folder3/
+             :</pre>
+<p>以下のように環境変数を設定します。</p>
+<table summary="table" border="0" cellpadding="4" cellspacing="1" width="100%">
+  <tbody>
+    <tr>
+      <td class="win">
+      <pre>setenv ChemoJunMolDataUri 'file:///c:/<i>username</i>/Molfile/'</pre>
+      </td>
+    </tr>
+    <tr>
+      <td class="mac">
+      <pre>setenv ChemoJunMolDataUri 'file:///Users/<i>username</i>/Molfile/'</pre>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<hr>
+<p class="align-right"><a href="#TOP">このページの TOP へ</a></p>
+</body>
+</html>

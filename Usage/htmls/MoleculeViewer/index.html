@@ -1,0 +1,43 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<TITLE>分子ビューア（ChemoJunMoleculeViewer）</TITLE>
+</HEAD>
+<BODY bgcolor="#ffffff">
+<H2>分子ビューア（ChemoJunMoleculeViewer）</H2>
+<P>3次元グラフィックスを司るビューファインダのMVC（JunOpenGLDisplayModel, JunOpenGLDisplayView,
+JunOpenGLDisplayController）を継承して分子ビューアのMVC（ChemoJunMolecule{Viewer|Model},
+ChemoJunMoleculeView, ChemoJunMoleculeController）が作成されています。</P>
+<CENTER>
+<TABLE border="0" cellpadding="8">
+  <TBODY>
+    <TR>
+      <TD align="center"><A href="htmls/map.html" target="_blank"><IMG src="thumbnails/MoleculeViewer.jpg" width="288" height="395" border="0" align="middle"></A></TD>
+    </TR>
+    <TR>
+      <TD align="center" valign="middle">分子ビューアの構造</TD>
+    </TR>
+  </TBODY>
+</TABLE>
+</CENTER>
+<P>視線・上方ベクトル・右方ベクトル・視野角・描画投影面などの視体積を操作するためのフル機能を有します。ビューファインダのメタビューであるビューポートをレンダリングする機能も内包されています。視体積はビューポートを見るほうがわかりやすいでしょう。</P>
+<CENTER>
+<TABLE border="0">
+  <TBODY>
+    <TR>
+      <TD align="center" valign="middle"><A href="images/MoleculeViewer1.jpg" target="_blank"><IMG src="thumbnails/MoleculeViewer1.jpg" width="400" height="209" border="0"></A></TD>
+    </TR>
+    <TR>
+      <TD align="center" valign="middle"><A href="images/MoleculeViewer2.jpg" target="_blank"><IMG src="thumbnails/MoleculeViewer2.jpg" width="400" height="209" border="0"></A></TD>
+    </TR>
+    <TR>
+      <TD align="center" valign="middle">分子ビューアとそのビューポート</TD>
+    </TR>
+  </TBODY>
+</TABLE>
+</CENTER>
+<P>分子ビューアの中に描画されるオブジェクトは、分子オブジェクト（ChemoJunMoleculeObject）より提供される3次元オブジェクト（JunOpenGL3dObject）になります。それに対して、拡大縮小・回転・平行移動を容易に行うことが可能です。基本的に分子の表示に関係する描画設定と分子ファイルの読み書き以外は、すべてじゅんのライブラリによって用意されている機能を継承しているに過ぎません。</P>
+<HR>
+</BODY>
+</HTML>

@@ -1,0 +1,2301 @@
+<HTML>
+<HEAD>
+<TITLE>ChemoJunMoleculeObject</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<A HREF="../index.html#ChemoJunMoleculeObject"><IMG SRC="../images/index.jpg" ALT="index" ALIGN="top" BORDER=1></A>
+<A HREF="../xrefsC.html#ChemoJunMoleculeObject"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+2006/08/08 17:41:28
+<HR>
+<!-- (class_name) { -->
+<H2>
+<A NAME="Class.ChemoJunMoleculeObject">ChemoJunMoleculeObject</A>
+</H2>
+<!-- } (class_name) -->
+<!-- (comment) { -->
+<P>
+<A NAME="Comment.ChemoJunMoleculeObject">
+ChemoJun050 (2006/08/08) Copyright 2002-2006 National Institute of Informatics, Research Organization of Information and Systems.
+</A>
+</P>
+<!-- } (comment) -->
+<!-- (category) { -->
+<P>
+<A NAME="Category.ChemoJun-Basic-Objects"><I>category:</I></A></P>
+<UL>
+<LI><B>
+ChemoJun-Basic-Objects
+</B>
+<A HREF="../xrefsC.html#ChemoJun-Basic-Objects"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+</UL>
+<!-- } (category) -->
+<!-- (inheritance) { -->
+<P>
+<A NAME="Inheritance.ChemoJunMoleculeObject"><I>inheritance:</I></A>
+</P>
+<UL>
+<LI TYPE="square">Object
+<UL>
+<LI TYPE="square"><A HREF="ChemoJunAbstractObject.html">ChemoJunAbstractObject</A>
+<UL>
+<LI TYPE="square"><B>ChemoJunMoleculeObject</B>
+</UL>
+</UL>
+</UL>
+<!-- } (inheritance) -->
+<!-- (instance_variables) { -->
+<P>
+<A NAME="InstanceVariables.ChemoJunMoleculeObject">
+<I>instance variables:</I>
+</A>
+</P>
+<UL>
+<!-- atomConnections { -->
+<LI><A NAME="InstanceVariable.atomConnections"><B>atomConnections</B></A>
+<A HREF="../xrefsA.html#atomConnections"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<!-- } atomConnections -->
+<!-- atomObjects { -->
+<LI><A NAME="InstanceVariable.atomObjects"><B>atomObjects</B></A>
+<A HREF="../xrefsA.html#atomObjects"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<!-- } atomObjects -->
+<!-- atomResolution { -->
+<LI><A NAME="InstanceVariable.atomResolution"><B>atomResolution</B></A>
+<A HREF="../xrefsA.html#atomResolution"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<!-- } atomResolution -->
+<!-- attributeTable { -->
+<LI><A NAME="InstanceVariable.attributeTable"><B>attributeTable</B></A>
+<A HREF="../xrefsA.html#attributeTable"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<!-- } attributeTable -->
+<!-- exceptHydrogen { -->
+<LI><A NAME="InstanceVariable.exceptHydrogen"><B>exceptHydrogen</B></A>
+<A HREF="../xrefsE.html#exceptHydrogen"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<!-- } exceptHydrogen -->
+</UL>
+<!-- } (instance_variables) -->
+<!-- (class_instance_variables) { -->
+<P>
+<A NAME="ClassInstanceVariables.ChemoJunMoleculeObject">
+<I>class instance variables:</I>
+</A>
+</P>
+<UL>
+</UL>
+<!-- } (class_instance_variables) -->
+<!-- (class_variables) { -->
+<P>
+<A NAME="ClassVariables.ChemoJunMoleculeObject">
+<I>class variables:</I>
+</A>
+</P>
+<UL>
+</UL>
+<!-- } (class_variables) -->
+<!-- (pool_variables) { -->
+<P>
+<A NAME="PoolVariables.ChemoJunMoleculeObject">
+<I>pool variables:</I>
+</A>
+</P>
+<UL>
+</UL>
+<!-- } (pool_variables) -->
+<!-- (instance_methods) { -->
+<P>
+<A NAME="InstanceMethods.ChemoJunMoleculeObject">
+<I>instance methods:</I>
+</A>
+</P>
+<OL>
+<LI><!-- arrayOfPolylinesForAromaticBondAsPlane: { -->
+<A NAME="InstanceMethod.arrayOfPolylinesForAromaticBondAsPlane:"><B>arrayOfPolylinesForAromaticBondAsPlane:</B> atomConnection <I>[3d aux]</I></A>
+<A HREF="../xrefsA.html#arrayOfPolylinesForAromaticBondAsPlane:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	| fromAtom toAtom fromPoint toPoint centerPoint firstPolylines aLine offsetPoint secondPolylines aPlane connectedAtoms positiveAtoms negativeAtoms |
+	atomConnection bondTypeSymbol = #aromatic 
+		ifFalse: [^self error: 'connection is not aromatic bond.'].
+	fromAtom := atomConnection fromAtom.
+	toAtom := atomConnection toAtom.
+	fromPoint := fromAtom atomicPoint.
+	toPoint := toAtom atomicPoint.
+	centerPoint := fromPoint center: toPoint.
+	firstPolylines := Array with: (JunOpenGL3dPolyline 
+						vertexes: (Array with: fromPoint with: centerPoint))
+				with: (JunOpenGL3dPolyline 
+						vertexes: (Array with: centerPoint with: toPoint)).
+	atomConnection hasConnectionColor 
+		ifTrue: 
+			[firstPolylines first paint: atomConnection connectionColor.
+			firstPolylines last paint: atomConnection connectionColor]
+		ifFalse: 
+			[fromAtom hasAtomicColor 
+				ifTrue: [firstPolylines first paint: fromAtom atomicColor]
+				ifFalse: [firstPolylines first paint: atomConnection defaultConnectionColor].
+			toAtom hasAtomicColor 
+				ifTrue: [firstPolylines last paint: toAtom atomicColor]
+				ifFalse: [firstPolylines last paint: atomConnection defaultConnectionColor]].
+	firstPolylines first lineWidth: 2.
+	firstPolylines last lineWidth: 2.
+	aLine := (fromPoint as2dPoint bisector: toPoint as2dPoint) normalized.
+	offsetPoint := ((aLine atT: 0.05) - (aLine atT: 0)) as3dPoint.
+	secondPolylines := firstPolylines collect: 
+					[:each | 
+					| polyline from to line |
+					polyline := each copy.
+					from := polyline vertexes first.
+					to := polyline vertexes last.
+					line := from to: to.
+					from = centerPoint ifFalse: [from := line atT: 0.12].
+					to = centerPoint ifFalse: [to := line atT: 0.88].
+					polyline vertexes: (Array with: from with: to).
+					polyline yourself].
+	aPlane := fromPoint plane: toPoint and: fromPoint x , fromPoint y , 1.
+	connectedAtoms := self connectedAromaticAtomsAround: atomConnection.
+	positiveAtoms := connectedAtoms 
+				select: [:atom | (atom atomicPoint whichSideOf: aPlane) &gt;= 0].
+	negativeAtoms := connectedAtoms 
+				select: [:atom | (atom atomicPoint whichSideOf: aPlane) &lt; 0].
+	secondPolylines := secondPolylines collect: 
+					[:each | 
+					| polyline |
+					positiveAtoms size &gt;= negativeAtoms size 
+						ifTrue: [polyline := each translatedBy: (offsetPoint * 2) negated]
+						ifFalse: [polyline := each translatedBy: (offsetPoint * 2) yourself].
+					polyline yourself].
+	secondPolylines do: [:each | each halftone: 0.25].
+	^Array with: firstPolylines with: secondPolylines</PRE>
+<!-- } arrayOfPolylinesForAromaticBondAsPlane: -->
+<LI><!-- arrayOfPolylinesForDoubleBondAsPlane: { -->
+<A NAME="InstanceMethod.arrayOfPolylinesForDoubleBondAsPlane:"><B>arrayOfPolylinesForDoubleBondAsPlane:</B> atomConnection <I>[3d aux]</I></A>
+<A HREF="../xrefsA.html#arrayOfPolylinesForDoubleBondAsPlane:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	| fromAtom toAtom fromPoint toPoint centerPoint firstPolylines secondPolylines aLine offsetPoint fromConnections toConnections aPlane |
+	atomConnection bondTypeSymbol = #double 
+		ifFalse: [^self error: 'connection is not double bond.'].
+	fromAtom := atomConnection fromAtom.
+	toAtom := atomConnection toAtom.
+	fromPoint := fromAtom atomicPoint.
+	toPoint := toAtom atomicPoint.
+	centerPoint := fromPoint center: toPoint.
+	firstPolylines := Array with: (JunOpenGL3dPolyline 
+						vertexes: (Array with: fromPoint with: centerPoint))
+				with: (JunOpenGL3dPolyline 
+						vertexes: (Array with: centerPoint with: toPoint)).
+	atomConnection hasConnectionColor 
+		ifTrue: 
+			[firstPolylines first paint: atomConnection connectionColor.
+			firstPolylines last paint: atomConnection connectionColor]
+		ifFalse: 
+			[fromAtom hasAtomicColor 
+				ifTrue: [firstPolylines first paint: fromAtom atomicColor]
+				ifFalse: [firstPolylines first paint: atomConnection defaultConnectionColor].
+			toAtom hasAtomicColor 
+				ifTrue: [firstPolylines last paint: toAtom atomicColor]
+				ifFalse: [firstPolylines last paint: atomConnection defaultConnectionColor]].
+	firstPolylines first lineWidth: 2.
+	firstPolylines last lineWidth: 2.
+	secondPolylines := firstPolylines collect: [:each | each copy].
+	aLine := (fromPoint as2dPoint bisector: toPoint as2dPoint) normalized.
+	offsetPoint := ((aLine atT: 0.05) - (aLine atT: 0)) as3dPoint.
+	(fromPoint z isZero not and: [toPoint z isZero not]) 
+		ifTrue: 
+			[firstPolylines := firstPolylines 
+						collect: [:each | each translatedBy: offsetPoint negated].
+			secondPolylines := secondPolylines 
+						collect: [:each | each translatedBy: offsetPoint yourself].
+			^Array with: firstPolylines with: secondPolylines].
+	fromConnections := (self connectionsWith: fromAtom) 
+				reject: [:each | each = atomConnection].
+	toConnections := (self connectionsWith: toAtom) 
+				reject: [:each | each = atomConnection].
+	aPlane := fromPoint plane: toPoint and: fromPoint x , fromPoint y , 1.
+	firstPolylines := firstPolylines collect: 
+					[:each | 
+					| from to polyline line |
+					from := each vertexes first.
+					to := each vertexes last.
+					polyline := each translatedBy: offsetPoint negated.
+					from = fromPoint 
+						ifTrue: 
+							[fromConnections isEmpty 
+								ifTrue: 
+									[from := polyline vertexes first.
+									to := polyline vertexes last.
+									line := from to: to.
+									from := line atT: 0.12.
+									polyline vertexes: (Array with: from with: to)]
+								ifFalse: 
+									[| sign connections |
+									from := polyline vertexes first.
+									to := polyline vertexes last.
+									sign := from whichSideOf: aPlane.
+									connections := fromConnections select: 
+													[:connection | 
+													| target |
+													target := connection toAtom.
+													target = fromAtom ifTrue: [target := connection fromAtom].
+													(target atomicPoint whichSideOf: aPlane) = sign].
+									connections isEmpty 
+										ifTrue: 
+											[polyline vertexes: (Array 
+														with: fromPoint
+														with: ((from to: to) atT: 0.06)
+														with: to)]
+										ifFalse: 
+											[| points |
+											points := connections collect: 
+															[:connection | 
+															line := connection fromAtom atomicPoint as2dPoint 
+																		to: connection toAtom atomicPoint as2dPoint.
+															(from as2dPoint to: to as2dPoint) intersectingPointWithLine: line].
+											points := (points reject: [:p | p isNil]) collect: [:p | p as3dPoint].
+											points isEmpty 
+												ifFalse: 
+													[points := points 
+																asSortedCollection: [:p1 :p2 | (p1 distance: from) &lt; (p2 distance: from)].
+													polyline vertexes: (Array with: points first with: to)]]]].
+					to = toPoint 
+						ifTrue: 
+							[toConnections isEmpty 
+								ifTrue: 
+									[from := polyline vertexes first.
+									to := polyline vertexes last.
+									line := from to: to.
+									to := line atT: 0.88.
+									polyline vertexes: (Array with: from with: to)]
+								ifFalse: 
+									[| sign connections |
+									from := polyline vertexes first.
+									to := polyline vertexes last.
+									sign := to whichSideOf: aPlane.
+									connections := toConnections select: 
+													[:connection | 
+													| target |
+													target := connection fromAtom.
+													target = toAtom ifTrue: [target := connection toAtom].
+													(target atomicPoint whichSideOf: aPlane) = sign].
+									connections isEmpty 
+										ifTrue: 
+											[polyline vertexes: (Array 
+														with: from
+														with: ((from to: to) atT: 0.94)
+														with: toPoint)]
+										ifFalse: 
+											[| points |
+											points := connections collect: 
+															[:connection | 
+															line := connection fromAtom atomicPoint as2dPoint 
+																		to: connection toAtom atomicPoint as2dPoint.
+															(from as2dPoint to: to as2dPoint) intersectingPointWithLine: line].
+											points := (points reject: [:p | p isNil]) collect: [:p | p as3dPoint].
+											points isEmpty 
+												ifFalse: 
+													[points := points 
+																asSortedCollection: [:p1 :p2 | (p1 distance: to) &lt; (p2 distance: to)].
+													polyline vertexes: (Array with: from with: points first)]]]].
+					polyline yourself].
+	secondPolylines := secondPolylines collect: 
+					[:each | 
+					| from to polyline line |
+					from := each vertexes first.
+					to := each vertexes last.
+					polyline := each translatedBy: offsetPoint yourself.
+					from = fromPoint 
+						ifTrue: 
+							[fromConnections isEmpty 
+								ifTrue: 
+									[from := polyline vertexes first.
+									to := polyline vertexes last.
+									line := from to: to.
+									from := line atT: 0.12.
+									polyline vertexes: (Array with: from with: to)]
+								ifFalse: 
+									[| sign connections |
+									from := polyline vertexes first.
+									to := polyline vertexes last.
+									sign := from whichSideOf: aPlane.
+									connections := fromConnections select: 
+													[:connection | 
+													| target |
+													target := connection toAtom.
+													target = fromAtom ifTrue: [target := connection fromAtom].
+													(target atomicPoint whichSideOf: aPlane) = sign].
+									connections isEmpty 
+										ifTrue: 
+											[polyline vertexes: (Array 
+														with: fromPoint
+														with: ((from to: to) atT: 0.06)
+														with: to)]
+										ifFalse: 
+											[| points |
+											points := connections collect: 
+															[:connection | 
+															line := connection fromAtom atomicPoint as2dPoint 
+																		to: connection toAtom atomicPoint as2dPoint.
+															(from as2dPoint to: to as2dPoint) intersectingPointWithLine: line].
+											points := (points reject: [:p | p isNil]) collect: [:p | p as3dPoint].
+											points isEmpty 
+												ifFalse: 
+													[points := points 
+																asSortedCollection: [:p1 :p2 | (p1 distance: from) &lt; (p2 distance: from)].
+													polyline vertexes: (Array with: points first with: to)]]]].
+					to = toPoint 
+						ifTrue: 
+							[toConnections isEmpty 
+								ifTrue: 
+									[from := polyline vertexes first.
+									to := polyline vertexes last.
+									line := from to: to.
+									to := line atT: 0.88.
+									polyline vertexes: (Array with: from with: to)]
+								ifFalse: 
+									[| sign connections |
+									from := polyline vertexes first.
+									to := polyline vertexes last.
+									sign := to whichSideOf: aPlane.
+									connections := toConnections select: 
+													[:connection | 
+													| target |
+													target := connection fromAtom.
+													target = toAtom ifTrue: [target := connection toAtom].
+													(target atomicPoint whichSideOf: aPlane) = sign].
+									connections isEmpty 
+										ifTrue: 
+											[polyline vertexes: (Array 
+														with: from
+														with: ((from to: to) atT: 0.94)
+														with: toPoint)]
+										ifFalse: 
+											[| points |
+											points := connections collect: 
+															[:connection | 
+															line := connection fromAtom atomicPoint as2dPoint 
+																		to: connection toAtom atomicPoint as2dPoint.
+															(from as2dPoint to: to as2dPoint) intersectingPointWithLine: line].
+											points := (points reject: [:p | p isNil]) collect: [:p | p as3dPoint].
+											points isEmpty 
+												ifFalse: 
+													[points := points 
+																asSortedCollection: [:p1 :p2 | (p1 distance: to) &lt; (p2 distance: to)].
+													polyline vertexes: (Array with: from with: points first)]]]].
+					polyline yourself].
+	^Array with: firstPolylines with: secondPolylines</PRE>
+<!-- } arrayOfPolylinesForDoubleBondAsPlane: -->
+<LI><!-- arrayOfPolylinesForSingleBondAsPlane: { -->
+<A NAME="InstanceMethod.arrayOfPolylinesForSingleBondAsPlane:"><B>arrayOfPolylinesForSingleBondAsPlane:</B> atomConnection <I>[3d aux]</I></A>
+<A HREF="../xrefsA.html#arrayOfPolylinesForSingleBondAsPlane:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	| fromAtom toAtom fromPoint toPoint centerPoint firstPolylines |
+	atomConnection bondTypeSymbol = #single 
+		ifFalse: [^self error: 'connection is not single bond.'].
+	fromAtom := atomConnection fromAtom.
+	toAtom := atomConnection toAtom.
+	fromPoint := fromAtom atomicPoint.
+	toPoint := toAtom atomicPoint.
+	centerPoint := fromPoint center: toPoint.
+	firstPolylines := Array with: (JunOpenGL3dPolyline 
+						vertexes: (Array with: fromPoint with: centerPoint))
+				with: (JunOpenGL3dPolyline 
+						vertexes: (Array with: centerPoint with: toPoint)).
+	atomConnection hasConnectionColor 
+		ifTrue: 
+			[firstPolylines first paint: atomConnection connectionColor.
+			firstPolylines last paint: atomConnection connectionColor]
+		ifFalse: 
+			[fromAtom hasAtomicColor 
+				ifTrue: [firstPolylines first paint: fromAtom atomicColor]
+				ifFalse: [firstPolylines first paint: atomConnection defaultConnectionColor].
+			toAtom hasAtomicColor 
+				ifTrue: [firstPolylines last paint: toAtom atomicColor]
+				ifFalse: [firstPolylines last paint: atomConnection defaultConnectionColor]].
+	firstPolylines first lineWidth: 2.
+	firstPolylines last lineWidth: 2.
+	^Array with: firstPolylines</PRE>
+<!-- } arrayOfPolylinesForSingleBondAsPlane: -->
+<LI><!-- arrayOfPolylinesForTripleBondAsPlane: { -->
+<A NAME="InstanceMethod.arrayOfPolylinesForTripleBondAsPlane:"><B>arrayOfPolylinesForTripleBondAsPlane:</B> atomConnection <I>[3d aux]</I></A>
+<A HREF="../xrefsA.html#arrayOfPolylinesForTripleBondAsPlane:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	| fromAtom toAtom fromPoint toPoint centerPoint firstPolylines secondPolylines thirdPolylines aLine offsetPoint |
+	atomConnection bondTypeSymbol = #triple 
+		ifFalse: [^self error: 'connection is not triple bond.'].
+	fromAtom := atomConnection fromAtom.
+	toAtom := atomConnection toAtom.
+	fromPoint := fromAtom atomicPoint.
+	toPoint := toAtom atomicPoint.
+	centerPoint := fromPoint center: toPoint.
+	firstPolylines := Array with: (JunOpenGL3dPolyline 
+						vertexes: (Array with: fromPoint with: centerPoint))
+				with: (JunOpenGL3dPolyline 
+						vertexes: (Array with: centerPoint with: toPoint)).
+	atomConnection hasConnectionColor 
+		ifTrue: 
+			[firstPolylines first paint: atomConnection connectionColor.
+			firstPolylines last paint: atomConnection connectionColor]
+		ifFalse: 
+			[fromAtom hasAtomicColor 
+				ifTrue: [firstPolylines first paint: fromAtom atomicColor]
+				ifFalse: [firstPolylines first paint: atomConnection defaultConnectionColor].
+			toAtom hasAtomicColor 
+				ifTrue: [firstPolylines last paint: toAtom atomicColor]
+				ifFalse: [firstPolylines last paint: atomConnection defaultConnectionColor]].
+	firstPolylines first lineWidth: 2.
+	firstPolylines last lineWidth: 2.
+	secondPolylines := firstPolylines collect: [:each | each copy].
+	thirdPolylines := firstPolylines collect: [:each | each copy].
+	aLine := (fromPoint as2dPoint bisector: toPoint as2dPoint) normalized.
+	offsetPoint := ((aLine atT: 0.05) - (aLine atT: 0)) as3dPoint.
+	secondPolylines := secondPolylines 
+				collect: [:each | each translatedBy: offsetPoint negated].
+	thirdPolylines := thirdPolylines 
+				collect: [:each | each translatedBy: offsetPoint yourself].
+	^Array 
+		with: firstPolylines
+		with: secondPolylines
+		with: thirdPolylines</PRE>
+<!-- } arrayOfPolylinesForTripleBondAsPlane: -->
+<LI><!-- asGraph { -->
+<A NAME="InstanceMethod.asGraph"><B>asGraph</B> <I>[converting]</I></A>
+<A HREF="../xrefsA.html#asGraph"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	| aGraph nodeClass aNode fromAtom toAtom nodeTable fromNode toNode |
+	aGraph := self defaultGraphClass new.
+	aGraph beUndirectedGraph.
+	nodeClass := aGraph class defaultNodeClass.
+	nodeTable := Dictionary new.
+	self atomObjectsAndIndexesDo: 
+			[:atomObject :serialNumber | 
+			aNode := nodeClass 
+						label: atomObject atomicSymbol , '-' , serialNumber printString.
+			aGraph add: aNode.
+			nodeTable at: atomObject put: aNode].
+	self atomConnectionsDo: 
+			[:atomConnection | 
+			fromAtom := atomConnection fromAtom.
+			toAtom := atomConnection toAtom.
+			fromNode := nodeTable at: fromAtom.
+			toNode := nodeTable at: toAtom.
+			aGraph connect: fromNode with: toNode].
+	aGraph arrange: #concentric.
+	^aGraph</PRE>
+<!-- } asGraph -->
+<LI><!-- asGrapher { -->
+<A NAME="InstanceMethod.asGrapher"><B>asGrapher</B> <I>[converting]</I></A>
+<A HREF="../xrefsA.html#asGrapher"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^self defaultGrapherClass graph: self asGraph</PRE>
+<!-- } asGrapher -->
+<LI><!-- atomConnection:with: { -->
+<A NAME="InstanceMethod.atomConnection:with:"><B>atomConnection:</B> atomObject <B>with:</B> anotherAtomObject <I>[accessing connection]</I></A>
+<A HREF="../xrefsA.html#atomConnection:with:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	self atomConnections do: 
+			[:atomConnection | 
+			(atomConnection fromAtom = atomObject 
+				and: [atomConnection toAtom = anotherAtomObject]) ifTrue: [^atomConnection].
+			(atomConnection fromAtom = anotherAtomObject 
+				and: [atomConnection toAtom = atomObject]) ifTrue: [^atomConnection]].
+	^nil</PRE>
+<!-- } atomConnection:with: -->
+<LI><!-- atomConnections { -->
+<A NAME="InstanceMethod.atomConnections"><B>atomConnections</B> <I>[accessing connection]</I></A>
+<A HREF="../xrefsA.html#atomConnections"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	atomConnections isNil ifTrue: [atomConnections := Array new].
+	^atomConnections</PRE>
+<!-- } atomConnections -->
+<LI><!-- atomConnections: { -->
+<A NAME="InstanceMethod.atomConnections:"><B>atomConnections:</B> atomConnectionCollection <I>[accessing connection]</I></A>
+<A HREF="../xrefsA.html#atomConnections:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	atomConnections := atomConnectionCollection asArray</PRE>
+<!-- } atomConnections: -->
+<LI><!-- atomConnectionsDo: { -->
+<A NAME="InstanceMethod.atomConnectionsDo:"><B>atomConnectionsDo:</B> aBlock <I>[enumerating]</I></A>
+<A HREF="../xrefsA.html#atomConnectionsDo:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	self atomConnections do: [:atomConnection | aBlock value: atomConnection]</PRE>
+<!-- } atomConnectionsDo: -->
+<LI><!-- atomObjectAt: { -->
+<A NAME="InstanceMethod.atomObjectAt:"><B>atomObjectAt:</B> serialNumber <I>[accessing atom]</I></A>
+<A HREF="../xrefsA.html#atomObjectAt:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	^self atomObjects 
+		detect: [:atomObject | atomObject serialNumber = serialNumber]
+		ifNone: [nil]</PRE>
+<!-- } atomObjectAt: -->
+<LI><!-- atomObjects { -->
+<A NAME="InstanceMethod.atomObjects"><B>atomObjects</B> <I>[accessing atom]</I></A>
+<A HREF="../xrefsA.html#atomObjects"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	atomObjects isNil ifTrue: [atomObjects := Array new].
+	^atomObjects</PRE>
+<!-- } atomObjects -->
+<LI><!-- atomObjects: { -->
+<A NAME="InstanceMethod.atomObjects:"><B>atomObjects:</B> atomObjectCollection <I>[accessing atom]</I></A>
+<A HREF="../xrefsA.html#atomObjects:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	atomObjects := atomObjectCollection asArray</PRE>
+<!-- } atomObjects: -->
+<LI><!-- atomObjectsAndIndexesDo: { -->
+<A NAME="InstanceMethod.atomObjectsAndIndexesDo:"><B>atomObjectsAndIndexesDo:</B> aBlock <I>[enumerating]</I></A>
+<A HREF="../xrefsA.html#atomObjectsAndIndexesDo:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	self atomObjects 
+		do: [:atomObject | aBlock value: atomObject value: atomObject serialNumber]</PRE>
+<!-- } atomObjectsAndIndexesDo: -->
+<LI><!-- atomObjectsDo: { -->
+<A NAME="InstanceMethod.atomObjectsDo:"><B>atomObjectsDo:</B> aBlock <I>[enumerating]</I></A>
+<A HREF="../xrefsA.html#atomObjectsDo:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	self atomObjects do: [:atomObject | aBlock value: atomObject]</PRE>
+<!-- } atomObjectsDo: -->
+<LI><!-- atomResolution { -->
+<A NAME="InstanceMethod.atomResolution"><B>atomResolution</B> <I>[accessing]</I></A>
+<A HREF="../xrefsA.html#atomResolution"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	atomResolution isNil ifTrue: [atomResolution := #medium].
+	^atomResolution</PRE>
+<!-- } atomResolution -->
+<LI><!-- atomResolution: { -->
+<A NAME="InstanceMethod.atomResolution:"><B>atomResolution:</B> aSymbol <I>[accessing]</I></A>
+<A HREF="../xrefsA.html#atomResolution:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	(#(#low #medium #high) includes: aSymbol)
+		ifTrue: [atomResolution := aSymbol]</PRE>
+<!-- } atomResolution: -->
+<LI><!-- atomTable { -->
+<A NAME="InstanceMethod.atomTable"><B>atomTable</B> <I>[accessing]</I></A>
+<A HREF="../xrefsA.html#atomTable"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	| aTable |
+	aTable := Dictionary new.
+	self atomObjectsDo: 
+			[:atomObject | 
+			(aTable includesKey: atomObject atomicSymbol) 
+				ifTrue: 
+					[aTable at: atomObject atomicSymbol
+						put: 1 + (aTable at: atomObject atomicSymbol)]
+				ifFalse: [aTable at: atomObject atomicSymbol put: 1]].
+	^aTable</PRE>
+<!-- } atomTable -->
+<LI><!-- attributeTable { -->
+<A NAME="InstanceMethod.attributeTable"><B>attributeTable</B> <I>[attribute accessing]</I></A>
+<A HREF="../xrefsA.html#attributeTable"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	attributeTable isNil ifTrue: [attributeTable := JunAttributeTable new].
+	^attributeTable</PRE>
+<!-- } attributeTable -->
+<LI><!-- changeColor:serialNumberPairs:nestLevel: { -->
+<A NAME="InstanceMethod.changeColor:serialNumberPairs:nestLevel:"><B>changeColor:</B> colorValue <B>serialNumberPairs:</B> serialNumberPairs <B>nestLevel:</B> nestLevel <I>[coloring]</I></A>
+<A HREF="../xrefsC.html#changeColor:serialNumberPairs:nestLevel:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	| collectionOfAtomConnections |
+	collectionOfAtomConnections := self atomConnections select: 
+					[:atomConnection | 
+					| aPair |
+					aPair := Array with: atomConnection fromAtom serialNumber
+								with: atomConnection toAtom serialNumber.
+					(serialNumberPairs includes: aPair) 
+						or: [serialNumberPairs includes: aPair reverse]].
+	collectionOfAtomConnections 
+		do: [:atomConnection | atomConnection connectionColor: colorValue].
+	nestLevel &gt; 0 
+		ifTrue: 
+			[collectionOfAtomConnections do: 
+					[:atomConnection | 
+					self 
+						changeColor: colorValue
+						serialNumberPairs: ((self connectionsWith: atomConnection fromAtom) asArray 
+								, (self connectionsWith: atomConnection toAtom) asArray collect: 
+										[:each | 
+										Array with: each fromAtom serialNumber with: each toAtom serialNumber])
+						nestLevel: nestLevel - 1]]</PRE>
+<!-- } changeColor:serialNumberPairs:nestLevel: -->
+<LI><!-- changeColor:serialNumbers:nestLevel: { -->
+<A NAME="InstanceMethod.changeColor:serialNumbers:nestLevel:"><B>changeColor:</B> colorValue <B>serialNumbers:</B> serialNumbers <B>nestLevel:</B> nestLevel <I>[coloring]</I></A>
+<A HREF="../xrefsC.html#changeColor:serialNumbers:nestLevel:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	| collectionOfAtomObjects |
+	collectionOfAtomObjects := self atomObjects 
+				select: [:atomObject | serialNumbers includes: atomObject serialNumber].
+	collectionOfAtomObjects 
+		do: [:atomObject | atomObject atomicColor: colorValue].
+	nestLevel &gt; 0 
+		ifTrue: 
+			[collectionOfAtomObjects do: 
+					[:atomObject | 
+					self 
+						changeColor: colorValue
+						serialNumbers: ((self connectedAtomsWith: atomObject) 
+								collect: [:each | each serialNumber])
+						nestLevel: nestLevel - 1]]</PRE>
+<!-- } changeColor:serialNumbers:nestLevel: -->
+<LI><!-- connectedAromaticAtomsAround: { -->
+<A NAME="InstanceMethod.connectedAromaticAtomsAround:"><B>connectedAromaticAtomsAround:</B> atomConnection <I>[accessing atom]</I></A>
+<A HREF="../xrefsC.html#connectedAromaticAtomsAround:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	| connectedAtoms |
+	connectedAtoms := Set new.
+	(self connectedAtomsAndConnectionsWith: atomConnection fromAtom) 
+		associations do: 
+				[:assoc | 
+				| atom connection |
+				atom := assoc key.
+				connection := assoc value.
+				connection bondTypeSymbol = #aromatic 
+					ifTrue: 
+						[(atom = atomConnection fromAtom or: [atom = atomConnection toAtom]) 
+							ifFalse: [connectedAtoms add: atom]]].
+	(self connectedAtomsAndConnectionsWith: atomConnection toAtom) 
+		associations do: 
+				[:assoc | 
+				| atom connection |
+				atom := assoc key.
+				connection := assoc value.
+				connection bondTypeSymbol = #aromatic 
+					ifTrue: 
+						[(atom = atomConnection fromAtom or: [atom = atomConnection toAtom]) 
+							ifFalse: [connectedAtoms add: atom]]].
+	^(connectedAtoms 
+		asSortedCollection: [:a1 :a2 | a1 serialNumber &lt; a2 serialNumber]) asArray</PRE>
+<!-- } connectedAromaticAtomsAround: -->
+<LI><!-- connectedAtomsAndConnectionsWith: { -->
+<A NAME="InstanceMethod.connectedAtomsAndConnectionsWith:"><B>connectedAtomsAndConnectionsWith:</B> atomObject <I>[accessing atom]</I></A>
+<A HREF="../xrefsC.html#connectedAtomsAndConnectionsWith:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	| aTable |
+	aTable := Dictionary new.
+	self atomConnections do: 
+			[:atomConnection | 
+			atomConnection fromAtom = atomObject 
+				ifTrue: [aTable add: atomConnection toAtom -&gt; atomConnection].
+			atomConnection toAtom = atomObject 
+				ifTrue: [aTable add: atomConnection fromAtom -&gt; atomConnection]].
+	^aTable</PRE>
+<!-- } connectedAtomsAndConnectionsWith: -->
+<LI><!-- connectedAtomsAround: { -->
+<A NAME="InstanceMethod.connectedAtomsAround:"><B>connectedAtomsAround:</B> atomConnection <I>[accessing atom]</I></A>
+<A HREF="../xrefsC.html#connectedAtomsAround:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	| connectedAtoms |
+	connectedAtoms := Set new.
+	(self connectedAtomsWith: atomConnection fromAtom) do: 
+			[:each | 
+			(each = atomConnection fromAtom or: [each = atomConnection toAtom]) 
+				ifFalse: [connectedAtoms add: each]].
+	(self connectedAtomsWith: atomConnection toAtom) do: 
+			[:each | 
+			(each = atomConnection fromAtom or: [each = atomConnection toAtom]) 
+				ifFalse: [connectedAtoms add: each]].
+	^(connectedAtoms 
+		asSortedCollection: [:a1 :a2 | a1 serialNumber &lt; a2 serialNumber]) asArray</PRE>
+<!-- } connectedAtomsAround: -->
+<LI><!-- connectedAtomsWith: { -->
+<A NAME="InstanceMethod.connectedAtomsWith:"><B>connectedAtomsWith:</B> atomObject <I>[accessing atom]</I></A>
+<A HREF="../xrefsC.html#connectedAtomsWith:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	^(self connectedAtomsAndConnectionsWith: atomObject) keys</PRE>
+<!-- } connectedAtomsWith: -->
+<LI><!-- connectedConnectionsAround: { -->
+<A NAME="InstanceMethod.connectedConnectionsAround:"><B>connectedConnectionsAround:</B> atomConnection <I>[accessing connection]</I></A>
+<A HREF="../xrefsC.html#connectedConnectionsAround:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	| connectedConnections |
+	connectedConnections := Set new.
+	(self connectedAtomsAndConnectionsWith: atomConnection fromAtom) 
+		associations do: 
+				[:assoc | 
+				| connection |
+				connection := assoc value.
+				connection = atomConnection 
+					ifFalse: [connectedConnections add: connection]].
+	(self connectedAtomsAndConnectionsWith: atomConnection toAtom) 
+		associations do: 
+				[:assoc | 
+				| connection |
+				connection := assoc value.
+				connection = atomConnection 
+					ifFalse: [connectedConnections add: connection]].
+	^(connectedConnections asSortedCollection: 
+			[:c1 :c2 | 
+			c1 fromAtom serialNumber = c2 fromAtom serialNumber 
+				ifTrue: [c1 toAtom serialNumber &lt; c2 toAtom serialNumber]
+				ifFalse: [c1 fromAtom serialNumber &lt; c2 fromAtom serialNumber]]) 
+		asArray</PRE>
+<!-- } connectedConnectionsAround: -->
+<LI><!-- connectionsWith: { -->
+<A NAME="InstanceMethod.connectionsWith:"><B>connectionsWith:</B> atomObject <I>[accessing connection]</I></A>
+<A HREF="../xrefsC.html#connectionsWith:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	^(self connectedAtomsAndConnectionsWith: atomObject) values</PRE>
+<!-- } connectionsWith: -->
+<LI><!-- connectionTable { -->
+<A NAME="InstanceMethod.connectionTable"><B>connectionTable</B> <I>[accessing connection]</I></A>
+<A HREF="../xrefsC.html#connectionTable"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	| aTable aCollection aString |
+	aTable := Dictionary new.
+	self atomConnections
+		do: 
+			[:each | 
+			aCollection := SortedCollection new: 2.
+			aCollection add: each fromAtom atomicSymbol.
+			aCollection add: each toAtom atomicSymbol.
+			aString := (aCollection at: 1)
+						, '-' , (aCollection at: 2).
+			(aTable includesKey: aString)
+				ifTrue: [aTable at: aString put: 1 + (aTable at: aString)]
+				ifFalse: [aTable at: aString put: 1]].
+	^aTable</PRE>
+<!-- } connectionTable -->
+<LI><!-- cylinderFrom:to:width:by: { -->
+<A NAME="InstanceMethod.cylinderFrom:to:width:by:"><B>cylinderFrom:</B> fromPoint <B>to:</B> toPoint <B>width:</B> widthValue <B>by:</B> divisionNumber <I>[3d aux]</I></A>
+<A HREF="../xrefsC.html#cylinderFrom:to:width:by:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	| aCylinder aRadius fromCircle fromPoints aPolygon toPoints |
+	aCylinder := JunOpenGL3dCompoundObject new.
+	aRadius := widthValue / 2.
+	fromCircle := Jun3dCircle 
+				center: fromPoint
+				radius: aRadius
+				upVector: (toPoint to: fromPoint) normalUnitVector.
+	fromPoints := fromCircle trackPointsBy: (360 / divisionNumber) rounded.
+	aPolygon := JunOpenGL3dPolygon vertexes: fromPoints.
+	aPolygon paint: ColorValue red.
+	aCylinder add: aPolygon.
+	toPoints := fromPoints collect: [:p | p translatedBy: toPoint - fromPoint].
+	aPolygon := JunOpenGL3dPolygon vertexes: toPoints reverse.
+	aPolygon paint: ColorValue red.
+	aCylinder add: aPolygon.
+	(1 to: fromPoints size - 1) with: (1 to: toPoints size - 1)
+		do: 
+			[:i :j | 
+			| p1 p2 p3 p4 points vectors |
+			p1 := fromPoints at: i.
+			p2 := fromPoints at: i + 1.
+			p3 := toPoints at: j.
+			p4 := toPoints at: j + 1.
+			points := Array 
+						with: p1
+						with: p3
+						with: p4
+						with: p2.
+			vectors := Array 
+						with: (fromPoint to: p1) normalUnitVector
+						with: (toPoint to: p3) normalUnitVector
+						with: (toPoint to: p4) normalUnitVector
+						with: (fromPoint to: p2) normalUnitVector.
+			aPolygon := JunOpenGL3dPolygon vertexes: points.
+			aPolygon normalVectors: vectors.
+			aPolygon paint: ColorValue red.
+			aCylinder add: aPolygon].
+	^aCylinder</PRE>
+<!-- } cylinderFrom:to:width:by: -->
+<LI><!-- default2dMolfilePatterns { -->
+<A NAME="InstanceMethod.default2dMolfilePatterns"><B>default2dMolfilePatterns</B> <I>[defaults]</I></A>
+<A HREF="../xrefsD.html#default2dMolfilePatterns"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^#('*.2d.mol')</PRE>
+<!-- } default2dMolfilePatterns -->
+<LI><!-- defaultAtomConnectionClass { -->
+<A NAME="InstanceMethod.defaultAtomConnectionClass"><B>defaultAtomConnectionClass</B> <I>[defaults]</I></A>
+<A HREF="../xrefsD.html#defaultAtomConnectionClass"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^self class defaultAtomConnectionClass</PRE>
+<!-- } defaultAtomConnectionClass -->
+<LI><!-- defaultAtomObjectClass { -->
+<A NAME="InstanceMethod.defaultAtomObjectClass"><B>defaultAtomObjectClass</B> <I>[defaults]</I></A>
+<A HREF="../xrefsD.html#defaultAtomObjectClass"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^self class defaultAtomObjectClass</PRE>
+<!-- } defaultAtomObjectClass -->
+<LI><!-- defaultBallDivisionNumberHigh { -->
+<A NAME="InstanceMethod.defaultBallDivisionNumberHigh"><B>defaultBallDivisionNumberHigh</B> <I>[defaults]</I></A>
+<A HREF="../xrefsD.html#defaultBallDivisionNumberHigh"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^2</PRE>
+<!-- } defaultBallDivisionNumberHigh -->
+<LI><!-- defaultBallDivisionNumberLow { -->
+<A NAME="InstanceMethod.defaultBallDivisionNumberLow"><B>defaultBallDivisionNumberLow</B> <I>[defaults]</I></A>
+<A HREF="../xrefsD.html#defaultBallDivisionNumberLow"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^0</PRE>
+<!-- } defaultBallDivisionNumberLow -->
+<LI><!-- defaultBallDivisionNumberMedium { -->
+<A NAME="InstanceMethod.defaultBallDivisionNumberMedium"><B>defaultBallDivisionNumberMedium</B> <I>[defaults]</I></A>
+<A HREF="../xrefsD.html#defaultBallDivisionNumberMedium"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^1</PRE>
+<!-- } defaultBallDivisionNumberMedium -->
+<LI><!-- defaultBondThickness { -->
+<A NAME="InstanceMethod.defaultBondThickness"><B>defaultBondThickness</B> <I>[defaults]</I></A>
+<A HREF="../xrefsD.html#defaultBondThickness"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^0.09</PRE>
+<!-- } defaultBondThickness -->
+<LI><!-- defaultFrontierMinimumDistance { -->
+<A NAME="InstanceMethod.defaultFrontierMinimumDistance"><B>defaultFrontierMinimumDistance</B> <I>[defaults]</I></A>
+<A HREF="../xrefsD.html#defaultFrontierMinimumDistance"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	self atomResolution = #high ifTrue: [^0.001d].
+	self atomResolution = #medium ifTrue: [^0.01d].
+	self atomResolution = #low ifTrue: [^0.1d].
+	^0.01d</PRE>
+<!-- } defaultFrontierMinimumDistance -->
+<LI><!-- defaultFrontierRevisedCoeffcient { -->
+<A NAME="InstanceMethod.defaultFrontierRevisedCoeffcient"><B>defaultFrontierRevisedCoeffcient</B> <I>[defaults]</I></A>
+<A HREF="../xrefsD.html#defaultFrontierRevisedCoeffcient"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	self atomResolution = #high ifTrue: [^0.997d].
+	self atomResolution = #medium ifTrue: [^0.983d].
+	self atomResolution = #low ifTrue: [^0.900d].
+	^0.983d</PRE>
+<!-- } defaultFrontierRevisedCoeffcient -->
+<LI><!-- defaultGraphClass { -->
+<A NAME="InstanceMethod.defaultGraphClass"><B>defaultGraphClass</B> <I>[defaults]</I></A>
+<A HREF="../xrefsD.html#defaultGraphClass"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^self class defaultGraphClass</PRE>
+<!-- } defaultGraphClass -->
+<LI><!-- defaultGrapherClass { -->
+<A NAME="InstanceMethod.defaultGrapherClass"><B>defaultGrapherClass</B> <I>[defaults]</I></A>
+<A HREF="../xrefsD.html#defaultGrapherClass"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^self class defaultGrapherClass</PRE>
+<!-- } defaultGrapherClass -->
+<LI><!-- defaultHalftoneValue { -->
+<A NAME="InstanceMethod.defaultHalftoneValue"><B>defaultHalftoneValue</B> <I>[defaults]</I></A>
+<A HREF="../xrefsD.html#defaultHalftoneValue"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^0.5</PRE>
+<!-- } defaultHalftoneValue -->
+<LI><!-- defaultMinimumTriangleArea { -->
+<A NAME="InstanceMethod.defaultMinimumTriangleArea"><B>defaultMinimumTriangleArea</B> <I>[defaults]</I></A>
+<A HREF="../xrefsD.html#defaultMinimumTriangleArea"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	self atomResolution = #high ifTrue: [^0.001d].
+	self atomResolution = #medium ifTrue: [^0.01d].
+	self atomResolution = #low ifTrue: [^0.1d].
+	^0.01d</PRE>
+<!-- } defaultMinimumTriangleArea -->
+<LI><!-- defaultMolFileReaderClass { -->
+<A NAME="InstanceMethod.defaultMolFileReaderClass"><B>defaultMolFileReaderClass</B> <I>[defaults]</I></A>
+<A HREF="../xrefsD.html#defaultMolFileReaderClass"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^self class defaultMolFileReaderClass</PRE>
+<!-- } defaultMolFileReaderClass -->
+<LI><!-- defaultSpaceFillDivisionNumber { -->
+<A NAME="InstanceMethod.defaultSpaceFillDivisionNumber"><B>defaultSpaceFillDivisionNumber</B> <I>[defaults]</I></A>
+<A HREF="../xrefsD.html#defaultSpaceFillDivisionNumber"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	self atomResolution = #low 
+		ifTrue: [^self defaultSpaceFillDivisionNumberLow].
+	self atomResolution = #medium 
+		ifTrue: [^self defaultSpaceFillDivisionNumberMedium].
+	self atomResolution = #high 
+		ifTrue: [^self defaultSpaceFillDivisionNumberHigh].
+	^self defaultSpaceFillDivisionNumber</PRE>
+<!-- } defaultSpaceFillDivisionNumber -->
+<LI><!-- defaultSpaceFillDivisionNumberHigh { -->
+<A NAME="InstanceMethod.defaultSpaceFillDivisionNumberHigh"><B>defaultSpaceFillDivisionNumberHigh</B> <I>[defaults]</I></A>
+<A HREF="../xrefsD.html#defaultSpaceFillDivisionNumberHigh"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^3</PRE>
+<!-- } defaultSpaceFillDivisionNumberHigh -->
+<LI><!-- defaultSpaceFillDivisionNumberLow { -->
+<A NAME="InstanceMethod.defaultSpaceFillDivisionNumberLow"><B>defaultSpaceFillDivisionNumberLow</B> <I>[defaults]</I></A>
+<A HREF="../xrefsD.html#defaultSpaceFillDivisionNumberLow"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^1</PRE>
+<!-- } defaultSpaceFillDivisionNumberLow -->
+<LI><!-- defaultSpaceFillDivisionNumberMedium { -->
+<A NAME="InstanceMethod.defaultSpaceFillDivisionNumberMedium"><B>defaultSpaceFillDivisionNumberMedium</B> <I>[defaults]</I></A>
+<A HREF="../xrefsD.html#defaultSpaceFillDivisionNumberMedium"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^2</PRE>
+<!-- } defaultSpaceFillDivisionNumberMedium -->
+<LI><!-- defaultTubeDivisionNumber { -->
+<A NAME="InstanceMethod.defaultTubeDivisionNumber"><B>defaultTubeDivisionNumber</B> <I>[defaults]</I></A>
+<A HREF="../xrefsD.html#defaultTubeDivisionNumber"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^self defaultTubeDivisionNumberMedium</PRE>
+<!-- } defaultTubeDivisionNumber -->
+<LI><!-- defaultTubeDivisionNumberHigh { -->
+<A NAME="InstanceMethod.defaultTubeDivisionNumberHigh"><B>defaultTubeDivisionNumberHigh</B> <I>[defaults]</I></A>
+<A HREF="../xrefsD.html#defaultTubeDivisionNumberHigh"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^60</PRE>
+<!-- } defaultTubeDivisionNumberHigh -->
+<LI><!-- defaultTubeDivisionNumberLow { -->
+<A NAME="InstanceMethod.defaultTubeDivisionNumberLow"><B>defaultTubeDivisionNumberLow</B> <I>[defaults]</I></A>
+<A HREF="../xrefsD.html#defaultTubeDivisionNumberLow"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^120</PRE>
+<!-- } defaultTubeDivisionNumberLow -->
+<LI><!-- defaultTubeDivisionNumberMedium { -->
+<A NAME="InstanceMethod.defaultTubeDivisionNumberMedium"><B>defaultTubeDivisionNumberMedium</B> <I>[defaults]</I></A>
+<A HREF="../xrefsD.html#defaultTubeDivisionNumberMedium"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^90</PRE>
+<!-- } defaultTubeDivisionNumberMedium -->
+<LI><!-- distancesFrom: { -->
+<A NAME="InstanceMethod.distancesFrom:"><B>distancesFrom:</B> aPoint <I>[functions]</I></A>
+<A HREF="../xrefsD.html#distancesFrom:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	| collection |
+	collection := OrderedCollection new: self numberOfAtoms.
+	self atomObjectsAndIndexesDo: 
+			[:atom :index | 
+			| distance |
+			distance := atom distanceFrom: aPoint.
+			collection add: distance -&gt; (Array with: atom with: index)].
+	collection := collection asSortedCollection: [:d1 :d2 | d1 &lt; d2].
+	^collection</PRE>
+<!-- } distancesFrom: -->
+<LI><!-- exceptHydrogen { -->
+<A NAME="InstanceMethod.exceptHydrogen"><B>exceptHydrogen</B> <I>[accessing]</I></A>
+<A HREF="../xrefsE.html#exceptHydrogen"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^exceptHydrogen = true</PRE>
+<!-- } exceptHydrogen -->
+<LI><!-- exceptHydrogen: { -->
+<A NAME="InstanceMethod.exceptHydrogen:"><B>exceptHydrogen:</B> aBoolean <I>[accessing]</I></A>
+<A HREF="../xrefsE.html#exceptHydrogen:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	exceptHydrogen := aBoolean = true</PRE>
+<!-- } exceptHydrogen: -->
+<LI><!-- frontierPoint:rejectedBy: { -->
+<A NAME="InstanceMethod.frontierPoint:rejectedBy:"><B>frontierPoint:</B> aLine <B>rejectedBy:</B> aBall <I>[frontier]</I></A>
+<A HREF="../xrefsF.html#frontierPoint:rejectedBy:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	| incrementValue firstDistance firstPoint lastDistance lastPoint |
+	firstPoint := aLine first.
+	lastPoint := aLine last.
+	(firstPoint distance: lastPoint) &lt; self defaultFrontierMinimumDistance 
+		ifTrue: [^firstPoint center: lastPoint].
+	incrementValue := 0.5.
+	(0 to: 1 - incrementValue by: incrementValue) 
+		with: (0 + incrementValue to: 1 by: incrementValue)
+		do: 
+			[:firstT :lastT | 
+			firstDistance := (firstPoint := aLine atT: firstT) distance: aBall center.
+			lastDistance := (lastPoint := aLine atT: lastT) distance: aBall center.
+			(aBall radius between: (firstDistance min: lastDistance)
+				and: (firstDistance max: lastDistance)) 
+					ifTrue: [^self frontierPoint: (firstPoint to: lastPoint) rejectedBy: aBall]].
+	^firstPoint center: lastPoint</PRE>
+<!-- } frontierPoint:rejectedBy: -->
+<LI><!-- frontierPolygons:of:offset: { -->
+<A NAME="InstanceMethod.frontierPolygons:of:offset:"><B>frontierPolygons:</B> aPolygon <B>of:</B> atomObject <B>offset:</B> offsetValue <I>[frontier]</I></A>
+<A HREF="../xrefsF.html#frontierPolygons:of:offset:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	| aTriangle triangleCollection intersectedAtoms aBall aCollection frontierPolygons |
+	aTriangle := Jun3dTriangle 
+				on: (aPolygon vertexes at: 1)
+				on: (aPolygon vertexes at: 2)
+				on: (aPolygon vertexes at: 3).
+	aBall := Jun3dBoundingBall center: atomObject atomicPoint
+				radius: atomObject atomicRadius + offsetValue.
+	intersectedAtoms := self atomObjects select: 
+					[:eachAtom | 
+					(eachAtom = atomObject) not and: 
+							[aBall intersects: (Jun3dBoundingBall center: eachAtom atomicPoint
+										radius: eachAtom atomicRadius + offsetValue)]].
+	triangleCollection := OrderedCollection with: aTriangle.
+	intersectedAtoms do: 
+			[:eachAtom | 
+			aBall := Jun3dBoundingBall center: eachAtom atomicPoint
+						radius: eachAtom atomicRadius + offsetValue.
+			aCollection := OrderedCollection new.
+			triangleCollection do: 
+					[:eachTriangle | 
+					aCollection 
+						addAll: (self frontierTriangles: eachTriangle rejectedBy: aBall)].
+			triangleCollection := aCollection].
+	frontierPolygons := triangleCollection collect: 
+					[:eachTriangle | 
+					(JunOpenGL3dPolygon vertexes: (Array 
+								with: eachTriangle p1
+								with: eachTriangle p2
+								with: eachTriangle p3))
+						paint: aPolygon paint;
+						yourself].
+	^frontierPolygons</PRE>
+<!-- } frontierPolygons:of:offset: -->
+<LI><!-- frontierTriangles:rejectedBy: { -->
+<A NAME="InstanceMethod.frontierTriangles:rejectedBy:"><B>frontierTriangles:</B> aTriangle <B>rejectedBy:</B> aBall <I>[frontier]</I></A>
+<A HREF="../xrefsF.html#frontierTriangles:rejectedBy:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	| aCollection trueCollection falseCollection firstPoint secondPoint thirdPoint aPoint aLine aPlane aTable |
+	aCollection := (Array 
+				with: aTriangle first
+				with: aTriangle second
+				with: aTriangle third) 
+					collect: [:eachPoint | (aBall containsPoint: eachPoint) -&gt; eachPoint].
+	trueCollection := aCollection 
+				select: [:anAssociation | anAssociation key = true].
+	falseCollection := aCollection 
+				select: [:anAssociation | anAssociation key = false].
+	trueCollection size = 3 ifTrue: [^Array new].
+	falseCollection size = 3 ifTrue: [^Array with: aTriangle].
+	firstPoint := nil.
+	secondPoint := nil.
+	thirdPoint := nil.
+	trueCollection size = 2 
+		ifTrue: 
+			[firstPoint := falseCollection first value.
+			secondPoint := trueCollection first value.
+			thirdPoint := trueCollection last value].
+	falseCollection size = 2 
+		ifTrue: 
+			[firstPoint := trueCollection first value.
+			secondPoint := falseCollection first value.
+			thirdPoint := falseCollection last value].
+	secondPoint := self frontierPoint: (firstPoint to: secondPoint)
+				rejectedBy: aBall.
+	thirdPoint := self frontierPoint: (firstPoint to: thirdPoint)
+				rejectedBy: aBall.
+	aPoint := secondPoint center: thirdPoint.
+	aLine := aBall center to: aPoint.
+	aPoint := aLine atT: self defaultFrontierRevisedCoeffcient.
+	aPlane := aPoint plane: aLine normalUnitVector.
+	aTable := aTriangle tableDividedBy: aPlane.
+	^aTable at: #positives</PRE>
+<!-- } frontierTriangles:rejectedBy: -->
+<LI><!-- hasHydroxyl: { -->
+<A NAME="InstanceMethod.hasHydroxyl:"><B>hasHydroxyl:</B> atomObject <I>[testing]</I></A>
+<A HREF="../xrefsH.html#hasHydroxyl:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	&quot;
+	*-OH
+	^
+	&quot;
+
+	| aTable |
+	aTable := self connectedAtomsAndConnectionsWith: atomObject.
+	aTable keysAndValuesDo: 
+			[:connectedAtom :connectedBond | 
+			(connectedBond isSingle and: [connectedAtom isOxygen]) 
+				ifTrue: [^self isHydroxyl: connectedAtom]].
+	^false</PRE>
+<!-- } hasHydroxyl: -->
+<LI><!-- informationString { -->
+<A NAME="InstanceMethod.informationString"><B>informationString</B> <I>[accessing]</I></A>
+<A HREF="../xrefsI.html#informationString"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	| aStream aCollection aString |
+	self
+		assert: [aStream := String new writeStream]
+		do: 
+			[aStream nextPutAll: super informationString.
+			aStream tab.
+			aStream nextPutAll: (#chemoJun_number_of_atoms__ &gt;&gt; 'number of atoms: ') asString.
+			aStream nextPutAll: self numberOfAtoms printString.
+			aStream cr.
+			aStream tab.
+			aStream nextPutAll: (#chemoJun_number_of_connections__ &gt;&gt; 'number of connections: ') asString.
+			aStream nextPutAll: self numberOfConnections printString.
+			aStream cr.
+			aStream tab.
+			aStream nextPutAll: (#chemoJun_atoms__ &gt;&gt; 'atoms: ') asString.
+			aCollection := self atomTable associations asSortedCollection.
+			aCollection with: (1 to: aCollection size)
+				do: 
+					[:assoc :index | 
+					aStream nextPutAll: assoc key asString.
+					aStream space.
+					aStream nextPutAll: assoc value printString.
+					index &lt; aCollection size ifTrue: [aStream nextPutAll: ', ']].
+			aStream cr.
+			aStream tab.
+			aStream nextPutAll: (#chemoJun_connections__ &gt;&gt; 'connections: ') asString.
+			aCollection := self connectionTable associations asSortedCollection.
+			aCollection with: (1 to: aCollection size)
+				do: 
+					[:assoc :index | 
+					aStream nextPutAll: assoc key asString.
+					aStream space.
+					aStream nextPutAll: assoc value printString.
+					index &lt; aCollection size ifTrue: [aStream nextPutAll: ', ']].
+			aStream cr]
+		ensure: 
+			[aString := aStream contents.
+			aStream close].
+	^aString</PRE>
+<!-- } informationString -->
+<LI><!-- initialize { -->
+<A NAME="InstanceMethod.initialize"><B>initialize</B> <I>[initialize-release]</I></A>
+<A HREF="../xrefsI.html#initialize"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	super initialize.
+	atomObjects := nil.
+	atomConnections := nil.
+	atomResolution := nil.
+	exceptHydrogen := self class defaultExceptHydrogen.
+	attributeTable := nil</PRE>
+<!-- } initialize -->
+<LI><!-- is2d { -->
+<A NAME="InstanceMethod.is2d"><B>is2d</B> <I>[testing]</I></A>
+<A HREF="../xrefsI.html#is2d"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	self fileName ifNil: [^false].
+	^(self default2dMolfilePatterns detect: 
+			[:patternString | 
+			JunStringUtility stringMatch: self fileName asString asLowercase
+				and: patternString asLowercase]
+		ifNone: [nil]) notNil</PRE>
+<!-- } is2d -->
+<LI><!-- is3d { -->
+<A NAME="InstanceMethod.is3d"><B>is3d</B> <I>[testing]</I></A>
+<A HREF="../xrefsI.html#is3d"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^self is2d not</PRE>
+<!-- } is3d -->
+<LI><!-- isAldehyde: { -->
+<A NAME="InstanceMethod.isAldehyde:"><B>isAldehyde:</B> atomObject <I>[testing]</I></A>
+<A HREF="../xrefsI.html#isAldehyde:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	&quot;
+	-CHO
+	 ^
+	&quot;
+
+	| aBoolean |
+	aBoolean := false.
+	atomObject isCarbon 
+		ifTrue: 
+			[| aTable |
+			aTable := self connectedAtomsAndConnectionsWith: atomObject.
+			aTable keysAndValuesDo: 
+					[:connectedAtom :connectedBond | 
+					(connectedBond isDouble and: [connectedAtom isOxygen]) 
+						ifTrue: [aBoolean := true]]].
+	(aBoolean and: [(self numberOfHydrogens: atomObject) = 1]) ifTrue: [^true].
+	^false</PRE>
+<!-- } isAldehyde: -->
+<LI><!-- isAmino: { -->
+<A NAME="InstanceMethod.isAmino:"><B>isAmino:</B> atomObject <I>[testing]</I></A>
+<A HREF="../xrefsI.html#isAmino:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	&quot;
+	-NH2 or -NH
+	 ^       ^
+	&quot;
+
+	(atomObject isNitrogen and: 
+			[(self numberOfHydrogens: atomObject) = 2 
+				or: [(self numberOfHydrogens: atomObject) = 1]]) 
+		ifTrue: [^true].
+	^false</PRE>
+<!-- } isAmino: -->
+<LI><!-- isCarbonyl: { -->
+<A NAME="InstanceMethod.isCarbonyl:"><B>isCarbonyl:</B> atomObject <I>[testing]</I></A>
+<A HREF="../xrefsI.html#isCarbonyl:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	&quot;
+	-C=O
+	 ^
+	&quot;
+
+	(self isCarboxyl: atomObject) ifTrue: [^false].
+	(self isAldehyde: atomObject) ifTrue: [^false].
+	atomObject isCarbon 
+		ifTrue: 
+			[| aTable |
+			aTable := self connectedAtomsAndConnectionsWith: atomObject.
+			aTable keysAndValuesDo: 
+					[:connectedAtom :connectedBond | 
+					(connectedBond isDouble and: [connectedAtom isOxygen]) ifTrue: [^true]]].
+	^false</PRE>
+<!-- } isCarbonyl: -->
+<LI><!-- isCarboxyl: { -->
+<A NAME="InstanceMethod.isCarboxyl:"><B>isCarboxyl:</B> atomObject <I>[testing]</I></A>
+<A HREF="../xrefsI.html#isCarboxyl:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	&quot;
+	-COOH
+	 ^
+	&quot;
+
+	| aBoolean |
+	aBoolean := false.
+	atomObject isCarbon 
+		ifTrue: 
+			[| aTable |
+			aTable := self connectedAtomsAndConnectionsWith: atomObject.
+			aTable keysAndValuesDo: 
+					[:connectedAtom :connectedBond | 
+					(connectedBond isDouble and: [connectedAtom isOxygen]) 
+						ifTrue: [aBoolean := true]]].
+	(aBoolean and: [self hasHydroxyl: atomObject]) ifTrue: [^true].
+	^false</PRE>
+<!-- } isCarboxyl: -->
+<LI><!-- isHydroxyl: { -->
+<A NAME="InstanceMethod.isHydroxyl:"><B>isHydroxyl:</B> atomObject <I>[testing]</I></A>
+<A HREF="../xrefsI.html#isHydroxyl:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	&quot;
+	-OH
+	 ^
+	&quot;
+
+	(atomObject isOxygen and: [(self numberOfHydrogens: atomObject) = 1]) 
+		ifTrue: [^true].
+	^false</PRE>
+<!-- } isHydroxyl: -->
+<LI><!-- isMethyl: { -->
+<A NAME="InstanceMethod.isMethyl:"><B>isMethyl:</B> atomObject <I>[testing]</I></A>
+<A HREF="../xrefsI.html#isMethyl:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	&quot;
+	-CH3
+	 ^  
+	&quot;
+
+	(atomObject isCarbon and: [(self numberOfHydrogens: atomObject) = 3]) 
+		ifTrue: [^true].
+	^false</PRE>
+<!-- } isMethyl: -->
+<LI><!-- isSulfanyl: { -->
+<A NAME="InstanceMethod.isSulfanyl:"><B>isSulfanyl:</B> atomObject <I>[testing]</I></A>
+<A HREF="../xrefsI.html#isSulfanyl:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	&quot;
+	-SH
+	 ^
+	&quot;
+
+	(atomObject isSulfur and: [(self numberOfHydrogens: atomObject) = 1]) 
+		ifTrue: [^true].
+	^false</PRE>
+<!-- } isSulfanyl: -->
+<LI><!-- modifierAssociation:normalPresentation: { -->
+<A NAME="InstanceMethod.modifierAssociation:normalPresentation:"><B>modifierAssociation:</B> atomObject <B>normalPresentation:</B> aBoolean <I>[private]</I></A>
+<A HREF="../xrefsM.html#modifierAssociation:normalPresentation:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	| anAssociation fakeNumberOfHydrogens |
+	anAssociation := atomObject atomicSymbol asString -&gt; 1.
+	fakeNumberOfHydrogens := (self numberOfHydrogensTable: atomObject) 
+				at: #fakeNumberOfHydrogens.
+	aBoolean 
+		ifTrue: 
+			[(self isMethyl: atomObject) 
+				ifTrue: 
+					[fakeNumberOfHydrogens = 0 ifTrue: [anAssociation := 'C' -&gt; 1].
+					fakeNumberOfHydrogens = 1 ifTrue: [anAssociation := 'CH' -&gt; 1].
+					fakeNumberOfHydrogens = 2 ifTrue: [anAssociation := 'CH2' -&gt; 1].
+					fakeNumberOfHydrogens = 3 ifTrue: [anAssociation := 'CH3' -&gt; 1]].
+			(self isHydroxyl: atomObject) 
+				ifTrue: 
+					[fakeNumberOfHydrogens = 0 ifTrue: [anAssociation := 'O' -&gt; 1].
+					fakeNumberOfHydrogens = 1 ifTrue: [anAssociation := 'OH' -&gt; 1]].
+			(self isAmino: atomObject) 
+				ifTrue: 
+					[fakeNumberOfHydrogens = 0 ifTrue: [anAssociation := 'N' -&gt; 1].
+					fakeNumberOfHydrogens = 1 ifTrue: [anAssociation := 'NH' -&gt; 1].
+					fakeNumberOfHydrogens = 2 ifTrue: [anAssociation := 'NH2' -&gt; 1]].
+			(self isSulfanyl: atomObject) 
+				ifTrue: 
+					[fakeNumberOfHydrogens = 0 ifTrue: [anAssociation := 'S' -&gt; 1].
+					fakeNumberOfHydrogens = 1 ifTrue: [anAssociation := 'SH' -&gt; 1]]]
+		ifFalse: 
+			[(self isMethyl: atomObject) 
+				ifTrue: 
+					[fakeNumberOfHydrogens = 0 ifTrue: [anAssociation := 'C' -&gt; 1].
+					fakeNumberOfHydrogens = 1 ifTrue: [anAssociation := 'HC' -&gt; 2].
+					fakeNumberOfHydrogens = 2 ifTrue: [anAssociation := 'H2C' -&gt; 3].
+					fakeNumberOfHydrogens = 3 ifTrue: [anAssociation := 'H3C' -&gt; 3]].
+			(self isHydroxyl: atomObject) 
+				ifTrue: 
+					[fakeNumberOfHydrogens = 0 ifTrue: [anAssociation := 'O' -&gt; 1].
+					fakeNumberOfHydrogens = 1 ifTrue: [anAssociation := 'HO' -&gt; 2]].
+			(self isAmino: atomObject) 
+				ifTrue: 
+					[fakeNumberOfHydrogens = 0 ifTrue: [anAssociation := 'N' -&gt; 1].
+					fakeNumberOfHydrogens = 1 ifTrue: [anAssociation := 'HN' -&gt; 2].
+					fakeNumberOfHydrogens = 2 ifTrue: [anAssociation := 'H2N' -&gt; 3]].
+			(self isSulfanyl: atomObject) 
+				ifTrue: 
+					[fakeNumberOfHydrogens = 0 ifTrue: [anAssociation := 'S' -&gt; 1].
+					fakeNumberOfHydrogens = 1 ifTrue: [anAssociation := 'HS' -&gt; 2]]].
+	^anAssociation</PRE>
+<!-- } modifierAssociation:normalPresentation: -->
+<LI><!-- moleculeAsBallAndStick { -->
+<A NAME="InstanceMethod.moleculeAsBallAndStick"><B>moleculeAsBallAndStick</B> <I>[3d accessing]</I></A>
+<A HREF="../xrefsM.html#moleculeAsBallAndStick"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	self atomResolution = #low 
+		ifTrue: [^self moleculeAsBallAndStick: self defaultTubeDivisionNumberLow].
+	self atomResolution = #medium 
+		ifTrue: 
+			[^self moleculeAsBallAndStick: self defaultTubeDivisionNumberMedium].
+	self atomResolution = #high 
+		ifTrue: [^self moleculeAsBallAndStick: self defaultTubeDivisionNumberHigh].
+	^self moleculeAsBallAndStick: self defaultTubeDivisionNumber</PRE>
+<!-- } moleculeAsBallAndStick -->
+<LI><!-- moleculeAsBallAndStick: { -->
+<A NAME="InstanceMethod.moleculeAsBallAndStick:"><B>moleculeAsBallAndStick:</B> divisionNumber <I>[3d accessing]</I></A>
+<A HREF="../xrefsM.html#moleculeAsBallAndStick:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	| aBall compoundObject |
+	aBall := nil.
+	divisionNumber = self defaultTubeDivisionNumberLow 
+		ifTrue: [aBall := JunOpenGL3dObject ball: self defaultBallDivisionNumberLow].
+	divisionNumber = self defaultTubeDivisionNumberMedium 
+		ifTrue: 
+			[aBall := JunOpenGL3dObject ball: self defaultBallDivisionNumberMedium].
+	divisionNumber = self defaultTubeDivisionNumberHigh 
+		ifTrue: [aBall := JunOpenGL3dObject ball: self defaultBallDivisionNumberHigh].
+	aBall isNil 
+		ifTrue: [aBall := JunOpenGL3dObject ball: self defaultBallDivisionNumberLow].
+	compoundObject := self moleculeAsStick: divisionNumber.
+	self atomObjectsDo: 
+			[:atomObject | 
+			(atomObject isHydrogen and: [self exceptHydrogen]) 
+				ifFalse: 
+					[| centerPoint radiusValue colorValue aTransformation aSphere |
+					centerPoint := atomObject atomicPoint.
+					radiusValue := atomObject atomicRadius * (1 / 8).
+					colorValue := atomObject atomicColor blendWith: ColorValue white.
+					aTransformation := (Jun3dTransformation 
+								scale: radiusValue , radiusValue , radiusValue) 
+									product: (Jun3dTransformation translate: centerPoint).
+					aSphere := aBall transform: aTransformation.
+					aSphere polygonsDo: 
+							[:polygon | 
+							polygon normalVectors: (polygon vertexes 
+										collect: [:p | (centerPoint to: p) normalUnitVector])].
+					aSphere paint: colorValue.
+					compoundObject add: aSphere]].
+	^compoundObject</PRE>
+<!-- } moleculeAsBallAndStick: -->
+<LI><!-- moleculeAsPlane { -->
+<A NAME="InstanceMethod.moleculeAsPlane"><B>moleculeAsPlane</B> <I>[3d accessing]</I></A>
+<A HREF="../xrefsM.html#moleculeAsPlane"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	| compoundObject bondTypeSymbol firstPolylines secondPolylines thirdPolylines stereoTypeSymbol |
+	compoundObject := JunOpenGL3dCompoundObject new.
+	self atomConnections do: 
+			[:atomConnection | 
+			bondTypeSymbol := atomConnection bondTypeSymbol.
+			bondTypeSymbol = #single 
+				ifTrue: 
+					[| anArray |
+					anArray := self arrayOfPolylinesForSingleBondAsPlane: atomConnection.
+					firstPolylines := anArray at: 1].
+			bondTypeSymbol = #double 
+				ifTrue: 
+					[| anArray |
+					anArray := self arrayOfPolylinesForDoubleBondAsPlane: atomConnection.
+					firstPolylines := anArray at: 1.
+					secondPolylines := anArray at: 2].
+			bondTypeSymbol = #triple 
+				ifTrue: 
+					[| anArray |
+					anArray := self arrayOfPolylinesForTripleBondAsPlane: atomConnection.
+					firstPolylines := anArray at: 1.
+					secondPolylines := anArray at: 2.
+					thirdPolylines := anArray at: 3].
+			bondTypeSymbol = #aromatic 
+				ifTrue: 
+					[| anArray |
+					anArray := self arrayOfPolylinesForAromaticBondAsPlane: atomConnection.
+					firstPolylines := anArray at: 1.
+					secondPolylines := anArray at: 2].
+			stereoTypeSymbol := atomConnection stereoTypeSymbol.
+			(stereoTypeSymbol = #up or: [stereoTypeSymbol = #down]) 
+				ifTrue: 
+					[(stereoTypeSymbol = #up or: [stereoTypeSymbol = #down]) 
+						ifTrue: 
+							[firstPolylines do: [:each | each lineWidth: 4].
+							stereoTypeSymbol = #down 
+								ifTrue: [firstPolylines do: [:each | each halftone: 0.25]]]].
+			((atomConnection fromAtom isHydrogen 
+				or: [atomConnection toAtom isHydrogen]) and: [self exceptHydrogen]) 
+				ifFalse: 
+					[compoundObject addAll: firstPolylines.
+					bondTypeSymbol = #double ifTrue: [compoundObject addAll: secondPolylines].
+					bondTypeSymbol = #triple 
+						ifTrue: 
+							[compoundObject addAll: secondPolylines.
+							compoundObject addAll: thirdPolylines].
+					bondTypeSymbol = #aromatic 
+						ifTrue: [compoundObject addAll: secondPolylines]]].
+	^compoundObject</PRE>
+<!-- } moleculeAsPlane -->
+<LI><!-- moleculeAsSpaceFill { -->
+<A NAME="InstanceMethod.moleculeAsSpaceFill"><B>moleculeAsSpaceFill</B> <I>[3d accessing]</I></A>
+<A HREF="../xrefsM.html#moleculeAsSpaceFill"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^self moleculeAsSpaceFill: self defaultSpaceFillDivisionNumber</PRE>
+<!-- } moleculeAsSpaceFill -->
+<LI><!-- moleculeAsSpaceFill: { -->
+<A NAME="InstanceMethod.moleculeAsSpaceFill:"><B>moleculeAsSpaceFill:</B> divisionNumber <I>[3d accessing]</I></A>
+<A HREF="../xrefsM.html#moleculeAsSpaceFill:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	^self moleculeAsSpaceFill: divisionNumber offsetValue: 0</PRE>
+<!-- } moleculeAsSpaceFill: -->
+<LI><!-- moleculeAsSpaceFill:offsetValue: { -->
+<A NAME="InstanceMethod.moleculeAsSpaceFill:offsetValue:"><B>moleculeAsSpaceFill:</B> divisionNumber <B>offsetValue:</B> offsetValue <I>[3d accessing]</I></A>
+<A HREF="../xrefsM.html#moleculeAsSpaceFill:offsetValue:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	^self 
+		moleculeAsSpaceFill: divisionNumber
+		offsetValue: offsetValue
+		smoothShading: true</PRE>
+<!-- } moleculeAsSpaceFill:offsetValue: -->
+<LI><!-- moleculeAsSpaceFill:offsetValue:smoothShading: { -->
+<A NAME="InstanceMethod.moleculeAsSpaceFill:offsetValue:smoothShading:"><B>moleculeAsSpaceFill:</B> divisionNumber <B>offsetValue:</B> offsetValue <B>smoothShading:</B> aBoolean <I>[3d accessing]</I></A>
+<A HREF="../xrefsM.html#moleculeAsSpaceFill:offsetValue:smoothShading:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	| aBall areaCoefficient compoundObject |
+	aBall := JunOpenGL3dObject ball: divisionNumber.
+	areaCoefficient := (Jun3dBoundingBall center: 0 , 0 , 0 radius: 1) area 
+				/ aBall area.
+	compoundObject := JunOpenGL3dCompoundObject new.
+	self atomObjectsDo: 
+			[:atomObject | 
+			| centerPoint radiusValue colorValue aTransformation aSphere aBody |
+			centerPoint := atomObject atomicPoint.
+			radiusValue := atomObject atomicRadius + offsetValue.
+			colorValue := atomObject atomicColor blendWith: ColorValue white.
+			aTransformation := (Jun3dTransformation 
+						scale: radiusValue , radiusValue , radiusValue) 
+							product: (Jun3dTransformation translate: centerPoint).
+			aSphere := aBall transform: aTransformation.
+			aBody := JunOpenGL3dCompoundObject new.
+			aSphere polygonsDo: 
+					[:aPolygon | 
+					aBoolean 
+						ifTrue: 
+							[| collectionOfPolygons |
+							collectionOfPolygons := self 
+										frontierPolygons: aPolygon
+										of: atomObject
+										offset: offsetValue.
+							collectionOfPolygons do: 
+									[:each | 
+									each colors: (Array new: each vertexes size withAll: colorValue).
+									each 
+										normalVectors: (each vertexes 
+												collect: [:p | (atomObject atomicPoint to: p) normalUnitVector]) asArray].
+							aBody addAll: collectionOfPolygons]
+						ifFalse: 
+							[aPolygon paint: colorValue.
+							aBody addAll: (self 
+										frontierPolygons: aPolygon
+										of: atomObject
+										offset: offsetValue)]].
+			atomObject atomicBody: aBody.
+			atomObject areaCoefficient: areaCoefficient.
+			compoundObject add: aBody].
+	^compoundObject</PRE>
+<!-- } moleculeAsSpaceFill:offsetValue:smoothShading: -->
+<LI><!-- moleculeAsStick { -->
+<A NAME="InstanceMethod.moleculeAsStick"><B>moleculeAsStick</B> <I>[3d accessing]</I></A>
+<A HREF="../xrefsM.html#moleculeAsStick"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	self atomResolution = #low 
+		ifTrue: [^self moleculeAsStick: self defaultTubeDivisionNumberLow].
+	self atomResolution = #medium 
+		ifTrue: [^self moleculeAsStick: self defaultTubeDivisionNumberMedium].
+	self atomResolution = #high 
+		ifTrue: [^self moleculeAsStick: self defaultTubeDivisionNumberHigh].
+	^self moleculeAsStick: self defaultTubeDivisionNumber</PRE>
+<!-- } moleculeAsStick -->
+<LI><!-- moleculeAsStick: { -->
+<A NAME="InstanceMethod.moleculeAsStick:"><B>moleculeAsStick:</B> divisionNumber <I>[3d accessing]</I></A>
+<A HREF="../xrefsM.html#moleculeAsStick:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	| compoundObject |
+	compoundObject := JunOpenGL3dCompoundObject new.
+	self atomConnections do: 
+			[:atomConnection | 
+			| aSymbol fromPoint toPoint midPoint aCylinder aColor aPoint |
+			aSymbol := atomConnection bondTypeSymbol.
+			fromPoint := atomConnection fromAtom atomicPoint.
+			toPoint := atomConnection toAtom atomicPoint.
+			midPoint := (toPoint - fromPoint) / 2 + fromPoint.
+			aCylinder := JunOpenGL3dObject 
+						cylinderFrom: fromPoint
+						to: midPoint
+						radius: self defaultBondThickness / 2
+						by: divisionNumber.
+			atomConnection hasConnectionColor 
+				ifTrue: [aColor := atomConnection connectionColor]
+				ifFalse: [aColor := atomConnection fromAtom atomicColor].
+			aCylinder polygonsDo: [:aPolygon | aPolygon paint: aColor].
+			((atomConnection fromAtom isHydrogen 
+				or: [atomConnection toAtom isHydrogen]) and: [self exceptHydrogen]) 
+				ifFalse: 
+					[aSymbol = #single ifTrue: [compoundObject add: aCylinder].
+					aSymbol = #double 
+						ifTrue: 
+							[aPoint := self translationOffsetOf: atomConnection.
+							compoundObject add: (aCylinder translatedBy: aPoint).
+							compoundObject add: (aCylinder translatedBy: aPoint negated)].
+					aSymbol = #triple 
+						ifTrue: 
+							[aPoint := self translationOffsetOf: atomConnection.
+							compoundObject add: (aCylinder translatedBy: aPoint).
+							compoundObject add: aCylinder.
+							compoundObject add: (aCylinder translatedBy: aPoint negated)].
+					aSymbol = #aromatic 
+						ifTrue: 
+							[aPoint := self translationOffsetOf: atomConnection.
+							compoundObject add: (aCylinder translatedBy: aPoint).
+							aCylinder := JunOpenGL3dObject 
+										cylinderFrom: fromPoint
+										to: midPoint
+										radius: self defaultBondThickness / 6
+										by: divisionNumber.
+							aCylinder polygonsDo: [:aPolygon | aPolygon paint: aColor].
+							compoundObject add: (aCylinder translatedBy: aPoint negated)]].
+			aCylinder := JunOpenGL3dObject 
+						cylinderFrom: midPoint
+						to: toPoint
+						radius: self defaultBondThickness / 2
+						by: divisionNumber.
+			atomConnection hasConnectionColor 
+				ifTrue: [aColor := atomConnection connectionColor]
+				ifFalse: [aColor := atomConnection toAtom atomicColor].
+			aCylinder polygonsDo: [:aPolygon | aPolygon paint: aColor].
+			((atomConnection toAtom isHydrogen 
+				or: [atomConnection fromAtom isHydrogen]) and: [self exceptHydrogen]) 
+				ifFalse: 
+					[aSymbol = #single ifTrue: [compoundObject add: aCylinder].
+					aSymbol = #double 
+						ifTrue: 
+							[aPoint := self translationOffsetOf: atomConnection.
+							compoundObject add: (aCylinder translatedBy: aPoint).
+							compoundObject add: (aCylinder translatedBy: aPoint negated)].
+					aSymbol = #triple 
+						ifTrue: 
+							[aPoint := self translationOffsetOf: atomConnection.
+							compoundObject add: (aCylinder translatedBy: aPoint).
+							compoundObject add: aCylinder.
+							compoundObject add: (aCylinder translatedBy: aPoint negated)].
+					aSymbol = #aromatic 
+						ifTrue: 
+							[aPoint := self translationOffsetOf: atomConnection.
+							compoundObject add: (aCylinder translatedBy: aPoint).
+							aCylinder := JunOpenGL3dObject 
+										cylinderFrom: midPoint
+										to: toPoint
+										radius: self defaultBondThickness / 3
+										by: divisionNumber.
+							aCylinder polygonsDo: [:aPolygon | aPolygon paint: aColor].
+							compoundObject add: (aCylinder translatedBy: aPoint negated)]]].
+	^compoundObject</PRE>
+<!-- } moleculeAsStick: -->
+<LI><!-- moleculeAsStickAndSpaceFill { -->
+<A NAME="InstanceMethod.moleculeAsStickAndSpaceFill"><B>moleculeAsStickAndSpaceFill</B> <I>[3d accessing]</I></A>
+<A HREF="../xrefsM.html#moleculeAsStickAndSpaceFill"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	| molecule3dObject skeleton3dObject |
+	molecule3dObject := self moleculeAsSpaceFill.
+	molecule3dObject polygonsDo: [:polygon | polygon halftone: self defaultHalftoneValue].
+	skeleton3dObject := self moleculeAsStick.
+	skeleton3dObject components do: [:each | molecule3dObject add: each].
+	^molecule3dObject</PRE>
+<!-- } moleculeAsStickAndSpaceFill -->
+<LI><!-- molfileHeaderBlock { -->
+<A NAME="InstanceMethod.molfileHeaderBlock"><B>molfileHeaderBlock</B> <I>[attribute accessing]</I></A>
+<A HREF="../xrefsM.html#molfileHeaderBlock"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^self attributeTable at: #molfileHeaderBlock
+		ifAbsent: 
+			[OrderedCollection 
+				with: (String with: Character cr)
+				with: (String with: Character cr)
+				with: (String with: Character cr)]</PRE>
+<!-- } molfileHeaderBlock -->
+<LI><!-- molfileHeaderBlock: { -->
+<A NAME="InstanceMethod.molfileHeaderBlock:"><B>molfileHeaderBlock:</B> aCollection <I>[attribute accessing]</I></A>
+<A HREF="../xrefsM.html#molfileHeaderBlock:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	self attributeTable at: #molfileHeaderBlock
+		put: aCollection asOrderedCollection</PRE>
+<!-- } molfileHeaderBlock: -->
+<LI><!-- numberOfAtoms { -->
+<A NAME="InstanceMethod.numberOfAtoms"><B>numberOfAtoms</B> <I>[accessing atom]</I></A>
+<A HREF="../xrefsN.html#numberOfAtoms"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^self atomObjects size</PRE>
+<!-- } numberOfAtoms -->
+<LI><!-- numberOfConnections { -->
+<A NAME="InstanceMethod.numberOfConnections"><B>numberOfConnections</B> <I>[accessing connection]</I></A>
+<A HREF="../xrefsN.html#numberOfConnections"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^self atomConnections size</PRE>
+<!-- } numberOfConnections -->
+<LI><!-- numberOfHydrogens: { -->
+<A NAME="InstanceMethod.numberOfHydrogens:"><B>numberOfHydrogens:</B> atomObject <I>[accessing]</I></A>
+<A HREF="../xrefsN.html#numberOfHydrogens:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	^(self numberOfHydrogensTable: atomObject) at: #numberOfHydrogens</PRE>
+<!-- } numberOfHydrogens: -->
+<LI><!-- numberOfHydrogensTable: { -->
+<A NAME="InstanceMethod.numberOfHydrogensTable:"><B>numberOfHydrogensTable:</B> atomObject <I>[private]</I></A>
+<A HREF="../xrefsN.html#numberOfHydrogensTable:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	| aTable numberOfBonds realNumberOfHydrogens fakeNumberOfHydrogens numberOfHydrogens numberOfConnections |
+	aTable := self connectedAtomsAndConnectionsWith: atomObject.
+	numberOfBonds := self defaultAtomObjectClass 
+				atomicBondsAt: atomObject atomicSymbol.
+	realNumberOfHydrogens := 0.
+	fakeNumberOfHydrogens := 0.
+	numberOfHydrogens := 0.
+	numberOfConnections := 0.
+	aTable keysAndValuesDo: 
+			[:connectedAtom :connectedBond | 
+			connectedAtom isHydrogen 
+				ifTrue: [realNumberOfHydrogens := realNumberOfHydrogens + 1].
+			numberOfConnections := numberOfConnections + connectedBond bondType].
+	fakeNumberOfHydrogens := numberOfBonds - numberOfConnections.
+	numberOfHydrogens := realNumberOfHydrogens + fakeNumberOfHydrogens.
+	^(Dictionary new)
+		add: #numberOfHydrogens -&gt; numberOfHydrogens;
+		add: #realNumberOfHydrogens -&gt; realNumberOfHydrogens;
+		add: #fakeNumberOfHydrogens -&gt; fakeNumberOfHydrogens;
+		yourself</PRE>
+<!-- } numberOfHydrogensTable: -->
+<LI><!-- numberOfNitrogens: { -->
+<A NAME="InstanceMethod.numberOfNitrogens:"><B>numberOfNitrogens:</B> atomObject <I>[accessing]</I></A>
+<A HREF="../xrefsN.html#numberOfNitrogens:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	| aTable numberOfNitrogens |
+	aTable := self connectedAtomsAndConnectionsWith: atomObject.
+	numberOfNitrogens := 0.
+	aTable keysAndValuesDo: 
+			[:connectedAtom :connectedBond | 
+			connectedAtom isNitrogen 
+				ifTrue: [numberOfNitrogens := numberOfNitrogens + 1]].
+	^numberOfNitrogens</PRE>
+<!-- } numberOfNitrogens: -->
+<LI><!-- numberOfOxygens: { -->
+<A NAME="InstanceMethod.numberOfOxygens:"><B>numberOfOxygens:</B> atomObject <I>[accessing]</I></A>
+<A HREF="../xrefsN.html#numberOfOxygens:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	| aTable numberOfOxygens |
+	aTable := self connectedAtomsAndConnectionsWith: atomObject.
+	numberOfOxygens := 0.
+	aTable keysAndValuesDo: 
+			[:connectedAtom :connectedBond | 
+			connectedAtom isOxygen ifTrue: [numberOfOxygens := numberOfOxygens + 1]].
+	^numberOfOxygens</PRE>
+<!-- } numberOfOxygens: -->
+<LI><!-- postCopy { -->
+<A NAME="InstanceMethod.postCopy"><B>postCopy</B> <I>[copying]</I></A>
+<A HREF="../xrefsP.html#postCopy"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	| aTable |
+	super postCopy.
+	aTable := Dictionary new.
+	self atomObjects do: [:each | aTable at: each put: each copy].
+	atomObjects := self atomObjects collect: [:each | aTable at: each].
+	atomConnections := self atomConnections collect: [:each | each copy].
+	atomConnections do: 
+			[:each | 
+			each fromAtom: (aTable at: each fromAtom).
+			each toAtom: (aTable at: each toAtom)].
+	attributeTable := attributeTable copy</PRE>
+<!-- } postCopy -->
+<LI><!-- surfaceInformationString { -->
+<A NAME="InstanceMethod.surfaceInformationString"><B>surfaceInformationString</B> <I>[accessing]</I></A>
+<A HREF="../xrefsS.html#surfaceInformationString"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	| aStream aString |
+	self 
+		assert: [aStream := String new writeStream]
+		do: 
+			[aStream 
+				nextPutAll: (#chemoJun_Surface_Information_ &gt;&gt; 'Surface Information:') asString.
+			aStream cr.
+			self atomObjectsAndIndexesDo: 
+					[:atomObject :atomIndex | 
+					aStream tab.
+					aStream nextPutAll: atomIndex printString , ':'.
+					aStream space.
+					aStream nextPutAll: atomObject atomicSymbol.
+					aStream space.
+					aStream nextPutAll: '('.
+					aStream 
+						nextPutAll: (atomObject atomicArea roundTo: 0.1) asFloat printString.
+					aStream nextPutAll: ' = '.
+					aStream 
+						nextPutAll: (atomObject interierArea roundTo: 0.1) asFloat printString.
+					aStream nextPutAll: ' + '.
+					aStream 
+						nextPutAll: (atomObject frontierArea roundTo: 0.1) asFloat printString.
+					aStream nextPutAll: ')'.
+					aStream cr]]
+		ensure: 
+			[aString := aStream contents.
+			aStream close].
+	^aString</PRE>
+<!-- } surfaceInformationString -->
+<LI><!-- translationOffsetOf: { -->
+<A NAME="InstanceMethod.translationOffsetOf:"><B>translationOffsetOf:</B> atomConnection <I>[3d aux]</I></A>
+<A HREF="../xrefsT.html#translationOffsetOf:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	| translationOffset aSymbol connectedAtoms anotherAtom aLine aPoint aPlane aCollection |
+	translationOffset := 0 , 0 , 0.
+	aSymbol := atomConnection bondTypeSymbol.
+	aSymbol = #single ifTrue: [translationOffset := 0 , 0 , 0].
+	(aSymbol = #double or: [aSymbol = #triple]) 
+		ifTrue: 
+			[aSymbol = #double 
+				ifTrue: [translationOffset := 0 , 0 , 0.075]
+				ifFalse: [translationOffset := 0 , 0 , 0.1].
+			connectedAtoms := Set new.
+			connectedAtoms 
+				addAll: ((self connectedAtomsWith: atomConnection fromAtom) 
+						reject: [:each | each = atomConnection fromAtom or: [each = atomConnection toAtom]]).
+			connectedAtoms addAll: ((self connectedAtomsWith: atomConnection toAtom) 
+						reject: [:each | each = atomConnection fromAtom or: [each = atomConnection toAtom]]).
+			connectedAtoms := connectedAtoms asArray.
+			connectedAtoms isEmpty 
+				ifFalse: 
+					[anotherAtom := connectedAtoms first.
+					aLine := atomConnection fromAtom atomicPoint 
+								to: atomConnection toAtom atomicPoint.
+					aPoint := aLine nearestPointFromPoint: anotherAtom atomicPoint.
+					(aPoint distance: anotherAtom atomicPoint) &lt; JunGeometry accuracy 
+						ifFalse: 
+							[aLine := aPoint to: anotherAtom atomicPoint.
+							aPoint := aLine normalUnitVector.
+							aSymbol = #double 
+								ifTrue: [translationOffset := aPoint * 0.075]
+								ifFalse: [translationOffset := aPoint * 0.1]]]].
+	aSymbol = #aromatic 
+		ifTrue: 
+			[translationOffset := 0 , 0 , 0.075.
+			connectedAtoms := Set new.
+			connectedAtoms 
+				addAll: ((self connectedAtomsWith: atomConnection fromAtom) 
+						reject: [:each | each = atomConnection fromAtom or: [each = atomConnection toAtom]]).
+			connectedAtoms addAll: ((self connectedAtomsWith: atomConnection toAtom) 
+						reject: [:each | each = atomConnection fromAtom or: [each = atomConnection toAtom]]).
+			connectedAtoms := connectedAtoms asArray select: 
+							[:each | 
+							((self connectionsWith: each) 
+								detect: [:it | it bondTypeSymbol = #aromatic]
+								ifNone: [nil]) notNil].
+			connectedAtoms isEmpty 
+				ifFalse: 
+					[anotherAtom := connectedAtoms first.
+					connectedAtoms size &lt; 2 
+						ifTrue: 
+							[aLine := atomConnection fromAtom atomicPoint 
+										to: atomConnection toAtom atomicPoint.
+							aPoint := aLine nearestPointFromPoint: anotherAtom atomicPoint.
+							aLine := aPoint to: anotherAtom atomicPoint.
+							aPoint := aLine normalUnitVector]
+						ifFalse: 
+							[aPlane := atomConnection fromAtom atomicPoint 
+										plane: atomConnection toAtom atomicPoint
+										and: anotherAtom atomicPoint.
+							aPlane := atomConnection fromAtom atomicPoint 
+										plane: atomConnection toAtom atomicPoint
+										and: atomConnection toAtom atomicPoint + aPlane normalUnitVector.
+							aCollection := connectedAtoms 
+										select: [:each | (each atomicPoint whichSideOf: aPlane) &gt;= 0].
+							aCollection size &gt; 1 
+								ifFalse: 
+									[aCollection := connectedAtoms 
+												select: [:each | (each atomicPoint whichSideOf: aPlane) &lt; 0]].
+							aCollection isEmpty ifFalse: [anotherAtom := aCollection first].
+							aLine := atomConnection fromAtom atomicPoint 
+										to: atomConnection toAtom atomicPoint.
+							aPoint := aLine nearestPointFromPoint: anotherAtom atomicPoint.
+							aLine := anotherAtom atomicPoint to: aPoint.
+							aPoint := aLine normalUnitVector].
+					translationOffset := aPoint * 0.075]].
+	^translationOffset</PRE>
+<!-- } translationOffsetOf: -->
+</OL>
+<!-- } (instance_methods) -->
+<!-- (class_methods) { -->
+<P>
+<A NAME="ClassMethods.ChemoJunMoleculeObject">
+<I>class methods:</I>
+</A>
+</P>
+<OL>
+<LI><!-- copyright { -->
+<A NAME="ClassMethod.copyright"><B>copyright</B> <I>[copyright]</I></A>
+<A HREF="../xrefsC.html#copyright"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^'ChemoJun050 (2006/08/08) Copyright 2002-2006 National Institute of Informatics, Research Organization of Information and Systems.'</PRE>
+<!-- } copyright -->
+<LI><!-- defaultAtomConnectionClass { -->
+<A NAME="ClassMethod.defaultAtomConnectionClass"><B>defaultAtomConnectionClass</B> <I>[defaults]</I></A>
+<A HREF="../xrefsD.html#defaultAtomConnectionClass"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^ChemoJunAtomConnection</PRE>
+<!-- } defaultAtomConnectionClass -->
+<LI><!-- defaultAtomObjectClass { -->
+<A NAME="ClassMethod.defaultAtomObjectClass"><B>defaultAtomObjectClass</B> <I>[defaults]</I></A>
+<A HREF="../xrefsD.html#defaultAtomObjectClass"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^ChemoJunAtomObject</PRE>
+<!-- } defaultAtomObjectClass -->
+<LI><!-- defaultExceptHydrogen { -->
+<A NAME="ClassMethod.defaultExceptHydrogen"><B>defaultExceptHydrogen</B> <I>[defaults]</I></A>
+<A HREF="../xrefsD.html#defaultExceptHydrogen"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^false</PRE>
+<!-- } defaultExceptHydrogen -->
+<LI><!-- defaultGraphClass { -->
+<A NAME="ClassMethod.defaultGraphClass"><B>defaultGraphClass</B> <I>[defaults]</I></A>
+<A HREF="../xrefsD.html#defaultGraphClass"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^ChemoJunGraph</PRE>
+<!-- } defaultGraphClass -->
+<LI><!-- defaultGrapherClass { -->
+<A NAME="ClassMethod.defaultGrapherClass"><B>defaultGrapherClass</B> <I>[defaults]</I></A>
+<A HREF="../xrefsD.html#defaultGrapherClass"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^ChemoJunGrapher</PRE>
+<!-- } defaultGrapherClass -->
+<LI><!-- defaultMolFileReaderClass { -->
+<A NAME="ClassMethod.defaultMolFileReaderClass"><B>defaultMolFileReaderClass</B> <I>[defaults]</I></A>
+<A HREF="../xrefsD.html#defaultMolFileReaderClass"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^ChemoJunMolFileReader</PRE>
+<!-- } defaultMolFileReaderClass -->
+<LI><!-- example1 { -->
+<A NAME="ClassMethod.example1"><B>example1</B> <I>[examples]</I></A>
+<A HREF="../xrefsE.html#example1"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	&quot;ChemoJunMoleculeObject example1.&quot;
+
+	| moleculeObject |
+	moleculeObject := ChemoJunMoleculeObject request.
+	moleculeObject isNil ifTrue: [^nil].
+	^moleculeObject</PRE>
+<!-- } example1 -->
+<LI><!-- example2 { -->
+<A NAME="ClassMethod.example2"><B>example2</B> <I>[examples]</I></A>
+<A HREF="../xrefsE.html#example2"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	&quot;ChemoJunMoleculeObject example2.&quot;
+
+	| moleculeObject |
+	moleculeObject := ChemoJunMoleculeObject request.
+	moleculeObject isNil ifTrue: [^nil].
+	ChemoJunAbstractViewer show: moleculeObject moleculeAsStick.
+	^moleculeObject</PRE>
+<!-- } example2 -->
+<LI><!-- example3 { -->
+<A NAME="ClassMethod.example3"><B>example3</B> <I>[examples]</I></A>
+<A HREF="../xrefsE.html#example3"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	&quot;ChemoJunMoleculeObject example3.&quot;
+
+	| moleculeObject |
+	moleculeObject := ChemoJunMoleculeObject request.
+	moleculeObject isNil ifTrue: [^nil].
+	moleculeObject exceptHydrogen: true.
+	ChemoJunAbstractViewer show: moleculeObject moleculeAsStick.
+	^moleculeObject</PRE>
+<!-- } example3 -->
+<LI><!-- example4 { -->
+<A NAME="ClassMethod.example4"><B>example4</B> <I>[examples]</I></A>
+<A HREF="../xrefsE.html#example4"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	&quot;ChemoJunMoleculeObject example4.&quot;
+
+	| moleculeObject |
+	moleculeObject := ChemoJunMoleculeObject request.
+	moleculeObject isNil ifTrue: [^nil].
+	ChemoJunAbstractViewer show: moleculeObject moleculeAsSpaceFill.
+	^moleculeObject</PRE>
+<!-- } example4 -->
+<LI><!-- example5 { -->
+<A NAME="ClassMethod.example5"><B>example5</B> <I>[examples]</I></A>
+<A HREF="../xrefsE.html#example5"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	&quot;ChemoJunMoleculeObject example5.&quot;
+
+	| moleculeObject |
+	moleculeObject := ChemoJunMoleculeObject request.
+	moleculeObject isNil ifTrue: [^nil].
+	ChemoJunAbstractViewer show: moleculeObject moleculeAsStickAndSpaceFill.
+	^moleculeObject</PRE>
+<!-- } example5 -->
+<LI><!-- example6 { -->
+<A NAME="ClassMethod.example6"><B>example6</B> <I>[examples]</I></A>
+<A HREF="../xrefsE.html#example6"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	&quot;ChemoJunMoleculeObject example6.&quot;
+
+	| moleculeObject molecule3dObject offsetValue offset3dObject compoundObject |
+	moleculeObject := ChemoJunMoleculeObject request.
+	moleculeObject isNil ifTrue: [^nil].
+	molecule3dObject := moleculeObject moleculeAsSpaceFill.
+	offsetValue := 1.	&quot;Angstrom&quot;
+	offset3dObject := moleculeObject 
+				moleculeAsSpaceFill: moleculeObject defaultSpaceFillDivisionNumber
+				offsetValue: offsetValue.
+	offset3dObject polygonsDo: 
+			[:aPolygon | 
+			aPolygon paint: ColorValue lightGray.
+			aPolygon halftone: moleculeObject defaultHalftoneValue].
+	compoundObject := JunOpenGL3dCompoundObject new.
+	compoundObject add: molecule3dObject.
+	compoundObject add: offset3dObject.
+	ChemoJunAbstractViewer show: compoundObject.
+	^moleculeObject</PRE>
+<!-- } example6 -->
+<LI><!-- example7 { -->
+<A NAME="ClassMethod.example7"><B>example7</B> <I>[examples]</I></A>
+<A HREF="../xrefsE.html#example7"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	&quot;ChemoJunMoleculeObject example7.&quot;
+
+	| moleculeObject molecule3dObject offsetValue offset3dObject compoundObject |
+	moleculeObject := ChemoJunMoleculeObject request.
+	moleculeObject isNil ifTrue: [^nil].
+	molecule3dObject := moleculeObject moleculeAsStickAndSpaceFill.
+	offsetValue := 1.	&quot;Angstrom&quot;
+	offset3dObject := moleculeObject 
+				moleculeAsSpaceFill: moleculeObject defaultSpaceFillDivisionNumber
+				offsetValue: offsetValue.
+	offset3dObject polygonsDo: 
+			[:aPolygon | 
+			aPolygon paint: ColorValue lightGray.
+			aPolygon halftone: moleculeObject defaultHalftoneValue / 2].
+	compoundObject := JunOpenGL3dCompoundObject new.
+	compoundObject add: molecule3dObject.
+	compoundObject add: offset3dObject.
+	ChemoJunAbstractViewer show: compoundObject.
+	^moleculeObject</PRE>
+<!-- } example7 -->
+<LI><!-- example8 { -->
+<A NAME="ClassMethod.example8"><B>example8</B> <I>[examples]</I></A>
+<A HREF="../xrefsE.html#example8"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	&quot;ChemoJunMoleculeObject example8.&quot;
+
+	| firstMoleculeObject secondMoleculeObject firstMolecule3dObject secondMolecule3dObject compoundObject |
+	firstMoleculeObject := ChemoJunMoleculeObject request.
+	firstMoleculeObject isNil ifTrue: [^nil].
+	secondMoleculeObject := ChemoJunMoleculeObject request.
+	secondMoleculeObject isNil ifTrue: [^nil].
+	firstMolecule3dObject := firstMoleculeObject moleculeAsSpaceFill.
+	secondMolecule3dObject := secondMoleculeObject moleculeAsSpaceFill 
+				translatedBy: 0 , 10 , 0.
+	compoundObject := JunOpenGL3dCompoundObject new.
+	compoundObject add: firstMolecule3dObject.
+	compoundObject add: secondMolecule3dObject.
+	ChemoJunAbstractViewer show: compoundObject.
+	^Array with: firstMoleculeObject with: secondMoleculeObject</PRE>
+<!-- } example8 -->
+<LI><!-- example9 { -->
+<A NAME="ClassMethod.example9"><B>example9</B> <I>[examples]</I></A>
+<A HREF="../xrefsE.html#example9"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	&quot;ChemoJunMoleculeObject example9.&quot;
+
+	| firstMoleculeObject secondMoleculeObject firstMolecule3dObject secondMolecule3dObject offsetValue firstOffset3dObject secondOffset3dObject compoundObject |
+	firstMoleculeObject := ChemoJunMoleculeObject request.
+	firstMoleculeObject isNil ifTrue: [^nil].
+	secondMoleculeObject := ChemoJunMoleculeObject request.
+	secondMoleculeObject isNil ifTrue: [^nil].
+	firstMolecule3dObject := firstMoleculeObject moleculeAsSpaceFill.
+	secondMolecule3dObject := secondMoleculeObject moleculeAsSpaceFill 
+				translatedBy: 0 , 10 , 0.
+	offsetValue := 1.	&quot;Angstrom&quot;
+	firstOffset3dObject := firstMoleculeObject 
+				moleculeAsSpaceFill: firstMoleculeObject 
+						defaultSpaceFillDivisionNumber
+				offsetValue: offsetValue.
+	firstOffset3dObject polygonsDo: 
+			[:aPolygon | 
+			aPolygon paint: ColorValue lightGray.
+			aPolygon halftone: firstMoleculeObject defaultHalftoneValue].
+	secondOffset3dObject := (secondMoleculeObject 
+				moleculeAsSpaceFill: secondMoleculeObject 
+						defaultSpaceFillDivisionNumber
+				offsetValue: offsetValue) translatedBy: 0 , 10 , 0.
+	secondOffset3dObject polygonsDo: 
+			[:aPolygon | 
+			aPolygon paint: ColorValue lightGray.
+			aPolygon halftone: secondMoleculeObject defaultHalftoneValue].
+	compoundObject := JunOpenGL3dCompoundObject new.
+	compoundObject add: firstMolecule3dObject.
+	compoundObject add: secondMolecule3dObject.
+	compoundObject add: firstOffset3dObject.
+	compoundObject add: secondOffset3dObject.
+	ChemoJunAbstractViewer show: compoundObject.
+	^Array with: firstMoleculeObject with: secondMoleculeObject</PRE>
+<!-- } example9 -->
+<LI><!-- exampleA { -->
+<A NAME="ClassMethod.exampleA"><B>exampleA</B> <I>[examples]</I></A>
+<A HREF="../xrefsE.html#exampleA"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	&quot;ChemoJunMoleculeObject exampleA.&quot;
+
+	| moleculeObject moleculeViewer |
+	moleculeObject := ChemoJunMoleculeObject request.
+	moleculeObject isNil ifTrue: [^nil].
+	moleculeViewer := ChemoJunMoleculeViewer moleculeObject: moleculeObject.
+	moleculeViewer openAt: 100 @ 250.
+	^moleculeObject</PRE>
+<!-- } exampleA -->
+<LI><!-- exampleB { -->
+<A NAME="ClassMethod.exampleB"><B>exampleB</B> <I>[examples]</I></A>
+<A HREF="../xrefsE.html#exampleB"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	&quot;ChemoJunMoleculeObject exampleB.&quot;
+
+	| moleculeObject moleculeViewer messageSelectors |
+	moleculeObject := ChemoJunMoleculeObject request.
+	moleculeObject isNil ifTrue: [^nil].
+	moleculeViewer := ChemoJunMoleculeViewer moleculeObject: moleculeObject.
+	moleculeViewer indexExpression: '[:index | true]'.
+	moleculeViewer openAt: 100 @ 250.
+	messageSelectors := #(#isMethyl: #isHydroxyl: #isCarboxyl: #isCarbonyl: #isAldehyde: #hasHydroxyl:).
+	Transcript clear.
+	Transcript
+		show: 'Serial';
+		tab.
+	messageSelectors do: [:each | Transcript show: each asString]
+		separatedBy: [Transcript tab].
+	Transcript cr.
+	moleculeObject atomObjectsDo: 
+			[:atomObject | 
+			Transcript show: atomObject serialNumber printString.
+			Transcript tab.
+			messageSelectors do: 
+					[:each | 
+					Transcript 
+						show: (moleculeObject perform: each with: atomObject) printString]
+				separatedBy: [Transcript tab].
+			Transcript cr].
+	^moleculeObject</PRE>
+<!-- } exampleB -->
+<LI><!-- fileName: { -->
+<A NAME="ClassMethod.fileName:"><B>fileName:</B> aFilename <I>[instance creation]</I></A>
+<A HREF="../xrefsF.html#fileName:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	^self fromReader: (self defaultMolFileReaderClass fileName: aFilename)</PRE>
+<!-- } fileName: -->
+<LI><!-- fromReader: { -->
+<A NAME="ClassMethod.fromReader:"><B>fromReader:</B> aReader <I>[instance creation]</I></A>
+<A HREF="../xrefsF.html#fromReader:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	^self moleculeObjectFromReader: aReader</PRE>
+<!-- } fromReader: -->
+<LI><!-- moleculeObjectFromReader: { -->
+<A NAME="ClassMethod.moleculeObjectFromReader:"><B>moleculeObjectFromReader:</B> aReader <I>[private]</I></A>
+<A HREF="../xrefsM.html#moleculeObjectFromReader:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	| aStream atomObjects atomConnections moleculeObject |
+	JunControlUtility 
+		assert: [aStream := (Array new: aReader numberOfAtoms) writeStream]
+		do: 
+			[| atomObject |
+			1 to: aReader numberOfAtoms
+				do: 
+					[:index | 
+					| atom |
+					atom := aReader atomList at: index.
+					atomObject := self defaultAtomObjectClass atomicSymbol: atom first
+								atomicPoint: atom last.
+					atomObject serialNumber: index.
+					aStream nextPut: atomObject]]
+		ensure: 
+			[atomObjects := aStream contents.
+			aStream close].
+	JunControlUtility 
+		assert: [aStream := (Array new: aReader numberOfConnections) writeStream]
+		do: 
+			[| fromAtom toAtom bondType stereoType atomConnection |
+			1 to: aReader numberOfConnections
+				do: 
+					[:index | 
+					| connection |
+					connection := aReader connectionList at: index.
+					fromAtom := atomObjects at: (connection at: 1).
+					toAtom := atomObjects at: (connection at: 2).
+					connection size &gt;= 3 
+						ifTrue: 
+							[bondType := connection at: 3.
+							connection size &gt;= 4 
+								ifTrue: 
+									[stereoType := connection at: 4.
+									atomConnection := self defaultAtomConnectionClass 
+												fromAtom: fromAtom
+												toAtom: toAtom
+												bondType: bondType
+												stereoType: stereoType]
+								ifFalse: 
+									[atomConnection := self defaultAtomConnectionClass 
+												fromAtom: fromAtom
+												toAtom: toAtom
+												bondType: bondType]]
+						ifFalse: 
+							[atomConnection := self defaultAtomConnectionClass fromAtom: fromAtom
+										toAtom: toAtom].
+					aStream nextPut: atomConnection]]
+		ensure: 
+			[atomConnections := aStream contents.
+			aStream close].
+	moleculeObject := self new.
+	moleculeObject fileName: aReader fileName.
+	moleculeObject atomObjects: atomObjects.
+	moleculeObject atomConnections: atomConnections.
+	moleculeObject molfileHeaderBlock: aReader commentList.
+	^moleculeObject</PRE>
+<!-- } moleculeObjectFromReader: -->
+<LI><!-- request { -->
+<A NAME="ClassMethod.request"><B>request</B> <I>[utilities]</I></A>
+<A HREF="../xrefsR.html#request"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	&quot;ChemoJunMoleculeObject request.&quot;
+
+	| aReader moleculeObject |
+	aReader := self defaultMolFileReaderClass request.
+	aReader isNil ifTrue: [^nil].
+	moleculeObject := self moleculeObjectFromReader: aReader.
+	^moleculeObject</PRE>
+<!-- } request -->
+<LI><!-- system { -->
+<A NAME="ClassMethod.system"><B>system</B> <I>[copyright]</I></A>
+<A HREF="../xrefsS.html#system"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^'ChemoJun'</PRE>
+<!-- } system -->
+<LI><!-- version { -->
+<A NAME="ClassMethod.version"><B>version</B> <I>[copyright]</I></A>
+<A HREF="../xrefsV.html#version"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^'050'</PRE>
+<!-- } version -->
+</OL>
+<!-- } (class_methods) -->
+<HR>
+<A HREF="../index.html#ChemoJunMoleculeObject"><IMG SRC="../images/index.jpg" ALT="index" ALIGN="top" BORDER=1></A>
+<A HREF="../xrefsC.html#ChemoJunMoleculeObject"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<!-- This Document was generated by JunEncyclopedia. -->
+<!-- JunEncyclopedia was developed by AOKI Atsushi. -->
+</BODY>
+</HTML>

@@ -1,0 +1,385 @@
+<HTML>
+<HEAD>
+<TITLE>ChemoJunLauncher</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<A HREF="../index.html#ChemoJunLauncher"><IMG SRC="../images/index.jpg" ALT="index" ALIGN="top" BORDER=1></A>
+<A HREF="../xrefsC.html#ChemoJunLauncher"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+2006/08/08 17:41:27
+<HR>
+<!-- (class_name) { -->
+<H2>
+<A NAME="Class.ChemoJunLauncher">ChemoJunLauncher</A>
+</H2>
+<!-- } (class_name) -->
+<!-- (comment) { -->
+<P>
+<A NAME="Comment.ChemoJunLauncher">
+ChemoJun050 (2006/08/08) Copyright 2002-2006 National Institute of Informatics, Research Organization of Information and Systems.
+</A>
+</P>
+<!-- } (comment) -->
+<!-- (category) { -->
+<P>
+<A NAME="Category.ChemoJun-System-Support"><I>category:</I></A></P>
+<UL>
+<LI><B>
+ChemoJun-System-Support
+</B>
+<A HREF="../xrefsC.html#ChemoJun-System-Support"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+</UL>
+<!-- } (category) -->
+<!-- (inheritance) { -->
+<P>
+<A NAME="Inheritance.ChemoJunLauncher"><I>inheritance:</I></A>
+</P>
+<UL>
+<LI TYPE="square">Object
+<UL>
+<LI TYPE="square">Model
+<UL>
+<LI TYPE="square">ApplicationModel
+<UL>
+<LI TYPE="square">JunApplicationModel
+<UL>
+<LI TYPE="square">JunLauncher
+<UL>
+<LI TYPE="square"><B>ChemoJunLauncher</B>
+</UL>
+</UL>
+</UL>
+</UL>
+</UL>
+</UL>
+<!-- } (inheritance) -->
+<!-- (instance_variables) { -->
+<P>
+<A NAME="InstanceVariables.ChemoJunLauncher">
+<I>instance variables:</I>
+</A>
+</P>
+<UL>
+</UL>
+<!-- } (instance_variables) -->
+<!-- (class_instance_variables) { -->
+<P>
+<A NAME="ClassInstanceVariables.ChemoJunLauncher">
+<I>class instance variables:</I>
+</A>
+</P>
+<UL>
+</UL>
+<!-- } (class_instance_variables) -->
+<!-- (class_variables) { -->
+<P>
+<A NAME="ClassVariables.ChemoJunLauncher">
+<I>class variables:</I>
+</A>
+</P>
+<UL>
+</UL>
+<!-- } (class_variables) -->
+<!-- (pool_variables) { -->
+<P>
+<A NAME="PoolVariables.ChemoJunLauncher">
+<I>pool variables:</I>
+</A>
+</P>
+<UL>
+</UL>
+<!-- } (pool_variables) -->
+<!-- (instance_methods) { -->
+<P>
+<A NAME="InstanceMethods.ChemoJunLauncher">
+<I>instance methods:</I>
+</A>
+</P>
+<OL>
+<LI><!-- browseManual { -->
+<A NAME="InstanceMethod.browseManual"><B>browseManual</B> <I>[menu messages]</I></A>
+<A HREF="../xrefsB.html#browseManual"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	JunURL browse: (ChemoJunUtility manualUriStringConstruct: 'index.html')</PRE>
+<!-- } browseManual -->
+<LI><!-- changeFont { -->
+<A NAME="InstanceMethod.changeFont"><B>changeFont</B> <I>[menu messages]</I></A>
+<A HREF="../xrefsC.html#changeFont"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	ChemoJunSystem changeFont</PRE>
+<!-- } changeFont -->
+<LI><!-- defaultWindowLabel { -->
+<A NAME="InstanceMethod.defaultWindowLabel"><B>defaultWindowLabel</B> <I>[defaults]</I></A>
+<A HREF="../xrefsD.html#defaultWindowLabel"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^(#chemoJun_ChemoJun_Launcher &gt;&gt; 'ChemoJun Launcher') asString</PRE>
+<!-- } defaultWindowLabel -->
+<LI><!-- openAbout { -->
+<A NAME="InstanceMethod.openAbout"><B>openAbout</B> <I>[menu messages]</I></A>
+<A HREF="../xrefsO.html#openAbout"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	ChemoJunSystem about</PRE>
+<!-- } openAbout -->
+<LI><!-- openChemicalMediaNavigator { -->
+<A NAME="InstanceMethod.openChemicalMediaNavigator"><B>openChemicalMediaNavigator</B> <I>[menu messages]</I></A>
+<A HREF="../xrefsO.html#openChemicalMediaNavigator"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	ChemoJunChemicalMediaNavigator open</PRE>
+<!-- } openChemicalMediaNavigator -->
+<LI><!-- openCredits { -->
+<A NAME="InstanceMethod.openCredits"><B>openCredits</B> <I>[menu messages]</I></A>
+<A HREF="../xrefsO.html#openCredits"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	ChemoJunCredits show</PRE>
+<!-- } openCredits -->
+<LI><!-- openEmail { -->
+<A NAME="InstanceMethod.openEmail"><B>openEmail</B> <I>[menu messages]</I></A>
+<A HREF="../xrefsO.html#openEmail"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	JunURL 
+		browse: (JunEnvironmentUtility environmentVariableAt: 'ChemoJunMailUri'
+				ifAbsent: ['mailto:cheminfo@nii.ac.jp' yourself])</PRE>
+<!-- } openEmail -->
+<LI><!-- openJunLauncher { -->
+<A NAME="InstanceMethod.openJunLauncher"><B>openJunLauncher</B> <I>[menu messages]</I></A>
+<A HREF="../xrefsO.html#openJunLauncher"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	JunLauncher install</PRE>
+<!-- } openJunLauncher -->
+<LI><!-- openMoleculeCatalogue { -->
+<A NAME="InstanceMethod.openMoleculeCatalogue"><B>openMoleculeCatalogue</B> <I>[menu messages]</I></A>
+<A HREF="../xrefsO.html#openMoleculeCatalogue"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	ChemoJunMoleculeCatalogue open</PRE>
+<!-- } openMoleculeCatalogue -->
+<LI><!-- openMoleculeCatalogueData { -->
+<A NAME="InstanceMethod.openMoleculeCatalogueData"><B>openMoleculeCatalogueData</B> <I>[menu messages]</I></A>
+<A HREF="../xrefsO.html#openMoleculeCatalogueData"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	| aCollection aPoint |
+	JunSensorUtility shiftDown 
+		ifTrue: 
+			[aCollection := ChemoJunUtility selectDirectoriesInChemoJunSampleData 
+						ifNil: [Array new]
+						ifNotNil: [:it | it yourself]]
+		ifFalse: 
+			[aCollection := ChemoJunUtility selectDirectoryInChemoJunSampleData 
+						ifNil: [Array new]
+						ifNotNil: [:it | (Array with: it) yourself]].
+	aPoint := 100 @ 100.
+	aCollection do: 
+			[:aDirectory | 
+			(ChemoJunMoleculeCatalogue directory: aDirectory) openAt: aPoint.
+			aPoint := aPoint + (20 @ 20).
+			JunSensorUtility shiftDown ifTrue: [^self]]</PRE>
+<!-- } openMoleculeCatalogueData -->
+<LI><!-- openMoleculeViewer { -->
+<A NAME="InstanceMethod.openMoleculeViewer"><B>openMoleculeViewer</B> <I>[menu messages]</I></A>
+<A HREF="../xrefsO.html#openMoleculeViewer"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	ChemoJunMoleculeViewer open</PRE>
+<!-- } openMoleculeViewer -->
+<LI><!-- openMoleculeViewerData { -->
+<A NAME="InstanceMethod.openMoleculeViewerData"><B>openMoleculeViewerData</B> <I>[menu messages]</I></A>
+<A HREF="../xrefsO.html#openMoleculeViewerData"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	| aCollection aPoint |
+	JunSensorUtility shiftDown 
+		ifTrue: 
+			[aCollection := ChemoJunUtility selectMolfilesInChemoJunSampleData 
+						ifNil: [Array new]
+						ifNotNil: [:it | it yourself]]
+		ifFalse: 
+			[aCollection := ChemoJunUtility selectMolfileInChemoJunSampleData 
+						ifNil: [Array new]
+						ifNotNil: [:it | (Array with: it) yourself]].
+	aPoint := 100 @ 100.
+	aCollection do: 
+			[:aFilename | 
+			(ChemoJunMoleculeViewer fileName: aFilename) openAt: aPoint.
+			aPoint := aPoint + (20 @ 20).
+			JunSensorUtility shiftDown ifTrue: [^self]]</PRE>
+<!-- } openMoleculeViewerData -->
+<LI><!-- openWebPage { -->
+<A NAME="InstanceMethod.openWebPage"><B>openWebPage</B> <I>[menu messages]</I></A>
+<A HREF="../xrefsO.html#openWebPage"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	JunURL 
+		browse: (JunEnvironmentUtility environmentVariableAt: 'ChemoJunWebPageUri'
+				ifAbsent: ['http://research.nii.ac.jp/~cheminfo/ChemoJun/' yourself])</PRE>
+<!-- } openWebPage -->
+</OL>
+<!-- } (instance_methods) -->
+<!-- (class_methods) { -->
+<P>
+<A NAME="ClassMethods.ChemoJunLauncher">
+<I>class methods:</I>
+</A>
+</P>
+<OL>
+<LI><!-- copyright { -->
+<A NAME="ClassMethod.copyright"><B>copyright</B> <I>[copyright]</I></A>
+<A HREF="../xrefsC.html#copyright"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^'ChemoJun050 (2006/08/08) Copyright 2002-2006 National Institute of Informatics, Research Organization of Information and Systems.'</PRE>
+<!-- } copyright -->
+<LI><!-- defaultSystemClass { -->
+<A NAME="ClassMethod.defaultSystemClass"><B>defaultSystemClass</B> <I>[defaults]</I></A>
+<A HREF="../xrefsD.html#defaultSystemClass"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^ChemoJunSystem</PRE>
+<!-- } defaultSystemClass -->
+<LI><!-- example1 { -->
+<A NAME="ClassMethod.example1"><B>example1</B> <I>[examples]</I></A>
+<A HREF="../xrefsE.html#example1"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	&quot;ChemoJunLauncher example1.&quot;
+
+	ChemoJunLauncher open</PRE>
+<!-- } example1 -->
+<LI><!-- initialize { -->
+<A NAME="ClassMethod.initialize"><B>initialize</B> <I>[class initialization]</I></A>
+<A HREF="../xrefsI.html#initialize"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	&quot;ChemoJunLauncher initialize.&quot;
+
+	super initialize</PRE>
+<!-- } initialize -->
+<LI><!-- install { -->
+<A NAME="ClassMethod.install"><B>install</B> <I>[class initialization]</I></A>
+<A HREF="../xrefsI.html#install"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	&quot;ChemoJunLauncher install.&quot;
+
+	&quot;It is necessary to hook at installation.&quot;
+
+	super install</PRE>
+<!-- } install -->
+<LI><!-- menuBar { -->
+<A NAME="ClassMethod.menuBar"><B>menuBar</B> <I>[resources]</I></A>
+<A HREF="../xrefsM.html#menuBar"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	&quot;Tools.MenuEditor new openOnClass: self andSelector: #menuBar&quot;
+
+	&lt;resource: #menu&gt;
+	^#(#{UI.Menu} #(
+			#(#{UI.MenuItem} 
+				#rawLabel: 
+				#(#{Kernel.UserMessage} 
+					#key: #chemoJun_Tools 
+					#defaultString: 'Tools' ) 
+				#submenu: #(#{UI.Menu} #(
+						#(#{UI.MenuItem} 
+							#rawLabel: 
+							#(#{Kernel.UserMessage} 
+								#key: #chemoJun_Molecular_Viewer 
+								#defaultString: 'Molecular Viewer' ) 
+							#value: #openMoleculeViewer ) 
+						#(#{UI.MenuItem} 
+							#rawLabel: 
+							#(#{Kernel.UserMessage} 
+								#key: #chemoJun_Molecular_Viewer___Select_Data 
+								#defaultString: 'Molecular Viewer - Select Data' ) 
+							#value: #openMoleculeViewerData ) 
+						#(#{UI.MenuItem} 
+							#rawLabel: 
+							#(#{Kernel.UserMessage} 
+								#key: #chemoJun_Chemical_Media_Navigator 
+								#defaultString: 'Chemical Media Navigator' ) 
+							#value: #openChemicalMediaNavigator ) 
+						#(#{UI.MenuItem} 
+							#rawLabel: 
+							#(#{Kernel.UserMessage} 
+								#key: #chemoJun_Molecular_Catalogue 
+								#defaultString: 'Molecular Catalogue' ) 
+							#value: #openMoleculeCatalogue ) 
+						#(#{UI.MenuItem} 
+							#rawLabel: 
+							#(#{Kernel.UserMessage} 
+								#key: #chemoJun_Molecular_Catalogue___Select_Data 
+								#defaultString: 'Molecular Catalogue - Select Data' ) 
+							#value: #openMoleculeCatalogueData ) ) #(2 1 2 ) nil ) ) 
+			#(#{UI.MenuItem} 
+				#rawLabel: 
+				#(#{Kernel.UserMessage} 
+					#key: #jun_Misc 
+					#defaultString: 'Misc' ) 
+				#submenu: #(#{UI.Menu} #(
+						#(#{UI.MenuItem} 
+							#rawLabel: 
+							#(#{Kernel.UserMessage} 
+								#key: #jun_Manual 
+								#defaultString: 'Manual' ) 
+							#value: #browseManual ) 
+						#(#{UI.MenuItem} 
+							#rawLabel: 
+							#(#{Kernel.UserMessage} 
+								#key: #chemoJun_About 
+								#defaultString: 'About' ) 
+							#value: #openAbout ) 
+						#(#{UI.MenuItem} 
+							#rawLabel: 
+							#(#{Kernel.UserMessage} 
+								#key: #jun_Credits 
+								#defaultString: 'Credits' ) 
+							#value: #openCredits ) 
+						#(#{UI.MenuItem} 
+							#rawLabel: 
+							#(#{Kernel.UserMessage} 
+								#key: #jun_Web_Page 
+								#defaultString: 'Web Page' ) 
+							#value: #openWebPage ) 
+						#(#{UI.MenuItem} 
+							#rawLabel: 
+							#(#{Kernel.UserMessage} 
+								#key: #jun_E_mail 
+								#defaultString: 'E-mail' ) 
+							#value: #openEmail ) 
+						#(#{UI.MenuItem} 
+							#rawLabel: 
+							#(#{Kernel.UserMessage} 
+								#key: #jun_Jun_Launcher 
+								#defaultString: 'Jun Launcher' ) 
+							#value: #openJunLauncher ) ) #(1 4 1 ) nil ) ) ) #(2 ) nil ) decodeAsLiteralArray</PRE>
+<!-- } menuBar -->
+<LI><!-- system { -->
+<A NAME="ClassMethod.system"><B>system</B> <I>[copyright]</I></A>
+<A HREF="../xrefsS.html#system"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^'ChemoJun'</PRE>
+<!-- } system -->
+<LI><!-- version { -->
+<A NAME="ClassMethod.version"><B>version</B> <I>[copyright]</I></A>
+<A HREF="../xrefsV.html#version"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^'050'</PRE>
+<!-- } version -->
+</OL>
+<!-- } (class_methods) -->
+<HR>
+<A HREF="../index.html#ChemoJunLauncher"><IMG SRC="../images/index.jpg" ALT="index" ALIGN="top" BORDER=1></A>
+<A HREF="../xrefsC.html#ChemoJunLauncher"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<!-- This Document was generated by JunEncyclopedia. -->
+<!-- JunEncyclopedia was developed by AOKI Atsushi. -->
+</BODY>
+</HTML>

@@ -1,0 +1,226 @@
+<HTML>
+<HEAD>
+<TITLE>ChemoJunMoleculeObject</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+
+<A HREF="index.html"><B>index</B></A><BR>
+<HR>
+
+<H2>ChemoJunMoleculeObject</H2>
+
+ChemoJun050 (2006/08/08) Copyright 2002-2006 National Institute of Informatics, Research Organization of Information and Systems.
+
+<P>
+<I>superclass:</I>
+</P>
+<UL>
+<LI><B><A HREF="ChemoJunAbstractObject.html">ChemoJunAbstractObject</A></B>
+</UL>
+
+<P>
+<I>instance variables:</I>
+</P>
+<UL>
+<LI><B>atomObjects</B>
+<LI><B>atomConnections</B>
+<LI><B>atomResolution</B>
+<LI><B>exceptHydrogen</B>
+<LI><B>attributeTable</B>
+</UL>
+
+<P>
+<I>class instance variables:</I>
+</P>
+<UL>
+</UL>
+
+<P>
+<I>class variabels:</I>
+</P>
+<UL>
+</UL>
+
+<P>
+<I>pool variabels:</I>
+</P>
+<UL>
+</UL>
+
+<P>
+<I>instance methods:</I>
+</P>
+<OL>
+<LI><B>arrayOfPolylinesForAromaticBondAsPlane:</B> atomConnection <I>[3d aux]</I><BR>
+<LI><B>arrayOfPolylinesForDoubleBondAsPlane:</B> atomConnection <I>[3d aux]</I><BR>
+<LI><B>arrayOfPolylinesForSingleBondAsPlane:</B> atomConnection <I>[3d aux]</I><BR>
+<LI><B>arrayOfPolylinesForTripleBondAsPlane:</B> atomConnection <I>[3d aux]</I><BR>
+<LI><B>asGraph</B> <I>[converting]</I><BR>
+<LI><B>asGrapher</B> <I>[converting]</I><BR>
+<LI><B>atomConnection:</B> atomObject <B>with:</B> anotherAtomObject <I>[accessing connection]</I><BR>
+<LI><B>atomConnections</B> <I>[accessing connection]</I><BR>
+<LI><B>atomConnections:</B> atomConnectionCollection <I>[accessing connection]</I><BR>
+<LI><B>atomConnectionsDo:</B> aBlock <I>[enumerating]</I><BR>
+<LI><B>atomObjectAt:</B> serialNumber <I>[accessing atom]</I><BR>
+<LI><B>atomObjects</B> <I>[accessing atom]</I><BR>
+<LI><B>atomObjects:</B> atomObjectCollection <I>[accessing atom]</I><BR>
+<LI><B>atomObjectsAndIndexesDo:</B> aBlock <I>[enumerating]</I><BR>
+<LI><B>atomObjectsDo:</B> aBlock <I>[enumerating]</I><BR>
+<LI><B>atomResolution</B> <I>[accessing]</I><BR>
+<LI><B>atomResolution:</B> aSymbol <I>[accessing]</I><BR>
+<LI><B>atomTable</B> <I>[accessing]</I><BR>
+<LI><B>attributeTable</B> <I>[attribute accessing]</I><BR>
+<LI><B>changeColor:</B> colorValue <B>serialNumberPairs:</B> serialNumberPairs <B>nestLevel:</B> nestLevel <I>[coloring]</I><BR>
+<LI><B>changeColor:</B> colorValue <B>serialNumbers:</B> serialNumbers <B>nestLevel:</B> nestLevel <I>[coloring]</I><BR>
+<LI><B>connectedAromaticAtomsAround:</B> atomConnection <I>[accessing atom]</I><BR>
+<LI><B>connectedAtomsAndConnectionsWith:</B> atomObject <I>[accessing atom]</I><BR>
+<LI><B>connectedAtomsAround:</B> atomConnection <I>[accessing atom]</I><BR>
+<LI><B>connectedAtomsWith:</B> atomObject <I>[accessing atom]</I><BR>
+<LI><B>connectedConnectionsAround:</B> atomConnection <I>[accessing connection]</I><BR>
+<LI><B>connectionsWith:</B> atomObject <I>[accessing connection]</I><BR>
+<LI><B>connectionTable</B> <I>[accessing connection]</I><BR>
+<LI><B>cylinderFrom:</B> fromPoint <B>to:</B> toPoint <B>width:</B> widthValue <B>by:</B> divisionNumber <I>[3d aux]</I><BR>
+<LI><B>default2dMolfilePatterns</B> <I>[defaults]</I><BR>
+<LI><B>defaultAtomConnectionClass</B> <I>[defaults]</I><BR>
+<LI><B>defaultAtomObjectClass</B> <I>[defaults]</I><BR>
+<LI><B>defaultBallDivisionNumberHigh</B> <I>[defaults]</I><BR>
+<LI><B>defaultBallDivisionNumberLow</B> <I>[defaults]</I><BR>
+<LI><B>defaultBallDivisionNumberMedium</B> <I>[defaults]</I><BR>
+<LI><B>defaultBondThickness</B> <I>[defaults]</I><BR>
+<LI><B>defaultFrontierMinimumDistance</B> <I>[defaults]</I><BR>
+<LI><B>defaultFrontierRevisedCoeffcient</B> <I>[defaults]</I><BR>
+<LI><B>defaultGraphClass</B> <I>[defaults]</I><BR>
+<LI><B>defaultGrapherClass</B> <I>[defaults]</I><BR>
+<LI><B>defaultHalftoneValue</B> <I>[defaults]</I><BR>
+<LI><B>defaultMinimumTriangleArea</B> <I>[defaults]</I><BR>
+<LI><B>defaultMolFileReaderClass</B> <I>[defaults]</I><BR>
+<LI><B>defaultSpaceFillDivisionNumber</B> <I>[defaults]</I><BR>
+<LI><B>defaultSpaceFillDivisionNumberHigh</B> <I>[defaults]</I><BR>
+<LI><B>defaultSpaceFillDivisionNumberLow</B> <I>[defaults]</I><BR>
+<LI><B>defaultSpaceFillDivisionNumberMedium</B> <I>[defaults]</I><BR>
+<LI><B>defaultTubeDivisionNumber</B> <I>[defaults]</I><BR>
+<LI><B>defaultTubeDivisionNumberHigh</B> <I>[defaults]</I><BR>
+<LI><B>defaultTubeDivisionNumberLow</B> <I>[defaults]</I><BR>
+<LI><B>defaultTubeDivisionNumberMedium</B> <I>[defaults]</I><BR>
+<LI><B>distancesFrom:</B> aPoint <I>[functions]</I><BR>
+<LI><B>exceptHydrogen</B> <I>[accessing]</I><BR>
+<LI><B>exceptHydrogen:</B> aBoolean <I>[accessing]</I><BR>
+<LI><B>frontierPoint:</B> aLine <B>rejectedBy:</B> aBall <I>[frontier]</I><BR>
+<LI><B>frontierPolygons:</B> aPolygon <B>of:</B> atomObject <B>offset:</B> offsetValue <I>[frontier]</I><BR>
+<LI><B>frontierTriangles:</B> aTriangle <B>rejectedBy:</B> aBall <I>[frontier]</I><BR>
+<LI><B>hasHydroxyl:</B> atomObject <I>[testing]</I><BR>
+<BR>
+	*-OH<BR>
+	^<BR>
+	
+<LI><B>informationString</B> <I>[accessing]</I><BR>
+<LI><B>initialize</B> <I>[initialize-release]</I><BR>
+<LI><B>is2d</B> <I>[testing]</I><BR>
+<LI><B>is3d</B> <I>[testing]</I><BR>
+<LI><B>isAldehyde:</B> atomObject <I>[testing]</I><BR>
+<BR>
+	-CHO<BR>
+	 ^<BR>
+	
+<LI><B>isAmino:</B> atomObject <I>[testing]</I><BR>
+<BR>
+	-NH2 or -NH<BR>
+	 ^       ^<BR>
+	
+<LI><B>isCarbonyl:</B> atomObject <I>[testing]</I><BR>
+<BR>
+	-C=O<BR>
+	 ^<BR>
+	
+<LI><B>isCarboxyl:</B> atomObject <I>[testing]</I><BR>
+<BR>
+	-COOH<BR>
+	 ^<BR>
+	
+<LI><B>isHydroxyl:</B> atomObject <I>[testing]</I><BR>
+<BR>
+	-OH<BR>
+	 ^<BR>
+	
+<LI><B>isMethyl:</B> atomObject <I>[testing]</I><BR>
+<BR>
+	-CH3<BR>
+	 ^  <BR>
+	
+<LI><B>isSulfanyl:</B> atomObject <I>[testing]</I><BR>
+<BR>
+	-SH<BR>
+	 ^<BR>
+	
+<LI><B>modifierAssociation:</B> atomObject <B>normalPresentation:</B> aBoolean <I>[private]</I><BR>
+<LI><B>moleculeAsBallAndStick</B> <I>[3d accessing]</I><BR>
+<LI><B>moleculeAsBallAndStick:</B> divisionNumber <I>[3d accessing]</I><BR>
+<LI><B>moleculeAsPlane</B> <I>[3d accessing]</I><BR>
+<LI><B>moleculeAsSpaceFill</B> <I>[3d accessing]</I><BR>
+<LI><B>moleculeAsSpaceFill:</B> divisionNumber <I>[3d accessing]</I><BR>
+<LI><B>moleculeAsSpaceFill:</B> divisionNumber <B>offsetValue:</B> offsetValue <I>[3d accessing]</I><BR>
+<LI><B>moleculeAsSpaceFill:</B> divisionNumber <B>offsetValue:</B> offsetValue <B>smoothShading:</B> aBoolean <I>[3d accessing]</I><BR>
+<LI><B>moleculeAsStick</B> <I>[3d accessing]</I><BR>
+<LI><B>moleculeAsStick:</B> divisionNumber <I>[3d accessing]</I><BR>
+<LI><B>moleculeAsStickAndSpaceFill</B> <I>[3d accessing]</I><BR>
+<LI><B>molfileHeaderBlock</B> <I>[attribute accessing]</I><BR>
+<LI><B>molfileHeaderBlock:</B> aCollection <I>[attribute accessing]</I><BR>
+<LI><B>numberOfAtoms</B> <I>[accessing atom]</I><BR>
+<LI><B>numberOfConnections</B> <I>[accessing connection]</I><BR>
+<LI><B>numberOfHydrogens:</B> atomObject <I>[accessing]</I><BR>
+<LI><B>numberOfHydrogensTable:</B> atomObject <I>[private]</I><BR>
+<LI><B>numberOfNitrogens:</B> atomObject <I>[accessing]</I><BR>
+<LI><B>numberOfOxygens:</B> atomObject <I>[accessing]</I><BR>
+<LI><B>postCopy</B> <I>[copying]</I><BR>
+<LI><B>surfaceInformationString</B> <I>[accessing]</I><BR>
+<LI><B>translationOffsetOf:</B> atomConnection <I>[3d aux]</I><BR>
+</OL>
+
+<P>
+<I>class methods:</I>
+</P>
+<OL>
+<LI><B>copyright</B> <I>[copyright]</I><BR>
+<LI><B>defaultAtomConnectionClass</B> <I>[defaults]</I><BR>
+<LI><B>defaultAtomObjectClass</B> <I>[defaults]</I><BR>
+<LI><B>defaultExceptHydrogen</B> <I>[defaults]</I><BR>
+<LI><B>defaultGraphClass</B> <I>[defaults]</I><BR>
+<LI><B>defaultGrapherClass</B> <I>[defaults]</I><BR>
+<LI><B>defaultMolFileReaderClass</B> <I>[defaults]</I><BR>
+<LI><B>example1</B> <I>[examples]</I><BR>
+ChemoJunMoleculeObject example1.
+<LI><B>example2</B> <I>[examples]</I><BR>
+ChemoJunMoleculeObject example2.
+<LI><B>example3</B> <I>[examples]</I><BR>
+ChemoJunMoleculeObject example3.
+<LI><B>example4</B> <I>[examples]</I><BR>
+ChemoJunMoleculeObject example4.
+<LI><B>example5</B> <I>[examples]</I><BR>
+ChemoJunMoleculeObject example5.
+<LI><B>example6</B> <I>[examples]</I><BR>
+ChemoJunMoleculeObject example6.
+<LI><B>example7</B> <I>[examples]</I><BR>
+ChemoJunMoleculeObject example7.
+<LI><B>example8</B> <I>[examples]</I><BR>
+ChemoJunMoleculeObject example8.
+<LI><B>example9</B> <I>[examples]</I><BR>
+ChemoJunMoleculeObject example9.
+<LI><B>exampleA</B> <I>[examples]</I><BR>
+ChemoJunMoleculeObject exampleA.
+<LI><B>exampleB</B> <I>[examples]</I><BR>
+ChemoJunMoleculeObject exampleB.
+<LI><B>fileName:</B> aFilename <I>[instance creation]</I><BR>
+<LI><B>fromReader:</B> aReader <I>[instance creation]</I><BR>
+<LI><B>moleculeObjectFromReader:</B> aReader <I>[private]</I><BR>
+<LI><B>request</B> <I>[utilities]</I><BR>
+ChemoJunMoleculeObject request.
+<LI><B>system</B> <I>[copyright]</I><BR>
+<LI><B>version</B> <I>[copyright]</I><BR>
+</OL>
+
+
+<HR>
+<A HREF="index.html"><B>index</B></A><BR>
+
+</BODY>
+</HTML>

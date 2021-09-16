@@ -1,0 +1,139 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<TITLE>分子オブジェクト（ChemoJunMoleculeObject）</TITLE>
+</HEAD>
+<BODY bgcolor="#ffffff">
+<H2>分子オブジェクト（ChemoJunMoleculeObject）</H2>
+<P>分子オブジェクト（ChemoJunMoleculeObject）は、ファイル名（Filename）を有する抽象オブジェクト（ChemoJunAbstractObject）をスーパクラスにして作成されています。ファイル名も抽象オブジェクトも共にオブジェクト（Object）がスーパクラスになります。分子オブジェクトは、分子ビューアから保持されています。</P>
+<CENTER>
+<TABLE border="0" cellpadding="8">
+  <TBODY>
+    <TR>
+      <TD align="center"><A href="htmls/map.html" target="_blank"><IMG src="thumbnails/Molecule.jpg" width="288" height="210" border="0" align="middle"></A></TD>
+    </TR>
+    <TR>
+      <TD align="center" valign="middle">分子オブジェクトの構造</TD>
+    </TR>
+  </TBODY>
+</TABLE>
+</CENTER>
+<P>分子オブジェクトは複数の原子オブジェクト（ChemoJunAtomObject）と複数の結合オブジェクト（ChemoJunAtomConnection）から構成され、結合オブジェクトはどの原子とどの原子を結んでいるのかを表現するため、１対２の関係構造を作ります。</P>
+<P>原子オブジェクトは原子記号（atomicSymbol）・原子座標（atomicPoint）・原子半径（atomicRadius）をインスタンス変数として保持し、結合オブジェクトは結合タイプ（bondType）とステレオタイプ（stereoType）をインスタンス変数として保持しています。</P>
+<P>結合タイプは、一重結合なのか、二重結合なのか、三重結合なのか、アロマテイック結合なのかを表します。ステレオタイプは、前に出てくる結合なのか、後ろへと入ってゆく結合なのかを表します。</P>
+<P>分子オブジェクトは、複数の原子オブジェクトと複数の結合オブジェクトの集約オブジェクトとしての機能を、内部に含み持っており、化学関連ライブラリとして必要な述語やアルゴリズムを実装しています。</P>
+<UL>
+  <LI>ノードとアークの集合であるグラフへの変換機能
+  <LI>可視化のための3次元オブジェクトの生成機能
+  <LI>特定の原子団（たとえば、カルボニル基やメチル基など）を有するか否かの応答機能
+  <LI>シリアル番号を伴って原子および結合を訪ね歩く列挙機能
+</UL>
+<P>【ノードとアークの集合であるグラフへの変換機能】</P>
+<BLOCKQUOTE>分子を構成している原子とシリアル番号からノードを作り、結合からアークを作り出します。それらを無向グラフに仕立てあげます。</BLOCKQUOTE>
+<BLOCKQUOTE>グラフに変換するメソッド「<A href="../Encyclopedia/htmls/ChemoJunMoleculeObject.html#InstanceMethod(asGraph)" target="_blank">asGraph</A>」とそのグラフの操作系であるグラファにまで変換するメソッド「<A href="../Encyclopedia/htmls/ChemoJunMoleculeObject.html#InstanceMethod(asGrapher)" target="_blank">asGrapher</A>」を有しています。
+<CENTER>
+<TABLE border="0">
+  <TBODY>
+    <TR>
+      <TD align="center" valign="middle"><A href="../Grapher/images/Gly.jpg" target="_blank"><IMG src="../Grapher/thumbnails/Gly.jpg" width="154" height="164" border="0"></A><BR>
+      <BR>
+      <TT><FONT size="-1">self asGrapher open</FONT></TT></TD>
+      <TD align="center" valign="middle"><A href="../Grapher/images/Grapher2.jpg" target="_blank"><IMG src="../Grapher/thumbnails/Grapher2.jpg" width="324" height="254" border="0"></A></TD>
+    </TR>
+    <TR>
+      <TD align="center" valign="middle">グリシン分子</TD>
+      <TD align="center" valign="middle">注目する炭素を中心に樹状整列したグラフ</TD>
+    </TR>
+  </TBODY>
+</TABLE>
+</CENTER>
+</BLOCKQUOTE>
+<P>【可視化のための3次元オブジェクトの生成機能】</P>
+<BLOCKQUOTE>ステイック描画のための3次元オブジェクトの生成メソッド「<A href="../Encyclopedia/htmls/ChemoJunMoleculeObject.html#InstanceMethod(moleculeAsStick)" target="_blank">moleculeAsStick</A>」
+<BLOCKQUOTE>
+<CENTER>
+<TABLE border="0">
+  <TBODY>
+    <TR>
+      <TD align="center" valign="middle"><A href="images/AsStick.jpg" target="_blank"><IMG src="thumbnails/AsStick.jpg" width="400" height="265" border="0"></A></TD>
+    </TR>
+  </TBODY>
+</TABLE>
+</CENTER>
+</BLOCKQUOTE>
+</BLOCKQUOTE>
+<BLOCKQUOTE>ボール＆ステイック描画のための3次元オブジェクトの生成メソッド「<A href="../Encyclopedia/htmls/ChemoJunMoleculeObject.html#InstanceMethod(moleculeAsBallAndStick)" target="_blank">moleculeAsBallAndStick</A>」
+<BLOCKQUOTE>
+<CENTER>
+<TABLE border="0">
+  <TBODY>
+    <TR>
+      <TD align="center" valign="middle"><A href="images/AsBallAndStick.jpg" target="_blank"><IMG src="thumbnails/AsBallAndStick.jpg" width="400" height="265" border="0"></A></TD>
+    </TR>
+  </TBODY>
+</TABLE>
+</CENTER>
+</BLOCKQUOTE>
+</BLOCKQUOTE>
+<BLOCKQUOTE>スペースフィル描画のための3次元オブジェクトの生成メソッド「<A href="../Encyclopedia/htmls/ChemoJunMoleculeObject.html#InstanceMethod(moleculeAsSpaceFill)" target="_blank">moleculeAsSpaceFill</A>」
+<BLOCKQUOTE>
+<CENTER>
+<TABLE border="0">
+  <TBODY>
+    <TR>
+      <TD align="center" valign="middle"><A href="images/asSpaceFill.jpg" target="_blank"><IMG src="thumbnails/asSpaceFill.jpg" width="400" height="265" border="0"></A></TD>
+    </TR>
+  </TBODY>
+</TABLE>
+</CENTER>
+</BLOCKQUOTE>
+</BLOCKQUOTE>
+<BLOCKQUOTE>スティック＆スペースフィル描画のための3次元オブジェクトの生成メソッド「<A href="../Encyclopedia/htmls/ChemoJunMoleculeObject.html#InstanceMethod(moleculeAsStickAndSpaceFill)" target="_blank">moleculeAsStickAndSpaceFill</A>」
+<BLOCKQUOTE>
+<CENTER>
+<TABLE border="0">
+  <TBODY>
+    <TR>
+      <TD align="center" valign="middle"><A href="images/AsStickAndSpaceFill.jpg" target="_blank"><IMG src="thumbnails/AsStickAndSpaceFill.jpg" width="400" height="265" border="0"></A></TD>
+    </TR>
+  </TBODY>
+</TABLE>
+</CENTER>
+</BLOCKQUOTE>
+</BLOCKQUOTE>
+<BLOCKQUOTE>平面構造描画のための3次元オブジェクトの生成メソッド「<A href="../Encyclopedia/htmls/ChemoJunMoleculeObject.html#InstanceMethod(moleculeAsPlane)" target="_blank">moleculeAsPlane</A>」
+<BLOCKQUOTE>
+<CENTER>
+<TABLE border="0">
+  <TBODY>
+    <TR>
+      <TD align="center" valign="middle"><A href="images/AsPlane.jpg" target="_blank"><IMG src="thumbnails/AsPlane.jpg" width="400" height="265" border="0"></A></TD>
+    </TR>
+  </TBODY>
+</TABLE>
+</CENTER>
+</BLOCKQUOTE>
+</BLOCKQUOTE>
+<P>【特定の原子団（たとえば、カルボニル基やメチル基など）を有するか否かの応答機能】</P>
+<BLOCKQUOTE>
+<UL>
+  <LI><A href="../Encyclopedia/htmls/ChemoJunMoleculeObject.html#InstanceMethod(isAldehyde:)" target="_blank">isAldehyde: atomObject</A>
+  <LI><A href="../Encyclopedia/htmls/ChemoJunMoleculeObject.html#InstanceMethod(isCarbonyl:)" target="_blank">isCarbonyl: atomObject</A>
+  <LI><A href="../Encyclopedia/htmls/ChemoJunMoleculeObject.html#InstanceMethod(isCarboxyl:)" target="_blank">isCarboxyl: atomObject</A>
+  <LI><A href="../Encyclopedia/htmls/ChemoJunMoleculeObject.html#InstanceMethod(isHydroxyl:)" target="_blank">isHydroxyl: atomObject</A>
+  <LI><A href="../Encyclopedia/htmls/ChemoJunMoleculeObject.html#InstanceMethod(isMethyl:)" target="_blank">isMethyl: atomObject</A>
+  <LI><A href="../Encyclopedia/htmls/ChemoJunMoleculeObject.html#InstanceMethod(hasHydroxyl:)" target="_blank">hasHydroxyl: atomObject</A>
+</UL>
+</BLOCKQUOTE>
+<P>【シリアル番号を伴って原子および結合を訪ね歩く列挙機能】</P>
+<BLOCKQUOTE>
+<UL>
+  <LI><A href="../Encyclopedia/htmls/ChemoJunMoleculeObject.html#InstanceMethod(atomObjectsAndIndexesDo:)" target="_blank">atomObjectsAndIndexesDo: aBlock</A>
+  <LI><A href="../Encyclopedia/htmls/ChemoJunMoleculeObject.html#InstanceMethod(atomObjectsDo:)" target="_blank">atomObjectsDo: aBlock</A>
+  <LI><A href="../Encyclopedia/htmls/ChemoJunMoleculeObject.html#InstanceMethod(atomConnectionsDo:)" target="_blank">atomConnnectionsDo: aBlock</A>
+</UL>
+</BLOCKQUOTE>
+<HR>
+</BODY>
+</HTML>

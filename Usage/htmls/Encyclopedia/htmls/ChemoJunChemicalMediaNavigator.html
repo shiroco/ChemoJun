@@ -1,0 +1,339 @@
+<HTML>
+<HEAD>
+<TITLE>ChemoJunChemicalMediaNavigator</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<A HREF="../index.html#ChemoJunChemicalMediaNavigator"><IMG SRC="../images/index.jpg" ALT="index" ALIGN="top" BORDER=1></A>
+<A HREF="../xrefsC.html#ChemoJunChemicalMediaNavigator"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+2006/08/08 17:41:24
+<HR>
+<!-- (class_name) { -->
+<H2>
+<A NAME="Class.ChemoJunChemicalMediaNavigator">ChemoJunChemicalMediaNavigator</A>
+</H2>
+<!-- } (class_name) -->
+<!-- (comment) { -->
+<P>
+<A NAME="Comment.ChemoJunChemicalMediaNavigator">
+ChemoJun050 (2006/08/08) Copyright 2002-2006 National Institute of Informatics, Research Organization of Information and Systems.
+</A>
+</P>
+<!-- } (comment) -->
+<!-- (category) { -->
+<P>
+<A NAME="Category.ChemoJun-Display-Viewers"><I>category:</I></A></P>
+<UL>
+<LI><B>
+ChemoJun-Display-Viewers
+</B>
+<A HREF="../xrefsC.html#ChemoJun-Display-Viewers"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+</UL>
+<!-- } (category) -->
+<!-- (inheritance) { -->
+<P>
+<A NAME="Inheritance.ChemoJunChemicalMediaNavigator"><I>inheritance:</I></A>
+</P>
+<UL>
+<LI TYPE="square">Object
+<UL>
+<LI TYPE="square">Model
+<UL>
+<LI TYPE="square">ApplicationModel
+<UL>
+<LI TYPE="square">JunApplicationModel
+<UL>
+<LI TYPE="square">JunMultiMediaNavigator
+<UL>
+<LI TYPE="square"><B>ChemoJunChemicalMediaNavigator</B>
+</UL>
+</UL>
+</UL>
+</UL>
+</UL>
+</UL>
+<!-- } (inheritance) -->
+<!-- (instance_variables) { -->
+<P>
+<A NAME="InstanceVariables.ChemoJunChemicalMediaNavigator">
+<I>instance variables:</I>
+</A>
+</P>
+<UL>
+<!-- moleculeModel { -->
+<LI><A NAME="InstanceVariable.moleculeModel"><B>moleculeModel</B></A>
+<A HREF="../xrefsM.html#moleculeModel"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<!-- } moleculeModel -->
+</UL>
+<!-- } (instance_variables) -->
+<!-- (class_instance_variables) { -->
+<P>
+<A NAME="ClassInstanceVariables.ChemoJunChemicalMediaNavigator">
+<I>class instance variables:</I>
+</A>
+</P>
+<UL>
+</UL>
+<!-- } (class_instance_variables) -->
+<!-- (class_variables) { -->
+<P>
+<A NAME="ClassVariables.ChemoJunChemicalMediaNavigator">
+<I>class variables:</I>
+</A>
+</P>
+<UL>
+</UL>
+<!-- } (class_variables) -->
+<!-- (pool_variables) { -->
+<P>
+<A NAME="PoolVariables.ChemoJunChemicalMediaNavigator">
+<I>pool variables:</I>
+</A>
+</P>
+<UL>
+</UL>
+<!-- } (pool_variables) -->
+<!-- (instance_methods) { -->
+<P>
+<A NAME="InstanceMethods.ChemoJunChemicalMediaNavigator">
+<I>instance methods:</I>
+</A>
+</P>
+<OL>
+<LI><!-- checkFilename: { -->
+<A NAME="InstanceMethod.checkFilename:"><B>checkFilename:</B> aFilename <I>[actions]</I></A>
+<A HREF="../xrefsC.html#checkFilename:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	self moleculeModel beInvisible.
+	self movieModel beInvisible.
+	self imageModel beInvisible.
+	self textModel beInvisible.
+	self bodyModel beInvisible.
+	self fileModel updateCurrentFileName.
+	aFilename isNil ifTrue: [^self].
+	aFilename definitelyExists ifFalse: [^self].
+	aFilename isDirectory ifTrue: [^self].
+	JunSensorUtility altDown 
+		ifFalse: 
+			[(self class isMolfile: aFilename) 
+				ifTrue: 
+					[| aReader |
+					(self builder componentAt: #moleculeModel)
+						beVisible;
+						enable.
+					aReader := self moleculeModel defaultMolFileReaderClass 
+								fileName: aFilename.
+					self moleculeModel moleculeFromReader: aReader.
+					^self]].
+	super checkFilename: aFilename</PRE>
+<!-- } checkFilename: -->
+<LI><!-- fileModel { -->
+<A NAME="InstanceMethod.fileModel"><B>fileModel</B> <I>[accessing]</I></A>
+<A HREF="../xrefsF.html#fileModel"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	fileModel isNil 
+		ifTrue: 
+			[super fileModel.
+			fileModel leftList selectBlock: ChemoJunUtility selectBlockForDirectoryContents.
+			fileModel centerList selectBlock: ChemoJunUtility selectBlockForDirectoryContents.
+			fileModel rightList selectBlock: ChemoJunUtility selectBlockForDirectoryContents].
+	^fileModel</PRE>
+<!-- } fileModel -->
+<LI><!-- initialize { -->
+<A NAME="InstanceMethod.initialize"><B>initialize</B> <I>[initialize-release]</I></A>
+<A HREF="../xrefsI.html#initialize"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	super initialize.
+	moleculeModel := nil</PRE>
+<!-- } initialize -->
+<LI><!-- moleculeModel { -->
+<A NAME="InstanceMethod.moleculeModel"><B>moleculeModel</B> <I>[accessing]</I></A>
+<A HREF="../xrefsM.html#moleculeModel"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	moleculeModel isNil ifTrue: [moleculeModel := ChemoJunMoleculeModel new].
+	^moleculeModel</PRE>
+<!-- } moleculeModel -->
+<LI><!-- postOpenWith: { -->
+<A NAME="InstanceMethod.postOpenWith:"><B>postOpenWith:</B> aBuilder <I>[interface opening]</I></A>
+<A HREF="../xrefsP.html#postOpenWith:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	| specWrapper |
+	specWrapper := aBuilder componentAt: #moleculeModel.
+	specWrapper beInvisible.
+	specWrapper widget 
+		client: self moleculeModel
+		spec: #windowSpec
+		builder: aBuilder.
+	super postOpenWith: aBuilder</PRE>
+<!-- } postOpenWith: -->
+</OL>
+<!-- } (instance_methods) -->
+<!-- (class_methods) { -->
+<P>
+<A NAME="ClassMethods.ChemoJunChemicalMediaNavigator">
+<I>class methods:</I>
+</A>
+</P>
+<OL>
+<LI><!-- copyright { -->
+<A NAME="ClassMethod.copyright"><B>copyright</B> <I>[copyright]</I></A>
+<A HREF="../xrefsC.html#copyright"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^'ChemoJun050 (2006/08/08) Copyright 2002-2006 National Institute of Informatics, Research Organization of Information and Systems.'</PRE>
+<!-- } copyright -->
+<LI><!-- example { -->
+<A NAME="ClassMethod.example"><B>example</B> <I>[examples]</I></A>
+<A HREF="../xrefsE.html#example"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	&quot;ChemoJunChemicalMediaNavigator example.&quot;
+
+	ChemoJunChemicalMediaNavigator open</PRE>
+<!-- } example -->
+<LI><!-- install { -->
+<A NAME="ClassMethod.install"><B>install</B> <I>[class initialization]</I></A>
+<A HREF="../xrefsI.html#install"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	&quot;ChemoJunChemicalMediaNavigator install.&quot;
+
+	JunFileNavigator icon16x16Table at: 'mol'
+		ifAbsentPut: [ChemoJunOpaqueImageIcons chemoJun16x16].
+	JunFileNavigator icon64x64Table at: 'mol'
+		ifAbsentPut: [ChemoJunOpaqueImageIcons chemoJun64x64].
+	JunFileNavigator icon16x16Table at: 'catalogue'
+		ifAbsentPut: [ChemoJunOpaqueImageIcons chemoJun16x16].
+	JunFileNavigator icon64x64Table at: 'catalogue'
+		ifAbsentPut: [ChemoJunOpaqueImageIcons chemoJun64x64].
+	JunFileNavigator icon16x16Table at: 'sd'
+		ifAbsentPut: [ChemoJunOpaqueImageIcons chemoJun16x16].
+	JunFileNavigator icon64x64Table at: 'sd'
+		ifAbsentPut: [ChemoJunOpaqueImageIcons chemoJun64x64].
+	^self</PRE>
+<!-- } install -->
+<LI><!-- is2dMolfile: { -->
+<A NAME="ClassMethod.is2dMolfile:"><B>is2dMolfile:</B> aFilename <I>[testing]</I></A>
+<A HREF="../xrefsI.html#is2dMolfile:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	| aString aCollection extensionString dimensionString |
+	aString := (aFilename class splitPath: aFilename asString) last.
+	aCollection := JunStringUtility separate: aString dividers: '.'.
+	extensionString := aCollection last asLowercase.
+	aCollection size &gt; 2 
+		ifTrue: 
+			[dimensionString := (aCollection at: aCollection size - 1) asLowercase]
+		ifFalse: [dimensionString := String new].
+	^extensionString = 'mol' and: [dimensionString = '2d']</PRE>
+<!-- } is2dMolfile: -->
+<LI><!-- isMolfile: { -->
+<A NAME="ClassMethod.isMolfile:"><B>isMolfile:</B> aFilename <I>[testing]</I></A>
+<A HREF="../xrefsI.html#isMolfile:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	| aString aCollection extensionString |
+	aString := (aFilename class splitPath: aFilename asString) last.
+	aCollection := JunStringUtility separate: aString dividers: '.'.
+	extensionString := aCollection last asLowercase.
+	^extensionString = 'mol'</PRE>
+<!-- } isMolfile: -->
+<LI><!-- system { -->
+<A NAME="ClassMethod.system"><B>system</B> <I>[copyright]</I></A>
+<A HREF="../xrefsS.html#system"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^'ChemoJun'</PRE>
+<!-- } system -->
+<LI><!-- uninstall { -->
+<A NAME="ClassMethod.uninstall"><B>uninstall</B> <I>[class initialization]</I></A>
+<A HREF="../xrefsU.html#uninstall"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	&quot;ChemoJunChemicalMediaNavigator uninstall.&quot;
+
+	JunFileNavigator icon16x16Table removeKey: 'mol'.
+	JunFileNavigator icon64x64Table removeKey: 'mol'.
+	JunFileNavigator icon16x16Table removeKey: 'catalogue'.
+	JunFileNavigator icon64x64Table removeKey: 'catalogue'.
+	JunFileNavigator icon16x16Table removeKey: 'sd'.
+	JunFileNavigator icon64x64Table removeKey: 'sd'.
+	^self</PRE>
+<!-- } uninstall -->
+<LI><!-- version { -->
+<A NAME="ClassMethod.version"><B>version</B> <I>[copyright]</I></A>
+<A HREF="../xrefsV.html#version"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^'050'</PRE>
+<!-- } version -->
+<LI><!-- windowSpec { -->
+<A NAME="ClassMethod.windowSpec"><B>windowSpec</B> <I>[interface specs]</I></A>
+<A HREF="../xrefsW.html#windowSpec"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	&quot;Tools.UIPainter new openOnClass: self andSelector: #windowSpec&quot;
+
+	&lt;resource: #canvas&gt;
+	^#(#{UI.FullSpec} 
+		#window: 
+		#(#{UI.WindowSpec} 
+			#label: 
+			#(#{Kernel.UserMessage} 
+				#key: #chemoJun_Chemical_Media_Navigator 
+				#defaultString: 'Chemical Media Navigator' ) 
+			#min: #(#{Core.Point} 400 500 ) 
+			#bounds: #(#{Graphics.Rectangle} 500 200 1000 800 ) 
+			#colors: 
+			#(#{UI.LookPreferences} 
+				#setBackgroundColor: #(#{Graphics.ColorValue} #white ) ) 
+			#isEventDriven: true ) 
+		#component: 
+		#(#{UI.SpecCollection} 
+			#collection: #(
+				#(#{UI.SubCanvasSpec} 
+					#layout: #(#{Graphics.LayoutFrame} 0 0 0 0 0 1 -282 1 ) 
+					#name: #moleculeModel 
+					#flags: 0 ) 
+				#(#{UI.SubCanvasSpec} 
+					#layout: #(#{Graphics.LayoutFrame} 0 0 0 0 0 1 -282 1 ) 
+					#name: #movieModel 
+					#flags: 0 ) 
+				#(#{UI.SubCanvasSpec} 
+					#layout: #(#{Graphics.LayoutFrame} 0 0 0 0 0 1 -282 1 ) 
+					#name: #imageModel 
+					#flags: 0 ) 
+				#(#{UI.SubCanvasSpec} 
+					#layout: #(#{Graphics.LayoutFrame} 0 0 0 0 0 1 -282 1 ) 
+					#name: #textModel 
+					#flags: 0 ) 
+				#(#{UI.SubCanvasSpec} 
+					#layout: #(#{Graphics.LayoutFrame} 0 0 0 0 0 1 -282 1 ) 
+					#name: #bodyModel 
+					#flags: 0 ) 
+				#(#{UI.ResizingSplitterSpec} 
+					#layout: #(#{Graphics.LayoutFrame} 1 0 -282 1 -1 1 -281 1 ) 
+					#name: #ResizingSplitter1 
+					#horizontal: true 
+					#minAboveSize: 300 
+					#minBelowSize: 100 
+					#aboveWidgets: 'moleculeModel movieModel imageModel textModel bodyModel' 
+					#belowWidgets: 'fileModel' ) 
+				#(#{UI.SubCanvasSpec} 
+					#layout: #(#{Graphics.LayoutFrame} 0 0 -281 1 0 1 0 1 ) 
+					#name: #fileModel 
+					#flags: 0 ) ) ) )</PRE>
+<!-- } windowSpec -->
+</OL>
+<!-- } (class_methods) -->
+<HR>
+<A HREF="../index.html#ChemoJunChemicalMediaNavigator"><IMG SRC="../images/index.jpg" ALT="index" ALIGN="top" BORDER=1></A>
+<A HREF="../xrefsC.html#ChemoJunChemicalMediaNavigator"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<!-- This Document was generated by JunEncyclopedia. -->
+<!-- JunEncyclopedia was developed by AOKI Atsushi. -->
+</BODY>
+</HTML>

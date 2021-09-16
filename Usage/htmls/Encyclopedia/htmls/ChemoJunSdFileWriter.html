@@ -1,0 +1,216 @@
+<HTML>
+<HEAD>
+<TITLE>ChemoJunSdFileWriter</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<A HREF="../index.html#ChemoJunSdFileWriter"><IMG SRC="../images/index.jpg" ALT="index" ALIGN="top" BORDER=1></A>
+<A HREF="../xrefsC.html#ChemoJunSdFileWriter"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+2006/08/08 17:41:29
+<HR>
+<!-- (class_name) { -->
+<H2>
+<A NAME="Class.ChemoJunSdFileWriter">ChemoJunSdFileWriter</A>
+</H2>
+<!-- } (class_name) -->
+<!-- (comment) { -->
+<P>
+<A NAME="Comment.ChemoJunSdFileWriter">
+ChemoJun050 (2006/08/08) Copyright 2002-2006 National Institute of Informatics, Research Organization of Information and Systems.
+</A>
+</P>
+<!-- } (comment) -->
+<!-- (category) { -->
+<P>
+<A NAME="Category.ChemoJun-File-IO"><I>category:</I></A></P>
+<UL>
+<LI><B>
+ChemoJun-File-IO
+</B>
+<A HREF="../xrefsC.html#ChemoJun-File-IO"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+</UL>
+<!-- } (category) -->
+<!-- (inheritance) { -->
+<P>
+<A NAME="Inheritance.ChemoJunSdFileWriter"><I>inheritance:</I></A>
+</P>
+<UL>
+<LI TYPE="square">Object
+<UL>
+<LI TYPE="square"><A HREF="ChemoJunAbstractFile.html">ChemoJunAbstractFile</A>
+<UL>
+<LI TYPE="square"><A HREF="ChemoJunAbstractFileWriter.html">ChemoJunAbstractFileWriter</A>
+<UL>
+<LI TYPE="square"><B>ChemoJunSdFileWriter</B>
+</UL>
+</UL>
+</UL>
+</UL>
+<!-- } (inheritance) -->
+<!-- (instance_variables) { -->
+<P>
+<A NAME="InstanceVariables.ChemoJunSdFileWriter">
+<I>instance variables:</I>
+</A>
+</P>
+<UL>
+<!-- moleculeObjects { -->
+<LI><A NAME="InstanceVariable.moleculeObjects"><B>moleculeObjects</B></A>
+<A HREF="../xrefsM.html#moleculeObjects"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<!-- } moleculeObjects -->
+</UL>
+<!-- } (instance_variables) -->
+<!-- (class_instance_variables) { -->
+<P>
+<A NAME="ClassInstanceVariables.ChemoJunSdFileWriter">
+<I>class instance variables:</I>
+</A>
+</P>
+<UL>
+</UL>
+<!-- } (class_instance_variables) -->
+<!-- (class_variables) { -->
+<P>
+<A NAME="ClassVariables.ChemoJunSdFileWriter">
+<I>class variables:</I>
+</A>
+</P>
+<UL>
+</UL>
+<!-- } (class_variables) -->
+<!-- (pool_variables) { -->
+<P>
+<A NAME="PoolVariables.ChemoJunSdFileWriter">
+<I>pool variables:</I>
+</A>
+</P>
+<UL>
+</UL>
+<!-- } (pool_variables) -->
+<!-- (instance_methods) { -->
+<P>
+<A NAME="InstanceMethods.ChemoJunSdFileWriter">
+<I>instance methods:</I>
+</A>
+</P>
+<OL>
+<LI><!-- initialize { -->
+<A NAME="InstanceMethod.initialize"><B>initialize</B> <I>[initialize-release]</I></A>
+<A HREF="../xrefsI.html#initialize"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	super initialize.
+	moleculeObjects := nil</PRE>
+<!-- } initialize -->
+<LI><!-- moleculeObjects { -->
+<A NAME="InstanceMethod.moleculeObjects"><B>moleculeObjects</B> <I>[accessing]</I></A>
+<A HREF="../xrefsM.html#moleculeObjects"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	moleculeObjects ifNil: [moleculeObjects := OrderedCollection new].
+	^moleculeObjects</PRE>
+<!-- } moleculeObjects -->
+<LI><!-- moleculeObjects: { -->
+<A NAME="InstanceMethod.moleculeObjects:"><B>moleculeObjects:</B> collectionOfMoleculeObject <I>[accessing]</I></A>
+<A HREF="../xrefsM.html#moleculeObjects:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	collectionOfMoleculeObject 
+		do: [:moleculeObject | self moleculeObjects add: moleculeObject]</PRE>
+<!-- } moleculeObjects: -->
+<LI><!-- writeOn: { -->
+<A NAME="InstanceMethod.writeOn:"><B>writeOn:</B> aStream <I>[writing]</I></A>
+<A HREF="../xrefsW.html#writeOn:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	self moleculeObjects 
+		do: [:moleculeObject | self writeOn: aStream moleculeObject: moleculeObject]</PRE>
+<!-- } writeOn: -->
+<LI><!-- writeOn:moleculeObject: { -->
+<A NAME="InstanceMethod.writeOn:moleculeObject:"><B>writeOn:</B> aStream <B>moleculeObject:</B> moleculeObject <I>[writing]</I></A>
+<A HREF="../xrefsW.html#writeOn:moleculeObject:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	| moleFileWriter |
+	moleFileWriter := self class defaultMoleFileWriterClass new.
+	moleFileWriter moleculeObject: moleculeObject.
+	moleFileWriter fileName: moleculeObject fileName.
+	moleFileWriter writeOn: aStream.
+	aStream cr.
+	aStream
+		nextPutAll: '$$$$';
+		cr</PRE>
+<!-- } writeOn:moleculeObject: -->
+</OL>
+<!-- } (instance_methods) -->
+<!-- (class_methods) { -->
+<P>
+<A NAME="ClassMethods.ChemoJunSdFileWriter">
+<I>class methods:</I>
+</A>
+</P>
+<OL>
+<LI><!-- copyright { -->
+<A NAME="ClassMethod.copyright"><B>copyright</B> <I>[copyright]</I></A>
+<A HREF="../xrefsC.html#copyright"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^'ChemoJun050 (2006/08/08) Copyright 2002-2006 National Institute of Informatics, Research Organization of Information and Systems.'</PRE>
+<!-- } copyright -->
+<LI><!-- defaultMoleFileWriterClass { -->
+<A NAME="ClassMethod.defaultMoleFileWriterClass"><B>defaultMoleFileWriterClass</B> <I>[defaults]</I></A>
+<A HREF="../xrefsD.html#defaultMoleFileWriterClass"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^ChemoJunMolFileWriter</PRE>
+<!-- } defaultMoleFileWriterClass -->
+<LI><!-- example1 { -->
+<A NAME="ClassMethod.example1"><B>example1</B> <I>[examples]</I></A>
+<A HREF="../xrefsE.html#example1"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	&quot;ChemoJunSdFileWriter example1.&quot;
+
+	| aReader moleculeObjects aWriter |
+	aReader := ChemoJunSdFileReader request.
+	aReader isNil ifTrue: [^nil].
+	moleculeObjects := aReader moleculeObjects.
+	aWriter := ChemoJunSdFileWriter 
+				requestInitialFileName: aReader baseName , '_' , JunSystem defaultBaseName 
+						, aReader extension.
+	aWriter isNil ifTrue: [^nil].
+	aWriter moleculeObjects: moleculeObjects.
+	aWriter write.
+	^aWriter</PRE>
+<!-- } example1 -->
+<LI><!-- moleculeObjects: { -->
+<A NAME="ClassMethod.moleculeObjects:"><B>moleculeObjects:</B> collectionOfMoleculeObjects <I>[instance creation]</I></A>
+<A HREF="../xrefsM.html#moleculeObjects:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	^(self new)
+		moleculeObjects: collectionOfMoleculeObjects;
+		yourself</PRE>
+<!-- } moleculeObjects: -->
+<LI><!-- system { -->
+<A NAME="ClassMethod.system"><B>system</B> <I>[copyright]</I></A>
+<A HREF="../xrefsS.html#system"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^'ChemoJun'</PRE>
+<!-- } system -->
+<LI><!-- version { -->
+<A NAME="ClassMethod.version"><B>version</B> <I>[copyright]</I></A>
+<A HREF="../xrefsV.html#version"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^'050'</PRE>
+<!-- } version -->
+</OL>
+<!-- } (class_methods) -->
+<HR>
+<A HREF="../index.html#ChemoJunSdFileWriter"><IMG SRC="../images/index.jpg" ALT="index" ALIGN="top" BORDER=1></A>
+<A HREF="../xrefsC.html#ChemoJunSdFileWriter"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<!-- This Document was generated by JunEncyclopedia. -->
+<!-- JunEncyclopedia was developed by AOKI Atsushi. -->
+</BODY>
+</HTML>

@@ -1,0 +1,339 @@
+<HTML>
+<HEAD>
+<TITLE>ChemoJunGraph</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<A HREF="../index.html#ChemoJunGraph"><IMG SRC="../images/index.jpg" ALT="index" ALIGN="top" BORDER=1></A>
+<A HREF="../xrefsC.html#ChemoJunGraph"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+2006/08/08 17:41:25
+<HR>
+<!-- (class_name) { -->
+<H2>
+<A NAME="Class.ChemoJunGraph">ChemoJunGraph</A>
+</H2>
+<!-- } (class_name) -->
+<!-- (comment) { -->
+<P>
+<A NAME="Comment.ChemoJunGraph">
+ChemoJun050 (2006/08/08) Copyright 2002-2006 National Institute of Informatics, Research Organization of Information and Systems.
+</A>
+</P>
+<!-- } (comment) -->
+<!-- (category) { -->
+<P>
+<A NAME="Category.ChemoJun-Topology-Graph"><I>category:</I></A></P>
+<UL>
+<LI><B>
+ChemoJun-Topology-Graph
+</B>
+<A HREF="../xrefsC.html#ChemoJun-Topology-Graph"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+</UL>
+<!-- } (category) -->
+<!-- (inheritance) { -->
+<P>
+<A NAME="Inheritance.ChemoJunGraph"><I>inheritance:</I></A>
+</P>
+<UL>
+<LI TYPE="square">Object
+<UL>
+<LI TYPE="square">VisualComponent
+<UL>
+<LI TYPE="square">JunElementalStuff
+<UL>
+<LI TYPE="square">JunElementalGraph
+<UL>
+<LI TYPE="square"><B>ChemoJunGraph</B>
+</UL>
+</UL>
+</UL>
+</UL>
+</UL>
+<!-- } (inheritance) -->
+<!-- (instance_variables) { -->
+<P>
+<A NAME="InstanceVariables.ChemoJunGraph">
+<I>instance variables:</I>
+</A>
+</P>
+<UL>
+</UL>
+<!-- } (instance_variables) -->
+<!-- (class_instance_variables) { -->
+<P>
+<A NAME="ClassInstanceVariables.ChemoJunGraph">
+<I>class instance variables:</I>
+</A>
+</P>
+<UL>
+</UL>
+<!-- } (class_instance_variables) -->
+<!-- (class_variables) { -->
+<P>
+<A NAME="ClassVariables.ChemoJunGraph">
+<I>class variables:</I>
+</A>
+</P>
+<UL>
+</UL>
+<!-- } (class_variables) -->
+<!-- (pool_variables) { -->
+<P>
+<A NAME="PoolVariables.ChemoJunGraph">
+<I>pool variables:</I>
+</A>
+</P>
+<UL>
+</UL>
+<!-- } (pool_variables) -->
+<!-- (instance_methods) { -->
+<P>
+<A NAME="InstanceMethods.ChemoJunGraph">
+<I>instance methods:</I>
+</A>
+</P>
+<OL>
+<LI><!-- arrange { -->
+<A NAME="InstanceMethod.arrange"><B>arrange</B> <I>[arranging]</I></A>
+<A HREF="../xrefsA.html#arrange"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	self arrangeConcentricRectangles: nil.
+	self isConcentricArrangement 
+		ifTrue: 
+			[| attributeTable |
+			self arcsDo: 
+					[:arc | 
+					arc firstPointAlignment: #center.
+					arc lastPointAlignment: #center].
+			attributeTable := self 
+						arrangeConcentricCirclesAttributeSymbol: self arrangeAttributeSymbol.
+			(attributeTable at: #nodeCenterTable) 
+				keysAndValuesDo: [:node :center | node center: center]].
+	self isHierarchicalArrangement 
+		ifTrue: 
+			[| attributeTable |
+			self arcsDo: 
+					[:arc | 
+					arc firstPointAlignment: #center.
+					arc lastPointAlignment: #center].
+			attributeTable := self arrangeForest.
+			(attributeTable at: #nodeOriginTable) 
+				keysAndValuesDo: [:node :origin | node origin: origin]].
+	self isNoneArrangement 
+		ifTrue: 
+			[| aTable |
+			aTable := self noneArrangementTable.
+			self arcsDo: 
+					[:arc | 
+					arc firstPointAlignment: #center.
+					arc lastPointAlignment: #center].
+			self nodesDo: 
+					[:node | 
+					(aTable includesKey: node uniqueNumber) 
+						ifTrue: [node locationPoint: (aTable at: node uniqueNumber)]]].
+	self flushBoundingBox.
+	^self yourself</PRE>
+<!-- } arrange -->
+<LI><!-- arrangeForest:startNode:originPoint: { -->
+<A NAME="InstanceMethod.arrangeForest:startNode:originPoint:"><B>arrangeForest:</B> attibuteTable <B>startNode:</B> aNode <B>originPoint:</B> aPoint <I>[arranging]</I></A>
+<A HREF="../xrefsA.html#arrangeForest:startNode:originPoint:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	| extent width height level count x y |
+	(JunSensorUtility shiftDown or: [JunSensorUtility altDown]) 
+		ifTrue: 
+			[^super 
+				arrangeForest: attibuteTable
+				startNode: aNode
+				originPoint: aPoint].
+	extent := aPoint.
+	width := 0.
+	height := 0.
+	self nodesDo: 
+			[:node | 
+			width := width max: node bounds width.
+			height := height max: node bounds height].
+	level := 0.
+	count := 0.
+	self nodesBreadthFirstDo: 
+			[:node :indent :sequence | 
+			level ~= indent 
+				ifTrue: 
+					[count := 0.
+					level := indent].
+			x := aPoint x + (width * indent + (self arrangeForestInterval * indent)).
+			y := aPoint y + (height * count + (self arrangeForestMargin * count)).
+			(attibuteTable at: #visitingTable) at: node put: #visited.
+			(attibuteTable at: #nodeOriginTable) at: node put: x @ y.
+			extent := extent max: x @ y + node bounds extent.
+			count := count + 1]
+		startNode: aNode.
+	^extent</PRE>
+<!-- } arrangeForest:startNode:originPoint: -->
+<LI><!-- arrangeWithAnimation: { -->
+<A NAME="InstanceMethod.arrangeWithAnimation:"><B>arrangeWithAnimation:</B> aGrapher <I>[arranging]</I></A>
+<A HREF="../xrefsA.html#arrangeWithAnimation:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	| aNode |
+	(JunSensorUtility shiftDown or: [JunSensorUtility altDown]) 
+		ifTrue: [^super arrangeWithAnimation: aGrapher].
+	self arrangeConcentricRectangles: nil.
+	aNode := aGrapher selection.
+	self isConcentricArrangement 
+		ifTrue: 
+			[| attributeTable |
+			self arcsDo: 
+					[:arc | 
+					arc firstPointAlignment: #center.
+					arc lastPointAlignment: #center].
+			attributeTable := self 
+						arrangeConcentricCirclesAttributeSymbol: self arrangeAttributeSymbol.
+			(aNode notNil and: [aNode center = Point zero]) 
+				ifFalse: 
+					[| oldPoint newPoint howMany aTable aCollection |
+					oldPoint := aGrapher scrollAmount.
+					newPoint := Point zero + aGrapher viewBounds center.
+					howMany := 25.
+					aTable := Dictionary new: attributeTable size.
+					(attributeTable at: #nodeCenterTable) keysAndValuesDo: 
+							[:node :center | 
+							aCollection := OrderedCollection new: howMany + 1.
+							0 to: howMany
+								do: [:n | aCollection add: node center + ((center - node center) / howMany * n)].
+							aTable at: node put: aCollection].
+					(0 to: howMany) do: 
+							[:n | 
+							self nodesDo: [:node | node center: ((aTable at: node) at: n + 1) rounded].
+							aGrapher scrollTo: oldPoint + ((newPoint - oldPoint) / howMany * n).
+							aGrapher redisplay.
+							(Delay forMilliseconds: 40) wait].
+					aGrapher flushBoundingBox].
+			(attributeTable at: #nodeCenterTable) 
+				keysAndValuesDo: [:node :center | node center: center]].
+	self isHierarchicalArrangement 
+		ifTrue: 
+			[| attributeTable |
+			self arcsDo: 
+					[:arc | 
+					arc firstPointAlignment: #center.
+					arc lastPointAlignment: #center].
+			attributeTable := self arrangeForest.
+			(aNode notNil 
+				and: [((attributeTable at: #nodeOriginTable) at: aNode) ~= aNode origin]) 
+					ifTrue: 
+						[| oldPoint newPoint howMany aTable aCollection |
+						oldPoint := aGrapher scrollAmount.
+						newPoint := Point zero + self arrangeForestMargin asPoint.
+						howMany := 25.
+						aTable := Dictionary new: attributeTable size.
+						(attributeTable at: #nodeOriginTable) keysAndValuesDo: 
+								[:node :origin | 
+								aCollection := OrderedCollection new: howMany + 1.
+								0 to: howMany
+									do: [:n | aCollection add: node origin + ((origin - node origin) / howMany * n)].
+								aTable at: node put: aCollection].
+						(0 to: howMany) do: 
+								[:n | 
+								self nodesDo: [:node | node origin: ((aTable at: node) at: n + 1) rounded].
+								aGrapher scrollTo: oldPoint + ((newPoint - oldPoint) / howMany * n).
+								aGrapher redisplay.
+								(Delay forMilliseconds: 40) wait].
+						aGrapher flushBoundingBox].
+			(attributeTable at: #nodeOriginTable) 
+				keysAndValuesDo: [:node :origin | node origin: origin]].
+	self isNoneArrangement 
+		ifTrue: 
+			[| aTable |
+			aTable := self noneArrangementTable.
+			self arcsDo: 
+					[:arc | 
+					arc firstPointAlignment: #center.
+					arc lastPointAlignment: #center].
+			self nodesDo: 
+					[:node | 
+					(aTable includesKey: node uniqueNumber) 
+						ifTrue: [node locationPoint: (aTable at: node uniqueNumber)]]].
+	aNode isNil 
+		ifFalse: 
+			[| oldPoint newPoint howMany |
+			oldPoint := aGrapher scrollAmount.
+			self isHierarchicalArrangement 
+				ifTrue: 
+					[newPoint := aNode bounds origin negated + self arrangeForestMargin asPoint]
+				ifFalse: [newPoint := aNode center negated + aGrapher viewBounds center].
+			oldPoint = newPoint 
+				ifFalse: 
+					[howMany := 25.
+					(0 to: howMany) do: 
+							[:n | 
+							aGrapher scrollTo: oldPoint + ((newPoint - oldPoint) / howMany * n).
+							(Delay forMilliseconds: 40) wait]]].
+	self flushBoundingBox.
+	^self yourself</PRE>
+<!-- } arrangeWithAnimation: -->
+<LI><!-- roots { -->
+<A NAME="InstanceMethod.roots"><B>roots</B> <I>[accessing nodes]</I></A>
+<A HREF="../xrefsR.html#roots"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	| roots |
+	roots := self selections.
+	roots isEmpty ifTrue: [^super roots].
+	^roots</PRE>
+<!-- } roots -->
+</OL>
+<!-- } (instance_methods) -->
+<!-- (class_methods) { -->
+<P>
+<A NAME="ClassMethods.ChemoJunGraph">
+<I>class methods:</I>
+</A>
+</P>
+<OL>
+<LI><!-- copyright { -->
+<A NAME="ClassMethod.copyright"><B>copyright</B> <I>[copyright]</I></A>
+<A HREF="../xrefsC.html#copyright"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^'ChemoJun050 (2006/08/08) Copyright 2002-2006 National Institute of Informatics, Research Organization of Information and Systems.'</PRE>
+<!-- } copyright -->
+<LI><!-- defaultArrangeConcentricRadius { -->
+<A NAME="ClassMethod.defaultArrangeConcentricRadius"><B>defaultArrangeConcentricRadius</B> <I>[defaults]</I></A>
+<A HREF="../xrefsD.html#defaultArrangeConcentricRadius"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	&quot;ChemoJunGraph flushAttributes.&quot;
+
+	^200</PRE>
+<!-- } defaultArrangeConcentricRadius -->
+<LI><!-- defaultNodeClass { -->
+<A NAME="ClassMethod.defaultNodeClass"><B>defaultNodeClass</B> <I>[defaults]</I></A>
+<A HREF="../xrefsD.html#defaultNodeClass"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^ChemoJunNode</PRE>
+<!-- } defaultNodeClass -->
+<LI><!-- system { -->
+<A NAME="ClassMethod.system"><B>system</B> <I>[copyright]</I></A>
+<A HREF="../xrefsS.html#system"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^'ChemoJun'</PRE>
+<!-- } system -->
+<LI><!-- version { -->
+<A NAME="ClassMethod.version"><B>version</B> <I>[copyright]</I></A>
+<A HREF="../xrefsV.html#version"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^'050'</PRE>
+<!-- } version -->
+</OL>
+<!-- } (class_methods) -->
+<HR>
+<A HREF="../index.html#ChemoJunGraph"><IMG SRC="../images/index.jpg" ALT="index" ALIGN="top" BORDER=1></A>
+<A HREF="../xrefsC.html#ChemoJunGraph"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<!-- This Document was generated by JunEncyclopedia. -->
+<!-- JunEncyclopedia was developed by AOKI Atsushi. -->
+</BODY>
+</HTML>

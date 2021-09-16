@@ -1,0 +1,201 @@
+<HTML>
+<HEAD>
+<TITLE>ChemoJunCredits</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<A HREF="../index.html#ChemoJunCredits"><IMG SRC="../images/index.jpg" ALT="index" ALIGN="top" BORDER=1></A>
+<A HREF="../xrefsC.html#ChemoJunCredits"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+2006/08/08 17:41:25
+<HR>
+<!-- (class_name) { -->
+<H2>
+<A NAME="Class.ChemoJunCredits">ChemoJunCredits</A>
+</H2>
+<!-- } (class_name) -->
+<!-- (comment) { -->
+<P>
+<A NAME="Comment.ChemoJunCredits">
+ChemoJun050 (2006/08/08) Copyright 2002-2006 National Institute of Informatics, Research Organization of Information and Systems.
+</A>
+</P>
+<!-- } (comment) -->
+<!-- (category) { -->
+<P>
+<A NAME="Category.ChemoJun-System-Support"><I>category:</I></A></P>
+<UL>
+<LI><B>
+ChemoJun-System-Support
+</B>
+<A HREF="../xrefsC.html#ChemoJun-System-Support"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+</UL>
+<!-- } (category) -->
+<!-- (inheritance) { -->
+<P>
+<A NAME="Inheritance.ChemoJunCredits"><I>inheritance:</I></A>
+</P>
+<UL>
+<LI TYPE="square">Object
+<UL>
+<LI TYPE="square">Model
+<UL>
+<LI TYPE="square">ApplicationModel
+<UL>
+<LI TYPE="square">JunApplicationModel
+<UL>
+<LI TYPE="square">JunBulletinBoard
+<UL>
+<LI TYPE="square"><B>ChemoJunCredits</B>
+</UL>
+</UL>
+</UL>
+</UL>
+</UL>
+</UL>
+<!-- } (inheritance) -->
+<!-- (instance_variables) { -->
+<P>
+<A NAME="InstanceVariables.ChemoJunCredits">
+<I>instance variables:</I>
+</A>
+</P>
+<UL>
+</UL>
+<!-- } (instance_variables) -->
+<!-- (class_instance_variables) { -->
+<P>
+<A NAME="ClassInstanceVariables.ChemoJunCredits">
+<I>class instance variables:</I>
+</A>
+</P>
+<UL>
+</UL>
+<!-- } (class_instance_variables) -->
+<!-- (class_variables) { -->
+<P>
+<A NAME="ClassVariables.ChemoJunCredits">
+<I>class variables:</I>
+</A>
+</P>
+<UL>
+</UL>
+<!-- } (class_variables) -->
+<!-- (pool_variables) { -->
+<P>
+<A NAME="PoolVariables.ChemoJunCredits">
+<I>pool variables:</I>
+</A>
+</P>
+<UL>
+</UL>
+<!-- } (pool_variables) -->
+<!-- (instance_methods) { -->
+<P>
+<A NAME="InstanceMethods.ChemoJunCredits">
+<I>instance methods:</I>
+</A>
+</P>
+<OL>
+</OL>
+<!-- } (instance_methods) -->
+<!-- (class_methods) { -->
+<P>
+<A NAME="ClassMethods.ChemoJunCredits">
+<I>class methods:</I>
+</A>
+</P>
+<OL>
+<LI><!-- copyright { -->
+<A NAME="ClassMethod.copyright"><B>copyright</B> <I>[copyright]</I></A>
+<A HREF="../xrefsC.html#copyright"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^'ChemoJun050 (2006/08/08) Copyright 2002-2006 National Institute of Informatics, Research Organization of Information and Systems.'</PRE>
+<!-- } copyright -->
+<LI><!-- defaultBackgroundColor { -->
+<A NAME="ClassMethod.defaultBackgroundColor"><B>defaultBackgroundColor</B> <I>[defaults]</I></A>
+<A HREF="../xrefsD.html#defaultBackgroundColor"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^ColorValue white</PRE>
+<!-- } defaultBackgroundColor -->
+<LI><!-- defaultBulletinHeight { -->
+<A NAME="ClassMethod.defaultBulletinHeight"><B>defaultBulletinHeight</B> <I>[defaults]</I></A>
+<A HREF="../xrefsD.html#defaultBulletinHeight"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^36</PRE>
+<!-- } defaultBulletinHeight -->
+<LI><!-- show { -->
+<A NAME="ClassMethod.show"><B>show</B> <I>[instance creation]</I></A>
+<A HREF="../xrefsS.html#show"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	&quot;ChemoJunCredits show.&quot;
+
+	| aModel aString aView aDecorator aWindow displayArea launcherWindow launcherModel |
+	aModel := ChemoJunCredits new.
+	aString := JunBulletinBoard 
+				convertToFlatString: (#chemoJun_CreditString 
+						&gt;&gt; 'Copyright 2002-2006 National Institute of Informatics, Research Organization of Information and Systems') 
+							asString.
+	aString with: (1 to: aString size)
+		do: 
+			[:aCharacter :anIndex | 
+			aModel color: (ColorValue 
+						hue: 0
+						saturation: 0
+						brightness: 0).
+			aModel add: (String with: aCharacter)].
+	aView := JunBulletinBoardView model: aModel.
+	aDecorator := aView defaultDecorator.
+	aWindow := ScheduledWindow 
+				model: aModel
+				label: (#jun_Credits &gt;&gt; 'Credits') asString
+				minimumSize: aView defaultWindowSize.
+	aWindow component: aDecorator.
+	displayArea := nil.
+	launcherWindow := nil.
+	launcherModel := ScheduledControllers scheduledControllers detect: 
+					[:c | 
+					launcherWindow := c view.
+					c model isKindOf: ChemoJunLauncher]
+				ifNone: [nil].
+	launcherModel notNil 
+		ifTrue: 
+			[| origin extent |
+			origin := launcherWindow displayBox bottomLeft + (0 @ 20).
+			extent := launcherWindow displayBox width 
+						@ aModel class defaultBulletinHeight.
+			displayArea := origin extent: extent.	&quot;aWindow maximumSize: displayArea extent&quot;
+			aWindow minimumSize: displayArea extent].
+	displayArea isNil 
+		ifTrue: 
+			[aWindow 
+				openWithExtent: aWindow minimumSize x @ aModel class defaultBulletinHeight]
+		ifFalse: [aWindow openIn: displayArea].
+	aView displaySpeed: 4.
+	^aModel</PRE>
+<!-- } show -->
+<LI><!-- system { -->
+<A NAME="ClassMethod.system"><B>system</B> <I>[copyright]</I></A>
+<A HREF="../xrefsS.html#system"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^'ChemoJun'</PRE>
+<!-- } system -->
+<LI><!-- version { -->
+<A NAME="ClassMethod.version"><B>version</B> <I>[copyright]</I></A>
+<A HREF="../xrefsV.html#version"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^'050'</PRE>
+<!-- } version -->
+</OL>
+<!-- } (class_methods) -->
+<HR>
+<A HREF="../index.html#ChemoJunCredits"><IMG SRC="../images/index.jpg" ALT="index" ALIGN="top" BORDER=1></A>
+<A HREF="../xrefsC.html#ChemoJunCredits"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<!-- This Document was generated by JunEncyclopedia. -->
+<!-- JunEncyclopedia was developed by AOKI Atsushi. -->
+</BODY>
+</HTML>

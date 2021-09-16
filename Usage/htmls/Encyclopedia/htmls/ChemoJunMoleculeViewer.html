@@ -1,0 +1,1877 @@
+<HTML>
+<HEAD>
+<TITLE>ChemoJunMoleculeViewer</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<A HREF="../index.html#ChemoJunMoleculeViewer"><IMG SRC="../images/index.jpg" ALT="index" ALIGN="top" BORDER=1></A>
+<A HREF="../xrefsC.html#ChemoJunMoleculeViewer"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+2006/08/08 17:41:28
+<HR>
+<!-- (class_name) { -->
+<H2>
+<A NAME="Class.ChemoJunMoleculeViewer">ChemoJunMoleculeViewer</A>
+</H2>
+<!-- } (class_name) -->
+<!-- (comment) { -->
+<P>
+<A NAME="Comment.ChemoJunMoleculeViewer">
+ChemoJun050 (2006/08/08) Copyright 2002-2006 National Institute of Informatics, Research Organization of Information and Systems.
+</A>
+</P>
+<!-- } (comment) -->
+<!-- (category) { -->
+<P>
+<A NAME="Category.ChemoJun-Display-Viewers"><I>category:</I></A></P>
+<UL>
+<LI><B>
+ChemoJun-Display-Viewers
+</B>
+<A HREF="../xrefsC.html#ChemoJun-Display-Viewers"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+</UL>
+<!-- } (category) -->
+<!-- (inheritance) { -->
+<P>
+<A NAME="Inheritance.ChemoJunMoleculeViewer"><I>inheritance:</I></A>
+</P>
+<UL>
+<LI TYPE="square">Object
+<UL>
+<LI TYPE="square">Model
+<UL>
+<LI TYPE="square">ApplicationModel
+<UL>
+<LI TYPE="square">JunApplicationModel
+<UL>
+<LI TYPE="square">JunOpenGLDisplayModel
+<UL>
+<LI TYPE="square"><A HREF="ChemoJunGeneralViewer.html">ChemoJunGeneralViewer</A>
+<UL>
+<LI TYPE="square"><A HREF="ChemoJunAbstractViewer.html">ChemoJunAbstractViewer</A>
+<UL>
+<LI TYPE="square"><B>ChemoJunMoleculeViewer</B>
+<UL>
+<LI TYPE="square"><A HREF="ChemoJunMoleculeModel.html">ChemoJunMoleculeModel</A>
+</UL>
+</UL>
+</UL>
+</UL>
+</UL>
+</UL>
+</UL>
+</UL>
+</UL>
+<!-- } (inheritance) -->
+<!-- (instance_variables) { -->
+<P>
+<A NAME="InstanceVariables.ChemoJunMoleculeViewer">
+<I>instance variables:</I>
+</A>
+</P>
+<UL>
+<!-- cameraButton { -->
+<LI><A NAME="InstanceVariable.cameraButton"><B>cameraButton</B></A>
+<A HREF="../xrefsC.html#cameraButton"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<!-- } cameraButton -->
+<!-- exceptHydrogen { -->
+<LI><A NAME="InstanceVariable.exceptHydrogen"><B>exceptHydrogen</B></A>
+<A HREF="../xrefsE.html#exceptHydrogen"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<!-- } exceptHydrogen -->
+<!-- exceptIndex { -->
+<LI><A NAME="InstanceVariable.exceptIndex"><B>exceptIndex</B></A>
+<A HREF="../xrefsE.html#exceptIndex"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<!-- } exceptIndex -->
+<!-- indexExpression { -->
+<LI><A NAME="InstanceVariable.indexExpression"><B>indexExpression</B></A>
+<A HREF="../xrefsI.html#indexExpression"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<!-- } indexExpression -->
+<!-- indexExpressionBlock { -->
+<LI><A NAME="InstanceVariable.indexExpressionBlock"><B>indexExpressionBlock</B></A>
+<A HREF="../xrefsI.html#indexExpressionBlock"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<!-- } indexExpressionBlock -->
+<!-- messageSymbol { -->
+<LI><A NAME="InstanceVariable.messageSymbol"><B>messageSymbol</B></A>
+<A HREF="../xrefsM.html#messageSymbol"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<!-- } messageSymbol -->
+<!-- moleculeObject { -->
+<LI><A NAME="InstanceVariable.moleculeObject"><B>moleculeObject</B></A>
+<A HREF="../xrefsM.html#moleculeObject"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<!-- } moleculeObject -->
+</UL>
+<!-- } (instance_variables) -->
+<!-- (class_instance_variables) { -->
+<P>
+<A NAME="ClassInstanceVariables.ChemoJunMoleculeViewer">
+<I>class instance variables:</I>
+</A>
+</P>
+<UL>
+</UL>
+<!-- } (class_instance_variables) -->
+<!-- (class_variables) { -->
+<P>
+<A NAME="ClassVariables.ChemoJunMoleculeViewer">
+<I>class variables:</I>
+</A>
+</P>
+<UL>
+</UL>
+<!-- } (class_variables) -->
+<!-- (pool_variables) { -->
+<P>
+<A NAME="PoolVariables.ChemoJunMoleculeViewer">
+<I>pool variables:</I>
+</A>
+</P>
+<UL>
+</UL>
+<!-- } (pool_variables) -->
+<!-- (instance_methods) { -->
+<P>
+<A NAME="InstanceMethods.ChemoJunMoleculeViewer">
+<I>instance methods:</I>
+</A>
+</P>
+<OL>
+<LI><!-- asGraph { -->
+<A NAME="InstanceMethod.asGraph"><B>asGraph</B> <I>[converting]</I></A>
+<A HREF="../xrefsA.html#asGraph"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^self moleculeObject asGraph</PRE>
+<!-- } asGraph -->
+<LI><!-- asGrapher { -->
+<A NAME="InstanceMethod.asGrapher"><B>asGrapher</B> <I>[converting]</I></A>
+<A HREF="../xrefsA.html#asGrapher"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^self moleculeObject asGrapher</PRE>
+<!-- } asGrapher -->
+<LI><!-- atomConnections { -->
+<A NAME="InstanceMethod.atomConnections"><B>atomConnections</B> <I>[accessing]</I></A>
+<A HREF="../xrefsA.html#atomConnections"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^self moleculeObject ifNil: [Array new]
+		ifNotNil: [:it | it atomConnections]</PRE>
+<!-- } atomConnections -->
+<LI><!-- atomConnectionsDo: { -->
+<A NAME="InstanceMethod.atomConnectionsDo:"><B>atomConnectionsDo:</B> aBlock <I>[enumerating]</I></A>
+<A HREF="../xrefsA.html#atomConnectionsDo:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	self moleculeObject ifNotNil: [:it | it atomConnectionsDo: aBlock]</PRE>
+<!-- } atomConnectionsDo: -->
+<LI><!-- atomObjects { -->
+<A NAME="InstanceMethod.atomObjects"><B>atomObjects</B> <I>[accessing]</I></A>
+<A HREF="../xrefsA.html#atomObjects"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^self moleculeObject ifNil: [Array new] ifNotNil: [:it | it atomObjects]</PRE>
+<!-- } atomObjects -->
+<LI><!-- atomObjectsAndIndexesDo: { -->
+<A NAME="InstanceMethod.atomObjectsAndIndexesDo:"><B>atomObjectsAndIndexesDo:</B> aBlock <I>[enumerating]</I></A>
+<A HREF="../xrefsA.html#atomObjectsAndIndexesDo:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	self moleculeObject ifNotNil: [:it | it atomObjectsAndIndexesDo: aBlock]</PRE>
+<!-- } atomObjectsAndIndexesDo: -->
+<LI><!-- atomObjectsDo: { -->
+<A NAME="InstanceMethod.atomObjectsDo:"><B>atomObjectsDo:</B> aBlock <I>[enumerating]</I></A>
+<A HREF="../xrefsA.html#atomObjectsDo:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	self moleculeObject ifNotNil: [:it | it atomObjectsDo: aBlock]</PRE>
+<!-- } atomObjectsDo: -->
+<LI><!-- beInvisibleCameraButton { -->
+<A NAME="InstanceMethod.beInvisibleCameraButton"><B>beInvisibleCameraButton</B> <I>[buttons]</I></A>
+<A HREF="../xrefsB.html#beInvisibleCameraButton"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	| specWrapper |
+	(specWrapper := self cameraButtonSpecWrapper) isNil ifTrue: [^nil].
+	specWrapper
+		beInvisible;
+		disable</PRE>
+<!-- } beInvisibleCameraButton -->
+<LI><!-- beVisibleCameraButton { -->
+<A NAME="InstanceMethod.beVisibleCameraButton"><B>beVisibleCameraButton</B> <I>[buttons]</I></A>
+<A HREF="../xrefsB.html#beVisibleCameraButton"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	| specWrapper |
+	(specWrapper := self cameraButtonSpecWrapper) isNil ifTrue: [^nil].
+	specWrapper
+		beVisible;
+		enable</PRE>
+<!-- } beVisibleCameraButton -->
+<LI><!-- browseManual { -->
+<A NAME="InstanceMethod.browseManual"><B>browseManual</B> <I>[menu messages]</I></A>
+<A HREF="../xrefsB.html#browseManual"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	JunURL browse: (ChemoJunUtility 
+				manualUriStringConstruct: 'ChemoJunMoleculeViewer/index.html')</PRE>
+<!-- } browseManual -->
+<LI><!-- cameraButton { -->
+<A NAME="InstanceMethod.cameraButton"><B>cameraButton</B> <I>[buttons]</I></A>
+<A HREF="../xrefsC.html#cameraButton"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	cameraButton isNil 
+		ifTrue: 
+			[| image figure shape button |
+			image := JunCursors cameraCursor asOpaqueImage.
+			figure := image figure asImage.
+			shape := image shape asImage.
+			image := OpaqueImage figure: figure shape: shape.
+			button := JunButtonModel 
+						value: false
+						visual: image
+						action: [:model | model changed: #value].
+			cameraButton := button].
+	^cameraButton</PRE>
+<!-- } cameraButton -->
+<LI><!-- cameraButtonSpecWrapper { -->
+<A NAME="InstanceMethod.cameraButtonSpecWrapper"><B>cameraButtonSpecWrapper</B> <I>[buttons]</I></A>
+<A HREF="../xrefsC.html#cameraButtonSpecWrapper"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	| aBuilder |
+	(aBuilder := self builder) isNil ifTrue: [^nil].
+	^aBuilder componentAt: #cameraButtonView</PRE>
+<!-- } cameraButtonSpecWrapper -->
+<LI><!-- cameraButtonView { -->
+<A NAME="InstanceMethod.cameraButtonView"><B>cameraButtonView</B> <I>[interface opening]</I></A>
+<A HREF="../xrefsC.html#cameraButtonView"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	| view |
+	view := JunButtonView new.
+	view model: self cameraButton.
+	^view</PRE>
+<!-- } cameraButtonView -->
+<LI><!-- clickAt: { -->
+<A NAME="InstanceMethod.clickAt:"><B>clickAt:</B> mouse2dPoint <I>[actions]</I></A>
+<A HREF="../xrefsC.html#clickAt:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	| pickedObject aProjection aPoint minimumDistance targetAtomObject targetSerialNumber aLine |
+	self moleculeObject isNil ifTrue: [^nil].
+	pickedObject := self pickedObjectAt: mouse2dPoint.
+	pickedObject isNil ifTrue: [^nil].
+	aProjection := self displayProjection.
+	aPoint := aProjection translateTo3dPointFromPoint: mouse2dPoint.
+	minimumDistance := nil.
+	targetAtomObject := nil.
+	targetSerialNumber := nil.
+	aLine := (Jun3dLine from: aProjection eyePoint to: aProjection sightPoint) 
+				translatedBy: aPoint - aProjection sightPoint.
+	self atomObjectsAndIndexesDo: 
+			[:atomObject :serialNumber | 
+			| atomicPoint |
+			atomicPoint := atomObject atomicPoint.
+			minimumDistance isNil 
+				ifTrue: 
+					[minimumDistance := aLine distanceFromPoint: atomicPoint.
+					targetAtomObject := atomObject.
+					targetSerialNumber := serialNumber]
+				ifFalse: 
+					[minimumDistance &gt; (aLine distanceFromPoint: atomicPoint) 
+						ifTrue: 
+							[minimumDistance := aLine distanceFromPoint: atomicPoint.
+							targetAtomObject := atomObject.
+							targetSerialNumber := serialNumber]]].
+	targetAtomObject isNil ifTrue: [^nil].
+	^targetAtomObject</PRE>
+<!-- } clickAt: -->
+<LI><!-- cloneViewer { -->
+<A NAME="InstanceMethod.cloneViewer"><B>cloneViewer</B> <I>[private]</I></A>
+<A HREF="../xrefsC.html#cloneViewer"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	| aViewer |
+	aViewer := super cloneViewer.
+	aViewer moleculeObject: self moleculeObject copy.
+	aViewer messageSymbol: self messageSymbol.
+	^aViewer</PRE>
+<!-- } cloneViewer -->
+<LI><!-- computeDisplayInformationInView: { -->
+<A NAME="InstanceMethod.computeDisplayInformationInView:"><B>computeDisplayInformationInView:</B> aView <I>[private]</I></A>
+<A HREF="../xrefsC.html#computeDisplayInformationInView:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	self computeDisplayOffsetsInView: aView.
+	self computeModifierDisplayInformationInView: aView.
+	self computeSerialNumberDisplayInformationInView: aView</PRE>
+<!-- } computeDisplayInformationInView: -->
+<LI><!-- computeDisplayOffsetFor: { -->
+<A NAME="InstanceMethod.computeDisplayOffsetFor:"><B>computeDisplayOffsetFor:</B> atomObject <I>[private]</I></A>
+<A HREF="../xrefsC.html#computeDisplayOffsetFor:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	atomObject displayOffsetOfSerialNumber 
+		ifNil: [atomObject displayOffsetOfSerialNumber: 0 @ 0]</PRE>
+<!-- } computeDisplayOffsetFor: -->
+<LI><!-- computeDisplayOffsetFor:fromAtom:toAtom:inView: { -->
+<A NAME="InstanceMethod.computeDisplayOffsetFor:fromAtom:toAtom:inView:"><B>computeDisplayOffsetFor:</B> atomObject <B>fromAtom:</B> fromAtom <B>toAtom:</B> toAtom <B>inView:</B> aView <I>[private]</I></A>
+<A HREF="../xrefsC.html#computeDisplayOffsetFor:fromAtom:toAtom:inView:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	atomObject displayOffsetOfSerialNumber ifNil: 
+			[atomObject displayOffsetOfSerialNumber: (self 
+						computeOffsetOfSerialNumber: atomObject
+						fromAtom: fromAtom
+						toAtom: toAtom
+						inView: aView)].
+	atomObject displayOffsetOfModifier ifNil: 
+			[atomObject displayOffsetOfModifier: (self 
+						computeOffsetOfModifier: atomObject
+						fromAtom: fromAtom
+						toAtom: toAtom
+						inView: aView)]</PRE>
+<!-- } computeDisplayOffsetFor:fromAtom:toAtom:inView: -->
+<LI><!-- computeDisplayOffsetsInView: { -->
+<A NAME="InstanceMethod.computeDisplayOffsetsInView:"><B>computeDisplayOffsetsInView:</B> aView <I>[private]</I></A>
+<A HREF="../xrefsC.html#computeDisplayOffsetsInView:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	self messageSymbol = #moleculeAsPlane 
+		ifTrue: 
+			[| aSet fromAtom toAtom |
+			aSet := Set new.
+			self atomConnectionsDo: 
+					[:atomConnection | 
+					fromAtom := atomConnection fromAtom.
+					toAtom := atomConnection toAtom.
+					(Array with: fromAtom with: toAtom) do: 
+							[:atomObject | 
+							(aSet includes: atomObject) 
+								ifFalse: 
+									[(self hasModifier: atomObject) 
+										ifTrue: 
+											[self 
+												computeDisplayOffsetFor: atomObject
+												fromAtom: fromAtom
+												toAtom: toAtom
+												inView: aView]
+										ifFalse: [self computeDisplayOffsetFor: atomObject].
+									aSet add: atomObject]]]]
+		ifFalse: 
+			[self 
+				atomObjectsDo: [:atomObject | self computeDisplayOffsetFor: atomObject]]</PRE>
+<!-- } computeDisplayOffsetsInView: -->
+<LI><!-- computeModifierDisplayInformationInView: { -->
+<A NAME="InstanceMethod.computeModifierDisplayInformationInView:"><B>computeModifierDisplayInformationInView:</B> aView <I>[private]</I></A>
+<A HREF="../xrefsC.html#computeModifierDisplayInformationInView:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	self atomObjectsDo: 
+			[:atomObject | 
+			| aBox aPoint zValue |
+			atomObject displayBooleanOfModifier: false.
+			(self modifierImage: atomObject) ifNotNil: 
+					[:anImage | 
+					aBox := anImage bounds.
+					aPoint := self convertModelPointToView3dPoint: atomObject atomicPoint
+								in: aView bounds.
+					zValue := aPoint z.
+					aPoint := (aPoint x @ aPoint y) rounded.
+					aBox := aBox align: aBox center with: aPoint.
+					aPoint := atomObject displayFocusAtomPointOfModifier.
+					aBox := aBox translatedBy: aPoint.
+					aPoint := atomObject displayOffsetOfModifier.
+					aBox := aBox translatedBy: aPoint.
+					atomObject displayBoxOfModifier: aBox.
+					atomObject displayOrderOfModifier: zValue.
+					atomObject displayBooleanOfModifier: true]]</PRE>
+<!-- } computeModifierDisplayInformationInView: -->
+<LI><!-- computeOffsetOfModifier:fromAtom:toAtom:inView: { -->
+<A NAME="InstanceMethod.computeOffsetOfModifier:fromAtom:toAtom:inView:"><B>computeOffsetOfModifier:</B> atomObject <B>fromAtom:</B> fromAtom <B>toAtom:</B> toAtom <B>inView:</B> aView <I>[private]</I></A>
+<A HREF="../xrefsC.html#computeOffsetOfModifier:fromAtom:toAtom:inView:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	| anImage |
+	anImage := self 
+				modifierImage: atomObject
+				fromAtom: fromAtom
+				toAtom: toAtom
+				inView: aView.
+	anImage yourself.
+	^0 @ 0</PRE>
+<!-- } computeOffsetOfModifier:fromAtom:toAtom:inView: -->
+<LI><!-- computeOffsetOfSerialNumber:fromAtom:toAtom:inView: { -->
+<A NAME="InstanceMethod.computeOffsetOfSerialNumber:fromAtom:toAtom:inView:"><B>computeOffsetOfSerialNumber:</B> atomObject <B>fromAtom:</B> fromAtom <B>toAtom:</B> toAtom <B>inView:</B> aView <I>[private]</I></A>
+<A HREF="../xrefsC.html#computeOffsetOfSerialNumber:fromAtom:toAtom:inView:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	| anotherAtom fromPoint toPoint offsetPoint |
+	anotherAtom := fromAtom = atomObject ifTrue: [toAtom] ifFalse: [fromAtom].
+	fromPoint := (self convertModelPointToView3dPoint: anotherAtom atomicPoint
+				in: aView bounds) as2dPoint.
+	toPoint := (self convertModelPointToView3dPoint: atomObject atomicPoint
+				in: aView bounds) as2dPoint.
+	toPoint y - fromPoint y &gt;= 0 
+		ifTrue: [offsetPoint := 0 @ self defaultDisplayOffsetLength]
+		ifFalse: 
+			[offsetPoint := 0 @ (self defaultDisplayOffsetLength negated 
+								- (self defaultDisplayOffsetLength // 2))].
+	^offsetPoint</PRE>
+<!-- } computeOffsetOfSerialNumber:fromAtom:toAtom:inView: -->
+<LI><!-- computeSerialNumberDisplayInformationInView: { -->
+<A NAME="InstanceMethod.computeSerialNumberDisplayInformationInView:"><B>computeSerialNumberDisplayInformationInView:</B> aView <I>[private]</I></A>
+<A HREF="../xrefsC.html#computeSerialNumberDisplayInformationInView:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	self atomObjectsDo: 
+			[:atomObject | 
+			atomObject displayBooleanOfSerialNumber: false.
+			(self serialNumberComposedText: atomObject) ifNotNil: 
+					[:composedText | 
+					| aPoint zValue aBox minBox |
+					aPoint := self convertModelPointToView3dPoint: atomObject atomicPoint
+								in: aView bounds.
+					zValue := aPoint z.
+					aPoint := (aPoint x @ aPoint y) rounded.
+					aBox := composedText bounds.
+					minBox := self defaultMinimumBoxOfSerialNumber.
+					minBox := minBox align: minBox center with: aBox center.
+					aBox area &lt; minBox area ifTrue: [aBox := aBox merge: minBox].
+					aBox := aBox align: aBox center with: aPoint.
+					atomObject displayOffsetOfSerialNumber 
+						ifNil: [atomObject displayOffsetOfSerialNumber: 0 @ 0].
+					aPoint := atomObject displayOffsetOfSerialNumber.
+					aBox := aBox translatedBy: aPoint.
+					atomObject displayBoxOfSerialNumber: aBox.
+					atomObject displayOrderOfSerialNumber: zValue.
+					atomObject displayBooleanOfSerialNumber: true]]</PRE>
+<!-- } computeSerialNumberDisplayInformationInView: -->
+<LI><!-- convertModifierStringToImage:focusAtomIndex: { -->
+<A NAME="InstanceMethod.convertModifierStringToImage:focusAtomIndex:"><B>convertModifierStringToImage:</B> aString <B>focusAtomIndex:</B> anIndex <I>[private]</I></A>
+<A HREF="../xrefsC.html#convertModifierStringToImage:focusAtomIndex:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	| lineGrid subscriptDelta maxHeight focusBox aPixmap graphicsContext aPoint oneImage anImage imageBox focusPoint marginX |
+	lineGrid := (ChemoJunHelvetica character: $A size: 12) height.
+	subscriptDelta := lineGrid 
+				- (ChemoJunHelvetica character: $A size: 9) height.
+	maxHeight := lineGrid.
+	focusBox := nil.
+	self 
+		assert: [aPixmap := Pixmap extent: (lineGrid * aString size * 2) @ lineGrid]
+		do: 
+			[graphicsContext := aPixmap graphicsContext.
+			graphicsContext paint: ColorValue white.
+			graphicsContext displayRectangle: aPixmap bounds.
+			graphicsContext paint: ColorValue black.
+			aPoint := Point zero.
+			aString with: (1 to: aString size)
+				do: 
+					[:aCharacter :characterIndex | 
+					aCharacter isDigit 
+						ifTrue: 
+							[oneImage := ChemoJunHelvetica character: aCharacter size: 9.
+							oneImage displayOn: graphicsContext at: aPoint + (0 @ subscriptDelta)]
+						ifFalse: 
+							[oneImage := ChemoJunHelvetica character: aCharacter size: 12.
+							oneImage displayOn: graphicsContext at: aPoint].
+					characterIndex = anIndex 
+						ifTrue: 
+							[focusBox := oneImage bounds align: oneImage bounds origin with: aPoint].
+					aPoint := aPoint + (oneImage bounds width @ 0)].
+			anImage := aPixmap asImage]
+		ensure: [aPixmap close].
+	marginX := 2.
+	self 
+		assert: [aPixmap := Pixmap extent: (aPoint x + (marginX * 2)) @ maxHeight]
+		do: 
+			[graphicsContext := aPixmap graphicsContext.
+			graphicsContext paint: ColorValue white.
+			graphicsContext displayRectangle: aPixmap bounds.
+			anImage displayOn: graphicsContext at: marginX @ 0.
+			anImage := aPixmap asImage]
+		ensure: [aPixmap close].
+	imageBox := anImage bounds insetBy: marginX @ 0.
+	focusBox isNil 
+		ifTrue: [focusPoint := 0 @ 0]
+		ifFalse: 
+			[focusPoint := (imageBox align: imageBox center with: focusBox center) 
+						origin negated].
+	^Array with: anImage with: focusPoint</PRE>
+<!-- } convertModifierStringToImage:focusAtomIndex: -->
+<LI><!-- defaultBaseName { -->
+<A NAME="InstanceMethod.defaultBaseName"><B>defaultBaseName</B> <I>[defaults]</I></A>
+<A HREF="../xrefsD.html#defaultBaseName"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	self moleculeObject isNil ifTrue: [^super defaultBaseName].
+	self moleculeObject fileName isNil ifTrue: [^super defaultBaseName].
+	self moleculeObject is2d 
+		ifTrue: 
+			[^(Filename splitExtension: self moleculeObject baseName) first , '_' 
+				, JunSystem defaultBaseName , '.2D'].
+	^self moleculeObject baseName , '_' , JunSystem defaultBaseName</PRE>
+<!-- } defaultBaseName -->
+<LI><!-- defaultColorOfSerialNumber { -->
+<A NAME="InstanceMethod.defaultColorOfSerialNumber"><B>defaultColorOfSerialNumber</B> <I>[defaults]</I></A>
+<A HREF="../xrefsD.html#defaultColorOfSerialNumber"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^ColorValue brightness: 0.05</PRE>
+<!-- } defaultColorOfSerialNumber -->
+<LI><!-- defaultDisplayOffsetLength { -->
+<A NAME="InstanceMethod.defaultDisplayOffsetLength"><B>defaultDisplayOffsetLength</B> <I>[defaults]</I></A>
+<A HREF="../xrefsD.html#defaultDisplayOffsetLength"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^9</PRE>
+<!-- } defaultDisplayOffsetLength -->
+<LI><!-- defaultEyePoint { -->
+<A NAME="InstanceMethod.defaultEyePoint"><B>defaultEyePoint</B> <I>[defaults]</I></A>
+<A HREF="../xrefsD.html#defaultEyePoint"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	| box distance |
+	self displayObject isNil ifTrue: [^0 , 0 , 10000].
+	^self defaultProjectionTable at: #eyePoint
+		ifAbsent: 
+			[box := self boundingBox.
+			distance := box origin distance: box corner.
+			distance := distance * 2.
+			^0 , 0 , distance]</PRE>
+<!-- } defaultEyePoint -->
+<LI><!-- defaultMessageSymbol { -->
+<A NAME="InstanceMethod.defaultMessageSymbol"><B>defaultMessageSymbol</B> <I>[defaults]</I></A>
+<A HREF="../xrefsD.html#defaultMessageSymbol"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^#moleculeAsStick</PRE>
+<!-- } defaultMessageSymbol -->
+<LI><!-- defaultMinimumBoxOfSerialNumber { -->
+<A NAME="InstanceMethod.defaultMinimumBoxOfSerialNumber"><B>defaultMinimumBoxOfSerialNumber</B> <I>[defaults]</I></A>
+<A HREF="../xrefsD.html#defaultMinimumBoxOfSerialNumber"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^(0 @ 0 extent: 13 @ (self defaultStyleOfSerialNumber lineGrid max: 13)) 
+		rounded</PRE>
+<!-- } defaultMinimumBoxOfSerialNumber -->
+<LI><!-- defaultMoleculeObjectClass { -->
+<A NAME="InstanceMethod.defaultMoleculeObjectClass"><B>defaultMoleculeObjectClass</B> <I>[defaults]</I></A>
+<A HREF="../xrefsD.html#defaultMoleculeObjectClass"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^self class defaultMoleculeObjectClass</PRE>
+<!-- } defaultMoleculeObjectClass -->
+<LI><!-- defaultMolFileReaderClass { -->
+<A NAME="InstanceMethod.defaultMolFileReaderClass"><B>defaultMolFileReaderClass</B> <I>[defaults]</I></A>
+<A HREF="../xrefsD.html#defaultMolFileReaderClass"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^self class defaultMolFileReaderClass</PRE>
+<!-- } defaultMolFileReaderClass -->
+<LI><!-- defaultString { -->
+<A NAME="InstanceMethod.defaultString"><B>defaultString</B> <I>[defaults]</I></A>
+<A HREF="../xrefsD.html#defaultString"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^'Molecule' copy</PRE>
+<!-- } defaultString -->
+<LI><!-- defaultStyleOfSerialNumber { -->
+<A NAME="InstanceMethod.defaultStyleOfSerialNumber"><B>defaultStyleOfSerialNumber</B> <I>[defaults]</I></A>
+<A HREF="../xrefsD.html#defaultStyleOfSerialNumber"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^TextAttributes styleNamed: #small ifAbsent: [TextAttributes default]</PRE>
+<!-- } defaultStyleOfSerialNumber -->
+<LI><!-- defaultUpVector { -->
+<A NAME="InstanceMethod.defaultUpVector"><B>defaultUpVector</B> <I>[defaults]</I></A>
+<A HREF="../xrefsD.html#defaultUpVector"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^self defaultProjectionTable at: #upVector ifAbsent: [0 , 1 , 0]</PRE>
+<!-- } defaultUpVector -->
+<LI><!-- defaultWindowLabel { -->
+<A NAME="InstanceMethod.defaultWindowLabel"><B>defaultWindowLabel</B> <I>[defaults]</I></A>
+<A HREF="../xrefsD.html#defaultWindowLabel"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^(#chemoJun_Molecular_Viewer &gt;&gt; 'Molecular Viewer') asString</PRE>
+<!-- } defaultWindowLabel -->
+<LI><!-- displayInformationInView: { -->
+<A NAME="InstanceMethod.displayInformationInView:"><B>displayInformationInView:</B> aView <I>[displaying]</I></A>
+<A HREF="../xrefsD.html#displayInformationInView:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	self messageSymbol = #moleculeAsPlane 
+		ifTrue: [self displayModifierInView: aView].
+	self displaySerialInView: aView</PRE>
+<!-- } displayInformationInView: -->
+<LI><!-- displayModifierInView: { -->
+<A NAME="InstanceMethod.displayModifierInView:"><B>displayModifierInView:</B> aView <I>[displaying]</I></A>
+<A HREF="../xrefsD.html#displayModifierInView:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	| aGraphicsContext aCollection |
+	aGraphicsContext := aView graphicsContext.
+	aCollection := SortedCollection new: self numberOfAtoms.
+	aCollection sortBlock: [:n1 :n2 | n1 &gt;= n2].
+	self atomObjectsDo: 
+			[:atomObject | 
+			atomObject displayBooleanOfModifier 
+				ifTrue: [aCollection add: atomObject displayOrderOfModifier -&gt; atomObject]].
+	aCollection do: 
+			[:anAssociation | 
+			| atomObject anImage aBox |
+			atomObject := anAssociation value.
+			anImage := atomObject displayImageOfModifier.
+			aBox := atomObject displayBoxOfModifier.
+			self 
+				displayImage: anImage
+				on: aGraphicsContext
+				at: aBox origin]</PRE>
+<!-- } displayModifierInView: -->
+<LI><!-- displayObject { -->
+<A NAME="InstanceMethod.displayObject"><B>displayObject</B> <I>[accessing]</I></A>
+<A HREF="../xrefsD.html#displayObject"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	| theMolecule |
+	(displayObject isNil and: [(theMolecule := self moleculeObject) notNil]) 
+		ifTrue: 
+			[Cursor wait showWhile: 
+					[ObjectMemory globalGarbageCollect.
+					self displayObject: (theMolecule perform: self messageSymbol).
+					self displayObject boundingBox.
+					self informationHolder value: self informationString]].
+	^displayObject</PRE>
+<!-- } displayObject -->
+<LI><!-- displaySerialInView: { -->
+<A NAME="InstanceMethod.displaySerialInView:"><B>displaySerialInView:</B> aView <I>[displaying]</I></A>
+<A HREF="../xrefsD.html#displaySerialInView:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	| aGraphicsContext aCollection |
+	self exceptIndex ifTrue: [^nil].
+	aGraphicsContext := aView graphicsContext.
+	aCollection := SortedCollection new: self numberOfAtoms.
+	aCollection sortBlock: [:n1 :n2 | n1 &gt;= n2].
+	self atomObjectsDo: 
+			[:atomObject | 
+			atomObject displayBooleanOfSerialNumber 
+				ifTrue: [aCollection add: atomObject displayOrderOfSerialNumber -&gt; atomObject]].
+	aCollection do: 
+			[:anAssociation | 
+			| atomObject aComposedText aBox |
+			atomObject := anAssociation value.
+			aComposedText := atomObject displayComposedTextOfSerialNumber.
+			aBox := atomObject displayBoxOfSerialNumber.
+			self 
+				displayComposedText: aComposedText
+				on: aGraphicsContext
+				at: aBox center
+				textColor: self defaultColorOfSerialNumber
+				vergeColor: (ColorValue brightness: 0.95)
+				alignmentSymbol: #center]</PRE>
+<!-- } displaySerialInView: -->
+<LI><!-- displaySuperimposeInView: { -->
+<A NAME="InstanceMethod.displaySuperimposeInView:"><B>displaySuperimposeInView:</B> aView <I>[displaying]</I></A>
+<A HREF="../xrefsD.html#displaySuperimposeInView:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	aView isNil ifTrue: [^nil].
+	aView isOpen ifFalse: [^nil].
+	self moleculeObject isNil ifTrue: [^nil].
+	self computeDisplayInformationInView: aView.
+	self displayInformationInView: aView</PRE>
+<!-- } displaySuperimposeInView: -->
+<LI><!-- exceptHydrogen { -->
+<A NAME="InstanceMethod.exceptHydrogen"><B>exceptHydrogen</B> <I>[accessing]</I></A>
+<A HREF="../xrefsE.html#exceptHydrogen"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^exceptHydrogen = true</PRE>
+<!-- } exceptHydrogen -->
+<LI><!-- exceptHydrogen: { -->
+<A NAME="InstanceMethod.exceptHydrogen:"><B>exceptHydrogen:</B> aBoolean <I>[accessing]</I></A>
+<A HREF="../xrefsE.html#exceptHydrogen:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	| oldBoolean |
+	JunControlUtility 
+		assert: [oldBoolean := self exceptHydrogen]
+		do: 
+			[exceptHydrogen := aBoolean = true.
+			self moleculeObject notNil 
+				ifTrue: [self moleculeObject exceptHydrogen: exceptHydrogen]]
+		ensure: [oldBoolean = self exceptHydrogen ifFalse: [self flushDisplayObject]]</PRE>
+<!-- } exceptHydrogen: -->
+<LI><!-- exceptIndex { -->
+<A NAME="InstanceMethod.exceptIndex"><B>exceptIndex</B> <I>[accessing]</I></A>
+<A HREF="../xrefsE.html#exceptIndex"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^exceptIndex = true</PRE>
+<!-- } exceptIndex -->
+<LI><!-- exceptIndex: { -->
+<A NAME="InstanceMethod.exceptIndex:"><B>exceptIndex:</B> aBoolean <I>[accessing]</I></A>
+<A HREF="../xrefsE.html#exceptIndex:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	exceptIndex := aBoolean = true</PRE>
+<!-- } exceptIndex: -->
+<LI><!-- fileName { -->
+<A NAME="InstanceMethod.fileName"><B>fileName</B> <I>[accessing]</I></A>
+<A HREF="../xrefsF.html#fileName"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	| aFilename |
+	self moleculeObject isNil ifTrue: [^nil].
+	aFilename := self moleculeObject fileName asFilename.
+	^aFilename</PRE>
+<!-- } fileName -->
+<LI><!-- flushDisplayAttributes { -->
+<A NAME="InstanceMethod.flushDisplayAttributes"><B>flushDisplayAttributes</B> <I>[flushing]</I></A>
+<A HREF="../xrefsF.html#flushDisplayAttributes"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	self atomObjectsDo: 
+			[:atomObject | 
+			| displayKeys |
+			displayKeys := atomObject attributeTable keys 
+						select: [:displayKey | JunStringUtility stringMatch: displayKey asString and: 'display*'].
+			displayKeys 
+				do: [:displayKey | atomObject attributeTable removeKey: displayKey]]</PRE>
+<!-- } flushDisplayAttributes -->
+<LI><!-- flushDisplayObject { -->
+<A NAME="InstanceMethod.flushDisplayObject"><B>flushDisplayObject</B> <I>[flushing]</I></A>
+<A HREF="../xrefsF.html#flushDisplayObject"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	super flushDisplayObject.
+	self flushDisplayAttributes</PRE>
+<!-- } flushDisplayObject -->
+<LI><!-- flushModifierAttributes { -->
+<A NAME="InstanceMethod.flushModifierAttributes"><B>flushModifierAttributes</B> <I>[flushing]</I></A>
+<A HREF="../xrefsF.html#flushModifierAttributes"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	self atomObjectsDo: 
+			[:atomObject | 
+			| displayKeys |
+			displayKeys := atomObject attributeTable keys select: 
+							[:displayKey | 
+							JunStringUtility stringMatch: displayKey asString and: 'display*Modifier'].
+			displayKeys 
+				do: [:displayKey | atomObject attributeTable removeKey: displayKey]]</PRE>
+<!-- } flushModifierAttributes -->
+<LI><!-- flushSerialNumberAttributes { -->
+<A NAME="InstanceMethod.flushSerialNumberAttributes"><B>flushSerialNumberAttributes</B> <I>[flushing]</I></A>
+<A HREF="../xrefsF.html#flushSerialNumberAttributes"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	self atomObjectsDo: 
+			[:atomObject | 
+			| displayKeys |
+			displayKeys := atomObject attributeTable keys select: 
+							[:displayKey | 
+							JunStringUtility stringMatch: displayKey asString
+								and: 'display*SerialNumber'].
+			displayKeys 
+				do: [:displayKey | atomObject attributeTable removeKey: displayKey]]</PRE>
+<!-- } flushSerialNumberAttributes -->
+<LI><!-- focus:to: { -->
+<A NAME="InstanceMethod.focus:to:"><B>focus:</B> aRectangle1 <B>to:</B> aRectangle2 <I>[manipulating]</I></A>
+<A HREF="../xrefsF.html#focus:to:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	| originalRectangle newRectangle aProjection originalCenter newCenter originalTop originalBottom originalLeft originalRight originalHeight originalWidth newTop newBottom newLeft newRight newHeight newWidth newViewHeight newViewWidth tmpViewHeight newZoomHeight aLine minimumDistance aPoint targetPoint |
+	InputState default shiftDown 
+		ifTrue: 
+			[originalRectangle := aRectangle2.
+			newRectangle := aRectangle1]
+		ifFalse: 
+			[originalRectangle := aRectangle1.
+			newRectangle := aRectangle2].
+	self displayObject isNil ifTrue: [^self].
+	aProjection := self displayProjection.
+	originalCenter := aProjection 
+				translateTo3dPointFromPoint: (originalRectangle origin 
+						+ originalRectangle corner) / 2.0d.
+	newCenter := aProjection 
+				translateTo3dPointFromPoint: (newRectangle origin + newRectangle corner) 
+						/ 2.0d.
+	aProjection 
+		sightPoint: aProjection sightPoint + (newCenter - originalCenter).
+	originalTop := aProjection 
+				translateTo3dPointFromPoint: 0 , originalRectangle origin y.
+	originalBottom := aProjection 
+				translateTo3dPointFromPoint: 0 , originalRectangle corner y.
+	originalLeft := aProjection 
+				translateTo3dPointFromPoint: originalRectangle origin x , 0.
+	originalRight := aProjection 
+				translateTo3dPointFromPoint: originalRectangle corner x , 0.
+	originalHeight := (originalTop - originalBottom) length.
+	originalWidth := (originalLeft - originalRight) length.
+	newTop := aProjection 
+				translateTo3dPointFromPoint: 0 , newRectangle origin y.
+	newBottom := aProjection 
+				translateTo3dPointFromPoint: 0 , newRectangle corner y.
+	newLeft := aProjection 
+				translateTo3dPointFromPoint: newRectangle origin x , 0.
+	newRight := aProjection 
+				translateTo3dPointFromPoint: newRectangle corner x , 0.
+	newHeight := (newTop - newBottom) length.
+	newWidth := (newLeft - newRight) length.
+	newViewHeight := aProjection regularHeight * newHeight / originalHeight.
+	newViewWidth := newViewHeight * newWidth / newHeight.
+	originalWidth / originalHeight * newViewHeight &lt; newViewWidth 
+		ifTrue: 
+			[tmpViewHeight := originalWidth / originalHeight 
+						* (newViewHeight / newViewWidth) * newViewHeight.
+			newZoomHeight := newViewHeight * (newViewHeight / tmpViewHeight)]
+		ifFalse: [newZoomHeight := newViewHeight].
+	(originalHeight * 0.01d &lt; newHeight 
+		and: [newHeight * 0.01d &lt; originalHeight]) 
+			ifTrue: [aProjection zoomHeight: newZoomHeight].
+	self moleculeObject notNil 
+		ifTrue: 
+			[minimumDistance := nil.
+			targetPoint := nil.
+			aLine := Jun3dLine from: aProjection eyePoint to: aProjection sightPoint.
+			self atomObjectsDo: 
+					[:each | 
+					aPoint := each atomicPoint.
+					minimumDistance isNil 
+						ifTrue: 
+							[minimumDistance := aLine distanceFromPoint: aPoint.
+							targetPoint := aPoint]
+						ifFalse: 
+							[minimumDistance &gt; (aLine distanceFromPoint: aPoint) 
+								ifTrue: 
+									[minimumDistance := aLine distanceFromPoint: aPoint.
+									targetPoint := aPoint]]].
+			targetPoint notNil ifTrue: [aProjection sightPoint: targetPoint]].
+	self displayProjection: aProjection.
+	self changed: #projection</PRE>
+<!-- } focus:to: -->
+<LI><!-- grab: { -->
+<A NAME="InstanceMethod.grab:"><B>grab:</B> deltaPoint <I>[manipulating]</I></A>
+<A HREF="../xrefsG.html#grab:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	self flushModifierAttributes.
+	super grab: deltaPoint</PRE>
+<!-- } grab: -->
+<LI><!-- grab:xy: { -->
+<A NAME="InstanceMethod.grab:xy:"><B>grab:</B> from2dPoint <B>xy:</B> to2dPoint <I>[manipulating]</I></A>
+<A HREF="../xrefsG.html#grab:xy:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	self flushModifierAttributes.
+	super grab: from2dPoint xy: to2dPoint</PRE>
+<!-- } grab:xy: -->
+<LI><!-- hasModifier: { -->
+<A NAME="InstanceMethod.hasModifier:"><B>hasModifier:</B> atomObject <I>[testing]</I></A>
+<A HREF="../xrefsH.html#hasModifier:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	(self moleculeObject isMethyl: atomObject) ifTrue: [^true].
+	(self moleculeObject isHydroxyl: atomObject) ifTrue: [^true].
+	^atomObject isCarbon not and: 
+			[atomObject isHydrogen not 
+				or: [atomObject isHydrogen and: [self exceptHydrogen not]]]</PRE>
+<!-- } hasModifier: -->
+<LI><!-- highResolution { -->
+<A NAME="InstanceMethod.highResolution"><B>highResolution</B> <I>[menu messages]</I></A>
+<A HREF="../xrefsH.html#highResolution"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	self moleculeObject isNil ifTrue: [^super highResolution].
+	self moleculeObject atomResolution = #high ifTrue: [^nil].
+	self moleculeObject atomResolution: #high.
+	self flushDisplayObject.
+	self changed: #object.
+	self updateViewMenuIndication</PRE>
+<!-- } highResolution -->
+<LI><!-- informationString { -->
+<A NAME="InstanceMethod.informationString"><B>informationString</B> <I>[accessing]</I></A>
+<A HREF="../xrefsI.html#informationString"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	| aStream aString |
+	self moleculeObject isNil ifTrue: [^String new].
+	self 
+		assert: [aStream := String new writeStream]
+		do: 
+			[aStream 
+				nextPutAll: (#chemoJun_Molecular_Information_ &gt;&gt; 'Molecular Information:') 
+						asString.
+			aStream cr.
+			aStream nextPutAll: self moleculeObject informationString.
+			aStream tab.
+			aStream 
+				nextPutAll: (#chemoJun_number_of_primitives__ &gt;&gt; 'number of primitives: ') 
+						asString.
+			aStream nextPutAll: self numberOfPrimitives printString.
+			aStream cr]
+		ensure: 
+			[aString := aStream contents.
+			aStream close].
+	^aString</PRE>
+<!-- } informationString -->
+<LI><!-- initialize { -->
+<A NAME="InstanceMethod.initialize"><B>initialize</B> <I>[initialize-release]</I></A>
+<A HREF="../xrefsI.html#initialize"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	super initialize.
+	moleculeObject := nil.
+	messageSymbol := nil.
+	exceptHydrogen := ChemoJunMoleculeObject defaultExceptHydrogen.
+	exceptIndex := self class defaultExceptSerialNumber.
+	indexExpression := nil.
+	indexExpressionBlock := nil.
+	cameraButton := nil.
+	self 
+		superimposeBlock: [:model :view :controller | self displaySuperimposeInView: view]</PRE>
+<!-- } initialize -->
+<LI><!-- is2d { -->
+<A NAME="InstanceMethod.is2d"><B>is2d</B> <I>[testing]</I></A>
+<A HREF="../xrefsI.html#is2d"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^self moleculeObject ifNil: [super is2d] ifNotNil: [:it | it is2d]</PRE>
+<!-- } is2d -->
+<LI><!-- is3d { -->
+<A NAME="InstanceMethod.is3d"><B>is3d</B> <I>[testing]</I></A>
+<A HREF="../xrefsI.html#is3d"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^self moleculeObject ifNil: [super is3d] ifNotNil: [:it | it is3d]</PRE>
+<!-- } is3d -->
+<LI><!-- isMoleculeViewer { -->
+<A NAME="InstanceMethod.isMoleculeViewer"><B>isMoleculeViewer</B> <I>[testing]</I></A>
+<A HREF="../xrefsI.html#isMoleculeViewer"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^true</PRE>
+<!-- } isMoleculeViewer -->
+<LI><!-- lowResolution { -->
+<A NAME="InstanceMethod.lowResolution"><B>lowResolution</B> <I>[menu messages]</I></A>
+<A HREF="../xrefsL.html#lowResolution"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	self moleculeObject isNil ifTrue: [^super lowResolution].
+	self moleculeObject atomResolution = #low ifTrue: [^nil].
+	self moleculeObject atomResolution: #low.
+	self flushDisplayObject.
+	self changed: #object.
+	self updateViewMenuIndication</PRE>
+<!-- } lowResolution -->
+<LI><!-- mediumResolution { -->
+<A NAME="InstanceMethod.mediumResolution"><B>mediumResolution</B> <I>[menu messages]</I></A>
+<A HREF="../xrefsM.html#mediumResolution"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	self moleculeObject isNil ifTrue: [^super mediumResolution].
+	self moleculeObject atomResolution = #medium ifTrue: [^nil].
+	self moleculeObject atomResolution: #medium.
+	self flushDisplayObject.
+	self changed: #object.
+	self updateViewMenuIndication</PRE>
+<!-- } mediumResolution -->
+<LI><!-- messageSymbol { -->
+<A NAME="InstanceMethod.messageSymbol"><B>messageSymbol</B> <I>[accessing]</I></A>
+<A HREF="../xrefsM.html#messageSymbol"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	messageSymbol isNil ifTrue: [messageSymbol := self defaultMessageSymbol].
+	^messageSymbol</PRE>
+<!-- } messageSymbol -->
+<LI><!-- messageSymbol: { -->
+<A NAME="InstanceMethod.messageSymbol:"><B>messageSymbol:</B> aSymbol <I>[accessing]</I></A>
+<A HREF="../xrefsM.html#messageSymbol:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	((#(#moleculeAsStick #moleculeAsBallAndStick #moleculeAsSpaceFill #moleculeAsStickAndSpaceFill #moleculeAsPlane) 
+		includes: aSymbol) and: [messageSymbol ~~ aSymbol]) 
+		ifTrue: 
+			[messageSymbol := aSymbol.
+			self flushDisplayObject]</PRE>
+<!-- } messageSymbol: -->
+<LI><!-- modifierImage: { -->
+<A NAME="InstanceMethod.modifierImage:"><B>modifierImage:</B> atomObject <I>[accessing modifiers]</I></A>
+<A HREF="../xrefsM.html#modifierImage:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	^atomObject displayImageOfModifier</PRE>
+<!-- } modifierImage: -->
+<LI><!-- modifierImage:fromAtom:toAtom:inView: { -->
+<A NAME="InstanceMethod.modifierImage:fromAtom:toAtom:inView:"><B>modifierImage:</B> atomObject <B>fromAtom:</B> fromAtom <B>toAtom:</B> toAtom <B>inView:</B> aView <I>[accessing modifiers]</I></A>
+<A HREF="../xrefsM.html#modifierImage:fromAtom:toAtom:inView:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	(self hasModifier: atomObject) 
+		ifTrue: 
+			[atomObject displayImageOfModifier ifNil: 
+					[| fromPoint toPoint aPlane normalPresentation anAssociation anArray anImage aPoint |
+					atomObject = toAtom 
+						ifTrue: 
+							[fromPoint := fromAtom atomicPoint.
+							toPoint := toAtom atomicPoint]
+						ifFalse: 
+							[fromPoint := toAtom atomicPoint.
+							toPoint := fromAtom atomicPoint].
+					aPlane := self sightPoint plane: self sightPoint + self upVector
+								and: self eyePoint.
+					aPlane := aPlane translatedBy: fromPoint - self sightPoint.
+					aPlane ifNil: [normalPresentation := true]
+						ifNotNil: [:plane | normalPresentation := (plane whichSide: toPoint) &gt;= 0].
+					anAssociation := self moleculeObject modifierAssociation: atomObject
+								normalPresentation: normalPresentation.
+					anArray := self convertModifierStringToImage: anAssociation key
+								focusAtomIndex: anAssociation value.
+					anImage := anArray first.
+					aPoint := anArray last.
+					atomObject displayFocusAtomPointOfModifier: aPoint.
+					atomObject displayImageOfModifier: anImage].
+			^atomObject displayImageOfModifier].
+	^nil</PRE>
+<!-- } modifierImage:fromAtom:toAtom:inView: -->
+<LI><!-- moleculeFromReader: { -->
+<A NAME="InstanceMethod.moleculeFromReader:"><B>moleculeFromReader:</B> aReader <I>[menu messages]</I></A>
+<A HREF="../xrefsM.html#moleculeFromReader:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	| chemMolecule cursorAnimator |
+	aReader isNil ifTrue: [^nil].
+	chemMolecule := self defaultMoleculeObjectClass fromReader: aReader.
+	cursorAnimator := JunCursorAnimator clockCursors.
+	cursorAnimator tick: 1000.
+	cursorAnimator showWhile: 
+			[self moleculeObject isNil 
+				ifTrue: [chemMolecule atomResolution: self defaultResolution]
+				ifFalse: [chemMolecule atomResolution: self moleculeObject atomResolution].
+			chemMolecule exceptHydrogen: self exceptHydrogen.
+			self moleculeObject: chemMolecule.
+			self setWindowLabel.
+			self resetView.
+			self updateMenuIndication]</PRE>
+<!-- } moleculeFromReader: -->
+<LI><!-- moleculeObject { -->
+<A NAME="InstanceMethod.moleculeObject"><B>moleculeObject</B> <I>[accessing]</I></A>
+<A HREF="../xrefsM.html#moleculeObject"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^moleculeObject</PRE>
+<!-- } moleculeObject -->
+<LI><!-- moleculeObject: { -->
+<A NAME="InstanceMethod.moleculeObject:"><B>moleculeObject:</B> aMolecule <I>[accessing]</I></A>
+<A HREF="../xrefsM.html#moleculeObject:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	moleculeObject := aMolecule.
+	aMolecule is2d ifTrue: [self messageSymbol: #moleculeAsPlane].
+	(aMolecule is3d and: [self messageSymbol = #moleculeAsPlane]) 
+		ifTrue: [self messageSymbol: self defaultMessageSymbol].
+	self flushDisplayObject</PRE>
+<!-- } moleculeObject: -->
+<LI><!-- moleculeText { -->
+<A NAME="InstanceMethod.moleculeText"><B>moleculeText</B> <I>[accessing]</I></A>
+<A HREF="../xrefsM.html#moleculeText"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^ValueHolder with: 'xyz'</PRE>
+<!-- } moleculeText -->
+<LI><!-- numberOfAtoms { -->
+<A NAME="InstanceMethod.numberOfAtoms"><B>numberOfAtoms</B> <I>[accessing]</I></A>
+<A HREF="../xrefsN.html#numberOfAtoms"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^self moleculeObject ifNil: [0] ifNotNil: [:it | it numberOfAtoms]</PRE>
+<!-- } numberOfAtoms -->
+<LI><!-- openMolecule { -->
+<A NAME="InstanceMethod.openMolecule"><B>openMolecule</B> <I>[menu messages]</I></A>
+<A HREF="../xrefsO.html#openMolecule"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	| aReader |
+	aReader := self defaultMolFileReaderClass request.
+	aReader isNil ifTrue: [^nil].
+	^self moleculeFromReader: aReader</PRE>
+<!-- } openMolecule -->
+<LI><!-- postBuildWith: { -->
+<A NAME="InstanceMethod.postBuildWith:"><B>postBuildWith:</B> aBuilder <I>[interface opening]</I></A>
+<A HREF="../xrefsP.html#postBuildWith:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	super postBuildWith: aBuilder.
+	self beInvisibleCameraButton</PRE>
+<!-- } postBuildWith: -->
+<LI><!-- saveAsFile { -->
+<A NAME="InstanceMethod.saveAsFile"><B>saveAsFile</B> <I>[menu messages]</I></A>
+<A HREF="../xrefsS.html#saveAsFile"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	| aWriter |
+	self moleculeObject isNil ifTrue: [^nil].
+	aWriter := ChemoJunMolFileWriter 
+				requestInitialFileName: self defaultBaseName 
+						, self moleculeObject extension.
+	aWriter ifNil: [^nil].
+	self saveFileTo: aWriter fileName.
+	self moleculeObject fileName: aWriter fileName.
+	self setWindowLabel</PRE>
+<!-- } saveAsFile -->
+<LI><!-- saveFileTo: { -->
+<A NAME="InstanceMethod.saveFileTo:"><B>saveFileTo:</B> moleculeFilename <I>[menu messages]</I></A>
+<A HREF="../xrefsS.html#saveFileTo:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	| aWriter |
+	aWriter := ChemoJunMolFileWriter fileName: moleculeFilename.
+	aWriter isNil ifTrue: [^nil].
+	aWriter moleculeObject: self moleculeObject.
+	aWriter write</PRE>
+<!-- } saveFileTo: -->
+<LI><!-- serialNumberComposedText: { -->
+<A NAME="InstanceMethod.serialNumberComposedText:"><B>serialNumberComposedText:</B> atomObject <I>[accessing]</I></A>
+<A HREF="../xrefsS.html#serialNumberComposedText:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	| aBlock numberOfArguments serialNumber argumentArray |
+	aBlock := self indexExpressionBlock.
+	numberOfArguments := aBlock numArgs.
+	serialNumber := atomObject serialNumber.
+	argumentArray := (Array 
+				with: serialNumber
+				with: atomObject atomicSymbol
+				with: atomObject atomicPoint
+				with: atomObject) copyFrom: 1 to: numberOfArguments.
+	((aBlock valueWithArguments: argumentArray) = true 
+		and: [(atomObject isHydrogen and: [self exceptHydrogen]) not]) 
+			ifTrue: 
+				[atomObject displayComposedTextOfSerialNumber ifNil: 
+						[| composedText |
+						composedText := ComposedText withText: serialNumber printString asText
+									style: self defaultStyleOfSerialNumber.
+						atomObject displayComposedTextOfSerialNumber: composedText].
+				^atomObject displayComposedTextOfSerialNumber].
+	^nil</PRE>
+<!-- } serialNumberComposedText: -->
+<LI><!-- setIndexExpression:setIndexExpressionBlock: { -->
+<A NAME="InstanceMethod.setIndexExpression:setIndexExpressionBlock:"><B>setIndexExpression:</B> aString <B>setIndexExpressionBlock:</B> aBlock <I>[private]</I></A>
+<A HREF="../xrefsS.html#setIndexExpression:setIndexExpressionBlock:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	indexExpression := aString.
+	indexExpressionBlock := aBlock</PRE>
+<!-- } setIndexExpression:setIndexExpressionBlock: -->
+<LI><!-- setWindowLabel { -->
+<A NAME="InstanceMethod.setWindowLabel"><B>setWindowLabel</B> <I>[interface opening]</I></A>
+<A HREF="../xrefsS.html#setWindowLabel"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	| aWindow aFilename aString |
+	aWindow := self getWindow.
+	aWindow isNil ifTrue: [^nil].
+	aWindow model = self ifFalse: [^nil].
+	self moleculeObject isNil 
+		ifTrue: [^aWindow label: self defaultWindowLabel].
+	self moleculeObject fileName isNil 
+		ifTrue: [^aWindow label: self defaultWindowLabel].
+	aFilename := self moleculeObject fileName asFilename.
+	aString := (Filename splitPath: aFilename asString) last.
+	aWindow label: self defaultWindowLabel , ' [' , aString , ']'</PRE>
+<!-- } setWindowLabel -->
+<LI><!-- showMoleculeAsBallAndStick { -->
+<A NAME="InstanceMethod.showMoleculeAsBallAndStick"><B>showMoleculeAsBallAndStick</B> <I>[menu messages]</I></A>
+<A HREF="../xrefsS.html#showMoleculeAsBallAndStick"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	self moleculeObject isNil 
+		ifTrue: 
+			[self messageSymbol: #moleculeAsBallAndStick.
+			self updateViewMenuIndication.
+			^nil].
+	self messageSymbol = #moleculeAsBallAndStick ifTrue: [^nil].
+	self messageSymbol: #moleculeAsBallAndStick.
+	self changed: #object.
+	self updateViewMenuIndication</PRE>
+<!-- } showMoleculeAsBallAndStick -->
+<LI><!-- showMoleculeAsPlane { -->
+<A NAME="InstanceMethod.showMoleculeAsPlane"><B>showMoleculeAsPlane</B> <I>[menu messages]</I></A>
+<A HREF="../xrefsS.html#showMoleculeAsPlane"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	self moleculeObject isNil 
+		ifTrue: 
+			[self messageSymbol: #moleculeAsPlane.
+			self updateViewMenuIndication.
+			^nil].
+	self messageSymbol = #moleculeAsPlane ifTrue: [^nil].
+	self messageSymbol: #moleculeAsPlane.
+	self changed: #object.
+	self updateViewMenuIndication</PRE>
+<!-- } showMoleculeAsPlane -->
+<LI><!-- showMoleculeAsSpaceFill { -->
+<A NAME="InstanceMethod.showMoleculeAsSpaceFill"><B>showMoleculeAsSpaceFill</B> <I>[menu messages]</I></A>
+<A HREF="../xrefsS.html#showMoleculeAsSpaceFill"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	self moleculeObject isNil 
+		ifTrue: 
+			[self messageSymbol: #moleculeAsSpaceFill.
+			self exceptIndex: true.
+			self updateViewMenuIndication.
+			^nil].
+	self messageSymbol = #moleculeAsSpaceFill ifTrue: [^nil].
+	self messageSymbol: #moleculeAsSpaceFill.
+	self exceptIndex: true.
+	self changed: #object.
+	self updateViewMenuIndication</PRE>
+<!-- } showMoleculeAsSpaceFill -->
+<LI><!-- showMoleculeAsStick { -->
+<A NAME="InstanceMethod.showMoleculeAsStick"><B>showMoleculeAsStick</B> <I>[menu messages]</I></A>
+<A HREF="../xrefsS.html#showMoleculeAsStick"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	self moleculeObject isNil
+		ifTrue: 
+			[self messageSymbol: #moleculeAsStick.
+			self updateViewMenuIndication.
+			^nil].
+	self messageSymbol = #moleculeAsStick ifTrue: [^nil].
+	self messageSymbol: #moleculeAsStick.
+	self changed: #object.
+	self updateViewMenuIndication</PRE>
+<!-- } showMoleculeAsStick -->
+<LI><!-- showMoleculeAsStickAndSpaceFill { -->
+<A NAME="InstanceMethod.showMoleculeAsStickAndSpaceFill"><B>showMoleculeAsStickAndSpaceFill</B> <I>[menu messages]</I></A>
+<A HREF="../xrefsS.html#showMoleculeAsStickAndSpaceFill"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	self moleculeObject isNil
+		ifTrue: 
+			[self messageSymbol: #moleculeAsStickAndSpaceFill.
+			self updateViewMenuIndication.
+			^nil].
+	self messageSymbol = #moleculeAsStickAndSpaceFill ifTrue: [^nil].
+	self messageSymbol: #moleculeAsStickAndSpaceFill.
+	self changed: #object.
+	self updateViewMenuIndication</PRE>
+<!-- } showMoleculeAsStickAndSpaceFill -->
+<LI><!-- toggleHydrogen { -->
+<A NAME="InstanceMethod.toggleHydrogen"><B>toggleHydrogen</B> <I>[menu messages]</I></A>
+<A HREF="../xrefsT.html#toggleHydrogen"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	self messageSymbol = #moleculeAsSpaceFill ifTrue: [^nil].
+	self exceptHydrogen: self exceptHydrogen not.
+	self flushDisplayObject.
+	self changed: #object.
+	self updateViewMenuIndication</PRE>
+<!-- } toggleHydrogen -->
+<LI><!-- toggleIndex { -->
+<A NAME="InstanceMethod.toggleIndex"><B>toggleIndex</B> <I>[menu messages]</I></A>
+<A HREF="../xrefsT.html#toggleIndex"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	self messageSymbol = #moleculeAsSpaceFill ifTrue: [^nil].
+	self exceptIndex: self exceptIndex not.
+	self changed: #object.
+	self updateViewMenuIndication</PRE>
+<!-- } toggleIndex -->
+<LI><!-- updateMiscMenuIndication { -->
+<A NAME="InstanceMethod.updateMiscMenuIndication"><B>updateMiscMenuIndication</B> <I>[menu accessing]</I></A>
+<A HREF="../xrefsU.html#updateMiscMenuIndication"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	| menuItem aMenu |
+	super updateMiscMenuIndication.
+	menuItem := self menuItemLabeled: 'Misc' inMenu: self menuBar.
+	menuItem isNil ifTrue: [^self].
+	aMenu := menuItem submenu.
+	aMenu notNil 
+		ifTrue: 
+			[menuItem := aMenu menuItemWithValue: #showInformation ifNone: [nil].
+			menuItem notNil 
+				ifTrue: 
+					[self moleculeObject isNil 
+						ifTrue: [menuItem disable]
+						ifFalse: [menuItem enable]]]</PRE>
+<!-- } updateMiscMenuIndication -->
+<LI><!-- updateStringHolder: { -->
+<A NAME="InstanceMethod.updateStringHolder:"><B>updateStringHolder:</B> aPoint <I>[updating]</I></A>
+<A HREF="../xrefsU.html#updateStringHolder:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	| x y z |
+	aPoint isNil ifTrue: [^self stringHolder value: self defaultString].
+	x := aPoint x asFloat.
+	y := aPoint y asFloat.
+	z := aPoint z asFloat.
+	self stringHolder 
+		value: x printString , ', ' , y printString , ', ' , z printString</PRE>
+<!-- } updateStringHolder: -->
+<LI><!-- updateViewMenuIndication { -->
+<A NAME="InstanceMethod.updateViewMenuIndication"><B>updateViewMenuIndication</B> <I>[menu accessing]</I></A>
+<A HREF="../xrefsU.html#updateViewMenuIndication"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	| menuItem aMenu |
+	super updateViewMenuIndication.
+	menuItem := self menuItemLabeled: 'View' inMenu: self menuBar.
+	menuItem isNil ifTrue: [^self].
+	aMenu := menuItem submenu.
+	aMenu notNil 
+		ifTrue: 
+			[menuItem := aMenu menuItemWithValue: #showMoleculeAsPlane ifNone: [nil].
+			menuItem notNil 
+				ifTrue: 
+					[menuItem enable.
+					self messageSymbol = #moleculeAsPlane 
+						ifTrue: [menuItem beOn]
+						ifFalse: [menuItem beOff]].
+			menuItem := aMenu menuItemWithValue: #showMoleculeAsStick ifNone: [nil].
+			menuItem notNil 
+				ifTrue: 
+					[menuItem enable.
+					self messageSymbol = #moleculeAsStick 
+						ifTrue: [menuItem beOn]
+						ifFalse: [menuItem beOff]].
+			menuItem := aMenu menuItemWithValue: #showMoleculeAsBallAndStick
+						ifNone: [nil].
+			menuItem notNil 
+				ifTrue: 
+					[menuItem enable.
+					self messageSymbol = #moleculeAsBallAndStick 
+						ifTrue: [menuItem beOn]
+						ifFalse: [menuItem beOff]].
+			menuItem := aMenu menuItemWithValue: #showMoleculeAsSpaceFill ifNone: [nil].
+			menuItem notNil 
+				ifTrue: 
+					[menuItem enable.
+					self messageSymbol = #moleculeAsSpaceFill 
+						ifTrue: [menuItem beOn]
+						ifFalse: [menuItem beOff]].
+			menuItem := aMenu menuItemWithValue: #showMoleculeAsStickAndSpaceFill
+						ifNone: [nil].
+			menuItem notNil 
+				ifTrue: 
+					[menuItem enable.
+					self messageSymbol = #moleculeAsStickAndSpaceFill 
+						ifTrue: [menuItem beOn]
+						ifFalse: [menuItem beOff]].
+			menuItem := aMenu menuItemWithValue: #toggleHydrogen ifNone: [nil].
+			menuItem notNil 
+				ifTrue: 
+					[menuItem enable.
+					self exceptHydrogen ifTrue: [menuItem beOff] ifFalse: [menuItem beOn].
+					self messageSymbol = #moleculeAsSpaceFill ifTrue: [menuItem disable]].
+			menuItem := aMenu menuItemWithValue: #toggleIndex ifNone: [nil].
+			menuItem notNil 
+				ifTrue: 
+					[menuItem enable.
+					self exceptIndex ifTrue: [menuItem beOff] ifFalse: [menuItem beOn].
+					self messageSymbol = #moleculeAsSpaceFill ifTrue: [menuItem disable]].
+			menuItem := aMenu menuItemWithValue: #settingIndex ifNone: [nil].
+			menuItem notNil 
+				ifTrue: 
+					[self exceptIndex ifTrue: [menuItem disable] ifFalse: [menuItem enable]].
+			menuItem := aMenu menuItemWithValue: #lowResolution ifNone: [nil].
+			menuItem notNil 
+				ifTrue: 
+					[self messageSymbol = #moleculeAsPlane 
+						ifTrue: [menuItem disable]
+						ifFalse: 
+							[menuItem enable.
+							self moleculeObject isNil 
+								ifTrue: 
+									[self defaultResolution = #low 
+										ifTrue: [menuItem beOn]
+										ifFalse: [menuItem beOff]]
+								ifFalse: 
+									[self moleculeObject atomResolution = #low 
+										ifTrue: [menuItem beOn]
+										ifFalse: [menuItem beOff]]]].
+			menuItem := aMenu menuItemWithValue: #mediumResolution ifNone: [nil].
+			menuItem notNil 
+				ifTrue: 
+					[self messageSymbol = #moleculeAsPlane 
+						ifTrue: [menuItem disable]
+						ifFalse: 
+							[menuItem enable.
+							self moleculeObject isNil 
+								ifTrue: 
+									[self defaultResolution = #medium 
+										ifTrue: [menuItem beOn]
+										ifFalse: [menuItem beOff]]
+								ifFalse: 
+									[self moleculeObject atomResolution = #medium 
+										ifTrue: [menuItem beOn]
+										ifFalse: [menuItem beOff]]]].
+			menuItem := aMenu menuItemWithValue: #highResolution ifNone: [nil].
+			menuItem notNil 
+				ifTrue: 
+					[self messageSymbol = #moleculeAsPlane 
+						ifTrue: [menuItem disable]
+						ifFalse: 
+							[menuItem enable.
+							self moleculeObject isNil 
+								ifTrue: 
+									[self defaultResolution = #high 
+										ifTrue: [menuItem beOn]
+										ifFalse: [menuItem beOff]]
+								ifFalse: 
+									[self moleculeObject atomResolution = #high 
+										ifTrue: [menuItem beOn]
+										ifFalse: [menuItem beOff]]]].
+			menuItem := aMenu menuItemWithValue: #resetView ifNone: [nil].
+			menuItem notNil 
+				ifTrue: 
+					[self moleculeObject isNil 
+						ifTrue: [menuItem disable]
+						ifFalse: [menuItem enable]]]</PRE>
+<!-- } updateViewMenuIndication -->
+<LI><!-- wheelActionInTopCenterBox: { -->
+<A NAME="InstanceMethod.wheelActionInTopCenterBox:"><B>wheelActionInTopCenterBox:</B> wheelUpBoolean <I>[wheel actions]</I></A>
+<A HREF="../xrefsW.html#wheelActionInTopCenterBox:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	self flushModifierAttributes.
+	super wheelActionInTopCenterBox: wheelUpBoolean</PRE>
+<!-- } wheelActionInTopCenterBox: -->
+</OL>
+<!-- } (instance_methods) -->
+<!-- (class_methods) { -->
+<P>
+<A NAME="ClassMethods.ChemoJunMoleculeViewer">
+<I>class methods:</I>
+</A>
+</P>
+<OL>
+<LI><!-- copyright { -->
+<A NAME="ClassMethod.copyright"><B>copyright</B> <I>[copyright]</I></A>
+<A HREF="../xrefsC.html#copyright"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^'ChemoJun050 (2006/08/08) Copyright 2002-2006 National Institute of Informatics, Research Organization of Information and Systems.'</PRE>
+<!-- } copyright -->
+<LI><!-- defaultExceptSerialNumber { -->
+<A NAME="ClassMethod.defaultExceptSerialNumber"><B>defaultExceptSerialNumber</B> <I>[defaults]</I></A>
+<A HREF="../xrefsD.html#defaultExceptSerialNumber"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^true</PRE>
+<!-- } defaultExceptSerialNumber -->
+<LI><!-- defaultMoleculeObjectClass { -->
+<A NAME="ClassMethod.defaultMoleculeObjectClass"><B>defaultMoleculeObjectClass</B> <I>[defaults]</I></A>
+<A HREF="../xrefsD.html#defaultMoleculeObjectClass"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^ChemoJunMoleculeObject</PRE>
+<!-- } defaultMoleculeObjectClass -->
+<LI><!-- defaultMolFileReaderClass { -->
+<A NAME="ClassMethod.defaultMolFileReaderClass"><B>defaultMolFileReaderClass</B> <I>[defaults]</I></A>
+<A HREF="../xrefsD.html#defaultMolFileReaderClass"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^ChemoJunMolFileReader</PRE>
+<!-- } defaultMolFileReaderClass -->
+<LI><!-- example1 { -->
+<A NAME="ClassMethod.example1"><B>example1</B> <I>[examples]</I></A>
+<A HREF="../xrefsE.html#example1"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	&quot;ChemoJunMoleculeViewer example1.&quot;
+
+	| aViewer |
+	aViewer := ChemoJunMoleculeViewer new.
+	aViewer open.
+	^aViewer</PRE>
+<!-- } example1 -->
+<LI><!-- example2 { -->
+<A NAME="ClassMethod.example2"><B>example2</B> <I>[examples]</I></A>
+<A HREF="../xrefsE.html#example2"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	&quot;ChemoJunMoleculeViewer example2.&quot;
+
+	| fileName originalMolecule originalViewer |
+	fileName := './CastData/ABC-88-52-211-1.2D.mol'.
+	originalMolecule := ChemoJunMoleculeObject 
+				fileName: (JunUniFileName named: fileName).
+	originalViewer := ChemoJunMoleculeViewer moleculeObject: originalMolecule.
+	originalViewer messageSymbol: #moleculeAsPlane.
+	originalViewer openIn: (100 @ 200 extent: 600 @ 300).
+	^originalViewer</PRE>
+<!-- } example2 -->
+<LI><!-- example3 { -->
+<A NAME="ClassMethod.example3"><B>example3</B> <I>[examples]</I></A>
+<A HREF="../xrefsE.html#example3"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	&quot;ChemoJunMoleculeViewer example3.&quot;
+
+	| fileName originalMolecule originalViewer modifiedMolecule modifiedViewer aCollection |
+	fileName := './ChemoJunSampleData/fullerene_expanded.mol'.
+	originalMolecule := ChemoJunMoleculeObject 
+				fileName: (JunUniFileName named: fileName).
+	originalViewer := ChemoJunMoleculeViewer moleculeObject: originalMolecule.
+	originalViewer showMoleculeAsPlane.
+	originalViewer openIn: (100 @ 200 extent: 600 @ 300).
+	modifiedMolecule := ChemoJunMoleculeObject 
+				fileName: (JunUniFileName named: fileName).
+	modifiedMolecule 
+		changeColor: ColorValue red
+		serialNumbers: #(8 9)
+		nestLevel: 0.
+	modifiedViewer := ChemoJunMoleculeViewer moleculeObject: modifiedMolecule.
+	modifiedViewer showMoleculeAsPlane.
+	modifiedViewer openIn: (100 @ 550 extent: 600 @ 300).
+	aCollection := Array with: originalViewer with: modifiedViewer.
+	aCollection do: [:each | each closeTogether: aCollection].
+	^aCollection</PRE>
+<!-- } example3 -->
+<LI><!-- example4 { -->
+<A NAME="ClassMethod.example4"><B>example4</B> <I>[examples]</I></A>
+<A HREF="../xrefsE.html#example4"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	&quot;ChemoJunMoleculeViewer example4.&quot;
+
+	| fileName originalMolecule originalViewer modifiedMolecule modifiedViewer aCollection |
+	fileName := './ChemoJunSampleData/fullerene.mol'.
+	originalMolecule := ChemoJunMoleculeObject 
+				fileName: (JunUniFileName named: fileName).
+	originalViewer := ChemoJunMoleculeViewer moleculeObject: originalMolecule.
+	originalViewer showMoleculeAsBallAndStick.
+	originalViewer openIn: (100 @ 200 extent: 600 @ 300).
+	modifiedMolecule := ChemoJunMoleculeObject 
+				fileName: (JunUniFileName named: fileName).
+	modifiedMolecule 
+		changeColor: ColorValue red
+		serialNumbers: #(8 9)
+		nestLevel: 0.
+	modifiedViewer := ChemoJunMoleculeViewer moleculeObject: modifiedMolecule.
+	modifiedViewer showMoleculeAsBallAndStick.
+	modifiedViewer openIn: (100 @ 550 extent: 600 @ 300).
+	aCollection := Array with: originalViewer with: modifiedViewer.
+	aCollection do: [:each | each closeTogether: aCollection].
+	^aCollection</PRE>
+<!-- } example4 -->
+<LI><!-- example5 { -->
+<A NAME="ClassMethod.example5"><B>example5</B> <I>[examples]</I></A>
+<A HREF="../xrefsE.html#example5"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	&quot;ChemoJunMoleculeViewer example5.&quot;
+
+	| fileName originalMolecule originalViewer modifiedMolecule modifiedViewer aCollection |
+	fileName := './ChemoJunSampleData/fullerene_expanded.mol'.
+	originalMolecule := ChemoJunMoleculeObject 
+				fileName: (JunUniFileName named: fileName).
+	originalViewer := ChemoJunMoleculeViewer moleculeObject: originalMolecule.
+	originalViewer showMoleculeAsPlane.
+	originalViewer openIn: (100 @ 200 extent: 600 @ 300).
+	modifiedMolecule := ChemoJunMoleculeObject 
+				fileName: (JunUniFileName named: fileName).
+	modifiedMolecule 
+		changeColor: ColorValue red
+		serialNumberPairs: #(#(8 4) #(7 17))
+		nestLevel: 1.
+	modifiedViewer := ChemoJunMoleculeViewer moleculeObject: modifiedMolecule.
+	modifiedViewer showMoleculeAsPlane.
+	modifiedViewer openIn: (100 @ 550 extent: 600 @ 300).
+	aCollection := Array with: originalViewer with: modifiedViewer.
+	aCollection do: [:each | each closeTogether: aCollection].
+	^aCollection</PRE>
+<!-- } example5 -->
+<LI><!-- example6 { -->
+<A NAME="ClassMethod.example6"><B>example6</B> <I>[examples]</I></A>
+<A HREF="../xrefsE.html#example6"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	&quot;ChemoJunMoleculeViewer example6.&quot;
+
+	| fileName originalMolecule originalViewer modifiedMolecule modifiedViewer aCollection |
+	fileName := './ChemoJunSampleData/fullerene.mol'.
+	originalMolecule := ChemoJunMoleculeObject 
+				fileName: (JunUniFileName named: fileName).
+	originalViewer := ChemoJunMoleculeViewer moleculeObject: originalMolecule.
+	originalViewer showMoleculeAsBallAndStick.
+	originalViewer openIn: (100 @ 200 extent: 600 @ 300).
+	modifiedMolecule := ChemoJunMoleculeObject 
+				fileName: (JunUniFileName named: fileName).
+	modifiedMolecule 
+		changeColor: ColorValue red
+		serialNumberPairs: #(#(22 35) #(34 37))
+		nestLevel: 0.
+	modifiedViewer := ChemoJunMoleculeViewer moleculeObject: modifiedMolecule.
+	modifiedViewer showMoleculeAsBallAndStick.
+	modifiedViewer openIn: (100 @ 550 extent: 600 @ 300).
+	aCollection := Array with: originalViewer with: modifiedViewer.
+	aCollection do: [:each | each closeTogether: aCollection].
+	^aCollection</PRE>
+<!-- } example6 -->
+<LI><!-- fileName: { -->
+<A NAME="ClassMethod.fileName:"><B>fileName:</B> moleculeFilename <I>[instance creation]</I></A>
+<A HREF="../xrefsF.html#fileName:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	^self 
+		moleculeObject: (self defaultMoleculeObjectClass fileName: moleculeFilename)</PRE>
+<!-- } fileName: -->
+<LI><!-- menuBar { -->
+<A NAME="ClassMethod.menuBar"><B>menuBar</B> <I>[resources]</I></A>
+<A HREF="../xrefsM.html#menuBar"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	&quot;Tools.MenuEditor new openOnClass: self andSelector: #menuBar&quot;
+
+	&lt;resource: #menu&gt;
+	^#(#{UI.Menu} #(
+			#(#{UI.MenuItem} 
+				#rawLabel: 
+				#(#{Kernel.UserMessage} 
+					#key: #jun_File 
+					#defaultString: 'File' ) 
+				#submenu: #(#{UI.Menu} #(
+						#(#{UI.MenuItem} 
+							#rawLabel: 
+							#(#{Kernel.UserMessage} 
+								#key: #jun_New 
+								#defaultString: 'New' ) 
+							#value: #newModel ) 
+						#(#{UI.MenuItem} 
+							#rawLabel: 
+							#(#{Kernel.UserMessage} 
+								#key: #jun_Open 
+								#defaultString: 'Open' ) 
+							#value: #openMolecule ) 
+						#(#{UI.MenuItem} 
+							#rawLabel: 
+							#(#{Kernel.UserMessage} 
+								#key: #chemoJun_Save_as 
+								#defaultString: 'Save as' ) 
+							#value: #saveAsFile ) 
+						#(#{UI.MenuItem} 
+							#rawLabel: 
+							#(#{Kernel.UserMessage} 
+								#key: #chemoJun_Save_as_Image 
+								#defaultString: 'Save as Image' ) 
+							#value: #saveAsImage ) 
+						#(#{UI.MenuItem} 
+							#rawLabel: 
+							#(#{Kernel.UserMessage} 
+								#key: #jun_Quit 
+								#defaultString: 'Quit' ) 
+							#value: #quitDoing ) ) #(2 2 1 ) nil ) ) 
+			#(#{UI.MenuItem} 
+				#rawLabel: 
+				#(#{Kernel.UserMessage} 
+					#key: #chemoJun_View 
+					#defaultString: 'View' ) 
+				#submenu: #(#{UI.Menu} #(
+						#(#{UI.MenuItem} 
+							#rawLabel: 
+							#(#{Kernel.UserMessage} 
+								#key: #chemoJun_2D 
+								#defaultString: '2D' ) 
+							#value: #showMoleculeAsPlane ) 
+						#(#{UI.MenuItem} 
+							#rawLabel: 
+							#(#{Kernel.UserMessage} 
+								#key: #chemoJun_Sticks 
+								#defaultString: 'Sticks' ) 
+							#value: #showMoleculeAsStick ) 
+						#(#{UI.MenuItem} 
+							#rawLabel: 
+							#(#{Kernel.UserMessage} 
+								#key: #chemoJun_Ball_and_Stick 
+								#defaultString: 'Ball &amp;&amp; Stick' ) 
+							#value: #showMoleculeAsBallAndStick ) 
+						#(#{UI.MenuItem} 
+							#rawLabel: 
+							#(#{Kernel.UserMessage} 
+								#key: #chemoJun_Space_Filling 
+								#defaultString: 'Space Filling' ) 
+							#value: #showMoleculeAsSpaceFill ) 
+						#(#{UI.MenuItem} 
+							#rawLabel: 
+							#(#{Kernel.UserMessage} 
+								#key: #chemoJun_Stick_and_Space_Filling 
+								#defaultString: 'Stick &amp;&amp; Space Filling' ) 
+							#value: #showMoleculeAsStickAndSpaceFill ) 
+						#(#{UI.MenuItem} 
+							#rawLabel: 
+							#(#{Kernel.UserMessage} 
+								#key: #chemoJun_Show_Hydrogens 
+								#defaultString: 'Hydrogens' ) 
+							#value: #toggleHydrogen ) 
+						#(#{UI.MenuItem} 
+							#rawLabel: 
+							#(#{Kernel.UserMessage} 
+								#key: #chemoJun_Show_Serial_Nos__of_Atoms 
+								#defaultString: 'Serial Nos. of Atoms' ) 
+							#value: #toggleIndex ) 
+						#(#{UI.MenuItem} 
+							#rawLabel: 
+							#(#{Kernel.UserMessage} 
+								#key: #chemoJun_Setting_Serial_Nos_ 
+								#defaultString: 'Setting Serial Nos.' ) 
+							#value: #settingIndex ) 
+						#(#{UI.MenuItem} 
+							#rawLabel: 
+							#(#{Kernel.UserMessage} 
+								#key: #chemoJun_Low_Resolution 
+								#defaultString: 'Low Resolution' ) 
+							#value: #lowResolution ) 
+						#(#{UI.MenuItem} 
+							#rawLabel: 
+							#(#{Kernel.UserMessage} 
+								#key: #chemoJun_Medium_Resolution 
+								#defaultString: 'Medium Resolution' ) 
+							#value: #mediumResolution ) 
+						#(#{UI.MenuItem} 
+							#rawLabel: 
+							#(#{Kernel.UserMessage} 
+								#key: #chemoJun_High_Resolution 
+								#defaultString: 'High Resolution' ) 
+							#value: #highResolution ) 
+						#(#{UI.MenuItem} 
+							#rawLabel: 
+							#(#{Kernel.UserMessage} 
+								#key: #jun_Reset 
+								#defaultString: 'Reset' ) 
+							#value: #resetView ) ) #(5 3 3 1 ) nil ) ) 
+			#(#{UI.MenuItem} 
+				#rawLabel: 
+				#(#{Kernel.UserMessage} 
+					#key: #jun_Misc 
+					#defaultString: 'Misc' ) 
+				#submenu: #(#{UI.Menu} #(
+						#(#{UI.MenuItem} 
+							#rawLabel: 
+							#(#{Kernel.UserMessage} 
+								#key: #jun_Manual 
+								#defaultString: 'Manual' ) 
+							#value: #browseManual ) 
+						#(#{UI.MenuItem} 
+							#rawLabel: 
+							#(#{Kernel.UserMessage} 
+								#key: #chemoJun_Information 
+								#defaultString: 'Information' ) 
+							#value: #showInformation ) 
+						#(#{UI.MenuItem} 
+							#rawLabel: 
+							#(#{Kernel.UserMessage} 
+								#key: #jun_Viewfinder 
+								#defaultString: 'Viewfinder' ) 
+							#value: #spawnObject ) 
+						#(#{UI.MenuItem} 
+							#rawLabel: 
+							#(#{Kernel.UserMessage} 
+								#key: #jun_Viewport 
+								#defaultString: 'Viewport' ) 
+							#value: #spawnViewport ) 
+						#(#{UI.MenuItem} 
+							#rawLabel: 
+							#(#{Kernel.UserMessage} 
+								#key: #jun_Inspect 
+								#defaultString: 'Inspect' ) 
+							#value: #inspectModel ) ) #(1 1 2 1 ) nil ) ) ) #(3 ) nil ) decodeAsLiteralArray</PRE>
+<!-- } menuBar -->
+<LI><!-- moleculeObject: { -->
+<A NAME="ClassMethod.moleculeObject:"><B>moleculeObject:</B> moleculeObject <I>[instance creation]</I></A>
+<A HREF="../xrefsM.html#moleculeObject:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	^(self new)
+		moleculeObject: moleculeObject;
+		exceptHydrogen: moleculeObject exceptHydrogen;
+		yourself</PRE>
+<!-- } moleculeObject: -->
+<LI><!-- system { -->
+<A NAME="ClassMethod.system"><B>system</B> <I>[copyright]</I></A>
+<A HREF="../xrefsS.html#system"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^'ChemoJun'</PRE>
+<!-- } system -->
+<LI><!-- version { -->
+<A NAME="ClassMethod.version"><B>version</B> <I>[copyright]</I></A>
+<A HREF="../xrefsV.html#version"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^'050'</PRE>
+<!-- } version -->
+<LI><!-- windowSpec { -->
+<A NAME="ClassMethod.windowSpec"><B>windowSpec</B> <I>[interface specs]</I></A>
+<A HREF="../xrefsW.html#windowSpec"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	&quot;Tools.UIPainter new openOnClass: self andSelector: #windowSpec&quot;
+
+	&lt;resource: #canvas&gt;
+	^#(#{UI.FullSpec} 
+		#window: 
+		#(#{UI.WindowSpec} 
+			#label: 
+			#(#{Kernel.UserMessage} 
+				#key: #chemoJun_Molecular_Viewer 
+				#defaultString: 'Molecular Viewer' ) 
+			#min: #(#{Core.Point} 280 280 ) 
+			#bounds: #(#{Graphics.Rectangle} 512 280 812 580 ) 
+			#flags: 4 
+			#menu: #menuBar ) 
+		#component: 
+		#(#{UI.SpecCollection} 
+			#collection: #(
+				#(#{UI.ArbitraryComponentSpec} 
+					#layout: #(#{Graphics.LayoutFrame} 1 0 1 0 -20 1 -1 1 ) 
+					#name: #displayView 
+					#colors: 
+					#(#{UI.LookPreferences} 
+						#setBackgroundColor: #(#{Graphics.ColorValue} #white ) ) 
+					#component: #displayView ) 
+				#(#{UI.ArbitraryComponentSpec} 
+					#layout: #(#{Graphics.LayoutFrame} -19 1 1 0 -1 1 19 0 ) 
+					#name: #pickButtonView 
+					#flags: 0 
+					#component: #pickButtonView ) 
+				#(#{UI.ArbitraryComponentSpec} 
+					#layout: #(#{Graphics.LayoutFrame} -19 1 20 0 -1 1 38 0 ) 
+					#name: #grabButtonView 
+					#flags: 0 
+					#component: #grabButtonView ) 
+				#(#{UI.ArbitraryComponentSpec} 
+					#layout: #(#{Graphics.LayoutFrame} -19 1 39 0 -1 1 57 0 ) 
+					#name: #dragButtonView 
+					#flags: 0 
+					#component: #dragButtonView ) 
+				#(#{UI.ArbitraryComponentSpec} 
+					#layout: #(#{Graphics.LayoutFrame} -19 1 -61 0.5 -1 1 61 0.5 ) 
+					#name: #zThumbWheelView 
+					#flags: 0 
+					#component: #zThumbWheelView ) 
+				#(#{UI.ArbitraryComponentSpec} 
+					#layout: #(#{Graphics.LayoutFrame} -19 1 62 0.5 -1 1 80 0.5 ) 
+					#name: #focusButtonView 
+					#flags: 0 
+					#component: #focusButtonView ) 
+				#(#{UI.ArbitraryComponentSpec} 
+					#layout: #(#{Graphics.LayoutFrame} -19 1 -38 1 -1 1 -20 1 ) 
+					#name: #cameraButtonView 
+					#flags: 48 
+					#component: #cameraButtonView ) ) ) )</PRE>
+<!-- } windowSpec -->
+</OL>
+<!-- } (class_methods) -->
+<HR>
+<A HREF="../index.html#ChemoJunMoleculeViewer"><IMG SRC="../images/index.jpg" ALT="index" ALIGN="top" BORDER=1></A>
+<A HREF="../xrefsC.html#ChemoJunMoleculeViewer"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<!-- This Document was generated by JunEncyclopedia. -->
+<!-- JunEncyclopedia was developed by AOKI Atsushi. -->
+</BODY>
+</HTML>

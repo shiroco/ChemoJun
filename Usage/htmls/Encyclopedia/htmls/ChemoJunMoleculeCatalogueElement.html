@@ -1,0 +1,711 @@
+<HTML>
+<HEAD>
+<TITLE>ChemoJunMoleculeCatalogueElement</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<A HREF="../index.html#ChemoJunMoleculeCatalogueElement"><IMG SRC="../images/index.jpg" ALT="index" ALIGN="top" BORDER=1></A>
+<A HREF="../xrefsC.html#ChemoJunMoleculeCatalogueElement"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+2006/08/08 17:41:27
+<HR>
+<!-- (class_name) { -->
+<H2>
+<A NAME="Class.ChemoJunMoleculeCatalogueElement">ChemoJunMoleculeCatalogueElement</A>
+</H2>
+<!-- } (class_name) -->
+<!-- (comment) { -->
+<P>
+<A NAME="Comment.ChemoJunMoleculeCatalogueElement">
+ChemoJun050 (2006/08/08) Copyright 2002-2006 National Institute of Informatics, Research Organization of Information and Systems.
+</A>
+</P>
+<!-- } (comment) -->
+<!-- (category) { -->
+<P>
+<A NAME="Category.ChemoJun-Display-Catalogue"><I>category:</I></A></P>
+<UL>
+<LI><B>
+ChemoJun-Display-Catalogue
+</B>
+<A HREF="../xrefsC.html#ChemoJun-Display-Catalogue"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+</UL>
+<!-- } (category) -->
+<!-- (inheritance) { -->
+<P>
+<A NAME="Inheritance.ChemoJunMoleculeCatalogueElement"><I>inheritance:</I></A>
+</P>
+<UL>
+<LI TYPE="square">Object
+<UL>
+<LI TYPE="square">VisualComponent
+<UL>
+<LI TYPE="square"><A HREF="ChemoJunMoleculeCatalogueVoid.html">ChemoJunMoleculeCatalogueVoid</A>
+<UL>
+<LI TYPE="square"><B>ChemoJunMoleculeCatalogueElement</B>
+</UL>
+</UL>
+</UL>
+</UL>
+<!-- } (inheritance) -->
+<!-- (instance_variables) { -->
+<P>
+<A NAME="InstanceVariables.ChemoJunMoleculeCatalogueElement">
+<I>instance variables:</I>
+</A>
+</P>
+<UL>
+<!-- mappingPoints { -->
+<LI><A NAME="InstanceVariable.mappingPoints"><B>mappingPoints</B></A>
+<A HREF="../xrefsM.html#mappingPoints"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<!-- } mappingPoints -->
+<!-- moleculeFilename { -->
+<LI><A NAME="InstanceVariable.moleculeFilename"><B>moleculeFilename</B></A>
+<A HREF="../xrefsM.html#moleculeFilename"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<!-- } moleculeFilename -->
+<!-- preferenceTable { -->
+<LI><A NAME="InstanceVariable.preferenceTable"><B>preferenceTable</B></A>
+<A HREF="../xrefsP.html#preferenceTable"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<!-- } preferenceTable -->
+<!-- thumbnailImage { -->
+<LI><A NAME="InstanceVariable.thumbnailImage"><B>thumbnailImage</B></A>
+<A HREF="../xrefsT.html#thumbnailImage"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<!-- } thumbnailImage -->
+</UL>
+<!-- } (instance_variables) -->
+<!-- (class_instance_variables) { -->
+<P>
+<A NAME="ClassInstanceVariables.ChemoJunMoleculeCatalogueElement">
+<I>class instance variables:</I>
+</A>
+</P>
+<UL>
+</UL>
+<!-- } (class_instance_variables) -->
+<!-- (class_variables) { -->
+<P>
+<A NAME="ClassVariables.ChemoJunMoleculeCatalogueElement">
+<I>class variables:</I>
+</A>
+</P>
+<UL>
+</UL>
+<!-- } (class_variables) -->
+<!-- (pool_variables) { -->
+<P>
+<A NAME="PoolVariables.ChemoJunMoleculeCatalogueElement">
+<I>pool variables:</I>
+</A>
+</P>
+<UL>
+</UL>
+<!-- } (pool_variables) -->
+<!-- (instance_methods) { -->
+<P>
+<A NAME="InstanceMethods.ChemoJunMoleculeCatalogueElement">
+<I>instance methods:</I>
+</A>
+</P>
+<OL>
+<LI><!-- atomResolution { -->
+<A NAME="InstanceMethod.atomResolution"><B>atomResolution</B> <I>[preferences]</I></A>
+<A HREF="../xrefsA.html#atomResolution"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^self preferenceTable at: #atomResolution ifAbsent: [nil]</PRE>
+<!-- } atomResolution -->
+<LI><!-- atomResolution: { -->
+<A NAME="InstanceMethod.atomResolution:"><B>atomResolution:</B> aSymbol <I>[preferences]</I></A>
+<A HREF="../xrefsA.html#atomResolution:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	self preferenceTable at: #atomResolution put: aSymbol</PRE>
+<!-- } atomResolution: -->
+<LI><!-- baseNameString { -->
+<A NAME="InstanceMethod.baseNameString"><B>baseNameString</B> <I>[private]</I></A>
+<A HREF="../xrefsB.html#baseNameString"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^(Filename 
+		splitExtension: (Filename splitPath: self filename asString) last asString) 
+			first asString</PRE>
+<!-- } baseNameString -->
+<LI><!-- computeMappingPoints: { -->
+<A NAME="InstanceMethod.computeMappingPoints:"><B>computeMappingPoints:</B> moleculeViewer <I>[private]</I></A>
+<A HREF="../xrefsC.html#computeMappingPoints:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	| atomObjects atomicPoints |
+	atomObjects := moleculeViewer moleculeObject atomObjects asArray.
+	atomicPoints := atomObjects 
+				collect: [:atomObject | atomObject atomicPoint].
+	mappingPoints := moleculeViewer 
+				convertModelPointsToViewPoints: atomicPoints
+				in: (Point zero extent: self class defaultThumbnailExtent).
+	^mappingPoints</PRE>
+<!-- } computeMappingPoints: -->
+<LI><!-- decoratedImage: { -->
+<A NAME="InstanceMethod.decoratedImage:"><B>decoratedImage:</B> anImage <I>[private]</I></A>
+<A HREF="../xrefsD.html#decoratedImage:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	| decoratedImage thumbnailExtent |
+	decoratedImage := anImage.
+	thumbnailExtent := self class defaultThumbnailExtent.
+	decoratedImage extent = thumbnailExtent 
+		ifFalse: 
+			[decoratedImage := JunImageAdjuster 
+						adjustImage: decoratedImage
+						extent: thumbnailExtent
+						keepAspect: true
+						alignmentSymbol: #center].
+	^decoratedImage</PRE>
+<!-- } decoratedImage: -->
+<LI><!-- defaultDirectoryString { -->
+<A NAME="InstanceMethod.defaultDirectoryString"><B>defaultDirectoryString</B> <I>[defaults]</I></A>
+<A HREF="../xrefsD.html#defaultDirectoryString"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	| defaultDirectoryString |
+	defaultDirectoryString := (JunUniFileName 
+				fromPlatformFilename: Filename defaultDirectory) uniFileName 
+				asString.
+	defaultDirectoryString last = JunUniFileName uniSeparator 
+		ifFalse: 
+			[defaultDirectoryString := defaultDirectoryString 
+						, JunUniFileName uniSeparatorString].
+	^defaultDirectoryString</PRE>
+<!-- } defaultDirectoryString -->
+<LI><!-- exceptHydrogen { -->
+<A NAME="InstanceMethod.exceptHydrogen"><B>exceptHydrogen</B> <I>[preferences]</I></A>
+<A HREF="../xrefsE.html#exceptHydrogen"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^self preferenceTable at: #exceptHydrogen ifAbsent: [nil]</PRE>
+<!-- } exceptHydrogen -->
+<LI><!-- exceptHydrogen: { -->
+<A NAME="InstanceMethod.exceptHydrogen:"><B>exceptHydrogen:</B> aBoolean <I>[preferences]</I></A>
+<A HREF="../xrefsE.html#exceptHydrogen:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	self preferenceTable at: #exceptHydrogen put: aBoolean = true</PRE>
+<!-- } exceptHydrogen: -->
+<LI><!-- exceptIndex { -->
+<A NAME="InstanceMethod.exceptIndex"><B>exceptIndex</B> <I>[preferences]</I></A>
+<A HREF="../xrefsE.html#exceptIndex"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^self preferenceTable at: #exceptIndex ifAbsent: [nil]</PRE>
+<!-- } exceptIndex -->
+<LI><!-- exceptIndex: { -->
+<A NAME="InstanceMethod.exceptIndex:"><B>exceptIndex:</B> aBoolean <I>[preferences]</I></A>
+<A HREF="../xrefsE.html#exceptIndex:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	self preferenceTable at: #exceptIndex put: aBoolean = true</PRE>
+<!-- } exceptIndex: -->
+<LI><!-- extent { -->
+<A NAME="InstanceMethod.extent"><B>extent</B> <I>[accessing]</I></A>
+<A HREF="../xrefsE.html#extent"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^self thumbnail ifNil: [self class defaultThumbnailExtent]
+		ifNotNil: [:it | it extent]</PRE>
+<!-- } extent -->
+<LI><!-- filename { -->
+<A NAME="InstanceMethod.filename"><B>filename</B> <I>[accessing]</I></A>
+<A HREF="../xrefsF.html#filename"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	self moleculeFilename ifNil: [^nil].
+	self moleculeFilename isEmpty ifTrue: [^self moleculeFilename].
+	self moleculeFilename first = JunUniFileName uniSeparator 
+		ifTrue: [^(JunUniFileName named: self moleculeFilename) asFilename].
+	^(JunUniFileName 
+		named: self defaultDirectoryString , self moleculeFilename) asFilename</PRE>
+<!-- } filename -->
+<LI><!-- filename: { -->
+<A NAME="InstanceMethod.filename:"><B>filename:</B> aFilename <I>[accessing]</I></A>
+<A HREF="../xrefsF.html#filename:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	| defaultDirectoryString fileNameString |
+	defaultDirectoryString := self defaultDirectoryString.
+	fileNameString := (JunUniFileName fromPlatformFilename: aFilename) 
+				uniFileName asString.
+	(fileNameString findString: defaultDirectoryString startingAt: 1) = 1 
+		ifTrue: 
+			[fileNameString := fileNameString copyFrom: defaultDirectoryString size + 1
+						to: fileNameString size.
+			
+			[fileNameString isEmpty not 
+				and: [fileNameString first = JunUniFileName uniSeparator]] 
+					whileTrue: 
+						[fileNameString := fileNameString copyFrom: 2 to: fileNameString size]].
+	self moleculeFilename: fileNameString</PRE>
+<!-- } filename: -->
+<LI><!-- fromPreferences: { -->
+<A NAME="InstanceMethod.fromPreferences:"><B>fromPreferences:</B> moleculeViewer <I>[private]</I></A>
+<A HREF="../xrefsF.html#fromPreferences:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	self moleculePresentation: moleculeViewer messageSymbol.
+	self viewerExtent: (moleculeViewer getView 
+				ifNil: [self class defaultThumbnailExtent]
+				ifNotNil: [:aView | aView bounds extent]).
+	self projectionTable: moleculeViewer projectionTable.
+	self exceptHydrogen: moleculeViewer exceptHydrogen.
+	self exceptIndex: moleculeViewer exceptIndex.
+	self atomResolution: moleculeViewer moleculeObject atomResolution.
+	self serialNumberSetting: moleculeViewer serialNumberSetting setting</PRE>
+<!-- } fromPreferences: -->
+<LI><!-- image { -->
+<A NAME="InstanceMethod.image"><B>image</B> <I>[accessing]</I></A>
+<A HREF="../xrefsI.html#image"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	| moleculeObject anImage moleculeViewer |
+	self filename asFilename exists ifFalse: [^nil].
+	self errorSignal handle: 
+			[:exception | 
+			anImage := nil.
+			exception reject]
+		do: 
+			[moleculeObject := self moleculeObject.
+			moleculeObject ifNil: [^nil].
+			moleculeObject atomObjects isEmpty ifTrue: [^nil].
+			moleculeViewer := self class defaultMoleculeViewerClass 
+						moleculeObject: moleculeObject.
+			self toPreferences: moleculeViewer.
+			anImage := moleculeViewer asImageExtent: (self viewerExtent 
+								ifNil: [self class defaultThumbnailExtent * 2]
+								ifNotNil: [:it | it]).
+			self computeMappingPoints: moleculeViewer].
+	^anImage</PRE>
+<!-- } image -->
+<LI><!-- initialize { -->
+<A NAME="InstanceMethod.initialize"><B>initialize</B> <I>[initialize-release]</I></A>
+<A HREF="../xrefsI.html#initialize"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	super initialize.
+	preferenceTable := nil.
+	moleculeFilename := nil.
+	thumbnailImage := nil.
+	mappingPoints := nil</PRE>
+<!-- } initialize -->
+<LI><!-- is2d { -->
+<A NAME="InstanceMethod.is2d"><B>is2d</B> <I>[testing]</I></A>
+<A HREF="../xrefsI.html#is2d"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^self filename ifNil: [false]
+		ifNotNil: 
+			[:it | 
+			| tailName |
+			tailName := (Filename splitPath: it asString) last asString asLowercase.
+			(JunStringUtility stringMatch: tailName and: '*2d.mol') yourself]</PRE>
+<!-- } is2d -->
+<LI><!-- is3d { -->
+<A NAME="InstanceMethod.is3d"><B>is3d</B> <I>[testing]</I></A>
+<A HREF="../xrefsI.html#is3d"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^self is2d not</PRE>
+<!-- } is3d -->
+<LI><!-- isVoid { -->
+<A NAME="InstanceMethod.isVoid"><B>isVoid</B> <I>[testing]</I></A>
+<A HREF="../xrefsI.html#isVoid"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^false</PRE>
+<!-- } isVoid -->
+<LI><!-- mappingPoints { -->
+<A NAME="InstanceMethod.mappingPoints"><B>mappingPoints</B> <I>[accessing]</I></A>
+<A HREF="../xrefsM.html#mappingPoints"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	mappingPoints ifNil: [mappingPoints := Array new].
+	^mappingPoints</PRE>
+<!-- } mappingPoints -->
+<LI><!-- moleculeFilename { -->
+<A NAME="InstanceMethod.moleculeFilename"><B>moleculeFilename</B> <I>[private]</I></A>
+<A HREF="../xrefsM.html#moleculeFilename"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^moleculeFilename</PRE>
+<!-- } moleculeFilename -->
+<LI><!-- moleculeFilename: { -->
+<A NAME="InstanceMethod.moleculeFilename:"><B>moleculeFilename:</B> aString <I>[private]</I></A>
+<A HREF="../xrefsM.html#moleculeFilename:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	moleculeFilename := aString</PRE>
+<!-- } moleculeFilename: -->
+<LI><!-- moleculeFilenameToLispList { -->
+<A NAME="InstanceMethod.moleculeFilenameToLispList"><B>moleculeFilenameToLispList</B> <I>[lisp support]</I></A>
+<A HREF="../xrefsM.html#moleculeFilenameToLispList"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	| alist |
+	alist := JunLispCons cell.
+	alist head: #moleculeFilename.
+	alist tail: self moleculeFilename asString.
+	^alist</PRE>
+<!-- } moleculeFilenameToLispList -->
+<LI><!-- moleculeObject { -->
+<A NAME="InstanceMethod.moleculeObject"><B>moleculeObject</B> <I>[accessing]</I></A>
+<A HREF="../xrefsM.html#moleculeObject"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	| moleculeObject |
+	self filename ifNil: [^nil].
+	self filename asFilename exists ifFalse: [^nil].
+	moleculeObject := self class defaultMoleculeObjectClass 
+				fileName: self filename asFilename.
+	^moleculeObject</PRE>
+<!-- } moleculeObject -->
+<LI><!-- moleculePresentation { -->
+<A NAME="InstanceMethod.moleculePresentation"><B>moleculePresentation</B> <I>[preferences]</I></A>
+<A HREF="../xrefsM.html#moleculePresentation"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^self preferenceTable at: #moleculePresentation ifAbsent: [nil]</PRE>
+<!-- } moleculePresentation -->
+<LI><!-- moleculePresentation: { -->
+<A NAME="InstanceMethod.moleculePresentation:"><B>moleculePresentation:</B> messageSymbol <I>[preferences]</I></A>
+<A HREF="../xrefsM.html#moleculePresentation:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	self preferenceTable at: #moleculePresentation put: messageSymbol</PRE>
+<!-- } moleculePresentation: -->
+<LI><!-- postCopy { -->
+<A NAME="InstanceMethod.postCopy"><B>postCopy</B> <I>[copying]</I></A>
+<A HREF="../xrefsP.html#postCopy"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	super postCopy.
+	preferenceTable := preferenceTable copy.
+	moleculeFilename := moleculeFilename copy.
+	thumbnailImage := thumbnailImage copy.
+	mappingPoints := self mappingPoints collect: [:each | each copy]</PRE>
+<!-- } postCopy -->
+<LI><!-- preferenceTable { -->
+<A NAME="InstanceMethod.preferenceTable"><B>preferenceTable</B> <I>[preferences]</I></A>
+<A HREF="../xrefsP.html#preferenceTable"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	preferenceTable ifNil: [preferenceTable := JunAttributeTable new].
+	^preferenceTable</PRE>
+<!-- } preferenceTable -->
+<LI><!-- preferenceTable: { -->
+<A NAME="InstanceMethod.preferenceTable:"><B>preferenceTable:</B> attributeTable <I>[preferences]</I></A>
+<A HREF="../xrefsP.html#preferenceTable:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	preferenceTable := attributeTable</PRE>
+<!-- } preferenceTable: -->
+<LI><!-- preferenceTableToLispList { -->
+<A NAME="InstanceMethod.preferenceTableToLispList"><B>preferenceTableToLispList</B> <I>[lisp support]</I></A>
+<A HREF="../xrefsP.html#preferenceTableToLispList"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	| alist |
+	alist := JunLispCons cell.
+	alist head: #preferenceTable.
+	alist tail: self preferenceTable toLispList.
+	^alist</PRE>
+<!-- } preferenceTableToLispList -->
+<LI><!-- preferredBounds { -->
+<A NAME="InstanceMethod.preferredBounds"><B>preferredBounds</B> <I>[bounds accessing]</I></A>
+<A HREF="../xrefsP.html#preferredBounds"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	displayBox ifNil: 
+			[displayBox := self thumbnail ifNil: [Point zero extent: Point zero]
+						ifNotNil: [:it | Point zero extent: it extent]].
+	^displayBox</PRE>
+<!-- } preferredBounds -->
+<LI><!-- projectionTable { -->
+<A NAME="InstanceMethod.projectionTable"><B>projectionTable</B> <I>[preferences]</I></A>
+<A HREF="../xrefsP.html#projectionTable"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^self preferenceTable at: #projectionTable ifAbsent: [nil]</PRE>
+<!-- } projectionTable -->
+<LI><!-- projectionTable: { -->
+<A NAME="InstanceMethod.projectionTable:"><B>projectionTable:</B> aDictionary <I>[preferences]</I></A>
+<A HREF="../xrefsP.html#projectionTable:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	self preferenceTable at: #projectionTable put: aDictionary</PRE>
+<!-- } projectionTable: -->
+<LI><!-- serialNumberSetting { -->
+<A NAME="InstanceMethod.serialNumberSetting"><B>serialNumberSetting</B> <I>[preferences]</I></A>
+<A HREF="../xrefsS.html#serialNumberSetting"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^self preferenceTable at: #serialNumberSetting ifAbsent: [nil]</PRE>
+<!-- } serialNumberSetting -->
+<LI><!-- serialNumberSetting: { -->
+<A NAME="InstanceMethod.serialNumberSetting:"><B>serialNumberSetting:</B> settingCollection <I>[preferences]</I></A>
+<A HREF="../xrefsS.html#serialNumberSetting:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	self preferenceTable at: #serialNumberSetting put: settingCollection</PRE>
+<!-- } serialNumberSetting: -->
+<LI><!-- thumbnail { -->
+<A NAME="InstanceMethod.thumbnail"><B>thumbnail</B> <I>[accessing]</I></A>
+<A HREF="../xrefsT.html#thumbnail"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	thumbnailImage ifNil: 
+			[self image 
+				ifNotNil: [:image | self thumbnail: (self decoratedImage: image)]].
+	^thumbnailImage</PRE>
+<!-- } thumbnail -->
+<LI><!-- thumbnail: { -->
+<A NAME="InstanceMethod.thumbnail:"><B>thumbnail:</B> anImage <I>[accessing]</I></A>
+<A HREF="../xrefsT.html#thumbnail:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	thumbnailImage := anImage ifNil: [nil]
+				ifNotNil: [:it | CachedImage on: (it convertForGraphicsDevice: Screen default)]</PRE>
+<!-- } thumbnail: -->
+<LI><!-- toLispList { -->
+<A NAME="InstanceMethod.toLispList"><B>toLispList</B> <I>[lisp support]</I></A>
+<A HREF="../xrefsT.html#toLispList"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	| aList |
+	aList := JunLispCons cell.
+	aList head: self class name.
+	self preferenceTable isEmpty 
+		ifFalse: [aList add: self preferenceTableToLispList].
+	self moleculeFilename ifNotNil: [aList add: self moleculeFilenameToLispList].
+	^aList</PRE>
+<!-- } toLispList -->
+<LI><!-- toPreferences: { -->
+<A NAME="InstanceMethod.toPreferences:"><B>toPreferences:</B> moleculeViewer <I>[private]</I></A>
+<A HREF="../xrefsT.html#toPreferences:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	| tailName |
+	tailName := (Filename 
+				splitPath: moleculeViewer moleculeObject fileName asString) last 
+				asString.
+	self class defaultCatalogueClass catalogueProgress message: tailName.
+	(JunStringUtility stringMatch: tailName asLowercase and: '*2d.mol') 
+		ifTrue: [moleculeViewer messageSymbol: #moleculeAsPlane]
+		ifFalse: 
+			[moleculeViewer messageSymbol: (self moleculePresentation 
+						ifNil: [self class defaultMoleculePresentation]
+						ifNotNil: [:it | it yourself])].
+	self exceptHydrogen ifNil: [moleculeViewer exceptHydrogen: false]
+		ifNotNil: [:it | moleculeViewer exceptHydrogen: it].
+	self exceptIndex ifNil: [moleculeViewer exceptIndex: true]
+		ifNotNil: [:it | moleculeViewer exceptIndex: it].
+	self atomResolution 
+		ifNil: [moleculeViewer moleculeObject atomResolution: #medium]
+		ifNotNil: [:it | moleculeViewer moleculeObject atomResolution: it].
+	self serialNumberSetting 
+		ifNil: [moleculeViewer serialNumberSetting setting]
+		ifNotNil: [:it | moleculeViewer serialNumberSetting setting: it].
+	self projectionTable ifNil: 
+			[moleculeViewer
+				resetView;
+				zoomHeight: moleculeViewer zoomHeight + (moleculeViewer zoomHeight * 0.2)]
+		ifNotNil: 
+			[:it | 
+			moleculeViewer
+				defaultProjectionTable: it;
+				projectionTable: it]</PRE>
+<!-- } toPreferences: -->
+<LI><!-- viewerExtent { -->
+<A NAME="InstanceMethod.viewerExtent"><B>viewerExtent</B> <I>[preferences]</I></A>
+<A HREF="../xrefsV.html#viewerExtent"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^self preferenceTable at: #viewerExtent ifAbsent: [nil]</PRE>
+<!-- } viewerExtent -->
+<LI><!-- viewerExtent: { -->
+<A NAME="InstanceMethod.viewerExtent:"><B>viewerExtent:</B> aPoint <I>[preferences]</I></A>
+<A HREF="../xrefsV.html#viewerExtent:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	self preferenceTable at: #viewerExtent put: aPoint</PRE>
+<!-- } viewerExtent: -->
+</OL>
+<!-- } (instance_methods) -->
+<!-- (class_methods) { -->
+<P>
+<A NAME="ClassMethods.ChemoJunMoleculeCatalogueElement">
+<I>class methods:</I>
+</A>
+</P>
+<OL>
+<LI><!-- copyright { -->
+<A NAME="ClassMethod.copyright"><B>copyright</B> <I>[copyright]</I></A>
+<A HREF="../xrefsC.html#copyright"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^'ChemoJun050 (2006/08/08) Copyright 2002-2006 National Institute of Informatics, Research Organization of Information and Systems.'</PRE>
+<!-- } copyright -->
+<LI><!-- defaultEmptyColor { -->
+<A NAME="ClassMethod.defaultEmptyColor"><B>defaultEmptyColor</B> <I>[defaults]</I></A>
+<A HREF="../xrefsD.html#defaultEmptyColor"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	| colorValue |
+	colorValue := ColorValue blue.
+	2 timesRepeat: [colorValue := colorValue blendWith: ColorValue white].
+	^colorValue</PRE>
+<!-- } defaultEmptyColor -->
+<LI><!-- example1 { -->
+<A NAME="ClassMethod.example1"><B>example1</B> <I>[examples]</I></A>
+<A HREF="../xrefsE.html#example1"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	&quot;ChemoJunMoleculeCatalogueElement example1.&quot;
+
+	| moleculeObject catalogueElement |
+	(moleculeObject := ChemoJunMoleculeObject request) ifNil: [^nil].
+	catalogueElement := ChemoJunMoleculeCatalogueElement 
+				filename: moleculeObject fileName.
+	JunImageDisplayModel show: catalogueElement thumbnail.
+	^catalogueElement</PRE>
+<!-- } example1 -->
+<LI><!-- example2 { -->
+<A NAME="ClassMethod.example2"><B>example2</B> <I>[examples]</I></A>
+<A HREF="../xrefsE.html#example2"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	&quot;ChemoJunMoleculeCatalogueElement example2.&quot;
+
+	| moleculeObject catalogueElement |
+	(moleculeObject := ChemoJunMoleculeObject request) ifNil: [^nil].
+	catalogueElement := ChemoJunMoleculeCatalogueElement 
+				filename: moleculeObject fileName.
+	catalogueElement moleculePresentation: #moleculeAsSpaceFill.
+	catalogueElement viewerExtent: 256 @ 256.
+	catalogueElement projectionTable: ((Core.Dictionary new)
+				add: #sightPoint -&gt; (-0.6d , 2.9d , 1.5d);
+				add: #presentation -&gt; #solidPresentation;
+				add: #eyePoint -&gt; (0 , 0 , 10);
+				add: #zoomHeight -&gt; 4;
+				add: #shading -&gt; #smoothShading;
+				add: #viewFactor -&gt; 10;
+				add: #projection -&gt; #perspectiveProjection;
+				add: #upVector -&gt; (0 , 1 , 0);
+				yourself).
+	JunImageDisplayModel show: catalogueElement thumbnail.
+	^catalogueElement</PRE>
+<!-- } example2 -->
+<LI><!-- example3 { -->
+<A NAME="ClassMethod.example3"><B>example3</B> <I>[examples]</I></A>
+<A HREF="../xrefsE.html#example3"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	&quot;ChemoJunMoleculeCatalogueElement example3.&quot;
+
+	| moleculeObject catalogueElement lispList |
+	(moleculeObject := ChemoJunMoleculeObject request) ifNil: [^nil].
+	catalogueElement := ChemoJunMoleculeCatalogueElement 
+				filename: moleculeObject fileName.
+	catalogueElement moleculePresentation: #moleculeAsSpaceFill.
+	catalogueElement viewerExtent: 256 @ 256.
+	catalogueElement projectionTable: ((Core.Dictionary new)
+				add: #sightPoint -&gt; (-0.6d , 2.9d , 1.5d);
+				add: #presentation -&gt; #solidPresentation;
+				add: #eyePoint -&gt; (0 , 0 , 10);
+				add: #zoomHeight -&gt; 4;
+				add: #shading -&gt; #smoothShading;
+				add: #viewFactor -&gt; 10;
+				add: #projection -&gt; #perspectiveProjection;
+				add: #upVector -&gt; (0 , 1 , 0);
+				yourself).
+	lispList := catalogueElement toLispList.
+	Transcript
+		clear;
+		show: lispList saveString.
+	catalogueElement := catalogueElement class fromLispList: lispList.
+	lispList := catalogueElement toLispList.
+	Transcript
+		cr;
+		show: lispList saveString.
+	^catalogueElement</PRE>
+<!-- } example3 -->
+<LI><!-- filename: { -->
+<A NAME="ClassMethod.filename:"><B>filename:</B> aFilename <I>[instance creation]</I></A>
+<A HREF="../xrefsF.html#filename:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	^(self new)
+		filename: aFilename;
+		yourself</PRE>
+<!-- } filename: -->
+<LI><!-- fromLispList: { -->
+<A NAME="ClassMethod.fromLispList:"><B>fromLispList:</B> aList <I>[lisp support]</I></A>
+<A HREF="../xrefsF.html#fromLispList:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	| aClass aTable catalogueElement |
+	aClass := Smalltalk at: aList head.
+	aTable := self tableFromLispList: aList tail.
+	catalogueElement := aClass new.
+	self preferenceTableFromTable: aTable for: catalogueElement.
+	self moleculeFilenameFromTable: aTable for: catalogueElement.
+	^catalogueElement</PRE>
+<!-- } fromLispList: -->
+<LI><!-- moleculeFilenameFromTable:for: { -->
+<A NAME="ClassMethod.moleculeFilenameFromTable:for:"><B>moleculeFilenameFromTable:</B> aTable <B>for:</B> aCatalogue <I>[lisp support]</I></A>
+<A HREF="../xrefsM.html#moleculeFilenameFromTable:for:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	| moleculeFilename |
+	moleculeFilename := aTable at: #moleculeFilename ifAbsent: [^aCatalogue].
+	aCatalogue moleculeFilename: moleculeFilename.
+	^aCatalogue</PRE>
+<!-- } moleculeFilenameFromTable:for: -->
+<LI><!-- preferenceTableFromTable:for: { -->
+<A NAME="ClassMethod.preferenceTableFromTable:for:"><B>preferenceTableFromTable:</B> aTable <B>for:</B> aCatalogue <I>[lisp support]</I></A>
+<A HREF="../xrefsP.html#preferenceTableFromTable:for:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	| aList preferenceTable |
+	aList := aTable at: #preferenceTable ifAbsent: [^aCatalogue].
+	preferenceTable := JunAttributeTable fromLispList: aList.
+	aCatalogue preferenceTable: preferenceTable.
+	^aCatalogue</PRE>
+<!-- } preferenceTableFromTable:for: -->
+<LI><!-- system { -->
+<A NAME="ClassMethod.system"><B>system</B> <I>[copyright]</I></A>
+<A HREF="../xrefsS.html#system"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^'ChemoJun'</PRE>
+<!-- } system -->
+<LI><!-- tableFromLispList: { -->
+<A NAME="ClassMethod.tableFromLispList:"><B>tableFromLispList:</B> aList <I>[lisp support]</I></A>
+<A HREF="../xrefsT.html#tableFromLispList:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	| aTable |
+	aTable := JunAttributeTable new.
+	aList do: [:pair | aTable at: pair head put: pair tail].
+	^aTable</PRE>
+<!-- } tableFromLispList: -->
+<LI><!-- version { -->
+<A NAME="ClassMethod.version"><B>version</B> <I>[copyright]</I></A>
+<A HREF="../xrefsV.html#version"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^'050'</PRE>
+<!-- } version -->
+</OL>
+<!-- } (class_methods) -->
+<HR>
+<A HREF="../index.html#ChemoJunMoleculeCatalogueElement"><IMG SRC="../images/index.jpg" ALT="index" ALIGN="top" BORDER=1></A>
+<A HREF="../xrefsC.html#ChemoJunMoleculeCatalogueElement"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<!-- This Document was generated by JunEncyclopedia. -->
+<!-- JunEncyclopedia was developed by AOKI Atsushi. -->
+</BODY>
+</HTML>

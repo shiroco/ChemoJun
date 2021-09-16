@@ -1,0 +1,296 @@
+<HTML>
+<HEAD>
+<TITLE>ChemoJunAbstractViewerController</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<A HREF="../index.html#ChemoJunAbstractViewerController"><IMG SRC="../images/index.jpg" ALT="index" ALIGN="top" BORDER=1></A>
+<A HREF="../xrefsC.html#ChemoJunAbstractViewerController"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+2006/08/08 17:41:24
+<HR>
+<!-- (class_name) { -->
+<H2>
+<A NAME="Class.ChemoJunAbstractViewerController">ChemoJunAbstractViewerController</A>
+</H2>
+<!-- } (class_name) -->
+<!-- (comment) { -->
+<P>
+<A NAME="Comment.ChemoJunAbstractViewerController">
+ChemoJun050 (2006/08/08) Copyright 2002-2006 National Institute of Informatics, Research Organization of Information and Systems.
+</A>
+</P>
+<!-- } (comment) -->
+<!-- (category) { -->
+<P>
+<A NAME="Category.ChemoJun-Abstract-Objects"><I>category:</I></A></P>
+<UL>
+<LI><B>
+ChemoJun-Abstract-Objects
+</B>
+<A HREF="../xrefsC.html#ChemoJun-Abstract-Objects"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+</UL>
+<!-- } (category) -->
+<!-- (inheritance) { -->
+<P>
+<A NAME="Inheritance.ChemoJunAbstractViewerController"><I>inheritance:</I></A>
+</P>
+<UL>
+<LI TYPE="square">Object
+<UL>
+<LI TYPE="square">Controller
+<UL>
+<LI TYPE="square">ControllerWithMenu
+<UL>
+<LI TYPE="square">JunAbstractControllerWithMenu
+<UL>
+<LI TYPE="square">JunOpenGLDisplayController
+<UL>
+<LI TYPE="square"><B>ChemoJunAbstractViewerController</B>
+<UL>
+<LI TYPE="square"><A HREF="ChemoJunMoleculeController.html">ChemoJunMoleculeController</A>
+</UL>
+</UL>
+</UL>
+</UL>
+</UL>
+</UL>
+</UL>
+<!-- } (inheritance) -->
+<!-- (instance_variables) { -->
+<P>
+<A NAME="InstanceVariables.ChemoJunAbstractViewerController">
+<I>instance variables:</I>
+</A>
+</P>
+<UL>
+</UL>
+<!-- } (instance_variables) -->
+<!-- (class_instance_variables) { -->
+<P>
+<A NAME="ClassInstanceVariables.ChemoJunAbstractViewerController">
+<I>class instance variables:</I>
+</A>
+</P>
+<UL>
+</UL>
+<!-- } (class_instance_variables) -->
+<!-- (class_variables) { -->
+<P>
+<A NAME="ClassVariables.ChemoJunAbstractViewerController">
+<I>class variables:</I>
+</A>
+</P>
+<UL>
+</UL>
+<!-- } (class_variables) -->
+<!-- (pool_variables) { -->
+<P>
+<A NAME="PoolVariables.ChemoJunAbstractViewerController">
+<I>pool variables:</I>
+</A>
+</P>
+<UL>
+</UL>
+<!-- } (pool_variables) -->
+<!-- (instance_methods) { -->
+<P>
+<A NAME="InstanceMethods.ChemoJunAbstractViewerController">
+<I>instance methods:</I>
+</A>
+</P>
+<OL>
+<LI><!-- boundsActivity { -->
+<A NAME="InstanceMethod.boundsActivity"><B>boundsActivity</B> <I>[control defaults]</I></A>
+<A HREF="../xrefsB.html#boundsActivity"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	self flushMovementVector.
+	self sensor waitNoButton</PRE>
+<!-- } boundsActivity -->
+<LI><!-- clickActivity { -->
+<A NAME="InstanceMethod.clickActivity"><B>clickActivity</B> <I>[control defaults]</I></A>
+<A HREF="../xrefsC.html#clickActivity"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	self flushMovementVector.
+	self model clickAt: self mouse2dPoint.
+	self sensor waitNoButton</PRE>
+<!-- } clickActivity -->
+<LI><!-- mouseMovedEvent: { -->
+<A NAME="InstanceMethod.mouseMovedEvent:"><B>mouseMovedEvent:</B> event <I>[events]</I></A>
+<A HREF="../xrefsM.html#mouseMovedEvent:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	self viewHasCursor 
+		ifTrue: 
+			[| state |
+			state := self model buttonState.
+			state isNil ifTrue: [JunCursors crossCursor show].
+			state = #pick ifTrue: [Cursor normal show].
+			state = #grab ifTrue: [JunCursors handCursor show].
+			state = #drag ifTrue: [JunCursors quartersCursor show].
+			state = #focus ifTrue: [JunCursors glassCursor show]]
+		ifFalse: [Cursor normal show].
+	^nil</PRE>
+<!-- } mouseMovedEvent: -->
+<LI><!-- nibColor { -->
+<A NAME="InstanceMethod.nibColor"><B>nibColor</B> <I>[private]</I></A>
+<A HREF="../xrefsN.html#nibColor"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^ColorValue magenta</PRE>
+<!-- } nibColor -->
+<LI><!-- nibWidth { -->
+<A NAME="InstanceMethod.nibWidth"><B>nibWidth</B> <I>[private]</I></A>
+<A HREF="../xrefsN.html#nibWidth"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^3</PRE>
+<!-- } nibWidth -->
+<LI><!-- pencilActivity { -->
+<A NAME="InstanceMethod.pencilActivity"><B>pencilActivity</B> <I>[control defaults]</I></A>
+<A HREF="../xrefsP.html#pencilActivity"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	| mouse gc pointCollection current previous index array4 array3 array2 points viewSize |
+	self flushMovementVector.
+	mouse := self sensor.
+	gc := self view graphicsContext.
+	gc paint: self nibColor.
+	gc lineWidth: self nibWidth.
+	gc capStyle: gc class capRound.
+	gc joinStyle: gc class joinRound.
+	pointCollection := OrderedCollection new: 1024.
+	current := previous := mouse cursorPoint.
+	pointCollection add: current.
+	index := 1.
+	array4 := Array new: 4.
+	array3 := Array new: 3.
+	array2 := Array new: 2.
+	self view displayOn: gc
+		dotBox: ((current extent: 1 @ 1) expandedBy: (self nibWidth // 2 max: 0)).
+	[mouse redButtonPressed] whileTrue: 
+			[current := mouse cursorPoint.
+			((current = previous) not and: [(current dist: previous) &gt;= 8]) 
+				ifTrue: 
+					[pointCollection add: current.
+					index := index + 1.
+					index &gt;= 4 
+						ifTrue: 
+							[array4 at: 1 put: (pointCollection at: index - 3).
+							array4 at: 2 put: (pointCollection at: index - 2).
+							array4 at: 3 put: (pointCollection at: index - 1).
+							array4 at: 4 put: (pointCollection at: index).
+							points := array4]
+						ifFalse: 
+							[index &gt;= 3 
+								ifTrue: 
+									[array3 at: 1 put: (pointCollection at: index - 2).
+									array3 at: 2 put: (pointCollection at: index - 1).
+									array3 at: 3 put: (pointCollection at: index).
+									points := array3]
+								ifFalse: 
+									[array2 at: 1 put: (pointCollection at: index - 1).
+									array2 at: 2 put: (pointCollection at: index).
+									points := array2]].
+					gc displayPolyline: points.
+					previous := current].
+			Processor yield].
+	viewSize := self view bounds width max: self view bounds height.
+	(pointCollection first dist: pointCollection last) &gt; (viewSize / 2) 
+		ifTrue: 
+			[gc displayPolyline: pointCollection.
+			self sensor shiftDown 
+				ifFalse: [self model pencilOpenedPointCollection: pointCollection from: self].
+			self view redisplay]
+		ifFalse: 
+			[pointCollection first = pointCollection last 
+				ifFalse: [pointCollection add: pointCollection first].
+			gc displayPolyline: pointCollection.
+			self sensor shiftDown 
+				ifFalse: [self model pencilClosedPointCollection: pointCollection from: self].
+			self view redisplay]</PRE>
+<!-- } pencilActivity -->
+<LI><!-- redButtonActivity { -->
+<A NAME="InstanceMethod.redButtonActivity"><B>redButtonActivity</B> <I>[control defaults]</I></A>
+<A HREF="../xrefsR.html#redButtonActivity"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	| state |
+	state := self model buttonState.
+	state = #pick 
+		ifTrue: 
+			[(self model pickButton respondsTo: #selectedSelector) 
+				ifTrue: 
+					[| symbol |
+					symbol := self model pickButton selectedSelector.
+					symbol = #pickNormal 
+						ifTrue: [^Cursor normal showWhile: [self pickActivity]].
+					symbol = #pickBounds 
+						ifTrue: [^JunCursors crossCursor showWhile: [self boundsActivity]].
+					symbol = #pickPencil 
+						ifTrue: [^JunCursors pencilCursor showWhile: [self pencilActivity]]]
+				ifFalse: [^Cursor normal showWhile: [self pickActivity]]].
+	state = #grab 
+		ifTrue: [^JunCursors handCursor showWhile: [self grabActivity]].
+	state = #drag 
+		ifTrue: [^JunCursors quartersCursor showWhile: [self dragActivity]].
+	state = #focus 
+		ifTrue: [^JunCursors glassCursor showWhile: [self focusActivity]].
+	^Cursor bull showWhile: [self clickActivity]</PRE>
+<!-- } redButtonActivity -->
+<LI><!-- yellowButtonActivity { -->
+<A NAME="InstanceMethod.yellowButtonActivity"><B>yellowButtonActivity</B> <I>[control defaults]</I></A>
+<A HREF="../xrefsY.html#yellowButtonActivity"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	super yellowButtonActivity ifNil: [^nil].
+	&quot;self model is3d 
+		ifTrue: 
+			[| state |
+			self 
+				assert: 
+					[state := self model buttonState.
+					state = #grab ifFalse: [self model buttonState: #grab]]
+				do: [JunCursors handCursor showWhile: [self grabActivity]]
+				ensure: [self model buttonState: state]].&quot;
+	^self processMenuAt: self sensor globalCursorPoint centered: true</PRE>
+<!-- } yellowButtonActivity -->
+</OL>
+<!-- } (instance_methods) -->
+<!-- (class_methods) { -->
+<P>
+<A NAME="ClassMethods.ChemoJunAbstractViewerController">
+<I>class methods:</I>
+</A>
+</P>
+<OL>
+<LI><!-- copyright { -->
+<A NAME="ClassMethod.copyright"><B>copyright</B> <I>[copyright]</I></A>
+<A HREF="../xrefsC.html#copyright"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^'ChemoJun050 (2006/08/08) Copyright 2002-2006 National Institute of Informatics, Research Organization of Information and Systems.'</PRE>
+<!-- } copyright -->
+<LI><!-- system { -->
+<A NAME="ClassMethod.system"><B>system</B> <I>[copyright]</I></A>
+<A HREF="../xrefsS.html#system"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^'ChemoJun'</PRE>
+<!-- } system -->
+<LI><!-- version { -->
+<A NAME="ClassMethod.version"><B>version</B> <I>[copyright]</I></A>
+<A HREF="../xrefsV.html#version"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^'050'</PRE>
+<!-- } version -->
+</OL>
+<!-- } (class_methods) -->
+<HR>
+<A HREF="../index.html#ChemoJunAbstractViewerController"><IMG SRC="../images/index.jpg" ALT="index" ALIGN="top" BORDER=1></A>
+<A HREF="../xrefsC.html#ChemoJunAbstractViewerController"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<!-- This Document was generated by JunEncyclopedia. -->
+<!-- JunEncyclopedia was developed by AOKI Atsushi. -->
+</BODY>
+</HTML>

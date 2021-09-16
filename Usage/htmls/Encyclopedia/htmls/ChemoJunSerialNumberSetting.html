@@ -1,0 +1,553 @@
+<HTML>
+<HEAD>
+<TITLE>ChemoJunSerialNumberSetting</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<A HREF="../index.html#ChemoJunSerialNumberSetting"><IMG SRC="../images/index.jpg" ALT="index" ALIGN="top" BORDER=1></A>
+<A HREF="../xrefsC.html#ChemoJunSerialNumberSetting"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+2006/08/08 17:41:29
+<HR>
+<!-- (class_name) { -->
+<H2>
+<A NAME="Class.ChemoJunSerialNumberSetting">ChemoJunSerialNumberSetting</A>
+</H2>
+<!-- } (class_name) -->
+<!-- (comment) { -->
+<P>
+<A NAME="Comment.ChemoJunSerialNumberSetting">
+ChemoJun050 (2006/08/08) Copyright 2002-2006 National Institute of Informatics, Research Organization of Information and Systems.
+</A>
+</P>
+<!-- } (comment) -->
+<!-- (category) { -->
+<P>
+<A NAME="Category.ChemoJun-Goodies-UI"><I>category:</I></A></P>
+<UL>
+<LI><B>
+ChemoJun-Goodies-UI
+</B>
+<A HREF="../xrefsC.html#ChemoJun-Goodies-UI"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+</UL>
+<!-- } (category) -->
+<!-- (inheritance) { -->
+<P>
+<A NAME="Inheritance.ChemoJunSerialNumberSetting"><I>inheritance:</I></A>
+</P>
+<UL>
+<LI TYPE="square">Object
+<UL>
+<LI TYPE="square">Model
+<UL>
+<LI TYPE="square">ApplicationModel
+<UL>
+<LI TYPE="square">JunApplicationModel
+<UL>
+<LI TYPE="square"><B>ChemoJunSerialNumberSetting</B>
+</UL>
+</UL>
+</UL>
+</UL>
+</UL>
+<!-- } (inheritance) -->
+<!-- (instance_variables) { -->
+<P>
+<A NAME="InstanceVariables.ChemoJunSerialNumberSetting">
+<I>instance variables:</I>
+</A>
+</P>
+<UL>
+<!-- carbonValueHolder { -->
+<LI><A NAME="InstanceVariable.carbonValueHolder"><B>carbonValueHolder</B></A>
+<A HREF="../xrefsC.html#carbonValueHolder"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<!-- } carbonValueHolder -->
+<!-- expressionValueHolder { -->
+<LI><A NAME="InstanceVariable.expressionValueHolder"><B>expressionValueHolder</B></A>
+<A HREF="../xrefsE.html#expressionValueHolder"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<!-- } expressionValueHolder -->
+<!-- hydrogenValueHolder { -->
+<LI><A NAME="InstanceVariable.hydrogenValueHolder"><B>hydrogenValueHolder</B></A>
+<A HREF="../xrefsH.html#hydrogenValueHolder"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<!-- } hydrogenValueHolder -->
+<!-- nitrogenValueHolder { -->
+<LI><A NAME="InstanceVariable.nitrogenValueHolder"><B>nitrogenValueHolder</B></A>
+<A HREF="../xrefsN.html#nitrogenValueHolder"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<!-- } nitrogenValueHolder -->
+<!-- othersValueHolder { -->
+<LI><A NAME="InstanceVariable.othersValueHolder"><B>othersValueHolder</B></A>
+<A HREF="../xrefsO.html#othersValueHolder"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<!-- } othersValueHolder -->
+<!-- oxygenValueHolder { -->
+<LI><A NAME="InstanceVariable.oxygenValueHolder"><B>oxygenValueHolder</B></A>
+<A HREF="../xrefsO.html#oxygenValueHolder"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<!-- } oxygenValueHolder -->
+</UL>
+<!-- } (instance_variables) -->
+<!-- (class_instance_variables) { -->
+<P>
+<A NAME="ClassInstanceVariables.ChemoJunSerialNumberSetting">
+<I>class instance variables:</I>
+</A>
+</P>
+<UL>
+</UL>
+<!-- } (class_instance_variables) -->
+<!-- (class_variables) { -->
+<P>
+<A NAME="ClassVariables.ChemoJunSerialNumberSetting">
+<I>class variables:</I>
+</A>
+</P>
+<UL>
+</UL>
+<!-- } (class_variables) -->
+<!-- (pool_variables) { -->
+<P>
+<A NAME="PoolVariables.ChemoJunSerialNumberSetting">
+<I>pool variables:</I>
+</A>
+</P>
+<UL>
+</UL>
+<!-- } (pool_variables) -->
+<!-- (instance_methods) { -->
+<P>
+<A NAME="InstanceMethods.ChemoJunSerialNumberSetting">
+<I>instance methods:</I>
+</A>
+</P>
+<OL>
+<LI><!-- allFalse { -->
+<A NAME="InstanceMethod.allFalse"><B>allFalse</B> <I>[testing]</I></A>
+<A HREF="../xrefsA.html#allFalse"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^self carbon ~= true and: 
+			[self oxygen ~= true and: 
+					[self nitrogen ~= true 
+						and: [self hydrogen ~= true and: [self others ~= true]]]]</PRE>
+<!-- } allFalse -->
+<LI><!-- allTrue { -->
+<A NAME="InstanceMethod.allTrue"><B>allTrue</B> <I>[testing]</I></A>
+<A HREF="../xrefsA.html#allTrue"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^self carbon = true and: 
+			[self oxygen = true and: 
+					[self nitrogen = true and: [self hydrogen = true and: [self others = true]]]]</PRE>
+<!-- } allTrue -->
+<LI><!-- asSettingArray { -->
+<A NAME="InstanceMethod.asSettingArray"><B>asSettingArray</B> <I>[converting]</I></A>
+<A HREF="../xrefsA.html#asSettingArray"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	| aCollection |
+	aCollection := OrderedCollection new.
+	aCollection add: #carbon: -&gt; self carbon.
+	aCollection add: #oxygen: -&gt; self oxygen.
+	aCollection add: #nitrogen: -&gt; self nitrogen.
+	aCollection add: #hydrogen: -&gt; self hydrogen.
+	aCollection add: #others: -&gt; self others.
+	^aCollection asArray</PRE>
+<!-- } asSettingArray -->
+<LI><!-- carbon { -->
+<A NAME="InstanceMethod.carbon"><B>carbon</B> <I>[accessing]</I></A>
+<A HREF="../xrefsC.html#carbon"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^self carbonValueHolder value</PRE>
+<!-- } carbon -->
+<LI><!-- carbon: { -->
+<A NAME="InstanceMethod.carbon:"><B>carbon:</B> aBoolean <I>[accessing]</I></A>
+<A HREF="../xrefsC.html#carbon:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	^self carbonValueHolder value: aBoolean = true</PRE>
+<!-- } carbon: -->
+<LI><!-- carbonValueHolder { -->
+<A NAME="InstanceMethod.carbonValueHolder"><B>carbonValueHolder</B> <I>[aspects]</I></A>
+<A HREF="../xrefsC.html#carbonValueHolder"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	carbonValueHolder ifNil: 
+			[carbonValueHolder := ValueHolder with: true.
+			carbonValueHolder 
+				compute: [:value | self expressionValueHolder value: self computeExpression]].
+	^carbonValueHolder</PRE>
+<!-- } carbonValueHolder -->
+<LI><!-- compute: { -->
+<A NAME="InstanceMethod.compute:"><B>compute:</B> aBlock <I>[constructing]</I></A>
+<A HREF="../xrefsC.html#compute:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	self expressionValueHolder compute: aBlock</PRE>
+<!-- } compute: -->
+<LI><!-- computeExpression { -->
+<A NAME="InstanceMethod.computeExpression"><B>computeExpression</B> <I>[private]</I></A>
+<A HREF="../xrefsC.html#computeExpression"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	| aStream |
+	aStream := String new writeStream.
+	aStream nextPutAll: '[:index :atom | '.
+	self allTrue 
+		ifTrue: [aStream nextPutAll: 'true']
+		ifFalse: 
+			[self allFalse 
+				ifTrue: [aStream nextPutAll: 'false']
+				ifFalse: 
+					[self carbon 
+						ifTrue: [aStream nextPutAll: '(atom = ''C'')']
+						ifFalse: [aStream nextPutAll: '(false)'].
+					aStream nextPutAll: ' | '.
+					self oxygen 
+						ifTrue: [aStream nextPutAll: '(atom = ''O'')']
+						ifFalse: [aStream nextPutAll: '(false)'].
+					aStream nextPutAll: ' | '.
+					self nitrogen 
+						ifTrue: [aStream nextPutAll: '(atom = ''N'')']
+						ifFalse: [aStream nextPutAll: '(false)'].
+					aStream nextPutAll: ' | '.
+					self hydrogen 
+						ifTrue: [aStream nextPutAll: '(atom = ''H'')']
+						ifFalse: [aStream nextPutAll: '(false)'].
+					aStream nextPutAll: ' | '.
+					self others 
+						ifTrue: 
+							[aStream 
+								nextPutAll: '((atom ~= ''C'') &amp; (atom ~= ''O'') &amp; (atom ~= ''N'') &amp; (atom ~= ''H''))']
+						ifFalse: [aStream nextPutAll: '(false)']]].
+	aStream nextPutAll: ']'.
+	^aStream contents</PRE>
+<!-- } computeExpression -->
+<LI><!-- expression { -->
+<A NAME="InstanceMethod.expression"><B>expression</B> <I>[accessing]</I></A>
+<A HREF="../xrefsE.html#expression"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^self expressionValueHolder value</PRE>
+<!-- } expression -->
+<LI><!-- expressionValueHolder { -->
+<A NAME="InstanceMethod.expressionValueHolder"><B>expressionValueHolder</B> <I>[aspects]</I></A>
+<A HREF="../xrefsE.html#expressionValueHolder"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	expressionValueHolder 
+		ifNil: [expressionValueHolder := ValueHolder with: self computeExpression].
+	^expressionValueHolder</PRE>
+<!-- } expressionValueHolder -->
+<LI><!-- getWindow { -->
+<A NAME="InstanceMethod.getWindow"><B>getWindow</B> <I>[private]</I></A>
+<A HREF="../xrefsG.html#getWindow"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^(ScheduledControllers scheduledControllers 
+		detect: [:controller | controller model == self]
+		ifNone: [nil]) ifNil: [nil] ifNotNil: [:it | it view]</PRE>
+<!-- } getWindow -->
+<LI><!-- hydrogen { -->
+<A NAME="InstanceMethod.hydrogen"><B>hydrogen</B> <I>[accessing]</I></A>
+<A HREF="../xrefsH.html#hydrogen"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^self hydrogenValueHolder value</PRE>
+<!-- } hydrogen -->
+<LI><!-- hydrogen: { -->
+<A NAME="InstanceMethod.hydrogen:"><B>hydrogen:</B> aBoolean <I>[accessing]</I></A>
+<A HREF="../xrefsH.html#hydrogen:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	^self hydrogenValueHolder value: aBoolean = true</PRE>
+<!-- } hydrogen: -->
+<LI><!-- hydrogenValueHolder { -->
+<A NAME="InstanceMethod.hydrogenValueHolder"><B>hydrogenValueHolder</B> <I>[aspects]</I></A>
+<A HREF="../xrefsH.html#hydrogenValueHolder"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	hydrogenValueHolder ifNil: 
+			[hydrogenValueHolder := ValueHolder with: false.
+			hydrogenValueHolder 
+				compute: [:value | self expressionValueHolder value: self computeExpression]].
+	^hydrogenValueHolder</PRE>
+<!-- } hydrogenValueHolder -->
+<LI><!-- initialize { -->
+<A NAME="InstanceMethod.initialize"><B>initialize</B> <I>[initialize-release]</I></A>
+<A HREF="../xrefsI.html#initialize"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	super initialize.
+	carbonValueHolder := nil.
+	oxygenValueHolder := nil.
+	nitrogenValueHolder := nil.
+	hydrogenValueHolder := nil.
+	othersValueHolder := nil.
+	expressionValueHolder := nil</PRE>
+<!-- } initialize -->
+<LI><!-- nitrogen { -->
+<A NAME="InstanceMethod.nitrogen"><B>nitrogen</B> <I>[accessing]</I></A>
+<A HREF="../xrefsN.html#nitrogen"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^self nitrogenValueHolder value</PRE>
+<!-- } nitrogen -->
+<LI><!-- nitrogen: { -->
+<A NAME="InstanceMethod.nitrogen:"><B>nitrogen:</B> aBoolean <I>[accessing]</I></A>
+<A HREF="../xrefsN.html#nitrogen:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	^self nitrogenValueHolder value: aBoolean = true</PRE>
+<!-- } nitrogen: -->
+<LI><!-- nitrogenValueHolder { -->
+<A NAME="InstanceMethod.nitrogenValueHolder"><B>nitrogenValueHolder</B> <I>[aspects]</I></A>
+<A HREF="../xrefsN.html#nitrogenValueHolder"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	nitrogenValueHolder ifNil: 
+			[nitrogenValueHolder := ValueHolder with: true.
+			nitrogenValueHolder 
+				compute: [:value | self expressionValueHolder value: self computeExpression]].
+	^nitrogenValueHolder</PRE>
+<!-- } nitrogenValueHolder -->
+<LI><!-- others { -->
+<A NAME="InstanceMethod.others"><B>others</B> <I>[accessing]</I></A>
+<A HREF="../xrefsO.html#others"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^self othersValueHolder value</PRE>
+<!-- } others -->
+<LI><!-- others: { -->
+<A NAME="InstanceMethod.others:"><B>others:</B> aBoolean <I>[accessing]</I></A>
+<A HREF="../xrefsO.html#others:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	^self othersValueHolder value: aBoolean = true</PRE>
+<!-- } others: -->
+<LI><!-- othersValueHolder { -->
+<A NAME="InstanceMethod.othersValueHolder"><B>othersValueHolder</B> <I>[aspects]</I></A>
+<A HREF="../xrefsO.html#othersValueHolder"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	othersValueHolder ifNil: 
+			[othersValueHolder := ValueHolder with: true.
+			othersValueHolder 
+				compute: [:value | self expressionValueHolder value: self computeExpression]].
+	^othersValueHolder</PRE>
+<!-- } othersValueHolder -->
+<LI><!-- oxygen { -->
+<A NAME="InstanceMethod.oxygen"><B>oxygen</B> <I>[accessing]</I></A>
+<A HREF="../xrefsO.html#oxygen"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^self oxygenValueHolder value</PRE>
+<!-- } oxygen -->
+<LI><!-- oxygen: { -->
+<A NAME="InstanceMethod.oxygen:"><B>oxygen:</B> aBoolean <I>[accessing]</I></A>
+<A HREF="../xrefsO.html#oxygen:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	^self oxygenValueHolder value: aBoolean = true</PRE>
+<!-- } oxygen: -->
+<LI><!-- oxygenValueHolder { -->
+<A NAME="InstanceMethod.oxygenValueHolder"><B>oxygenValueHolder</B> <I>[aspects]</I></A>
+<A HREF="../xrefsO.html#oxygenValueHolder"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	oxygenValueHolder ifNil: 
+			[oxygenValueHolder := ValueHolder with: true.
+			oxygenValueHolder 
+				compute: [:value | self expressionValueHolder value: self computeExpression]].
+	^oxygenValueHolder</PRE>
+<!-- } oxygenValueHolder -->
+<LI><!-- setting { -->
+<A NAME="InstanceMethod.setting"><B>setting</B> <I>[accessing]</I></A>
+<A HREF="../xrefsS.html#setting"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	| aCollection |
+	aCollection := OrderedCollection new: 5.
+	aCollection add: #carbon: -&gt; self carbon.
+	aCollection add: #oxygen: -&gt; self oxygen.
+	aCollection add: #nitrogen: -&gt; self nitrogen.
+	aCollection add: #hydrogen: -&gt; self hydrogen.
+	aCollection add: #others: -&gt; self others.
+	^aCollection</PRE>
+<!-- } setting -->
+<LI><!-- setting: { -->
+<A NAME="InstanceMethod.setting:"><B>setting:</B> settingCollection <I>[accessing]</I></A>
+<A HREF="../xrefsS.html#setting:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	settingCollection do: 
+			[:anAssociation | 
+			| aSelector aBoolean |
+			aSelector := anAssociation key asSymbol.
+			aBoolean := anAssociation value = true.
+			self perform: aSelector with: aBoolean]</PRE>
+<!-- } setting: -->
+</OL>
+<!-- } (instance_methods) -->
+<!-- (class_methods) { -->
+<P>
+<A NAME="ClassMethods.ChemoJunSerialNumberSetting">
+<I>class methods:</I>
+</A>
+</P>
+<OL>
+<LI><!-- copyright { -->
+<A NAME="ClassMethod.copyright"><B>copyright</B> <I>[copyright]</I></A>
+<A HREF="../xrefsC.html#copyright"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^'ChemoJun050 (2006/08/08) Copyright 2002-2006 National Institute of Informatics, Research Organization of Information and Systems.'</PRE>
+<!-- } copyright -->
+<LI><!-- example1 { -->
+<A NAME="ClassMethod.example1"><B>example1</B> <I>[examples]</I></A>
+<A HREF="../xrefsE.html#example1"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	&quot;ChemoJunSerialNumberSetting example1.&quot;
+
+	| serialNumberSetting |
+	serialNumberSetting := ChemoJunSerialNumberSetting new.
+	serialNumberSetting open.
+	^serialNumberSetting</PRE>
+<!-- } example1 -->
+<LI><!-- example2 { -->
+<A NAME="ClassMethod.example2"><B>example2</B> <I>[examples]</I></A>
+<A HREF="../xrefsE.html#example2"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	&quot;ChemoJunSerialNumberSetting example2.&quot;
+
+	| serialNumberSetting |
+	serialNumberSetting := ChemoJunSerialNumberSetting new.
+	serialNumberSetting compute: 
+			[:expression | 
+			Transcript
+				cr;
+				show: expression].
+	serialNumberSetting open.
+	^serialNumberSetting</PRE>
+<!-- } example2 -->
+<LI><!-- example3 { -->
+<A NAME="ClassMethod.example3"><B>example3</B> <I>[examples]</I></A>
+<A HREF="../xrefsE.html#example3"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	&quot;ChemoJunSerialNumberSetting example3.&quot;
+
+	| settingCollection serialNumberSetting |
+	settingCollection := OrderedCollection new.
+	settingCollection add: #carbon: -&gt; true.
+	settingCollection add: #oxygen: -&gt; false.
+	settingCollection add: #nitrogen: -&gt; false.
+	settingCollection add: #hydrogen: -&gt; false.
+	settingCollection add: #others: -&gt; false.
+	serialNumberSetting := ChemoJunSerialNumberSetting 
+				setting: settingCollection.
+	serialNumberSetting compute: 
+			[:expression | 
+			Transcript
+				cr;
+				show: expression].
+	serialNumberSetting open.
+	^serialNumberSetting</PRE>
+<!-- } example3 -->
+<LI><!-- setting: { -->
+<A NAME="ClassMethod.setting:"><B>setting:</B> settingCollection <I>[instance creation]</I></A>
+<A HREF="../xrefsS.html#setting:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	^(self new)
+		setting: settingCollection;
+		yourself</PRE>
+<!-- } setting: -->
+<LI><!-- system { -->
+<A NAME="ClassMethod.system"><B>system</B> <I>[copyright]</I></A>
+<A HREF="../xrefsS.html#system"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^'ChemoJun'</PRE>
+<!-- } system -->
+<LI><!-- version { -->
+<A NAME="ClassMethod.version"><B>version</B> <I>[copyright]</I></A>
+<A HREF="../xrefsV.html#version"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^'050'</PRE>
+<!-- } version -->
+<LI><!-- windowSpec { -->
+<A NAME="ClassMethod.windowSpec"><B>windowSpec</B> <I>[interface specs]</I></A>
+<A HREF="../xrefsW.html#windowSpec"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	&quot;Tools.UIPainter new openOnClass: self andSelector: #windowSpec&quot;
+
+	&lt;resource: #canvas&gt;
+	^#(#{UI.FullSpec} 
+		#window: 
+		#(#{UI.WindowSpec} 
+			#label: 
+			#(#{Kernel.UserMessage} 
+				#key: #chemoJun_Serial_Number_Setting 
+				#defaultString: 'Serial Number Setting' ) 
+			#min: #(#{Core.Point} 144 144 ) 
+			#max: #(#{Core.Point} 144 144 ) 
+			#bounds: #(#{Graphics.Rectangle} 700 525 844 669 ) ) 
+		#component: 
+		#(#{UI.SpecCollection} 
+			#collection: #(
+				#(#{UI.CheckBoxSpec} 
+					#layout: #(#{Core.Point} 32 16 ) 
+					#name: #carbonCheckBox 
+					#model: #carbonValueHolder 
+					#label: 
+					#(#{Kernel.UserMessage} 
+						#key: #chemoJun_carbon 
+						#defaultString: 'carbon' ) 
+					#style: #default ) 
+				#(#{UI.CheckBoxSpec} 
+					#layout: #(#{Core.Point} 32 40 ) 
+					#name: #oxygenCheckBox 
+					#model: #oxygenValueHolder 
+					#label: 
+					#(#{Kernel.UserMessage} 
+						#key: #chemoJun_oxygen 
+						#defaultString: 'oxygen' ) 
+					#style: #default ) 
+				#(#{UI.CheckBoxSpec} 
+					#layout: #(#{Core.Point} 32 64 ) 
+					#name: #nitrogenCheckBox 
+					#model: #nitrogenValueHolder 
+					#label: 
+					#(#{Kernel.UserMessage} 
+						#key: #chemoJun_nitrogen 
+						#defaultString: 'nitrogen' ) 
+					#style: #default ) 
+				#(#{UI.CheckBoxSpec} 
+					#layout: #(#{Core.Point} 32 88 ) 
+					#name: #hydrogenCheckBox 
+					#model: #hydrogenValueHolder 
+					#label: 
+					#(#{Kernel.UserMessage} 
+						#key: #chemoJun_hydrogen 
+						#defaultString: 'hydrogen' ) 
+					#style: #default ) 
+				#(#{UI.CheckBoxSpec} 
+					#layout: #(#{Core.Point} 32 112 ) 
+					#name: #othersCheckBox 
+					#model: #othersValueHolder 
+					#label: 
+					#(#{Kernel.UserMessage} 
+						#key: #chemoJun_others 
+						#defaultString: 'others' ) 
+					#style: #default ) ) ) )</PRE>
+<!-- } windowSpec -->
+</OL>
+<!-- } (class_methods) -->
+<HR>
+<A HREF="../index.html#ChemoJunSerialNumberSetting"><IMG SRC="../images/index.jpg" ALT="index" ALIGN="top" BORDER=1></A>
+<A HREF="../xrefsC.html#ChemoJunSerialNumberSetting"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<!-- This Document was generated by JunEncyclopedia. -->
+<!-- JunEncyclopedia was developed by AOKI Atsushi. -->
+</BODY>
+</HTML>

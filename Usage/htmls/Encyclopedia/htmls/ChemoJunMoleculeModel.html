@@ -1,0 +1,345 @@
+<HTML>
+<HEAD>
+<TITLE>ChemoJunMoleculeModel</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<A HREF="../index.html#ChemoJunMoleculeModel"><IMG SRC="../images/index.jpg" ALT="index" ALIGN="top" BORDER=1></A>
+<A HREF="../xrefsC.html#ChemoJunMoleculeModel"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+2006/08/08 17:41:28
+<HR>
+<!-- (class_name) { -->
+<H2>
+<A NAME="Class.ChemoJunMoleculeModel">ChemoJunMoleculeModel</A>
+</H2>
+<!-- } (class_name) -->
+<!-- (comment) { -->
+<P>
+<A NAME="Comment.ChemoJunMoleculeModel">
+ChemoJun050 (2006/08/08) Copyright 2002-2006 National Institute of Informatics, Research Organization of Information and Systems.
+</A>
+</P>
+<!-- } (comment) -->
+<!-- (category) { -->
+<P>
+<A NAME="Category.ChemoJun-Display-Viewers"><I>category:</I></A></P>
+<UL>
+<LI><B>
+ChemoJun-Display-Viewers
+</B>
+<A HREF="../xrefsC.html#ChemoJun-Display-Viewers"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+</UL>
+<!-- } (category) -->
+<!-- (inheritance) { -->
+<P>
+<A NAME="Inheritance.ChemoJunMoleculeModel"><I>inheritance:</I></A>
+</P>
+<UL>
+<LI TYPE="square">Object
+<UL>
+<LI TYPE="square">Model
+<UL>
+<LI TYPE="square">ApplicationModel
+<UL>
+<LI TYPE="square">JunApplicationModel
+<UL>
+<LI TYPE="square">JunOpenGLDisplayModel
+<UL>
+<LI TYPE="square"><A HREF="ChemoJunGeneralViewer.html">ChemoJunGeneralViewer</A>
+<UL>
+<LI TYPE="square"><A HREF="ChemoJunAbstractViewer.html">ChemoJunAbstractViewer</A>
+<UL>
+<LI TYPE="square"><A HREF="ChemoJunMoleculeViewer.html">ChemoJunMoleculeViewer</A>
+<UL>
+<LI TYPE="square"><B>ChemoJunMoleculeModel</B>
+</UL>
+</UL>
+</UL>
+</UL>
+</UL>
+</UL>
+</UL>
+</UL>
+</UL>
+<!-- } (inheritance) -->
+<!-- (instance_variables) { -->
+<P>
+<A NAME="InstanceVariables.ChemoJunMoleculeModel">
+<I>instance variables:</I>
+</A>
+</P>
+<UL>
+</UL>
+<!-- } (instance_variables) -->
+<!-- (class_instance_variables) { -->
+<P>
+<A NAME="ClassInstanceVariables.ChemoJunMoleculeModel">
+<I>class instance variables:</I>
+</A>
+</P>
+<UL>
+</UL>
+<!-- } (class_instance_variables) -->
+<!-- (class_variables) { -->
+<P>
+<A NAME="ClassVariables.ChemoJunMoleculeModel">
+<I>class variables:</I>
+</A>
+</P>
+<UL>
+</UL>
+<!-- } (class_variables) -->
+<!-- (pool_variables) { -->
+<P>
+<A NAME="PoolVariables.ChemoJunMoleculeModel">
+<I>pool variables:</I>
+</A>
+</P>
+<UL>
+</UL>
+<!-- } (pool_variables) -->
+<!-- (instance_methods) { -->
+<P>
+<A NAME="InstanceMethods.ChemoJunMoleculeModel">
+<I>instance methods:</I>
+</A>
+</P>
+<OL>
+<LI><!-- beInvisible { -->
+<A NAME="InstanceMethod.beInvisible"><B>beInvisible</B> <I>[cmn support]</I></A>
+<A HREF="../xrefsB.html#beInvisible"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	| specWrapper |
+	(specWrapper := self specWrapper) isNil ifTrue: [^nil].
+	specWrapper
+		beInvisible;
+		disable</PRE>
+<!-- } beInvisible -->
+<LI><!-- beVisible { -->
+<A NAME="InstanceMethod.beVisible"><B>beVisible</B> <I>[cmn support]</I></A>
+<A HREF="../xrefsB.html#beVisible"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	| specWrapper |
+	(specWrapper := self specWrapper) isNil ifTrue: [^nil].
+	specWrapper
+		beVisible;
+		enable</PRE>
+<!-- } beVisible -->
+<LI><!-- defaultDisplayViewClass { -->
+<A NAME="InstanceMethod.defaultDisplayViewClass"><B>defaultDisplayViewClass</B> <I>[defaults]</I></A>
+<A HREF="../xrefsD.html#defaultDisplayViewClass"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^ChemoJunMoleculeView</PRE>
+<!-- } defaultDisplayViewClass -->
+<LI><!-- isEmbedded { -->
+<A NAME="InstanceMethod.isEmbedded"><B>isEmbedded</B> <I>[testing]</I></A>
+<A HREF="../xrefsI.html#isEmbedded"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	| aWindow |
+	((aWindow := self getWindow) notNil and: [aWindow model = self]) 
+		ifTrue: [^false].
+	^true</PRE>
+<!-- } isEmbedded -->
+<LI><!-- moleculeDragButtonView { -->
+<A NAME="InstanceMethod.moleculeDragButtonView"><B>moleculeDragButtonView</B> <I>[interface opening]</I></A>
+<A HREF="../xrefsM.html#moleculeDragButtonView"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^self dragButtonView</PRE>
+<!-- } moleculeDragButtonView -->
+<LI><!-- moleculeFocusButtonView { -->
+<A NAME="InstanceMethod.moleculeFocusButtonView"><B>moleculeFocusButtonView</B> <I>[interface opening]</I></A>
+<A HREF="../xrefsM.html#moleculeFocusButtonView"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^self focusButtonView</PRE>
+<!-- } moleculeFocusButtonView -->
+<LI><!-- moleculeGrabButtonView { -->
+<A NAME="InstanceMethod.moleculeGrabButtonView"><B>moleculeGrabButtonView</B> <I>[interface opening]</I></A>
+<A HREF="../xrefsM.html#moleculeGrabButtonView"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^self grabButtonView</PRE>
+<!-- } moleculeGrabButtonView -->
+<LI><!-- moleculePickButtonView { -->
+<A NAME="InstanceMethod.moleculePickButtonView"><B>moleculePickButtonView</B> <I>[interface opening]</I></A>
+<A HREF="../xrefsM.html#moleculePickButtonView"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^self pickButtonView</PRE>
+<!-- } moleculePickButtonView -->
+<LI><!-- moleculeView { -->
+<A NAME="InstanceMethod.moleculeView"><B>moleculeView</B> <I>[interface opening]</I></A>
+<A HREF="../xrefsM.html#moleculeView"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	| aView |
+	aView := self displayView.
+	(aView controller)
+		menuHolder: [self yellowButtonMenu];
+		performer: self.
+	^aView</PRE>
+<!-- } moleculeView -->
+<LI><!-- moleculeZThumbWheelView { -->
+<A NAME="InstanceMethod.moleculeZThumbWheelView"><B>moleculeZThumbWheelView</B> <I>[interface opening]</I></A>
+<A HREF="../xrefsM.html#moleculeZThumbWheelView"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^self zThumbWheelView</PRE>
+<!-- } moleculeZThumbWheelView -->
+<LI><!-- setSize: { -->
+<A NAME="InstanceMethod.setSize:"><B>setSize:</B> extent <I>[private]</I></A>
+<A HREF="../xrefsS.html#setSize:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	self isEmbedded ifTrue: [^nil].
+	super setSize: extent</PRE>
+<!-- } setSize: -->
+<LI><!-- spawnObject { -->
+<A NAME="InstanceMethod.spawnObject"><B>spawnObject</B> <I>[menu messages]</I></A>
+<A HREF="../xrefsS.html#spawnObject"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	| moleculeModel |
+	moleculeModel := super spawnObject.
+	self getView 
+		ifNotNil: [:aView | moleculeModel setSize: aView bounds extent]</PRE>
+<!-- } spawnObject -->
+<LI><!-- specWrapper { -->
+<A NAME="InstanceMethod.specWrapper"><B>specWrapper</B> <I>[cmn support]</I></A>
+<A HREF="../xrefsS.html#specWrapper"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	| aBuilder |
+	(aBuilder := self builder) isNil ifTrue: [^nil].
+	^aBuilder componentAt: #moleculeModel</PRE>
+<!-- } specWrapper -->
+<LI><!-- yellowButtonMenu { -->
+<A NAME="InstanceMethod.yellowButtonMenu"><B>yellowButtonMenu</B> <I>[menu accessing]</I></A>
+<A HREF="../xrefsY.html#yellowButtonMenu"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	| rejectedLabelString menuItem aMenu |
+	rejectedLabelString := 'File'.
+	menuItem := self menuItemLabeled: rejectedLabelString inMenu: self menuBar.
+	menuItem isNil ifTrue: [^nil].
+	aMenu := menuItem submenu.
+	aMenu isNil ifTrue: [^nil].
+	menuItem := aMenu menuItemWithValue: #saveAsImage ifNone: [nil].
+	menuItem isNil ifTrue: [^nil].
+	aMenu := Menu new.
+	aMenu addItem: menuItem.
+	(self menuBar menuItems 
+		reject: [:each | each rawLabel defaultString = rejectedLabelString]) 
+			do: [:eachMenuItem | aMenu addItem: eachMenuItem].
+	^aMenu</PRE>
+<!-- } yellowButtonMenu -->
+</OL>
+<!-- } (instance_methods) -->
+<!-- (class_methods) { -->
+<P>
+<A NAME="ClassMethods.ChemoJunMoleculeModel">
+<I>class methods:</I>
+</A>
+</P>
+<OL>
+<LI><!-- copyright { -->
+<A NAME="ClassMethod.copyright"><B>copyright</B> <I>[copyright]</I></A>
+<A HREF="../xrefsC.html#copyright"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^'ChemoJun050 (2006/08/08) Copyright 2002-2006 National Institute of Informatics, Research Organization of Information and Systems.'</PRE>
+<!-- } copyright -->
+<LI><!-- example1 { -->
+<A NAME="ClassMethod.example1"><B>example1</B> <I>[examples]</I></A>
+<A HREF="../xrefsE.html#example1"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	&quot;ChemoJunMoleculeModel example1.&quot;
+
+	| aModel |
+	aModel := ChemoJunMoleculeModel new.
+	aModel open.
+	^aModel</PRE>
+<!-- } example1 -->
+<LI><!-- system { -->
+<A NAME="ClassMethod.system"><B>system</B> <I>[copyright]</I></A>
+<A HREF="../xrefsS.html#system"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^'ChemoJun'</PRE>
+<!-- } system -->
+<LI><!-- version { -->
+<A NAME="ClassMethod.version"><B>version</B> <I>[copyright]</I></A>
+<A HREF="../xrefsV.html#version"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^'050'</PRE>
+<!-- } version -->
+<LI><!-- windowSpec { -->
+<A NAME="ClassMethod.windowSpec"><B>windowSpec</B> <I>[interface specs]</I></A>
+<A HREF="../xrefsW.html#windowSpec"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	&quot;Tools.UIPainter new openOnClass: self andSelector: #windowSpec&quot;
+
+	&lt;resource: #canvas&gt;
+	^#(#{UI.FullSpec} 
+		#window: 
+		#(#{UI.WindowSpec} 
+			#label: 
+			#(#{Kernel.UserMessage} 
+				#key: #chemoJun_Molecular_Viewer 
+				#defaultString: 'Molecular Viewer' ) 
+			#min: #(#{Core.Point} 280 280 ) 
+			#bounds: #(#{Graphics.Rectangle} 512 384 812 684 ) 
+			#flags: 4 
+			#menu: #menuBar ) 
+		#component: 
+		#(#{UI.SpecCollection} 
+			#collection: #(
+				#(#{UI.ArbitraryComponentSpec} 
+					#layout: #(#{Graphics.LayoutFrame} 1 0 1 0 -20 1 -1 1 ) 
+					#name: #moleculeView 
+					#colors: 
+					#(#{UI.LookPreferences} 
+						#setBackgroundColor: #(#{Graphics.ColorValue} #white ) ) 
+					#component: #moleculeView ) 
+				#(#{UI.ArbitraryComponentSpec} 
+					#layout: #(#{Graphics.LayoutFrame} -19 1 1 0 -1 1 19 0 ) 
+					#name: #moleculePickButtonView 
+					#flags: 0 
+					#component: #moleculePickButtonView ) 
+				#(#{UI.ArbitraryComponentSpec} 
+					#layout: #(#{Graphics.LayoutFrame} -19 1 20 0 -1 1 38 0 ) 
+					#name: #moleculeGrabButtonView 
+					#flags: 0 
+					#component: #moleculeGrabButtonView ) 
+				#(#{UI.ArbitraryComponentSpec} 
+					#layout: #(#{Graphics.LayoutFrame} -19 1 39 0 -1 1 57 0 ) 
+					#name: #moleculeDragButtonView 
+					#flags: 0 
+					#component: #moleculeDragButtonView ) 
+				#(#{UI.ArbitraryComponentSpec} 
+					#layout: #(#{Graphics.LayoutFrame} -19 1 -61 0.5 -1 1 61 0.5 ) 
+					#name: #moleculeZThumbWheelView 
+					#flags: 0 
+					#component: #moleculeZThumbWheelView ) 
+				#(#{UI.ArbitraryComponentSpec} 
+					#layout: #(#{Graphics.LayoutFrame} -19 1 62 0.5 -1 1 80 0.5 ) 
+					#name: #moleculeFocusButtonView 
+					#flags: 0 
+					#component: #moleculeFocusButtonView ) ) ) )</PRE>
+<!-- } windowSpec -->
+</OL>
+<!-- } (class_methods) -->
+<HR>
+<A HREF="../index.html#ChemoJunMoleculeModel"><IMG SRC="../images/index.jpg" ALT="index" ALIGN="top" BORDER=1></A>
+<A HREF="../xrefsC.html#ChemoJunMoleculeModel"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<!-- This Document was generated by JunEncyclopedia. -->
+<!-- JunEncyclopedia was developed by AOKI Atsushi. -->
+</BODY>
+</HTML>

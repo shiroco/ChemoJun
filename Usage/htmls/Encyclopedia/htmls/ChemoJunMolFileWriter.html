@@ -1,0 +1,374 @@
+<HTML>
+<HEAD>
+<TITLE>ChemoJunMolFileWriter</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<A HREF="../index.html#ChemoJunMolFileWriter"><IMG SRC="../images/index.jpg" ALT="index" ALIGN="top" BORDER=1></A>
+<A HREF="../xrefsC.html#ChemoJunMolFileWriter"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+2006/08/08 17:41:29
+<HR>
+<!-- (class_name) { -->
+<H2>
+<A NAME="Class.ChemoJunMolFileWriter">ChemoJunMolFileWriter</A>
+</H2>
+<!-- } (class_name) -->
+<!-- (comment) { -->
+<P>
+<A NAME="Comment.ChemoJunMolFileWriter">
+ChemoJun050 (2006/08/08) Copyright 2002-2006 National Institute of Informatics, Research Organization of Information and Systems.
+</A>
+</P>
+<!-- } (comment) -->
+<!-- (category) { -->
+<P>
+<A NAME="Category.ChemoJun-File-IO"><I>category:</I></A></P>
+<UL>
+<LI><B>
+ChemoJun-File-IO
+</B>
+<A HREF="../xrefsC.html#ChemoJun-File-IO"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+</UL>
+<!-- } (category) -->
+<!-- (inheritance) { -->
+<P>
+<A NAME="Inheritance.ChemoJunMolFileWriter"><I>inheritance:</I></A>
+</P>
+<UL>
+<LI TYPE="square">Object
+<UL>
+<LI TYPE="square"><A HREF="ChemoJunAbstractFile.html">ChemoJunAbstractFile</A>
+<UL>
+<LI TYPE="square"><A HREF="ChemoJunAbstractFileWriter.html">ChemoJunAbstractFileWriter</A>
+<UL>
+<LI TYPE="square"><B>ChemoJunMolFileWriter</B>
+</UL>
+</UL>
+</UL>
+</UL>
+<!-- } (inheritance) -->
+<!-- (instance_variables) { -->
+<P>
+<A NAME="InstanceVariables.ChemoJunMolFileWriter">
+<I>instance variables:</I>
+</A>
+</P>
+<UL>
+<!-- atomList { -->
+<LI><A NAME="InstanceVariable.atomList"><B>atomList</B></A>
+<A HREF="../xrefsA.html#atomList"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<!-- } atomList -->
+<!-- connectionList { -->
+<LI><A NAME="InstanceVariable.connectionList"><B>connectionList</B></A>
+<A HREF="../xrefsC.html#connectionList"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<!-- } connectionList -->
+<!-- moleculeObject { -->
+<LI><A NAME="InstanceVariable.moleculeObject"><B>moleculeObject</B></A>
+<A HREF="../xrefsM.html#moleculeObject"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<!-- } moleculeObject -->
+</UL>
+<!-- } (instance_variables) -->
+<!-- (class_instance_variables) { -->
+<P>
+<A NAME="ClassInstanceVariables.ChemoJunMolFileWriter">
+<I>class instance variables:</I>
+</A>
+</P>
+<UL>
+</UL>
+<!-- } (class_instance_variables) -->
+<!-- (class_variables) { -->
+<P>
+<A NAME="ClassVariables.ChemoJunMolFileWriter">
+<I>class variables:</I>
+</A>
+</P>
+<UL>
+</UL>
+<!-- } (class_variables) -->
+<!-- (pool_variables) { -->
+<P>
+<A NAME="PoolVariables.ChemoJunMolFileWriter">
+<I>pool variables:</I>
+</A>
+</P>
+<UL>
+</UL>
+<!-- } (pool_variables) -->
+<!-- (instance_methods) { -->
+<P>
+<A NAME="InstanceMethods.ChemoJunMolFileWriter">
+<I>instance methods:</I>
+</A>
+</P>
+<OL>
+<LI><!-- atomList { -->
+<A NAME="InstanceMethod.atomList"><B>atomList</B> <I>[accessing]</I></A>
+<A HREF="../xrefsA.html#atomList"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	atomList isNil 
+		ifTrue: 
+			[| aCollection |
+			aCollection := SortedCollection new: self numberOfAtoms.
+			self moleculeObject atomObjectsDo: 
+					[:atomObject | 
+					aCollection 
+						add: (atomObject perform: self defaultSymbolOfSerialNumber) -&gt; atomObject].
+			atomList := aCollection asArray collect: [:assoc | assoc value]].
+	^atomList</PRE>
+<!-- } atomList -->
+<LI><!-- connectionList { -->
+<A NAME="InstanceMethod.connectionList"><B>connectionList</B> <I>[accessing]</I></A>
+<A HREF="../xrefsC.html#connectionList"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	connectionList isNil 
+		ifTrue: 
+			[| aCollection atomObject |
+			aCollection := SortedCollection new: self numberOfConnections.
+			self moleculeObject atomConnections do: 
+					[:atomConnection | 
+					atomObject := atomConnection fromAtom.
+					aCollection 
+						add: (atomObject attributeTable at: self defaultSymbolOfSerialNumber) 
+								-&gt; atomConnection].
+			connectionList := aCollection asArray collect: [:assoc | assoc value]].
+	^connectionList</PRE>
+<!-- } connectionList -->
+<LI><!-- defaultSymbolOfSerialNumber { -->
+<A NAME="InstanceMethod.defaultSymbolOfSerialNumber"><B>defaultSymbolOfSerialNumber</B> <I>[defaults]</I></A>
+<A HREF="../xrefsD.html#defaultSymbolOfSerialNumber"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^#serialNumber</PRE>
+<!-- } defaultSymbolOfSerialNumber -->
+<LI><!-- indexOf: { -->
+<A NAME="InstanceMethod.indexOf:"><B>indexOf:</B> theAtomObject <I>[accessing]</I></A>
+<A HREF="../xrefsI.html#indexOf:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	self atomList with: (1 to: self atomList size)
+		do: [:atomObject :anIndex | atomObject = theAtomObject ifTrue: [^anIndex]].
+	^0</PRE>
+<!-- } indexOf: -->
+<LI><!-- initialize { -->
+<A NAME="InstanceMethod.initialize"><B>initialize</B> <I>[initialize-release]</I></A>
+<A HREF="../xrefsI.html#initialize"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	super initialize.
+	moleculeObject := nil.
+	atomList := nil.
+	connectionList := nil</PRE>
+<!-- } initialize -->
+<LI><!-- moleculeObject { -->
+<A NAME="InstanceMethod.moleculeObject"><B>moleculeObject</B> <I>[accessing]</I></A>
+<A HREF="../xrefsM.html#moleculeObject"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^moleculeObject</PRE>
+<!-- } moleculeObject -->
+<LI><!-- moleculeObject: { -->
+<A NAME="InstanceMethod.moleculeObject:"><B>moleculeObject:</B> aMolecule <I>[accessing]</I></A>
+<A HREF="../xrefsM.html#moleculeObject:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	moleculeObject := aMolecule.
+	atomList := nil.
+	connectionList := nil</PRE>
+<!-- } moleculeObject: -->
+<LI><!-- numberOfAtoms { -->
+<A NAME="InstanceMethod.numberOfAtoms"><B>numberOfAtoms</B> <I>[accessing]</I></A>
+<A HREF="../xrefsN.html#numberOfAtoms"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^self moleculeObject ifNil: [0] ifNotNil: [:it | it numberOfAtoms]</PRE>
+<!-- } numberOfAtoms -->
+<LI><!-- numberOfConnections { -->
+<A NAME="InstanceMethod.numberOfConnections"><B>numberOfConnections</B> <I>[accessing]</I></A>
+<A HREF="../xrefsN.html#numberOfConnections"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^self moleculeObject ifNil: [0] ifNotNil: [:it | it numberOfConnections]</PRE>
+<!-- } numberOfConnections -->
+<LI><!-- writeAtomBlockOn: { -->
+<A NAME="InstanceMethod.writeAtomBlockOn:"><B>writeAtomBlockOn:</B> aStream <I>[writing]</I></A>
+<A HREF="../xrefsW.html#writeAtomBlockOn:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	self atomList do: 
+			[:atomObject | 
+			aStream nextPutAll: (self format: 'f10.4' value: atomObject atomicPoint x).
+			aStream nextPutAll: (self format: 'f10.4' value: atomObject atomicPoint y).
+			aStream nextPutAll: (self format: 'f10.4' value: atomObject atomicPoint z).
+			aStream nextPutAll: (self format: 'x1' value: nil).
+			aStream nextPutAll: (self format: 'a3' value: atomObject atomicSymbol).
+			aStream nextPutAll: (self format: 'i2' value: 0).
+			11 timesRepeat: [aStream nextPutAll: (self format: 'i3' value: 0)].
+			aStream cr]</PRE>
+<!-- } writeAtomBlockOn: -->
+<LI><!-- writeBondBlockOn: { -->
+<A NAME="InstanceMethod.writeBondBlockOn:"><B>writeBondBlockOn:</B> aStream <I>[writing]</I></A>
+<A HREF="../xrefsW.html#writeBondBlockOn:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	self connectionList do: 
+			[:atomConnection | 
+			aStream nextPutAll: (self format: 'i3'
+						value: (self indexOf: atomConnection fromAtom)).
+			aStream 
+				nextPutAll: (self format: 'i3' value: (self indexOf: atomConnection toAtom)).
+			aStream nextPutAll: (self format: 'i3' value: atomConnection bondType).
+			aStream nextPutAll: (self format: 'i3' value: atomConnection stereoType).
+			3 timesRepeat: [aStream nextPutAll: (self format: 'i3' value: 0)].
+			aStream cr]</PRE>
+<!-- } writeBondBlockOn: -->
+<LI><!-- writeCountsLineOn: { -->
+<A NAME="InstanceMethod.writeCountsLineOn:"><B>writeCountsLineOn:</B> aStream <I>[writing]</I></A>
+<A HREF="../xrefsW.html#writeCountsLineOn:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	aStream nextPutAll: (self format: 'i3' value: self numberOfAtoms).
+	aStream nextPutAll: (self format: 'i3' value: self numberOfConnections).
+	8 timesRepeat: [aStream nextPutAll: (self format: 'i3' value: 0)].
+	aStream nextPutAll: (self format: 'i3' value: 1).
+	aStream nextPutAll: (self format: 'x1' value: nil).
+	aStream nextPutAll: (self format: 'a5' value: 'V2000').
+	aStream cr</PRE>
+<!-- } writeCountsLineOn: -->
+<LI><!-- writeHeaderBlockOn: { -->
+<A NAME="InstanceMethod.writeHeaderBlockOn:"><B>writeHeaderBlockOn:</B> aStream <I>[writing]</I></A>
+<A HREF="../xrefsW.html#writeHeaderBlockOn:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	| firstBlock secondBlock thirdBlock |
+	firstBlock := 
+			[aStream nextPutAll: '  - ' , self baseName , ' -  '.
+			aStream cr].
+	secondBlock := 
+			[| aString |
+			aStream nextPutAll: (self format: 'a2' value: '  ').
+			aStream nextPutAll: (self format: 'a8' value: 'ChemoJun').
+			aString := Date today monthIndex printString.
+			2 - aString size timesRepeat: [aString := '0' , aString].
+			aStream nextPutAll: (self format: 'a2' value: aString).
+			aString := Date today dayOfMonth printString.
+			2 - aString size timesRepeat: [aString := '0' , aString].
+			aStream nextPutAll: (self format: 'a2' value: aString).
+			aString := Date today year printString.
+			aString := aString copyFrom: aString size - 1 to: aString size.
+			aStream nextPutAll: (self format: 'a2' value: aString).
+			aString := Time now hours printString.
+			2 - aString size timesRepeat: [aString := '0' , aString].
+			aStream nextPutAll: (self format: 'a2' value: aString).
+			aString := Time now minutes printString.
+			2 - aString size timesRepeat: [aString := '0' , aString].
+			aStream nextPutAll: (self format: 'a2' value: aString).
+			self moleculeObject is2d 
+				ifTrue: [aStream nextPutAll: (self format: 'a2' value: '2D')]
+				ifFalse: [aStream nextPutAll: (self format: 'a2' value: '3D')].
+			aStream nextPutAll: (self format: 'i2' value: 1).
+			aStream nextPutAll: (self format: 'f10.5' value: 1).
+			aStream nextPutAll: (self format: 'f12.5' value: 0).
+			aStream nextPutAll: (self format: 'i6' value: 0).
+			aStream cr].
+	thirdBlock := 
+			[aStream
+				space;
+				space.
+			aStream nextPutAll: 'This molfile was created by '.
+			aStream nextPutAll: ChemoJunSystem system.
+			aStream nextPutAll: ChemoJunSystem version.
+			aStream nextPutAll: ' at '.
+			aStream nextPutAll: JunCalendarModel stringFromDateAndTime.
+			aStream cr].
+	firstBlock value.
+	secondBlock value.
+	thirdBlock value</PRE>
+<!-- } writeHeaderBlockOn: -->
+<LI><!-- writeOn: { -->
+<A NAME="InstanceMethod.writeOn:"><B>writeOn:</B> aStream <I>[writing]</I></A>
+<A HREF="../xrefsW.html#writeOn:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	self writeHeaderBlockOn: aStream.
+	self writeCountsLineOn: aStream.
+	self writeAtomBlockOn: aStream.
+	self writeBondBlockOn: aStream.
+	self writePropertiesBlockOn: aStream</PRE>
+<!-- } writeOn: -->
+<LI><!-- writePropertiesBlockOn: { -->
+<A NAME="InstanceMethod.writePropertiesBlockOn:"><B>writePropertiesBlockOn:</B> aStream <I>[writing]</I></A>
+<A HREF="../xrefsW.html#writePropertiesBlockOn:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	aStream nextPutAll: 'M  END'.
+	aStream cr</PRE>
+<!-- } writePropertiesBlockOn: -->
+</OL>
+<!-- } (instance_methods) -->
+<!-- (class_methods) { -->
+<P>
+<A NAME="ClassMethods.ChemoJunMolFileWriter">
+<I>class methods:</I>
+</A>
+</P>
+<OL>
+<LI><!-- copyright { -->
+<A NAME="ClassMethod.copyright"><B>copyright</B> <I>[copyright]</I></A>
+<A HREF="../xrefsC.html#copyright"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^'ChemoJun050 (2006/08/08) Copyright 2002-2006 National Institute of Informatics, Research Organization of Information and Systems.'</PRE>
+<!-- } copyright -->
+<LI><!-- example1 { -->
+<A NAME="ClassMethod.example1"><B>example1</B> <I>[examples]</I></A>
+<A HREF="../xrefsE.html#example1"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	&quot;ChemoJunMolFileWriter example1.&quot;
+
+	| aReader moleculeObject aWriter |
+	aReader := ChemoJunMolFileReader request.
+	aReader isNil ifTrue: [^nil].
+	moleculeObject := ChemoJunMoleculeObject fromReader: aReader.
+	aWriter := ChemoJunMolFileWriter 
+				requestInitialFileName: moleculeObject baseName , '_' 
+						, JunSystem defaultBaseName , moleculeObject extension.
+	aWriter isNil ifTrue: [^nil].
+	aWriter moleculeObject: moleculeObject.
+	aWriter write.
+	^aWriter</PRE>
+<!-- } example1 -->
+<LI><!-- moleculeObject: { -->
+<A NAME="ClassMethod.moleculeObject:"><B>moleculeObject:</B> moleculeObject <I>[instance creation]</I></A>
+<A HREF="../xrefsM.html#moleculeObject:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	^(self new)
+		moleculeObject: moleculeObject;
+		yourself</PRE>
+<!-- } moleculeObject: -->
+<LI><!-- system { -->
+<A NAME="ClassMethod.system"><B>system</B> <I>[copyright]</I></A>
+<A HREF="../xrefsS.html#system"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^'ChemoJun'</PRE>
+<!-- } system -->
+<LI><!-- version { -->
+<A NAME="ClassMethod.version"><B>version</B> <I>[copyright]</I></A>
+<A HREF="../xrefsV.html#version"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^'050'</PRE>
+<!-- } version -->
+</OL>
+<!-- } (class_methods) -->
+<HR>
+<A HREF="../index.html#ChemoJunMolFileWriter"><IMG SRC="../images/index.jpg" ALT="index" ALIGN="top" BORDER=1></A>
+<A HREF="../xrefsC.html#ChemoJunMolFileWriter"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<!-- This Document was generated by JunEncyclopedia. -->
+<!-- JunEncyclopedia was developed by AOKI Atsushi. -->
+</BODY>
+</HTML>

@@ -1,0 +1,279 @@
+<HTML>
+<HEAD>
+<TITLE>ChemoJunSdFileReader</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<A HREF="../index.html#ChemoJunSdFileReader"><IMG SRC="../images/index.jpg" ALT="index" ALIGN="top" BORDER=1></A>
+<A HREF="../xrefsC.html#ChemoJunSdFileReader"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+2006/08/08 17:41:29
+<HR>
+<!-- (class_name) { -->
+<H2>
+<A NAME="Class.ChemoJunSdFileReader">ChemoJunSdFileReader</A>
+</H2>
+<!-- } (class_name) -->
+<!-- (comment) { -->
+<P>
+<A NAME="Comment.ChemoJunSdFileReader">
+ChemoJun050 (2006/08/08) Copyright 2002-2006 National Institute of Informatics, Research Organization of Information and Systems.
+</A>
+</P>
+<!-- } (comment) -->
+<!-- (category) { -->
+<P>
+<A NAME="Category.ChemoJun-File-IO"><I>category:</I></A></P>
+<UL>
+<LI><B>
+ChemoJun-File-IO
+</B>
+<A HREF="../xrefsC.html#ChemoJun-File-IO"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+</UL>
+<!-- } (category) -->
+<!-- (inheritance) { -->
+<P>
+<A NAME="Inheritance.ChemoJunSdFileReader"><I>inheritance:</I></A>
+</P>
+<UL>
+<LI TYPE="square">Object
+<UL>
+<LI TYPE="square"><A HREF="ChemoJunAbstractFile.html">ChemoJunAbstractFile</A>
+<UL>
+<LI TYPE="square"><A HREF="ChemoJunAbstractFileReader.html">ChemoJunAbstractFileReader</A>
+<UL>
+<LI TYPE="square"><B>ChemoJunSdFileReader</B>
+</UL>
+</UL>
+</UL>
+</UL>
+<!-- } (inheritance) -->
+<!-- (instance_variables) { -->
+<P>
+<A NAME="InstanceVariables.ChemoJunSdFileReader">
+<I>instance variables:</I>
+</A>
+</P>
+<UL>
+<!-- molFileReaders { -->
+<LI><A NAME="InstanceVariable.molFileReaders"><B>molFileReaders</B></A>
+<A HREF="../xrefsM.html#molFileReaders"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<!-- } molFileReaders -->
+</UL>
+<!-- } (instance_variables) -->
+<!-- (class_instance_variables) { -->
+<P>
+<A NAME="ClassInstanceVariables.ChemoJunSdFileReader">
+<I>class instance variables:</I>
+</A>
+</P>
+<UL>
+</UL>
+<!-- } (class_instance_variables) -->
+<!-- (class_variables) { -->
+<P>
+<A NAME="ClassVariables.ChemoJunSdFileReader">
+<I>class variables:</I>
+</A>
+</P>
+<UL>
+</UL>
+<!-- } (class_variables) -->
+<!-- (pool_variables) { -->
+<P>
+<A NAME="PoolVariables.ChemoJunSdFileReader">
+<I>pool variables:</I>
+</A>
+</P>
+<UL>
+</UL>
+<!-- } (pool_variables) -->
+<!-- (instance_methods) { -->
+<P>
+<A NAME="InstanceMethods.ChemoJunSdFileReader">
+<I>instance methods:</I>
+</A>
+</P>
+<OL>
+<LI><!-- initialize { -->
+<A NAME="InstanceMethod.initialize"><B>initialize</B> <I>[initialize-release]</I></A>
+<A HREF="../xrefsI.html#initialize"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	super initialize.
+	molFileReaders := nil</PRE>
+<!-- } initialize -->
+<LI><!-- moleculeObjects { -->
+<A NAME="InstanceMethod.moleculeObjects"><B>moleculeObjects</B> <I>[accessing]</I></A>
+<A HREF="../xrefsM.html#moleculeObjects"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^self molFileReaders 
+		collect: [:aReader | self class defaultMoleculeObjectClass fromReader: aReader]</PRE>
+<!-- } moleculeObjects -->
+<LI><!-- molFileReaders { -->
+<A NAME="InstanceMethod.molFileReaders"><B>molFileReaders</B> <I>[accessing]</I></A>
+<A HREF="../xrefsM.html#molFileReaders"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	molFileReaders ifNil: [molFileReaders := OrderedCollection new].
+	^molFileReaders</PRE>
+<!-- } molFileReaders -->
+<LI><!-- readDataItemFrom: { -->
+<A NAME="InstanceMethod.readDataItemFrom:"><B>readDataItemFrom:</B> aStream <I>[reading]</I></A>
+<A HREF="../xrefsR.html#readDataItemFrom:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	^self</PRE>
+<!-- } readDataItemFrom: -->
+<LI><!-- readDataItemsFrom: { -->
+<A NAME="InstanceMethod.readDataItemsFrom:"><B>readDataItemsFrom:</B> aStream <I>[reading]</I></A>
+<A HREF="../xrefsR.html#readDataItemsFrom:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	^self</PRE>
+<!-- } readDataItemsFrom: -->
+<LI><!-- readDelimiterFrom: { -->
+<A NAME="InstanceMethod.readDelimiterFrom:"><B>readDelimiterFrom:</B> aStream <I>[reading]</I></A>
+<A HREF="../xrefsR.html#readDelimiterFrom:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	[aStream atEnd not] whileTrue: 
+			[| aString aCollection |
+			aString := self getLine: aStream.
+			aCollection := self separate: aString.
+			(aCollection size &gt;= 1 and: [aCollection first = '$$$$']) ifTrue: [^self]].
+	^self</PRE>
+<!-- } readDelimiterFrom: -->
+<LI><!-- readFrom: { -->
+<A NAME="InstanceMethod.readFrom:"><B>readFrom:</B> aStream <I>[reading]</I></A>
+<A HREF="../xrefsR.html#readFrom:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	[aStream atEnd not] whileTrue: 
+			[self readMolfileFrom: aStream.
+			self readNonStructuredDataFrom: aStream.
+			self readDelimiterFrom: aStream]</PRE>
+<!-- } readFrom: -->
+<LI><!-- readMolfileFrom: { -->
+<A NAME="InstanceMethod.readMolfileFrom:"><B>readMolfileFrom:</B> aStream <I>[reading]</I></A>
+<A HREF="../xrefsR.html#readMolfileFrom:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	| molFileReader |
+	molFileReader := self class defaultMolFileReaderClass new.
+	molFileReader readFrom: aStream.
+	self molFileReaders add: molFileReader</PRE>
+<!-- } readMolfileFrom: -->
+<LI><!-- readNonStructuredDataFrom: { -->
+<A NAME="InstanceMethod.readNonStructuredDataFrom:"><B>readNonStructuredDataFrom:</B> aStream <I>[reading]</I></A>
+<A HREF="../xrefsR.html#readNonStructuredDataFrom:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	[aStream atEnd not] whileTrue: 
+			[| aString |
+			self readDataItemFrom: aStream.
+			self readDataItemsFrom: aStream.
+			aString := self getLine: aStream.
+			aString = (String with: Character cr) ifTrue: [^self]].
+	^self</PRE>
+<!-- } readNonStructuredDataFrom: -->
+</OL>
+<!-- } (instance_methods) -->
+<!-- (class_methods) { -->
+<P>
+<A NAME="ClassMethods.ChemoJunSdFileReader">
+<I>class methods:</I>
+</A>
+</P>
+<OL>
+<LI><!-- copyright { -->
+<A NAME="ClassMethod.copyright"><B>copyright</B> <I>[copyright]</I></A>
+<A HREF="../xrefsC.html#copyright"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^'ChemoJun050 (2006/08/08) Copyright 2002-2006 National Institute of Informatics, Research Organization of Information and Systems.'</PRE>
+<!-- } copyright -->
+<LI><!-- defaultFileDescriptions { -->
+<A NAME="ClassMethod.defaultFileDescriptions"><B>defaultFileDescriptions</B> <I>[defaults]</I></A>
+<A HREF="../xrefsD.html#defaultFileDescriptions"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^Array with: (Array 
+				with: (#chemoJun_SD_files &gt;&gt; 'SD files') asString)
+		with: (Array with: (#jun_All_files &gt;&gt; 'All files') asString)</PRE>
+<!-- } defaultFileDescriptions -->
+<LI><!-- defaultFilePatterns { -->
+<A NAME="ClassMethod.defaultFilePatterns"><B>defaultFilePatterns</B> <I>[defaults]</I></A>
+<A HREF="../xrefsD.html#defaultFilePatterns"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^Array with: #('*.sd' '*.SD') with: #('*')</PRE>
+<!-- } defaultFilePatterns -->
+<LI><!-- defaultMoleculeObjectClass { -->
+<A NAME="ClassMethod.defaultMoleculeObjectClass"><B>defaultMoleculeObjectClass</B> <I>[defaults]</I></A>
+<A HREF="../xrefsD.html#defaultMoleculeObjectClass"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^ChemoJunMoleculeObject</PRE>
+<!-- } defaultMoleculeObjectClass -->
+<LI><!-- defaultMolFileReaderClass { -->
+<A NAME="ClassMethod.defaultMolFileReaderClass"><B>defaultMolFileReaderClass</B> <I>[defaults]</I></A>
+<A HREF="../xrefsD.html#defaultMolFileReaderClass"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^ChemoJunMolFileReader</PRE>
+<!-- } defaultMolFileReaderClass -->
+<LI><!-- defaultRequestMessageString { -->
+<A NAME="ClassMethod.defaultRequestMessageString"><B>defaultRequestMessageString</B> <I>[defaults]</I></A>
+<A HREF="../xrefsD.html#defaultRequestMessageString"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^(#chemoJun_Select_a_SD_file_ &gt;&gt; 'Select a SD file.') asString</PRE>
+<!-- } defaultRequestMessageString -->
+<LI><!-- example1 { -->
+<A NAME="ClassMethod.example1"><B>example1</B> <I>[examples]</I></A>
+<A HREF="../xrefsE.html#example1"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	&quot;ChemoJunSdFileReader example1.&quot;
+
+	| aReader |
+	aReader := ChemoJunSdFileReader request.
+	aReader isNil ifTrue: [^nil].
+	^aReader</PRE>
+<!-- } example1 -->
+<LI><!-- example2 { -->
+<A NAME="ClassMethod.example2"><B>example2</B> <I>[examples]</I></A>
+<A HREF="../xrefsE.html#example2"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	&quot;ChemoJunSdFileReader example2.&quot;
+
+	| aReader |
+	aReader := ChemoJunSdFileReader request.
+	aReader isNil ifTrue: [^nil].
+	aReader moleculeObjects 
+		do: [:moleculeObject | (ChemoJunMoleculeViewer moleculeObject: moleculeObject) open]</PRE>
+<!-- } example2 -->
+<LI><!-- system { -->
+<A NAME="ClassMethod.system"><B>system</B> <I>[copyright]</I></A>
+<A HREF="../xrefsS.html#system"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^'ChemoJun'</PRE>
+<!-- } system -->
+<LI><!-- version { -->
+<A NAME="ClassMethod.version"><B>version</B> <I>[copyright]</I></A>
+<A HREF="../xrefsV.html#version"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^'050'</PRE>
+<!-- } version -->
+</OL>
+<!-- } (class_methods) -->
+<HR>
+<A HREF="../index.html#ChemoJunSdFileReader"><IMG SRC="../images/index.jpg" ALT="index" ALIGN="top" BORDER=1></A>
+<A HREF="../xrefsC.html#ChemoJunSdFileReader"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<!-- This Document was generated by JunEncyclopedia. -->
+<!-- JunEncyclopedia was developed by AOKI Atsushi. -->
+</BODY>
+</HTML>

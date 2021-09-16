@@ -1,0 +1,250 @@
+<HTML>
+<HEAD>
+<TITLE>ChemoJunDialog</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<A HREF="../index.html#ChemoJunDialog"><IMG SRC="../images/index.jpg" ALT="index" ALIGN="top" BORDER=1></A>
+<A HREF="../xrefsC.html#ChemoJunDialog"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+2006/08/08 17:41:25
+<HR>
+<!-- (class_name) { -->
+<H2>
+<A NAME="Class.ChemoJunDialog">ChemoJunDialog</A>
+</H2>
+<!-- } (class_name) -->
+<!-- (comment) { -->
+<P>
+<A NAME="Comment.ChemoJunDialog">
+ChemoJun050 (2006/08/08) Copyright 2002-2006 National Institute of Informatics, Research Organization of Information and Systems.
+</A>
+</P>
+<!-- } (comment) -->
+<!-- (category) { -->
+<P>
+<A NAME="Category.ChemoJun-Goodies-UI"><I>category:</I></A></P>
+<UL>
+<LI><B>
+ChemoJun-Goodies-UI
+</B>
+<A HREF="../xrefsC.html#ChemoJun-Goodies-UI"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+</UL>
+<!-- } (category) -->
+<!-- (inheritance) { -->
+<P>
+<A NAME="Inheritance.ChemoJunDialog"><I>inheritance:</I></A>
+</P>
+<UL>
+<LI TYPE="square">Object
+<UL>
+<LI TYPE="square">Model
+<UL>
+<LI TYPE="square">ApplicationModel
+<UL>
+<LI TYPE="square">SimpleDialog
+<UL>
+<LI TYPE="square">JunDialog
+<UL>
+<LI TYPE="square"><B>ChemoJunDialog</B>
+</UL>
+</UL>
+</UL>
+</UL>
+</UL>
+</UL>
+<!-- } (inheritance) -->
+<!-- (instance_variables) { -->
+<P>
+<A NAME="InstanceVariables.ChemoJunDialog">
+<I>instance variables:</I>
+</A>
+</P>
+<UL>
+</UL>
+<!-- } (instance_variables) -->
+<!-- (class_instance_variables) { -->
+<P>
+<A NAME="ClassInstanceVariables.ChemoJunDialog">
+<I>class instance variables:</I>
+</A>
+</P>
+<UL>
+</UL>
+<!-- } (class_instance_variables) -->
+<!-- (class_variables) { -->
+<P>
+<A NAME="ClassVariables.ChemoJunDialog">
+<I>class variables:</I>
+</A>
+</P>
+<UL>
+</UL>
+<!-- } (class_variables) -->
+<!-- (pool_variables) { -->
+<P>
+<A NAME="PoolVariables.ChemoJunDialog">
+<I>pool variables:</I>
+</A>
+</P>
+<UL>
+</UL>
+<!-- } (pool_variables) -->
+<!-- (instance_methods) { -->
+<P>
+<A NAME="InstanceMethods.ChemoJunDialog">
+<I>instance methods:</I>
+</A>
+</P>
+<OL>
+<LI><!-- chooseMultiple:fromList:values:initialSelections:buttons:values:lines:cancel:for: { -->
+<A NAME="InstanceMethod.chooseMultiple:fromList:values:initialSelections:buttons:values:lines:cancel:for:"><B>chooseMultiple:</B> messageString <B>fromList:</B> list <B>values:</B> listValues <B>initialSelections:</B> initialSelections <B>buttons:</B> buttons <B>values:</B> buttonValues <B>lines:</B> maxLines <B>cancel:</B> cancelBlock <B>for:</B> aVisualOrNil <I>[utility]</I></A>
+<A HREF="../xrefsC.html#chooseMultiple:fromList:values:initialSelections:buttons:values:lines:cancel:for:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	&quot;ChemoJunDialog new
+		chooseMultiple: 'Which ones do you want?'
+		fromList: #('first' 'second' 'third' 'fourth') values: #(10 20 30 40)
+		initialSelections: #('first' 'third')
+		buttons: #() values: #()
+		lines: 8
+		cancel: [#noChoice]
+		for: Dialog defaultParentWindow&quot;
+
+	| result spec okValue sequence wrappers listW |
+	wrappers := OrderedCollection new.
+	result := ValueHolder new.
+	sequence := MultiSelectionInList new.
+	sequence list: list.
+	sequence selections: initialSelections.
+	list size = 1 ifTrue: [sequence selections: (Set with: 1)].
+	spec := self class interfaceSpecFor: #emptySpec.
+	okValue := Object new.
+	self initializeBuilderFor: aVisualOrNil.
+	builder add: spec window.
+	builder add: spec component.
+	self initializeWindowFor: aVisualOrNil.
+	self setInitialGap.
+	self addMessage: messageString centered: true.
+	self addGap: 8.
+	listW := self 
+				addMultiList: sequence
+				lines: (maxLines min: list size + 2)
+				validation: [true].
+	self addGap: 4.
+	wrappers add: (self addOK: [sequence selectionIndex ~= 0]).
+	buttons isEmpty 
+		ifFalse: 
+			[self addGap: 4.
+			wrappers add: self addDivider.
+			self addGap: 4.
+			wrappers add: (self 
+						addLabels: buttons
+						values: buttonValues
+						default: okValue
+						storeInto: result
+						takeKeyboard: true
+						equalize: true)].
+	self addGap: 6.
+	self bottomAlignLowerEdge: listW.
+	self bottomAlign: wrappers.
+	self preOpen.
+	builder openDialogWithExtent: builder window displayBox extent.
+	aVisualOrNil notNil 
+		ifTrue: 
+			[aVisualOrNil 
+				invalidateRectangle: aVisualOrNil bounds
+				repairNow: true
+				forComponent: nil]
+		ifFalse: 
+			[| parent |
+			(parent := Dialog defaultParentWindow) notNil 
+				ifTrue: 
+					[parent 
+						invalidateRectangle: parent bounds
+						repairNow: true
+						forComponent: nil]].
+	^accept value 
+		ifTrue: 
+			[sequence selectionIndexes asSortedCollection asArray 
+				collect: [:i | listValues at: i]]
+		ifFalse: [cancel value ifTrue: [cancelBlock value] ifFalse: [result value]]</PRE>
+<!-- } chooseMultiple:fromList:values:initialSelections:buttons:values:lines:cancel:for: -->
+<LI><!-- chooseMultiple:fromList:values:lines:cancel: { -->
+<A NAME="InstanceMethod.chooseMultiple:fromList:values:lines:cancel:"><B>chooseMultiple:</B> messageString <B>fromList:</B> list <B>values:</B> listValues <B>lines:</B> maxLines <B>cancel:</B> cancelBlock <I>[utility]</I></A>
+<A HREF="../xrefsC.html#chooseMultiple:fromList:values:lines:cancel:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	&quot;ChemoJunDialog new
+		chooseMultiple: 'Which ones do you want?'
+		fromList: #('first' 'second' 'third' 'fourth') values: #(10 20 30 40)
+		lines: 8
+		cancel: [#noChoice].&quot;
+
+	^self 
+		chooseMultiple: messageString
+		fromList: list
+		values: listValues
+		buttons: Array new
+		values: Array new
+		lines: maxLines
+		cancel: cancelBlock
+		for: Dialog defaultParentWindow</PRE>
+<!-- } chooseMultiple:fromList:values:lines:cancel: -->
+</OL>
+<!-- } (instance_methods) -->
+<!-- (class_methods) { -->
+<P>
+<A NAME="ClassMethods.ChemoJunDialog">
+<I>class methods:</I>
+</A>
+</P>
+<OL>
+<LI><!-- copyright { -->
+<A NAME="ClassMethod.copyright"><B>copyright</B> <I>[copyright]</I></A>
+<A HREF="../xrefsC.html#copyright"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^'ChemoJun050 (2006/08/08) Copyright 2002-2006 National Institute of Informatics, Research Organization of Information and Systems.'</PRE>
+<!-- } copyright -->
+<LI><!-- emptySpec { -->
+<A NAME="ClassMethod.emptySpec"><B>emptySpec</B> <I>[interface specs]</I></A>
+<A HREF="../xrefsE.html#emptySpec"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	&quot;Tools.UIPainter new openOnClass: self andSelector: #emptySpec&quot;
+
+	&lt;resource: #canvas&gt;
+	^#(#{UI.FullSpec} 
+		#window: 
+		#(#{UI.WindowSpec} 
+			#label: ' ' 
+			#min: #(#{Core.Point} 20 20 ) 
+			#max: #(#{Core.Point} 1280 1024 ) 
+			#bounds: #(#{Graphics.Rectangle} 512 384 812 423 ) 
+			#isEventDriven: true ) 
+		#component: 
+		#(#{UI.SpecCollection} 
+			#collection: #() ) )</PRE>
+<!-- } emptySpec -->
+<LI><!-- system { -->
+<A NAME="ClassMethod.system"><B>system</B> <I>[copyright]</I></A>
+<A HREF="../xrefsS.html#system"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^'ChemoJun'</PRE>
+<!-- } system -->
+<LI><!-- version { -->
+<A NAME="ClassMethod.version"><B>version</B> <I>[copyright]</I></A>
+<A HREF="../xrefsV.html#version"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^'050'</PRE>
+<!-- } version -->
+</OL>
+<!-- } (class_methods) -->
+<HR>
+<A HREF="../index.html#ChemoJunDialog"><IMG SRC="../images/index.jpg" ALT="index" ALIGN="top" BORDER=1></A>
+<A HREF="../xrefsC.html#ChemoJunDialog"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<!-- This Document was generated by JunEncyclopedia. -->
+<!-- JunEncyclopedia was developed by AOKI Atsushi. -->
+</BODY>
+</HTML>

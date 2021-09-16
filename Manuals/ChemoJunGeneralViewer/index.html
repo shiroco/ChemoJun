@@ -1,0 +1,244 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<link rel="stylesheet" href="../importstyle.css" type="text/css">
+<link rev="made" href="http://www.sra.co.jp/people/h-asaoka/">
+<link rel="index" href="index.html">
+<link rel="shortcut icon" href="../ChemoJun.ico">
+<title>ChemoJunGeneralViewer</title>
+</head>
+<body>
+<p class="align-right">2006年08月08日 文責：<a name="TOP" href="http://www.sra.co.jp/people/h-asaoka/" target="_blank">浅岡 浩子</a></p>
+<hr>
+<h1>ビューファインダ</h1>
+<p>もくじ：</p>
+<ul>
+  <li><a href="#About">ビューファインダとは</a>
+  <li><a href="#Open">ビューファインダを開く</a>
+  <li><a href="#Screen">画面</a>
+  <li><a href="#Menu">メニュー</a>
+  <ul>
+    <li><a href="#File">ファイル</a>
+    <ul>
+      <li><a href="#File_Save-as-Image">画像として保存</a>
+      <li><a href="#File_Save-as-VRML">VRMLとして保存</a>
+      <li><a href="#File_Quit">終了</a>
+    </ul>
+    <li><a href="#View">表示</a>
+    <ul>
+      <li><a href="#View_Reset">リセット</a>
+    </ul>
+    <li><a href="#Misc">その他</a>
+    <ul>
+      <li><a href="#Misc_Spawn">産み出す</a>
+      <li><a href="#Misc_Viewport">ビューポート</a>
+      <li><a href="#Misc_Inspect">検査</a>
+    </ul>
+  </ul>
+</ul>
+<hr>
+<h2><a name="About">ビューファインダとは</a></h2>
+<p>ビューファインダは、３次元オブジェクトを表示します。<br>
+回転、拡大・縮小、平行移動、選択などもできます。</p>
+<hr>
+<h2><a name="Open">ビューファインダを開く</a></h2>
+<p>ビューファインダを開くには、「 <a href="../ChemoJunMoleculeViewer/index.html" target="_blank">分子ビューア</a> 」などで 「Misc」-&gt;「Viewfinder」メニューを選択します。</p>
+<p><a href="images/Open_01.jpg"><img src="thumbnails/Open_01_jpg.jpg" width="94" height="100" border="1" alt="Open_01_jpg.jpg"></a> <a href="images/Open_02.jpg"><img src="thumbnails/Open_02_jpg.jpg" width="94" height="100" border="1" alt="Open_02_jpg.jpg"></a></p>
+<hr>
+<h2><a name="Screen">画面</a></h2>
+<h3>画面説明</h3>
+<p>ビューファインダの画面は以下のようになっています。</p>
+<map name="Screen">
+  <area shape="rect" coords="10,78,34,105" href="#A" alt="A">
+  <area shape="rect" coords="196,350,220,377" href="#7" alt="7">
+  <area shape="rect" coords="10,178,33,205" href="#6" alt="6">
+  <area shape="rect" coords="383,249,405,276" href="#5" alt="5">
+  <area shape="rect" coords="383,178,405,205" href="#4" alt="4">
+  <area shape="rect" coords="383,107,405,134" href="#3" alt="3">
+  <area shape="rect" coords="383,29,405,56" href="#1" alt="1">
+  <area shape="rect" coords="380,68,408,95" href="#2" alt="3">
+</map>
+<p><img src="map/GeneralViewer.jpg" width="418" height="390" border="0" alt="GeneralViewer.jpg" usemap="#Screen"></p>
+<ul>
+  <li><a name="1">1</a> : <strong>ピックボタン</strong>
+  <li><a name="2">2</a> : <strong>グラブボタン</strong>
+  <li><a name="3">3</a> : <strong>ドラッグボタン</strong>
+  <li><a name="4">4</a> : <strong>Ｚホィール</strong>
+  <li><a name="5">5</a> : <strong>フォーカスボタン</strong><br>
+  <li><a name="6">6</a> : <strong>Ｘホィール</strong><br>
+  <li><a name="7">7</a> : <strong>Ｙホィール</strong><br>
+  <p><a href="../CommonWindowOperation/index.html" target="_blank">ビューアのウィンドウ操作</a> で見る方向や範囲を変更できます。</p>
+  <li><a name="A">A</a> : <strong>表示物</strong><br>
+  ビューファインダでは、３Ｄオブジェクトのみ表示されます。<br>
+  シリアル番号などは表示されません。
+</ul>
+<hr>
+<h2><a name="Menu">メニュー</a></h2>
+<p>ウィンドウの上部にあるメニューです。</p>
+<table summary="table" border="0">
+  <tbody>
+    <tr>
+      <td>
+      <table summary="table" border="1" cellpadding="10" cellspacing="0">
+        <tbody>
+          <tr>
+            <td align="left"><a href="#File"><code>File -&gt;</code></a><br>
+            <a href="#View"><code>View -&gt;</code></a><br>
+            <a href="#Misc"><code>Misc -&gt;</code></a></td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+      <td>
+      <table summary="table" border="1" cellpadding="10" cellspacing="0">
+        <tbody>
+          <tr>
+            <td align="left"><a href="#File"><code>ファイル -&gt;</code></a><br>
+            <a href="#View"><code>表示 -&gt;</code></a><br>
+            <a href="#Misc"><code>その他 -&gt;</code></a></td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<hr>
+<h3><a name="File">File<br>
+ファイル</a></h3>
+<table summary="table" border="0">
+  <tbody>
+    <tr>
+      <td>
+      <table summary="table" border="1" cellpadding="10" cellspacing="0">
+        <tbody>
+          <tr>
+            <td align="left"><a href="#File_Save-as-Image"><code>Save as Image</code></a><br>
+            <a href="#File_Save-as-VRML"><code>Save as VRML</code></a><br>
+            <hr>
+            <a href="#File_Quit"><code>Quit</code></a></td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+      <td>
+      <table summary="table" border="1" cellpadding="10" cellspacing="0">
+        <tbody>
+          <tr>
+            <td align="left"><a href="#File_Save-as-Image"><code>画像として保存</code></a><br>
+            <a href="#File_Save-as-VRML"><code>VRMLとして保存</code></a><br>
+            <hr>
+            <a href="#File_Quit"><code>終了</code></a></td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h4><a name="File_Save-as-Image">Save as Image<br>
+画像として保存</a></h4>
+<p>ビューアに表示されている状態の画像ファイルを作成します。</p>
+<p>「 <a href="../ChemoJunMoleculeViewer/index.html" target="_blank">Molecular Viewer</a> 」の 「 <a href="../ChemoJunMoleculeViewer/index.html#File_Save-as-Image" target="_blank">Save as Image</a> 」と同様の処理になります。</p>
+<p>ただし、デフォルトのファイル名は、[元のオブジェクト名]_[年月日時分秒].jpgです。</p>
+<h4><a name="File_Save-as-VRML">Save as VRML<br>
+VRMLとして保存</a></h4>
+<p>ビューアに表示されている状態のVRMLファイルを作成します。</p>
+<p>VRMLファイル（*.wrl）を入力するダイアログが現れます。<br>
+ファイル名を入力して「Accept」ボタンを押します。<br>
+デフォルトのファイル名は、[元のオブジェクト名]_[年月日時分秒].wrlです。</p>
+<p><a href="images/Open_02.jpg"><img src="thumbnails/Open_02_jpg.jpg" width="94" height="100" border="1" alt="Open_02_jpg.jpg"></a> --(Save as VRML)--&gt; <a href="images/File_Save-as-VRML.jpg"><img src="thumbnails/File_Save-as-VRML_jpg.jpg" width="100" height="60" border="1" alt="File_Save-as-VRML_jpg.jpg"></a></p>
+<p>作成した場所を忘れないようにしましょう。</p>
+<p><a href="samples/phe_yyyymmddhhmmss.wrl">phe_yyyymmddhhmmss.wrl</a>: 保存される VRML ファイルのサンプル</p>
+<p>VRML ファイルを利用して、ウェブブラウザでも ３Ｄオブジェクトを動かすことができます。<br>
+Cortona VRML Client のインストールが必要になります。<br>
+下記の場所から、ダウンロードしてインストールしてください。</p>
+<p><a href="http://www.parallelgraphics.com/products/cortona/">http://www.parallelgraphics.com/products/cortona/</a></p>
+<p><a href="images/File_Save-as-VRML_IE.jpg"><img src="thumbnails/File_Save-as-VRML_IE_jpg.jpg" width="100" height="95" border="1" alt="File_Save-as-VRML_IE_jpg.jpg"></a> <a href="images/File_Save-as-VRML_Netscape.jpg"><img src="thumbnails/File_Save-as-VRML_Netscape_jpg.jpg" width="100" height="98" border="1" alt="File_Save-as-VRML_Netscape_jpg.jpg"></a></p>
+<h4><a name="File_Quit">Quit<br>
+終了</a></h4>
+<p>ウィンドウを閉じます。<br>
+このウィンドウに関連した、ビューポートのウィンドウも同時に閉じます。</p>
+<hr>
+<h3><a name="View">View<br>
+表示</a></h3>
+<table summary="table" border="0">
+  <tbody>
+    <tr>
+      <td>
+      <table summary="table" border="1" cellpadding="10" cellspacing="0">
+        <tbody>
+          <tr>
+            <td align="left"><a href="#View_Reset"><code>Reset</code></a></td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+      <td>
+      <table summary="table" border="1" cellpadding="10" cellspacing="0">
+        <tbody>
+          <tr>
+            <td align="left"><a href="#View_Reset"><code>リセット</code></a></td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h4><a name="View_Reset">Reset<br>
+リセット</a></h4>
+<p>ビューア内に表示しているものの全体が見られます。</p>
+<p>「 <a href="../ChemoJunMoleculeViewer/index.html" target="_blank">Molecular Viewer</a> 」の 「 <a href="../ChemoJunMoleculeViewer/index.html#View_Reset" target="_blank">Reset</a> 」と同様の処理になります。</p>
+<hr>
+<h3><a name="Misc">Misc<br>
+その他</a></h3>
+<table summary="table" border="0">
+  <tbody>
+    <tr>
+      <td>
+      <table summary="table" border="1" cellpadding="10" cellspacing="0">
+        <tbody>
+          <tr>
+            <td align="left"><a href="#Misc_Spawn"><code>Spawn</code></a><br>
+            <a href="#Misc_Viewport"><code>Viewport</code></a><br>
+            <hr>
+            <a href="#Misc_Inspect"><code>Inspect</code></a></td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+      <td>
+      <table summary="table" border="1" cellpadding="10" cellspacing="0">
+        <tbody>
+          <tr>
+            <td align="left"><a href="#Misc_Spawn"><code>産み出す</code></a><br>
+            <a href="#Misc_Viewport"><code>ビューポート</code></a><br>
+            <hr>
+            <a href="#Misc_Inspect"><code>検査</code></a></td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h4><a name="Misc_Spawn">Spawn<br>
+産み出す</a></h4>
+<p>右隣に、同じ状態のウィンドウが開きます。<br>
+開いているウィンドウのコピーを作り出すときに利用すると良いでしょう。</p>
+<h4><a name="Misc_Viewport">Viewport<br>
+ビューポート</a></h4>
+<p>右隣にビューポートのウィンドウが開きます。</p>
+<p>「 <a href="../ChemoJunMoleculeViewer/index.html" target="_blank">Molecular Viewer</a> 」の 「 <a href="../ChemoJunMoleculeViewer/index.html#Misc_Viewport" target="_blank">Viewport</a> 」と同様の処理になります。</p>
+<h4><a name="Misc_Inspect">Inspect<br>
+検査</a></h4>
+<p>このメニューは、ランタイム版では選択することができません。<br>
+開発時にプログラムの状態などを確認するためのメニューです。<br>
+選択可能な場合は、インスペクターが開きます。</p>
+<hr>
+<p class="align-right"><a href="#TOP">このページの TOP へ</a></p>
+</body>
+</html>

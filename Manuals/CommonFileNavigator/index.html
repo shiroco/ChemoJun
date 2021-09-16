@@ -1,0 +1,155 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<link rel="stylesheet" href="../importstyle.css" type="text/css">
+<link rev="made" href="http://www.sra.co.jp/people/h-asaoka/">
+<link rel="index" href="index.html">
+<link rel="shortcut icon" href="../ChemoJun.ico">
+<title>CommonFileNavigator</title>
+</head>
+<body>
+<p class="align-right">2006年08月08日 文責：<a name="TOP" href="http://www.sra.co.jp/people/h-asaoka/" target="_blank">浅岡 浩子</a></p>
+<hr>
+<h1>フォルダ・ファイルの指定</h1>
+<p>もくじ：</p>
+<ul>
+  <li><a href="#About">フォルダ・ファイルの指定とは</a>
+  <li><a href="#Screen">画面</a>
+  <ul>
+    <li><a href="#windowLabel">ウィンドウラベル</a>
+    <li><a href="#homeButton"><img src="buttons/HomeButton.jpg" width="24" height="24" border="0" alt="HomeButton.jpg" align="middle"> ホームボタン</a>
+    <li><a href="#currentPath">現在パス</a>
+    <li><a href="#leftView">左ビュー</a> , <a href="#parentFolder">親フォルダ</a>
+    <li><a href="#centerView">中心ビュー</a> , <a href="#currentSelection">選択</a>
+    <li><a href="#rightView">右ビュー</a> , <a href="#previousSelection">履歴</a>
+    <li><a href="#fileType">ファイルタイプ</a>
+    <li><a href="#tailFileName">入力フォルダ／ファイル名</a>
+  </ul>
+  <li><a href="#ShortCutKeyCommand">ショートカットキーコマンド</a>
+  <ul>
+    <li><a href="#SpecialKeyCommand">特殊キー</a>
+    <li><a href="#AlphabetKeyCommand">アルファベット</a>
+  </ul>
+</ul>
+<hr>
+<h2><a name="About">フォルダ・ファイルの指定とは</a></h2>
+<p>ビューアで表示するファイルを指定して開いたり、 ファイルなどを保存する際に、ファイルナビゲータを利用します。<br>
+目的の種類のファイルのみを表示したり、現在パスの確認が可能です。</p>
+<hr>
+<h2><a name="Screen">画面</a></h2>
+<h3>画面説明</h3>
+<p>ファイルナビゲータの画面は以下のようになっています。</p>
+<map name="Screen">
+  <area shape="rect" coords="125,10,153,37" href="#1" alt="windowLabel">
+  <area shape="rect" coords="121,180,149,207" href="#4" alt="leftView">
+  <area shape="rect" coords="205,10,229,37" href="#A" alt="parentFolder">
+  <area shape="rect" coords="440,10,464,37" href="#C" alt="previousSelection">
+  <area shape="rect" coords="323,10,346,37" href="#B" alt="currentSelection">
+  <area shape="rect" coords="475,180,503,207" href="#6" alt="rightView">
+  <area shape="rect" coords="10,336,38,363" href="#7" alt="fileType">
+  <area shape="rect" coords="604,303,632,330" href="#8" alt="tailFileName">
+  <area shape="rect" coords="298,180,326,207" href="#5" alt="centerView">
+  <area shape="rect" coords="604,67,632,94" href="#3" alt="currentPath">
+  <area shape="rect" coords="10,62,38,89" href="#2" alt="homeButton">
+</map>
+<p><img src="map/FileNavigator.jpg" width="642" height="383" border="0" alt="FileNavigator" usemap="#Screen"></p>
+<ul>
+  <li><a name="1">1</a> : <a href="#windowLabel">ウィンドウラベル</a>
+  <li><a name="2">2</a> : <a href="#homeButton">ホームボタン</a>
+  <li><a name="3">3</a> : <a href="#currentPath">現在パス</a>
+  <li><a name="4">4</a> : <a href="#leftView">左ビュー</a>
+  <li><a name="5">5</a> : <a href="#centerView">中心ビュー</a>
+  <li><a name="6">6</a> : <a href="#rightView">右ビュー</a>
+  <li><a name="7">7</a> : <a href="#fileType">ファイルタイプ</a>
+  <li><a name="8">8</a> : <a href="#tailFileName">入力フォルダ／ファイル名</a>
+  <li><a name="A">A</a> : <a href="#parentFolder">親フォルダ</a>
+  <li><a name="B">B</a> : <a href="#currentSelection">選択</a>
+  <li><a name="C">C</a> : <a href="#previousSelection">履歴</a>
+</ul>
+<p>状況に応じて、ファイルタイプや、入力フォルダ／ファイル名のエリアなどは表示されなくなります。</p>
+<hr>
+<h3><a name="windowLabel">ウィンドウラベル</a></h3>
+<p>メッセージが表示されます。</p>
+<p>既存のファイルを指定するのか、新しいディレクトリ名を入力するのか、実行している状況によって操作が違います。<br>
+何をすればいいのか分からないときは、ラベルのメッセージを確認してください。</p>
+<h3><img src="buttons/HomeButton.jpg" width="24" height="24" border="0" alt="HomeButton.jpg" align="middle"> <a name="homeButton">ホームボタン</a></h3>
+<p>ボタンを押すと、VisualWorks の仮想イメージのあるフォルダに、すぐに移動します。</p>
+<h3><a name="currentPath">現在パス</a></h3>
+<p>ホームボタンの横には、現在表示しているパスが表示されます。</p>
+<p>その箇所でマウスの右クリックボタンを押すと、コピーメニューが表示されます。<br>
+メニューを選択すると、パスをコピーバッファに入れることができます。</p>
+<h3><a name="leftView">左ビュー</a></h3>
+<p>現在選択している対象の一階層上のフォルダやファイルを一覧で表示します。</p>
+<h3><a name="parentFolder">親フォルダ</a></h3>
+<p>左ビュー内に、薄い色で選択状態で表示されます。</p>
+<h3><a name="centerView">中心ビュー</a></h3>
+<p>現在選択しているフォルダ／ファイルを表示します。<br>
+同じ階層にあるフォルダやフォルダも一覧で表示します。</p>
+<h3><a name="currentSelection">選択</a></h3>
+<p>中心ビュー内に、選択状態で表示されているものが、現在選択しているフォルダ／ファイルになります。</p>
+<h3><a name="rightView">右ビュー</a></h3>
+<p>現在選択している対象がファイルの場合、ファイルの詳細データが表示されます。</p>
+<p>現在選択している対象がフォルダの場合、その中にあるフォルダやファイルを一覧で表示します。</p>
+<p>このエリアでフォルダやファイルを選択すると、 今までこの右ビューで表示されていたものが中心ビューに移動します。<br>
+選択したフォルダのサブフォルダや、ファイルの詳細がこの右ビューに表示されます。</p>
+<h3><a name="previousSelection">履歴</a></h3>
+<p>右ビュー内に、選択した履歴を薄い色で表示します。</p>
+<p>中心ビューで、現在選択している対象がフォルダの場合、その中にあるフォルダで以前に選択されたフォルダ／ファイルが、薄い色で選択状態になります。<br>
+選択した履歴がない場合は、一番上のものが薄い色で選択状態になります。</p>
+<h3><a name="fileType">ファイルタイプ</a></h3>
+<p>ファイルの種類を限定する場合に、ファイルタイプが表示されています。<br>
+例えば、「分子ファイル」の場合は、拡張子が「*.mol」のファイルのみが一覧されるようになります。<br>
+プルダウンボタンを押して、「すべてのファイル」項目を選択すると、全てのファイルを一覧することができます。</p>
+<h3><a name="tailFileName">入力フォルダ／ファイル名</a></h3>
+<p>フォルダ／ファイル名を指定して保存する場合に、生成するフォルダ／ファイル名が表示されています。<br>
+デフォルトで現在の年月日等が入力されているはずですが、 変更する場合は、ここで編集してから承認ボタンを押します。</p>
+<p>生成する場所は、現在パスで表示されているフォルダになります。<br>
+現在パスに、ファイルが表示されている場合は、そのファイルが格納されているフォルダに生成されます。</p>
+<hr>
+<h2><a name="ShortCutKeyCommand">ショートカットキーコマンド</a></h2>
+<p>フォルダ・ファイル選択のウィンドウを選択している時に、 下表のキーボードショートカットが使用できます。<br>
+※ 106 かな漢字キーボード対応</p>
+<h3><a name="SpecialKeyCommand">特殊キー</a></h3>
+<table summary="table" border="1" cellpadding="10" cellspacing="0" width="100%">
+  <tbody>
+    <tr>
+      <th nowrap>←</th>
+      <td>左ビューで選択されているものを、中心ビューで選択状態にします。<br>
+      （上位階層へ移動）</td>
+    </tr>
+    <tr>
+      <th nowrap>→</th>
+      <td>右ビューで選択されているものを、中心ビューで選択状態にします。<br>
+      （下位階層へ移動）</td>
+    </tr>
+    <tr>
+      <th nowrap>↑</th>
+      <td>中心ビューで選択されているものの真上にリストされているものを、選択状態にします。</td>
+    </tr>
+    <tr>
+      <th nowrap>↓</th>
+      <td>中心ビューで選択されているものの真下にリストされているものを、選択状態にします。</td>
+    </tr>
+  </tbody>
+</table>
+<h3><a name="AlphabetKeyCommand">アルファベット</a></h3>
+<p>フォルダ／ファイル名の頭文字にマッチするものを選択します。</p>
+<table summary="table" border="1" cellpadding="10" cellspacing="0" width="100%">
+  <tbody>
+    <tr>
+      <th nowrap><br>
+      </th>
+      <td>中心ビューで、選択しているものよりも<strong>下</strong>にリストされているものが対象となります。</td>
+    </tr>
+    <tr>
+      <th nowrap>[Shift]+</th>
+      <td>中心ビューで、選択しているものよりも<strong>上</strong>にリストされているものが対象となります。</td>
+    </tr>
+  </tbody>
+</table>
+<hr>
+<p class="align-right"><a href="#TOP">このページの TOP へ</a></p>
+</body>
+</html>

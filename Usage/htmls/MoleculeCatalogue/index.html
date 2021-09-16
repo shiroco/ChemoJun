@@ -1,0 +1,27 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<title>分子カタログ（ChemoJunMoleculeCatalogue）</title>
+</head>
+<body bgcolor="#ffffff">
+<h2>分子カタログ（ChemoJunMoleculeCatalogue）</h2>
+<p>分子カタログのMVC（ChemoJunMoleculeCatalogue, ChemoJunMoleculeCatalogueView, ChemoJunMoleculeCatalogueController）は、じゅんのアプリケーションモデル(JunApplicationModel）、2次元のスクロールを司るビュー（ScrollingView）、右ボタンメニューを操るコントローラ（JunAbstractControllerWithMenu）を継承して構成されています。</p>
+<center>
+<table border="0" cellpadding="8">
+  <tbody>
+    <tr>
+      <td align="center"><a href="htmls/map.html" target="_blank"><img src="thumbnails/MoleculeCatalogue.jpg" width="260" height="311" border="0" align="middle"></a></td>
+      <td rowspan="2"><a href="images/MoleculeCatalogue1.jpg" target="_blank"><img src="thumbnails/MoleculeCatalogue1.jpg" width="288" height="312" border="0"></a></td>
+    </tr>
+    <tr>
+      <td align="center" valign="middle">分子カタログの構造</td>
+    </tr>
+  </tbody>
+</table>
+</center>
+<p>モデルである分子カタログは、複数のカタログエレメント（ChemoJunCatalogueElement）ないしは無効な空エレメント（ChemoJunCatalogueVoid）を抱えて、一覧を描き出します。ひとつのカタログエレメントは、縮小画像であるイメージと分子ファイル（モルファイル）を保持しています。縮小画像の上でダブルクリックされると、対応する分子ファイルをたどり、分子ビューアを開きにゆくわけです。</p>
+<hr>
+</body>
+</html>

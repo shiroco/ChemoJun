@@ -1,0 +1,200 @@
+<HTML>
+<HEAD>
+<TITLE>ChemoJunAbstractFileWriter</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<A HREF="../index.html#ChemoJunAbstractFileWriter"><IMG SRC="../images/index.jpg" ALT="index" ALIGN="top" BORDER=1></A>
+<A HREF="../xrefsC.html#ChemoJunAbstractFileWriter"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+2006/08/08 17:41:24
+<HR>
+<!-- (class_name) { -->
+<H2>
+<A NAME="Class.ChemoJunAbstractFileWriter">ChemoJunAbstractFileWriter</A>
+</H2>
+<!-- } (class_name) -->
+<!-- (comment) { -->
+<P>
+<A NAME="Comment.ChemoJunAbstractFileWriter">
+ChemoJun050 (2006/08/08) Copyright 2002-2006 National Institute of Informatics, Research Organization of Information and Systems.
+</A>
+</P>
+<!-- } (comment) -->
+<!-- (category) { -->
+<P>
+<A NAME="Category.ChemoJun-Abstract-Objects"><I>category:</I></A></P>
+<UL>
+<LI><B>
+ChemoJun-Abstract-Objects
+</B>
+<A HREF="../xrefsC.html#ChemoJun-Abstract-Objects"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+</UL>
+<!-- } (category) -->
+<!-- (inheritance) { -->
+<P>
+<A NAME="Inheritance.ChemoJunAbstractFileWriter"><I>inheritance:</I></A>
+</P>
+<UL>
+<LI TYPE="square">Object
+<UL>
+<LI TYPE="square"><A HREF="ChemoJunAbstractFile.html">ChemoJunAbstractFile</A>
+<UL>
+<LI TYPE="square"><B>ChemoJunAbstractFileWriter</B>
+<UL>
+<LI TYPE="square"><A HREF="ChemoJunMolFileWriter.html">ChemoJunMolFileWriter</A>
+</UL>
+<UL>
+<LI TYPE="square"><A HREF="ChemoJunSdFileWriter.html">ChemoJunSdFileWriter</A>
+</UL>
+</UL>
+</UL>
+</UL>
+<!-- } (inheritance) -->
+<!-- (instance_variables) { -->
+<P>
+<A NAME="InstanceVariables.ChemoJunAbstractFileWriter">
+<I>instance variables:</I>
+</A>
+</P>
+<UL>
+</UL>
+<!-- } (instance_variables) -->
+<!-- (class_instance_variables) { -->
+<P>
+<A NAME="ClassInstanceVariables.ChemoJunAbstractFileWriter">
+<I>class instance variables:</I>
+</A>
+</P>
+<UL>
+</UL>
+<!-- } (class_instance_variables) -->
+<!-- (class_variables) { -->
+<P>
+<A NAME="ClassVariables.ChemoJunAbstractFileWriter">
+<I>class variables:</I>
+</A>
+</P>
+<UL>
+</UL>
+<!-- } (class_variables) -->
+<!-- (pool_variables) { -->
+<P>
+<A NAME="PoolVariables.ChemoJunAbstractFileWriter">
+<I>pool variables:</I>
+</A>
+</P>
+<UL>
+</UL>
+<!-- } (pool_variables) -->
+<!-- (instance_methods) { -->
+<P>
+<A NAME="InstanceMethods.ChemoJunAbstractFileWriter">
+<I>instance methods:</I>
+</A>
+</P>
+<OL>
+<LI><!-- write { -->
+<A NAME="InstanceMethod.write"><B>write</B> <I>[writing]</I></A>
+<A HREF="../xrefsW.html#write"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	| aStream |
+	self fileName isNil ifTrue: [^nil].
+	JunControlUtility 
+		assert: [aStream := self fileName asFilename writeStream]
+		do: [self writeOn: aStream]
+		ensure: [aStream close]</PRE>
+<!-- } write -->
+<LI><!-- writeOn: { -->
+<A NAME="InstanceMethod.writeOn:"><B>writeOn:</B> aStream <I>[writing]</I></A>
+<A HREF="../xrefsW.html#writeOn:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	^self</PRE>
+<!-- } writeOn: -->
+</OL>
+<!-- } (instance_methods) -->
+<!-- (class_methods) { -->
+<P>
+<A NAME="ClassMethods.ChemoJunAbstractFileWriter">
+<I>class methods:</I>
+</A>
+</P>
+<OL>
+<LI><!-- copyright { -->
+<A NAME="ClassMethod.copyright"><B>copyright</B> <I>[copyright]</I></A>
+<A HREF="../xrefsC.html#copyright"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^'ChemoJun050 (2006/08/08) Copyright 2002-2006 National Institute of Informatics, Research Organization of Information and Systems.'</PRE>
+<!-- } copyright -->
+<LI><!-- defaultInitialFileName { -->
+<A NAME="ClassMethod.defaultInitialFileName"><B>defaultInitialFileName</B> <I>[defaults]</I></A>
+<A HREF="../xrefsD.html#defaultInitialFileName"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^nil</PRE>
+<!-- } defaultInitialFileName -->
+<LI><!-- defaultRequestMessageString { -->
+<A NAME="ClassMethod.defaultRequestMessageString"><B>defaultRequestMessageString</B> <I>[defaults]</I></A>
+<A HREF="../xrefsD.html#defaultRequestMessageString"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^(#jun_Input_a_file_ &gt;&gt; 'Input a file.') asString</PRE>
+<!-- } defaultRequestMessageString -->
+<LI><!-- request: { -->
+<A NAME="ClassMethod.request:"><B>request:</B> messageString <I>[utilities]</I></A>
+<A HREF="../xrefsR.html#request:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	&quot;ChemoJunAbstractFileWriter request: ChemoJunAbstractFileWriter defaultRequestMessageString.&quot;
+
+	^self request: messageString initialFileName: self defaultInitialFileName</PRE>
+<!-- } request: -->
+<LI><!-- request:initialFileName: { -->
+<A NAME="ClassMethod.request:initialFileName:"><B>request:</B> messageString <B>initialFileName:</B> initialFileName <I>[utilities]</I></A>
+<A HREF="../xrefsR.html#request:initialFileName:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	&quot;ChemoJunAbstractFileWriter request: ChemoJunAbstractFileWriter defaultRequestMessageString initialFileName: 'filename'.&quot;
+
+	| aFilename aWriter |
+	aFilename := ChemoJunFileRequesterDialog requestNewFilename: messageString
+				initialFilename: initialFileName.
+	aFilename isNil ifTrue: [^nil].
+	aWriter := self new.
+	aWriter fileName: aFilename.
+	^aWriter</PRE>
+<!-- } request:initialFileName: -->
+<LI><!-- requestInitialFileName: { -->
+<A NAME="ClassMethod.requestInitialFileName:"><B>requestInitialFileName:</B> initialFileName <I>[utilities]</I></A>
+<A HREF="../xrefsR.html#requestInitialFileName:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	&quot;ChemoJunAbstractFileWriter requestInitialFileName: 'filename'.&quot;
+
+	^self request: self defaultRequestMessageString
+		initialFileName: initialFileName</PRE>
+<!-- } requestInitialFileName: -->
+<LI><!-- system { -->
+<A NAME="ClassMethod.system"><B>system</B> <I>[copyright]</I></A>
+<A HREF="../xrefsS.html#system"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^'ChemoJun'</PRE>
+<!-- } system -->
+<LI><!-- version { -->
+<A NAME="ClassMethod.version"><B>version</B> <I>[copyright]</I></A>
+<A HREF="../xrefsV.html#version"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^'050'</PRE>
+<!-- } version -->
+</OL>
+<!-- } (class_methods) -->
+<HR>
+<A HREF="../index.html#ChemoJunAbstractFileWriter"><IMG SRC="../images/index.jpg" ALT="index" ALIGN="top" BORDER=1></A>
+<A HREF="../xrefsC.html#ChemoJunAbstractFileWriter"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<!-- This Document was generated by JunEncyclopedia. -->
+<!-- JunEncyclopedia was developed by AOKI Atsushi. -->
+</BODY>
+</HTML>

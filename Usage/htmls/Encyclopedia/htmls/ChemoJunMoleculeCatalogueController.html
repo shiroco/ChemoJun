@@ -1,0 +1,410 @@
+<HTML>
+<HEAD>
+<TITLE>ChemoJunMoleculeCatalogueController</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<A HREF="../index.html#ChemoJunMoleculeCatalogueController"><IMG SRC="../images/index.jpg" ALT="index" ALIGN="top" BORDER=1></A>
+<A HREF="../xrefsC.html#ChemoJunMoleculeCatalogueController"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+2006/08/08 17:41:27
+<HR>
+<!-- (class_name) { -->
+<H2>
+<A NAME="Class.ChemoJunMoleculeCatalogueController">ChemoJunMoleculeCatalogueController</A>
+</H2>
+<!-- } (class_name) -->
+<!-- (comment) { -->
+<P>
+<A NAME="Comment.ChemoJunMoleculeCatalogueController">
+ChemoJun050 (2006/08/08) Copyright 2002-2006 National Institute of Informatics, Research Organization of Information and Systems.
+</A>
+</P>
+<!-- } (comment) -->
+<!-- (category) { -->
+<P>
+<A NAME="Category.ChemoJun-Display-Catalogue"><I>category:</I></A></P>
+<UL>
+<LI><B>
+ChemoJun-Display-Catalogue
+</B>
+<A HREF="../xrefsC.html#ChemoJun-Display-Catalogue"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+</UL>
+<!-- } (category) -->
+<!-- (inheritance) { -->
+<P>
+<A NAME="Inheritance.ChemoJunMoleculeCatalogueController"><I>inheritance:</I></A>
+</P>
+<UL>
+<LI TYPE="square">Object
+<UL>
+<LI TYPE="square">Controller
+<UL>
+<LI TYPE="square">ControllerWithMenu
+<UL>
+<LI TYPE="square">JunAbstractControllerWithMenu
+<UL>
+<LI TYPE="square"><B>ChemoJunMoleculeCatalogueController</B>
+</UL>
+</UL>
+</UL>
+</UL>
+</UL>
+<!-- } (inheritance) -->
+<!-- (instance_variables) { -->
+<P>
+<A NAME="InstanceVariables.ChemoJunMoleculeCatalogueController">
+<I>instance variables:</I>
+</A>
+</P>
+<UL>
+</UL>
+<!-- } (instance_variables) -->
+<!-- (class_instance_variables) { -->
+<P>
+<A NAME="ClassInstanceVariables.ChemoJunMoleculeCatalogueController">
+<I>class instance variables:</I>
+</A>
+</P>
+<UL>
+</UL>
+<!-- } (class_instance_variables) -->
+<!-- (class_variables) { -->
+<P>
+<A NAME="ClassVariables.ChemoJunMoleculeCatalogueController">
+<I>class variables:</I>
+</A>
+</P>
+<UL>
+</UL>
+<!-- } (class_variables) -->
+<!-- (pool_variables) { -->
+<P>
+<A NAME="PoolVariables.ChemoJunMoleculeCatalogueController">
+<I>pool variables:</I>
+</A>
+</P>
+<UL>
+</UL>
+<!-- } (pool_variables) -->
+<!-- (instance_methods) { -->
+<P>
+<A NAME="InstanceMethods.ChemoJunMoleculeCatalogueController">
+<I>instance methods:</I>
+</A>
+</P>
+<OL>
+<LI><!-- areaActivity { -->
+<A NAME="InstanceMethod.areaActivity"><B>areaActivity</B> <I>[control activities]</I></A>
+<A HREF="../xrefsA.html#areaActivity"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	| aModel startPoint shapeCollection endPoint aRectangle |
+	aModel := self model.
+	aModel multiSelections ifFalse: [^nil].
+	self sensor shiftDown ifFalse: [aModel selections: Array new].
+	startPoint := self sensor cursorPoint.
+	JunCursors crossCursor showWhile: 
+			[[self sensor anyButtonPressed] whileTrue: 
+					[[self sensor anyButtonPressed and: [self viewHasCursor]] whileTrue: 
+							[shapeCollection := self areaToShapes: startPoint.
+							shapeCollection isEmpty 
+								ifFalse: 
+									[shapeCollection do: 
+											[:shape | 
+											Screen default 
+												displayShape: shape
+												lineWidth: 2
+												at: Point zero
+												forMilliseconds: 40.
+											Processor yield]]].
+					self scrollActivity.
+					shapeCollection := self areaToShapes: startPoint.
+					shapeCollection isEmpty 
+						ifFalse: 
+							[shapeCollection do: 
+									[:shape | 
+									Screen default 
+										displayShape: shape
+										lineWidth: 2
+										at: Point zero
+										forMilliseconds: 40.
+									Processor yield]]]].
+	endPoint := self sensor cursorPoint.
+	aRectangle := Rectangle vertex: startPoint vertex: endPoint.
+	aModel elements do: 
+			[:element | 
+			(element bounds intersects: aRectangle) 
+				ifTrue: [aModel addSelection: element]].
+	aModel redisplay</PRE>
+<!-- } areaActivity -->
+<LI><!-- areaToShapes: { -->
+<A NAME="InstanceMethod.areaToShapes:"><B>areaToShapes:</B> startPoint <I>[private]</I></A>
+<A HREF="../xrefsA.html#areaToShapes:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	| originPoint cursorPoint areaBox viewBox intersectBox lines pointsCollection shapes |
+	originPoint := (self view localPointToGlobal: Point zero) 
+				+ self view topComponent globalOrigin.
+	cursorPoint := self sensor cursorPoint.
+	areaBox := Rectangle vertex: startPoint vertex: cursorPoint.
+	viewBox := self view bounds.
+	intersectBox := areaBox intersect: viewBox.
+	lines := Dictionary new: 4.
+	lines
+		at: #topLine
+			put: (Jun2dLine from: intersectBox topLeft to: intersectBox topRight);
+		at: #rightLine
+			put: (Jun2dLine from: intersectBox topRight to: intersectBox bottomRight);
+		at: #bottomLine
+			put: (Jun2dLine from: intersectBox bottomRight to: intersectBox bottomLeft);
+		at: #leftLine
+			put: (Jun2dLine from: intersectBox bottomLeft to: intersectBox topLeft).
+	areaBox top &lt; viewBox top 
+		ifTrue: [lines removeKey: #topLine ifAbsent: [nil]].
+	areaBox bottom &gt; viewBox bottom 
+		ifTrue: [lines removeKey: #bottomLine ifAbsent: [nil]].
+	areaBox left &lt; viewBox left 
+		ifTrue: [lines removeKey: #leftLine ifAbsent: [nil]].
+	areaBox right &gt; viewBox right 
+		ifTrue: [lines removeKey: #rightLine ifAbsent: [nil]].
+	pointsCollection := OrderedCollection new: lines size.
+	#(#topLine #rightLine #bottomLine #leftLine) do: 
+			[:key | 
+			| line |
+			line := lines at: key ifAbsent: [nil].
+			line ifNotNil: 
+					[| fromPoint toPoint |
+					fromPoint := line from.
+					toPoint := line to.
+					pointsCollection isEmpty 
+						ifTrue: 
+							[pointsCollection add: (OrderedCollection with: fromPoint with: toPoint)]
+						ifFalse: 
+							[| thePoints |
+							thePoints := pointsCollection detect: [:points | points last = fromPoint]
+										ifNone: [nil].
+							thePoints ifNil: 
+									[pointsCollection add: (OrderedCollection with: line from with: line to)]
+								ifNotNil: [thePoints addLast: toPoint]]]].
+	pointsCollection size &gt;= 2 
+		ifTrue: 
+			[| firstPoints lastPoints firstPoint lastPoint |
+			firstPoints := pointsCollection first.
+			lastPoints := pointsCollection last.
+			firstPoint := firstPoints first.
+			lastPoint := lastPoints last.
+			firstPoint = lastPoint 
+				ifTrue: 
+					[lastPoints addAllLast: (firstPoints copyFrom: 2 to: firstPoints size).
+					pointsCollection removeFirst]].
+	shapes := pointsCollection 
+				collect: [:points | points collect: [:point | point asPoint translatedBy: originPoint]].
+	^shapes</PRE>
+<!-- } areaToShapes: -->
+<LI><!-- doubleClickActivity { -->
+<A NAME="InstanceMethod.doubleClickActivity"><B>doubleClickActivity</B> <I>[control activities]</I></A>
+<A HREF="../xrefsD.html#doubleClickActivity"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	| aModel aPoint |
+	aModel := self model.
+	aPoint := self sensor cursorPoint.
+	(aModel which: aPoint) 
+		ifNotNil: [:element | aModel openCatalogueElement: element]</PRE>
+<!-- } doubleClickActivity -->
+<LI><!-- dropActivity { -->
+<A NAME="InstanceMethod.dropActivity"><B>dropActivity</B> <I>[control activities]</I></A>
+<A HREF="../xrefsD.html#dropActivity"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	| aModel aWindow aView aBox |
+	aModel := self model dropTargetCatalogue.
+	aModel ifNil: [^nil].
+	aWindow := aModel getWindow.
+	aWindow ifNil: [^nil].
+	aView := aModel getView.
+	aView ifNil: [^nil].
+	aBox := aView bounds 
+				translatedBy: aWindow globalOrigin + (aView localPointToGlobal: Point zero).
+	Screen default 
+		displayShape: aBox asPointArray
+		lineWidth: 2
+		at: Point zero
+		forMilliseconds: 100.
+	^aModel</PRE>
+<!-- } dropActivity -->
+<LI><!-- grabActivity { -->
+<A NAME="InstanceMethod.grabActivity"><B>grabActivity</B> <I>[control activities]</I></A>
+<A HREF="../xrefsG.html#grabActivity"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	| aModel aPoint |
+	aModel := self model.
+	aPoint := self sensor cursorPoint.
+	(aModel which: aPoint) ifNil: [self areaActivity]
+		ifNotNil: [self moveActivity]</PRE>
+<!-- } grabActivity -->
+<LI><!-- moveActivity { -->
+<A NAME="InstanceMethod.moveActivity"><B>moveActivity</B> <I>[control activities]</I></A>
+<A HREF="../xrefsM.html#moveActivity"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	| aModel aPoint |
+	aModel := self model.
+	aPoint := self sensor cursorPoint.
+	(aModel which: aPoint) ifNotNil: 
+			[:element | 
+			| anImage |
+			JunCursorAnimator handCursor0 showWhile: 
+					[self do: 
+							[(aModel selections includes: element) 
+								ifTrue: 
+									[aModel removeSelection: element.
+									aModel addSelection: element]
+								ifFalse: [aModel selection: element].
+							aModel redisplay.
+							anImage := aModel 
+										asImageOfElements: aModel selections
+										selectionColor: ColorValue blue
+										backgroundColor: aModel backgroundColor]
+						forMilliseconds: 300].
+			JunCursorAnimator handCursor5 showWhile: 
+					[[self sensor anyButtonPressed] whileTrue: 
+							[(JunVisualTransporter load: anImage) 
+								follow: 
+									[self sensor cursorPoint 
+										- ((anImage bounds width - (aModel pixmapExtent x // 2)) 
+												@ (aModel pixmapExtent y // 2))]
+								while: [self sensor anyButtonPressed and: [self viewHasCursor]]
+								on: self view graphicsContext.
+							self dropActivity.
+							self scrollActivity]].
+			aPoint := self sensor cursorPoint.
+			(aModel where: aPoint) 
+				ifNil: [aModel dropElements: aModel selections toCatalogue: self dropActivity]
+				ifNotNil: 
+					[:target | 
+					element = target 
+						ifFalse: [aModel moveElements: aModel selections toElement: target]]]</PRE>
+<!-- } moveActivity -->
+<LI><!-- redButtonActivity { -->
+<A NAME="InstanceMethod.redButtonActivity"><B>redButtonActivity</B> <I>[control defaults]</I></A>
+<A HREF="../xrefsR.html#redButtonActivity"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	| aSymbol |
+	aSymbol := JunSensorUtility checkRedButton.
+	aSymbol = #single ifTrue: [self singleClickActivity].
+	aSymbol = #double ifTrue: [self doubleClickActivity].
+	aSymbol = #grab ifTrue: [self grabActivity].
+	self sensor waitNoButton</PRE>
+<!-- } redButtonActivity -->
+<LI><!-- scrollActivity { -->
+<A NAME="InstanceMethod.scrollActivity"><B>scrollActivity</B> <I>[control activities]</I></A>
+<A HREF="../xrefsS.html#scrollActivity"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	| point box amount |
+	self viewHasCursor ifTrue: [^nil].
+	point := self sensor cursorPoint.
+	box := self view bounds.
+	amount := Point zero.
+	point x &lt; box left ifTrue: [amount x: box left - point x].
+	point x &gt; box right ifTrue: [amount x: box right - point x].
+	point y &lt; box top ifTrue: [amount y: box top - point y].
+	point y &gt; box bottom ifTrue: [amount y: box bottom - point y].
+	amount = Point zero ifTrue: [^nil].
+	self do: 
+			[self view scrollBy: amount.
+			self model redisplay]
+		forMilliseconds: 50</PRE>
+<!-- } scrollActivity -->
+<LI><!-- singleClickActivity { -->
+<A NAME="InstanceMethod.singleClickActivity"><B>singleClickActivity</B> <I>[control activities]</I></A>
+<A HREF="../xrefsS.html#singleClickActivity"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	| aModel aPoint shiftDown |
+	aModel := self model.
+	aPoint := self sensor cursorPoint.
+	shiftDown := JunSensorUtility shiftDown.
+	(aModel where: aPoint) ifNil: [aModel clearSelections]
+		ifNotNil: 
+			[:element | 
+			element isVoid 
+				ifTrue: [aModel clearSelections]
+				ifFalse: 
+					[aModel multiSelections 
+						ifTrue: 
+							[shiftDown 
+								ifTrue: 
+									[(aModel selections includes: element) 
+										ifTrue: [aModel removeSelection: element]
+										ifFalse: [aModel addSelection: element]]
+								ifFalse: 
+									[(aModel selections includes: element) 
+										ifTrue: 
+											[aModel selections size &lt;= 1 
+												ifTrue: [aModel clearSelections]
+												ifFalse: [aModel selection: element]]
+										ifFalse: [aModel selection: element]]]
+						ifFalse: 
+							[aModel selection = element 
+								ifTrue: [aModel selection: nil]
+								ifFalse: [aModel selection: element]]]].
+	aModel redisplay</PRE>
+<!-- } singleClickActivity -->
+<LI><!-- yellowButtonActivity { -->
+<A NAME="InstanceMethod.yellowButtonActivity"><B>yellowButtonActivity</B> <I>[control defaults]</I></A>
+<A HREF="../xrefsY.html#yellowButtonActivity"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	| aModel aPoint |
+	aModel := self model.
+	aPoint := self sensor cursorPoint.
+	(aModel which: aPoint) ifNotNil: 
+			[:element | 
+			(aModel selections includes: element) 
+				ifFalse: 
+					[aModel selection: element.
+					aModel redisplay]].
+	super yellowButtonActivity</PRE>
+<!-- } yellowButtonActivity -->
+</OL>
+<!-- } (instance_methods) -->
+<!-- (class_methods) { -->
+<P>
+<A NAME="ClassMethods.ChemoJunMoleculeCatalogueController">
+<I>class methods:</I>
+</A>
+</P>
+<OL>
+<LI><!-- copyright { -->
+<A NAME="ClassMethod.copyright"><B>copyright</B> <I>[copyright]</I></A>
+<A HREF="../xrefsC.html#copyright"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^'ChemoJun050 (2006/08/08) Copyright 2002-2006 National Institute of Informatics, Research Organization of Information and Systems.'</PRE>
+<!-- } copyright -->
+<LI><!-- system { -->
+<A NAME="ClassMethod.system"><B>system</B> <I>[copyright]</I></A>
+<A HREF="../xrefsS.html#system"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^'ChemoJun'</PRE>
+<!-- } system -->
+<LI><!-- version { -->
+<A NAME="ClassMethod.version"><B>version</B> <I>[copyright]</I></A>
+<A HREF="../xrefsV.html#version"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^'050'</PRE>
+<!-- } version -->
+</OL>
+<!-- } (class_methods) -->
+<HR>
+<A HREF="../index.html#ChemoJunMoleculeCatalogueController"><IMG SRC="../images/index.jpg" ALT="index" ALIGN="top" BORDER=1></A>
+<A HREF="../xrefsC.html#ChemoJunMoleculeCatalogueController"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<!-- This Document was generated by JunEncyclopedia. -->
+<!-- JunEncyclopedia was developed by AOKI Atsushi. -->
+</BODY>
+</HTML>

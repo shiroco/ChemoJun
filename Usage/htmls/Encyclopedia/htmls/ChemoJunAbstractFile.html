@@ -1,0 +1,420 @@
+<HTML>
+<HEAD>
+<TITLE>ChemoJunAbstractFile</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<A HREF="../index.html#ChemoJunAbstractFile"><IMG SRC="../images/index.jpg" ALT="index" ALIGN="top" BORDER=1></A>
+<A HREF="../xrefsC.html#ChemoJunAbstractFile"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+2006/08/08 17:41:23
+<HR>
+<!-- (class_name) { -->
+<H2>
+<A NAME="Class.ChemoJunAbstractFile">ChemoJunAbstractFile</A>
+</H2>
+<!-- } (class_name) -->
+<!-- (comment) { -->
+<P>
+<A NAME="Comment.ChemoJunAbstractFile">
+ChemoJun050 (2006/08/08) Copyright 2002-2006 National Institute of Informatics, Research Organization of Information and Systems.
+</A>
+</P>
+<!-- } (comment) -->
+<!-- (category) { -->
+<P>
+<A NAME="Category.ChemoJun-Abstract-Objects"><I>category:</I></A></P>
+<UL>
+<LI><B>
+ChemoJun-Abstract-Objects
+</B>
+<A HREF="../xrefsC.html#ChemoJun-Abstract-Objects"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+</UL>
+<!-- } (category) -->
+<!-- (inheritance) { -->
+<P>
+<A NAME="Inheritance.ChemoJunAbstractFile"><I>inheritance:</I></A>
+</P>
+<UL>
+<LI TYPE="square">Object
+<UL>
+<LI TYPE="square"><B>ChemoJunAbstractFile</B>
+<UL>
+<LI TYPE="square"><A HREF="ChemoJunAbstractFileReader.html">ChemoJunAbstractFileReader</A>
+<UL>
+<LI TYPE="square"><A HREF="ChemoJunMolFileReader.html">ChemoJunMolFileReader</A>
+</UL>
+<UL>
+<LI TYPE="square"><A HREF="ChemoJunSdFileReader.html">ChemoJunSdFileReader</A>
+</UL>
+<UL>
+<LI TYPE="square"><A HREF="ChemoJunTextFileReader.html">ChemoJunTextFileReader</A>
+</UL>
+</UL>
+<UL>
+<LI TYPE="square"><A HREF="ChemoJunAbstractFileWriter.html">ChemoJunAbstractFileWriter</A>
+<UL>
+<LI TYPE="square"><A HREF="ChemoJunMolFileWriter.html">ChemoJunMolFileWriter</A>
+</UL>
+<UL>
+<LI TYPE="square"><A HREF="ChemoJunSdFileWriter.html">ChemoJunSdFileWriter</A>
+</UL>
+</UL>
+</UL>
+</UL>
+<!-- } (inheritance) -->
+<!-- (instance_variables) { -->
+<P>
+<A NAME="InstanceVariables.ChemoJunAbstractFile">
+<I>instance variables:</I>
+</A>
+</P>
+<UL>
+<!-- fileName { -->
+<LI><A NAME="InstanceVariable.fileName"><B>fileName</B></A>
+<A HREF="../xrefsF.html#fileName"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<!-- } fileName -->
+</UL>
+<!-- } (instance_variables) -->
+<!-- (class_instance_variables) { -->
+<P>
+<A NAME="ClassInstanceVariables.ChemoJunAbstractFile">
+<I>class instance variables:</I>
+</A>
+</P>
+<UL>
+</UL>
+<!-- } (class_instance_variables) -->
+<!-- (class_variables) { -->
+<P>
+<A NAME="ClassVariables.ChemoJunAbstractFile">
+<I>class variables:</I>
+</A>
+</P>
+<UL>
+</UL>
+<!-- } (class_variables) -->
+<!-- (pool_variables) { -->
+<P>
+<A NAME="PoolVariables.ChemoJunAbstractFile">
+<I>pool variables:</I>
+</A>
+</P>
+<UL>
+</UL>
+<!-- } (pool_variables) -->
+<!-- (instance_methods) { -->
+<P>
+<A NAME="InstanceMethods.ChemoJunAbstractFile">
+<I>instance methods:</I>
+</A>
+</P>
+<OL>
+<LI><!-- a:value: { -->
+<A NAME="InstanceMethod.a:value:"><B>a:</B> argumentString <B>value:</B> aValue <I>[format]</I></A>
+<A HREF="../xrefsA.html#a:value:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	&quot;self new a: '10' value: 'abc'.&quot;
+
+	&quot;self new a: '' value: 'abc'.&quot;
+
+	&quot;self new a: '3' value: 'abcdefgh'.&quot;
+
+	^JunStringUtility a: argumentString value: aValue</PRE>
+<!-- } a:value: -->
+<LI><!-- assert:do:ensure: { -->
+<A NAME="InstanceMethod.assert:do:ensure:"><B>assert:</B> assertBlock <B>do:</B> doBlock <B>ensure:</B> ensureBlock <I>[private]</I></A>
+<A HREF="../xrefsA.html#assert:do:ensure:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	assertBlock value.
+	[doBlock value]
+		ensure: [ensureBlock value]</PRE>
+<!-- } assert:do:ensure: -->
+<LI><!-- baseName { -->
+<A NAME="InstanceMethod.baseName"><B>baseName</B> <I>[accessing]</I></A>
+<A HREF="../xrefsB.html#baseName"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^ChemoJunAbstractObject baseNameFromFilename: self fileName</PRE>
+<!-- } baseName -->
+<LI><!-- e:value: { -->
+<A NAME="InstanceMethod.e:value:"><B>e:</B> argumentString <B>value:</B> aValue <I>[format]</I></A>
+<A HREF="../xrefsE.html#e:value:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	^JunStringUtility e: argumentString value: aValue</PRE>
+<!-- } e:value: -->
+<LI><!-- extension { -->
+<A NAME="InstanceMethod.extension"><B>extension</B> <I>[accessing]</I></A>
+<A HREF="../xrefsE.html#extension"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^ChemoJunAbstractObject extensionFromFilename: self fileName</PRE>
+<!-- } extension -->
+<LI><!-- f:value: { -->
+<A NAME="InstanceMethod.f:value:"><B>f:</B> argumentString <B>value:</B> aValue <I>[format]</I></A>
+<A HREF="../xrefsF.html#f:value:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	&quot;self new f: '10.4' value: 1234.567.&quot;
+
+	&quot;self new f: '' value: 1234.567.&quot;
+
+	&quot;self new f: '3' value: 1234.567890.&quot;
+
+	^JunStringUtility f: argumentString value: aValue</PRE>
+<!-- } f:value: -->
+<LI><!-- fileName { -->
+<A NAME="InstanceMethod.fileName"><B>fileName</B> <I>[accessing]</I></A>
+<A HREF="../xrefsF.html#fileName"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^fileName</PRE>
+<!-- } fileName -->
+<LI><!-- fileName: { -->
+<A NAME="InstanceMethod.fileName:"><B>fileName:</B> aFilename <I>[accessing]</I></A>
+<A HREF="../xrefsF.html#fileName:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	fileName := aFilename asFilename</PRE>
+<!-- } fileName: -->
+<LI><!-- format:value: { -->
+<A NAME="InstanceMethod.format:value:"><B>format:</B> aString <B>value:</B> aValue <I>[format]</I></A>
+<A HREF="../xrefsF.html#format:value:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	&quot;self new format: 'a10' value: 'abc'.&quot;
+
+	&quot;self new format: 'f10.4' value: 1234.567.&quot;
+
+	&quot;self new format: 'x10' value: nil.&quot;
+
+	^JunStringUtility format: aString value: aValue</PRE>
+<!-- } format:value: -->
+<LI><!-- getChar: { -->
+<A NAME="InstanceMethod.getChar:"><B>getChar:</B> aStream <I>[private]</I></A>
+<A HREF="../xrefsG.html#getChar:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	^JunStringUtility getChar: aStream</PRE>
+<!-- } getChar: -->
+<LI><!-- getLine: { -->
+<A NAME="InstanceMethod.getLine:"><B>getLine:</B> aStream <I>[private]</I></A>
+<A HREF="../xrefsG.html#getLine:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	^JunStringUtility getLine: aStream</PRE>
+<!-- } getLine: -->
+<LI><!-- i:value: { -->
+<A NAME="InstanceMethod.i:value:"><B>i:</B> argumentString <B>value:</B> aValue <I>[format]</I></A>
+<A HREF="../xrefsI.html#i:value:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	&quot;self new i: '10' value: 1234567.&quot;
+
+	&quot;self new i: '' value: 1234567.&quot;
+
+	&quot;self new i: '3' value: 1234567890.&quot;
+
+	^JunStringUtility i: argumentString value: aValue</PRE>
+<!-- } i:value: -->
+<LI><!-- initialize { -->
+<A NAME="InstanceMethod.initialize"><B>initialize</B> <I>[initialize-release]</I></A>
+<A HREF="../xrefsI.html#initialize"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	fileName := nil</PRE>
+<!-- } initialize -->
+<LI><!-- pathName { -->
+<A NAME="InstanceMethod.pathName"><B>pathName</B> <I>[accessing]</I></A>
+<A HREF="../xrefsP.html#pathName"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^(Filename splitPath: self fileName asString) first</PRE>
+<!-- } pathName -->
+<LI><!-- separate: { -->
+<A NAME="InstanceMethod.separate:"><B>separate:</B> separateCollection <I>[private]</I></A>
+<A HREF="../xrefsS.html#separate:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	^self separate: separateCollection dividers: self separators</PRE>
+<!-- } separate: -->
+<LI><!-- separate:dividers: { -->
+<A NAME="InstanceMethod.separate:dividers:"><B>separate:</B> separateCollection <B>dividers:</B> dividerCollection <I>[private]</I></A>
+<A HREF="../xrefsS.html#separate:dividers:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	^JunStringUtility separate: separateCollection dividers: dividerCollection</PRE>
+<!-- } separate:dividers: -->
+<LI><!-- separators { -->
+<A NAME="InstanceMethod.separators"><B>separators</B> <I>[private]</I></A>
+<A HREF="../xrefsS.html#separators"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	| stream |
+	stream := WriteStream on: (String new: 10).
+	stream nextPut: Character space.
+	stream nextPut: Character tab.
+	stream nextPut: Character cr.
+	stream nextPut: Character lf.
+	^stream contents</PRE>
+<!-- } separators -->
+<LI><!-- setFileName: { -->
+<A NAME="InstanceMethod.setFileName:"><B>setFileName:</B> aFilename <I>[private]</I></A>
+<A HREF="../xrefsS.html#setFileName:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	fileName := aFilename</PRE>
+<!-- } setFileName: -->
+<LI><!-- skipSeparators: { -->
+<A NAME="InstanceMethod.skipSeparators:"><B>skipSeparators:</B> aString <I>[private]</I></A>
+<A HREF="../xrefsS.html#skipSeparators:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	&quot;self new skipSeparators: '    zzz'.&quot;
+
+	| subString |
+	subString := aString copyFrom: 1 to: aString size.
+	[subString isEmpty not and: [subString first isSeparator]] 
+		whileTrue: [subString := subString copyFrom: 2 to: subString size].
+	^subString</PRE>
+<!-- } skipSeparators: -->
+<LI><!-- x: { -->
+<A NAME="InstanceMethod.x:"><B>x:</B> argumentString <I>[format]</I></A>
+<A HREF="../xrefsX.html#x:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	&quot;self new x: '10'.&quot;
+
+	&quot;self new x: ''.&quot;
+
+	^JunStringUtility x: argumentString</PRE>
+<!-- } x: -->
+<LI><!-- z:value: { -->
+<A NAME="InstanceMethod.z:value:"><B>z:</B> argumentString <B>value:</B> fixedPointValue <I>[format]</I></A>
+<A HREF="../xrefsZ.html#z:value:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	&quot;ChemoJunAbstractFile new z: '10.4' value: 1234.567s.&quot;
+
+	&quot;ChemoJunAbstractFile new z: '' value: 1234.567s.&quot;
+
+	&quot;ChemoJunAbstractFile new z: '3' value: 1234.567890s.&quot;
+
+	&quot;ChemoJunAbstractFile new z: '10.4' value: 1s.&quot;
+
+	| collection length decimal string stream index |
+	collection := JunStringUtility separate: argumentString
+				dividers: JunStringUtility separators , '.'.
+	collection isEmpty 
+		ifTrue: 
+			[length := 10.
+			decimal := 4]
+		ifFalse: 
+			[length := collection first asNumber.
+			decimal := collection last asNumber].
+	string := fixedPointValue printString copyUpTo: $s.
+	index := string findFirst: [:c | c = $.].
+	index &lt; 1 ifTrue: [index := string size + 1].
+	decimal - (string size - index) timesRepeat: [string := string , ' '].
+	JunControlUtility 
+		assert: [stream := String new writeStream]
+		do: 
+			[length - string size timesRepeat: [stream nextPut: Character space].
+			stream nextPutAll: (string copyFrom: 1 to: (length min: string size)).
+			string := stream contents]
+		ensure: [stream close].
+	^string</PRE>
+<!-- } z:value: -->
+</OL>
+<!-- } (instance_methods) -->
+<!-- (class_methods) { -->
+<P>
+<A NAME="ClassMethods.ChemoJunAbstractFile">
+<I>class methods:</I>
+</A>
+</P>
+<OL>
+<LI><!-- copyright { -->
+<A NAME="ClassMethod.copyright"><B>copyright</B> <I>[copyright]</I></A>
+<A HREF="../xrefsC.html#copyright"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^'ChemoJun050 (2006/08/08) Copyright 2002-2006 National Institute of Informatics, Research Organization of Information and Systems.'</PRE>
+<!-- } copyright -->
+<LI><!-- defaultFileDescriptions { -->
+<A NAME="ClassMethod.defaultFileDescriptions"><B>defaultFileDescriptions</B> <I>[defaults]</I></A>
+<A HREF="../xrefsD.html#defaultFileDescriptions"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^Array with: (Array with: (#jun_All_files &gt;&gt; 'All files') asString)</PRE>
+<!-- } defaultFileDescriptions -->
+<LI><!-- defaultFilePatterns { -->
+<A NAME="ClassMethod.defaultFilePatterns"><B>defaultFilePatterns</B> <I>[defaults]</I></A>
+<A HREF="../xrefsD.html#defaultFilePatterns"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^Array with: #('*')</PRE>
+<!-- } defaultFilePatterns -->
+<LI><!-- defaultRequestMessageString { -->
+<A NAME="ClassMethod.defaultRequestMessageString"><B>defaultRequestMessageString</B> <I>[defaults]</I></A>
+<A HREF="../xrefsD.html#defaultRequestMessageString"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^self subclassResponsibility</PRE>
+<!-- } defaultRequestMessageString -->
+<LI><!-- fileName: { -->
+<A NAME="ClassMethod.fileName:"><B>fileName:</B> aFilename <I>[instance creation]</I></A>
+<A HREF="../xrefsF.html#fileName:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	^(self new)
+		fileName: aFilename;
+		yourself</PRE>
+<!-- } fileName: -->
+<LI><!-- new { -->
+<A NAME="ClassMethod.new"><B>new</B> <I>[instance creation]</I></A>
+<A HREF="../xrefsN.html#new"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^(super new)
+		initialize;
+		yourself</PRE>
+<!-- } new -->
+<LI><!-- request { -->
+<A NAME="ClassMethod.request"><B>request</B> <I>[utilities]</I></A>
+<A HREF="../xrefsR.html#request"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^self request: self defaultRequestMessageString</PRE>
+<!-- } request -->
+<LI><!-- request: { -->
+<A NAME="ClassMethod.request:"><B>request:</B> messageString <I>[utilities]</I></A>
+<A HREF="../xrefsR.html#request:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	^self subclassResponsibility</PRE>
+<!-- } request: -->
+<LI><!-- system { -->
+<A NAME="ClassMethod.system"><B>system</B> <I>[copyright]</I></A>
+<A HREF="../xrefsS.html#system"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^'ChemoJun'</PRE>
+<!-- } system -->
+<LI><!-- version { -->
+<A NAME="ClassMethod.version"><B>version</B> <I>[copyright]</I></A>
+<A HREF="../xrefsV.html#version"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^'050'</PRE>
+<!-- } version -->
+</OL>
+<!-- } (class_methods) -->
+<HR>
+<A HREF="../index.html#ChemoJunAbstractFile"><IMG SRC="../images/index.jpg" ALT="index" ALIGN="top" BORDER=1></A>
+<A HREF="../xrefsC.html#ChemoJunAbstractFile"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<!-- This Document was generated by JunEncyclopedia. -->
+<!-- JunEncyclopedia was developed by AOKI Atsushi. -->
+</BODY>
+</HTML>

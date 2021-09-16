@@ -1,0 +1,493 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<link rel="stylesheet" href="../importstyle.css" type="text/css">
+<link rev="made" href="http://www.sra.co.jp/people/h-asaoka/">
+<link rel="index" href="index.html">
+<link rel="shortcut icon" href="../ChemoJun.ico">
+<title>ChemoJunMoleculeCatalogue</title>
+</head>
+<body>
+<p class="align-right">2006年08月08日 文責：<a name="TOP" href="http://www.sra.co.jp/people/h-asaoka/" target="_blank">浅岡 浩子</a></p>
+<hr>
+<h1>分子カタログ</h1>
+<p>もくじ：</p>
+<ul>
+  <li><a href="#About">分子カタログとは</a>
+  <li><a href="#Open">分子カタログを開く</a>
+  <li><a href="#Screen">画面</a>
+  <li><a href="#ControlActivities">操作</a>
+  <ul>
+    <li><a href="#Selection_Click">選択</a>
+    <li><a href="#Selection_Area">領域選択</a>
+    <li><a href="#Scroll">スクロール</a>
+    <li><a href="#Move">移動</a>
+    <li><a href="#OpenViewer">分子ビューア</a>
+  </ul>
+  <li><a href="#Menu">メニュー</a>
+  <ul>
+    <li><a href="#File">ファイル</a>
+    <ul>
+      <li><a href="#File_New">新規</a>
+      <li><a href="#File_Select-Directory">ディレクトリ選択</a>
+      <li><a href="#File_Open-Catalogue-File">カタログファイルを開く</a>
+      <li><a href="#File_Open-SD-File">SDファイルを開く</a>
+      <li><a href="#File_Save-Catalogue-File">カタログファイルを保存</a>
+      <li><a href="#File_Save-as-Catalogue-File">カタログファイルを別に保存</a>
+      <li><a href="#File_Save-as-SD-File">SDファイルとして保存</a>
+      <li><a href="#File_Save-as-Image">画像として保存</a>
+      <li><a href="#File_Save-as-HTML">HTMLとして保存</a>
+      <li><a href="#File_Quit">終了</a>
+    </ul>
+    <li><a href="#Edit">編集</a>
+    <ul>
+      <li><a href="#Edit_Open-Molecular-Viewer">分子ビューアを開く</a>
+      <li><a href="#Edit_Remove">削除</a>
+      <li><a href="#Edit_Select-All">すべてを選択</a>
+    </ul>
+    <li><a href="#View">表示</a>
+    <ul>
+      <li><a href="#View_Indexes">番号表示</a>
+      <li><a href="#View_File-Name">ファイル名表示</a>
+      <li><a href="#View_Column-Size">列数</a>
+      <li><a href="#View_Condense">詰める</a>
+    </ul>
+    <li><a href="#Misc">その他</a>
+    <ul>
+      <li><a href="#Misc_Manual">使用手引き</a>
+      <li><a href="#Misc_Inspect">検査</a>
+    </ul>
+  </ul>
+</ul>
+<hr>
+<h2><a name="About">分子カタログとは</a></h2>
+<p>分子カタログは、分子構造のサムネイル（縮小画像）を一覧で表示します。<br>
+サムネイルから分子ビューアを開くこともできます。</p>
+<hr>
+<h2><a name="Open">分子カタログを開く</a></h2>
+<p>空の分子カタログを開くには、 ケモじゅんランチャー の 「Tools」-&gt;「Molecular Catalogue」メニューを選択します。<br>
+分子カタログで「File」-&gt;「Select Directory」メニューを選択して、分子ファイルが格納されている好きなフォルダを選んでください。</p>
+<p><a href="images/Launcher_Tools_Molecular-Catalogue.jpg"><img src="thumbnails/Launcher_Tools_Molecular-Catalogue_jpg.jpg" width="100" height="74" border="1" alt="Launcher_Tools_Molecular-Catalogue_jpg.jpg"></a> <a href="images/Molecular-Catalogue_New.jpg"><img src="thumbnails/Molecular-Catalogue_New_jpg.jpg" width="100" height="86" border="1" alt="Molecular-Catalogue_New_jpg.jpg"></a> <a href="images/File_Select-Directory_01.jpg"><img src="thumbnails/File_Select-Directory_01_jpg.jpg" width="100" height="86" alt="File_Select-Directory_01_jpg.jpg"></a> <a href="images/File_Select-Directory_02.jpg"><img src="thumbnails/File_Select-Directory_02_jpg.jpg" width="100" height="60" alt="File_Select-Directory_02_jpg.jpg"></a> <a href="images/File_Select-Directory_03.jpg"><img src="thumbnails/File_Select-Directory_03_jpg.jpg" width="100" height="37" alt="File_Select-Directory_03_jpg.jpg"></a> <a href="images/File_Select-Directory_04.jpg"><img src="thumbnails/File_Select-Directory_04_jpg.jpg" width="100" height="86" alt="File_Select-Directory_04_jpg.jpg"></a></p>
+<p>サンプルデータフォルダ内にある分子ファイルを一覧する場合には、 ケモじゅんランチャー の 「Tools」-&gt;「Molecular Catalogue
+- Select Data」メニューが便利です。<br>
+特定のフォルダ内にあるディレクトリのリストが出てくるので、その中から選んでください。</p>
+<p><a href="images/Launcher_Tools_Molecular-Catalogue---Select-Data_01.jpg"><img src="thumbnails/Launcher_Tools_Molecular-Catalogue---Select-Data_01_jpg.jpg" width="100" height="74" border="1" alt="Launcher_Tools_Molecular-Catalogue---Select-Data_01_jpg.jpg"></a> <a href="images/Launcher_Tools_Molecular-Catalogue---Select-Data_02.jpg"><img src="thumbnails/Launcher_Tools_Molecular-Catalogue---Select-Data_02_jpg.jpg" width="93" height="100" border="1" alt="Launcher_Tools_Molecular-Catalogue---Select-Data_02_jpg.jpg"></a> <a href="images/Launcher_Tools_Molecular-Catalogue---Select-Data_Shift_01_2.jpg"><img src="thumbnails/Launcher_Tools_Molecular-Catalogue---Select-Data_Shift_01_2_jpg.jpg" width="100" height="37" border="1" alt="Launcher_Tools_Molecular-Catalogue---Select-Data_Shift_01_2_jpg.jpg"></a> <a href="images/Molecular-Catalogue_Data.jpg"><img src="thumbnails/Molecular-Catalogue_Data_jpg.jpg" width="100" height="86" border="1" alt="Molecular-Catalogue_Data_jpg.jpg"></a></p>
+<hr>
+<h2><a name="Screen">画面</a></h2>
+<h3>画面説明</h3>
+<p>分子カタログの画面は以下のようになっています。</p>
+<map name="Screen">
+  <area shape="rect" coords="657,69,681,96" href="#A" alt="A">
+  <area shape="rect" coords="658,136,681,163" href="#B" alt="B">
+  <area shape="rect" coords="16,370,38,397" href="#3" alt="3">
+  <area shape="rect" coords="16,75,38,102" href="#1" alt="1">
+  <area shape="rect" coords="10,200,38,227" href="#2" alt="2">
+  <area shape="default" nohref alt="nohref">
+</map>
+<p><img src="map/MolecularCatalogue.jpg" width="691" height="493" border="0" alt="MolecularCatalogue.jpg" usemap="#Screen"></p>
+<ul>
+  <li><a name="1">1</a> : <strong>通常状態のサムネイル</strong><br>
+  分子の縮小画像です。
+  <li><a name="2">2</a> : <strong>選択状態のサムネイル</strong><br>
+  <a href="#Selection_Click">選択</a>, <a href="#Selection_Area">領域選択</a> などで選択出来ます。
+  <li><a name="3">3</a> : <strong>空領域</strong><br>
+  <a href="#Move">移動</a>で作られる場合があります。<br>
+  <a href="#View_Condense">詰める</a>メニューで無くなります。
+  <li><a name="A">A</a> : <strong>分子の表示</strong><br>
+  <a href="#OpenViewer">分子ビューア</a>を開いて、変更出来ます。
+  <li><a name="B">B</a> : <strong>情報の表示</strong><br>
+  <a href="#View_Indexes"><code>番号表示</code></a>, <a href="#View_File-Name"><code>ファイル名表示</code></a>などのメニューで表示／非表示の変更が出来ます。
+</ul>
+<hr>
+<h2><a name="ControlActivities">操作</a></h2>
+<p>マウスやキーで、様々な操作が出来ます。</p>
+<h3><a name="Selection_Click">選択</a></h3>
+<p>クリックすると、選択状態になります。<br>
+選択を解除する場合は、選択されているものを再度クリックするか、分子のサムネイルが表示されていない領域でクリックします。</p>
+<p><a href="images/Selection_single.jpg"><img src="thumbnails/Selection_single_jpg.jpg" width="100" height="51" border="1" alt="Selection_single_jpg.jpg"></a></p>
+<p>[Shift]キーを押しながらクリックすると、複数選択ができます。<br>
+[Shift]キーを押しながら、選択されているものを再度クリックすると、それだけ選択を解除します。</p>
+<p><a href="images/Selection_multi.jpg"><img src="thumbnails/Selection_multi_jpg.jpg" width="100" height="51" border="1" alt="Selection_multi_jpg.jpg"></a></p>
+<h3><a name="Selection_Area">領域選択</a></h3>
+<p>四角形で領域を指定して、複数選択することができます。</p>
+<p>サムネイルが表示されていないところで、マウスを長押しした後でドラッグしてください。<br>
+黒い線で領域が描かれます。<br>
+マウスをはなすと、選択状態になります。<br>
+少しでも領域に入ったものが選択されます。</p>
+<p><a href="images/Selection_Area_01.jpg"><img src="thumbnails/Selection_Area_01_jpg.jpg" width="93" height="100" border="1" alt="Selection_Area_01_jpg.jpg"></a> <a href="images/Selection_Area_02.jpg"><img src="thumbnails/Selection_Area_02_jpg.jpg" width="93" height="100" border="1" alt="Selection_Area_02_jpg.jpg"></a></p>
+<h3><a name="Scroll">スクロール</a></h3>
+<p>矢印キーで、スクロール操作ができます。</p>
+<p>選択しているサムネイルが１つの場合、選択対象が移動し、スクロールも行います。<br>
+その他の場合は、選択状態は変化せず、スクロールのみを行います。</p>
+<h3><a name="Move">移動</a></h3>
+<p>場所を移動することが出来ます。<br>
+サムネイルの上でマウスを長押しします。<br>
+マウスカーソルが握った手の形（<img src="cursors/handCursor5.jpg" width="20" height="20" border="0" alt="handCursor5.jpg">）になり、 移動対象のものが青い枠で表示されます。</p>
+<p><a href="images/Drag_01_single.jpg"><img src="thumbnails/Drag_01_single_jpg.jpg" width="100" height="51" border="1" alt="Drag_01_single_jpg.jpg"></a></p>
+<p>同じウィンドウの中で、移動したい場所へドロップします。</p>
+<p><a href="images/Drag_11.jpg"><img src="thumbnails/Drag_11_jpg.jpg" width="100" height="51" border="1" alt="Drag_11_jpg.jpg"></a></p>
+<p>ドロップした場所に移動します。<br>
+元にあった場所には空きが作られないように詰められます。</p>
+<p><a href="images/Drag_12_normal.jpg"><img src="thumbnails/Drag_12_normal_jpg.jpg" width="100" height="51" border="1" alt="Drag_12_normal_jpg.jpg"></a></p>
+<p>[Shift]キーを押しながらドロップすると、元にあった場所には空きが作られます。</p>
+<p><a href="images/Drag_12_Shift.jpg"><img src="thumbnails/Drag_12_Shift_jpg.jpg" width="100" height="51" border="1" alt="Drag_12_Shift_jpg.jpg"></a></p>
+<p>新しい分子カタログのウィンドウにドロップすることもできます。<br>
+この場合、移動ではなくコピーになりますので、元のウィンドウの状態はそのままです。</p>
+<p><a href="images/Drag_13.jpg"><img src="thumbnails/Drag_13_jpg.jpg" width="100" height="86" border="1" alt="Drag_13_jpg.jpg"></a></p>
+<p>複数選択でも上記の操作が可能です。<br>
+対象のものをすべて移動もしくはコピーします。</p>
+<p><a href="images/Drag_01_multi.jpg"><img src="thumbnails/Drag_01_multi_jpg.jpg" width="100" height="51" border="1" alt="Drag_01_multi_jpg.jpg"></a></p>
+<h3><a name="OpenViewer">分子ビューア</a></h3>
+<p>サムネイルをダブルクリックすると、分子ビューアを開きます。</p>
+<p><a href="images/DoubleClick_01.jpg"><img src="thumbnails/DoubleClick_01_jpg.jpg" width="100" height="100" border="1" alt="DoubleClick_01_jpg.jpg"></a> <a href="images/DoubleClick_02.jpg"><img src="thumbnails/DoubleClick_02_jpg.jpg" width="95" height="100" border="1" alt="DoubleClick_02_jpg.jpg"></a></p>
+<p>開かれた分子ビューアには、カメラボタンがついています。<br>
+分子ビューアで設定や方向を変更した後にカメラボタンを押すと、一覧のサムネイルが更新されます。</p>
+<p><a href="images/CameraButtonAction_01.jpg"><img src="thumbnails/CameraButtonAction_01_jpg.jpg" width="95" height="100" border="1" alt="CameraButtonAction_01_jpg.jpg"></a> <a href="images/CameraButtonAction_02.jpg"><img src="thumbnails/CameraButtonAction_02_jpg.jpg" width="100" height="100" border="1" alt="CameraButtonAction_02_jpg.jpg"></a></p>
+<hr>
+<h2><a name="Menu">メニュー</a></h2>
+<p>ウィンドウの上部にあるメニューです。</p>
+<table summary="table" border="0">
+  <tbody>
+    <tr>
+      <td>
+      <table summary="table" border="1" cellpadding="10" cellspacing="0">
+        <tbody>
+          <tr>
+            <td align="left"><a href="#File"><code>File -&gt;</code></a><br>
+            <a href="#Edit"><code>Edit -&gt;</code></a><br>
+            <a href="#View"><code>View -&gt;</code></a><br>
+            <a href="#Misc"><code>Misc -&gt;</code></a></td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+      <td>
+      <table summary="table" border="1" cellpadding="10" cellspacing="0">
+        <tbody>
+          <tr>
+            <td align="left"><a href="#File"><code>ファイル -&gt;</code></a><br>
+            <a href="#Edit"><code>編集 -&gt;</code></a><br>
+            <a href="#View"><code>表示 -&gt;</code></a><br>
+            <a href="#Misc"><code>その他 -&gt;</code></a></td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<hr>
+<h3><a name="File">File<br>
+ファイル</a></h3>
+<table summary="table" border="0">
+  <tbody>
+    <tr>
+      <td>
+      <table summary="table" border="1" cellpadding="10" cellspacing="0">
+        <tbody>
+          <tr>
+            <td align="left"><a href="#File_New"><code>New</code></a><br>
+            <hr>
+            <a href="#File_Select-Directory"><code>Select Directory</code></a><br>
+            <a href="#File_Open-Catalogue-File"><code>Open Catalogue File</code></a><br>
+            <a href="#File_Open-SD-File"><code>Open SD File</code></a><br>
+            <hr>
+            <a href="#File_Save-Catalogue-File"><code>Save Catalogue File</code></a><br>
+            <a href="#File_Save-as-Catalogue-File"><code>Save as Catalogue File</code></a><br>
+            <a href="#File_Save-as-SD-File"><code>Save as SD File</code></a><br>
+            <hr>
+            <a href="#File_Save-as-Image"><code>Save as Image</code></a><br>
+            <a href="#File_Save-as-HTML"><code>Save as HTML</code></a><br>
+            <hr>
+            <a href="#File_Quit"><code>Quit</code></a></td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+      <td>
+      <table summary="table" border="1" cellpadding="10" cellspacing="0">
+        <tbody>
+          <tr>
+            <td align="left"><a href="#File_New"><code>新規</code></a><br>
+            <hr>
+            <a href="#File_Select-Directory"><code>ディレクトリ選択</code></a><br>
+            <a href="#File_Open-Catalogue-File"><code>カタログファイルを開く</code></a><br>
+            <a href="#File_Open-SD-File"><code>SDファイルを開く</code></a><br>
+            <hr>
+            <a href="#File_Save-Catalogue-File"><code>カタログファイルを保存</code></a><br>
+            <a href="#File_Save-as-Catalogue-File"><code>カタログファイルを別に保存</code></a><br>
+            <a href="#File_Save-as-SD-File"><code>SDファイルとして保存</code></a><br>
+            <hr>
+            <a href="#File_Save-as-Image"><code>画像として保存</code></a><br>
+            <a href="#File_Save-as-HTML"><code>HTMLとして保存</code></a><br>
+            <hr>
+            <a href="#File_Quit"><code>終了</code></a></td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h4><a name="File_New">New<br>
+新規</a></h4>
+<p>新しい空の分子カタログが開きます。</p>
+<p><a href="images/File_New_01.jpg"><img src="thumbnails/File_New_01_jpg.jpg" width="100" height="86" alt="File_New_01_jpg.jpg"></a> <a href="images/File_New_02.jpg"><img src="thumbnails/File_New_02_jpg.jpg" width="100" height="86" alt="File_New_02_jpg.jpg"></a></p>
+<h4><a name="File_Select-Directory">Select Directory<br>
+ディレクトリ選択</a></h4>
+<p>ディレクトリを指定して、その中に格納されている分子ファイルのサムネイルを一覧に表示します。</p>
+<p>ディレクトリを指定するダイアログが現れます。<br>
+ディレクトリを選択して「Accept」ボタンを押します。<br>
+指定したディレクトリの直下に格納されている分子ファイルを読み込んで、一覧に表示します。<br>
+サブフォルダ内にある分子ファイルは対象になりません。</p>
+<p><a href="images/File_Select-Directory_01.jpg"><img src="thumbnails/File_Select-Directory_01_jpg.jpg" width="100" height="86" alt="File_Select-Directory_01_jpg.jpg"></a> <a href="images/File_Select-Directory_02.jpg"><img src="thumbnails/File_Select-Directory_02_jpg.jpg" width="100" height="60" alt="File_Select-Directory_02_jpg.jpg"></a> <a href="images/File_Select-Directory_03.jpg"><img src="thumbnails/File_Select-Directory_03_jpg.jpg" width="100" height="37" alt="File_Select-Directory_03_jpg.jpg"></a> <a href="images/File_Select-Directory_04.jpg"><img src="thumbnails/File_Select-Directory_04_jpg.jpg" width="100" height="86" alt="File_Select-Directory_04_jpg.jpg"></a></p>
+<p>すでに一覧されているウィンドウでメニューを実行すると、サムネイルは追加されます。</p>
+<p><a href="images/File_Select-Directory_11.jpg"><img src="thumbnails/File_Select-Directory_11_jpg.jpg" width="100" height="86" alt="File_Select-Directory_11_jpg.jpg"></a> <a href="images/File_Select-Directory_12.jpg"><img src="thumbnails/File_Select-Directory_12_jpg.jpg" width="100" height="60" alt="File_Select-Directory_12_jpg.jpg"></a> <a href="images/File_Select-Directory_13.jpg"><img src="thumbnails/File_Select-Directory_13_jpg.jpg" width="100" height="37" alt="File_Select-Directory_13_jpg.jpg"></a> <a href="images/File_Select-Directory_14.jpg"><img src="thumbnails/File_Select-Directory_14_jpg.jpg" width="100" height="86" alt="File_Select-Directory_14_jpg.jpg"></a></p>
+<h4><a name="File_Open-Catalogue-File">Open Catalogue File<br>
+カタログファイルを開く</a></h4>
+<p>分子カタログファイルを指定して、サムネイルを一覧に表示します。</p>
+<p>分子カタログファイル（*.catalogue）は、このツール専用のファイルフォーマットです。<br>
+一覧で表示されている分子ファイル（*.mol）のパスや、サムネイルを表示する際の設定などの情報が書かれています。<br>
+このファイルを作成するには、「<a href="#File_Save-Catalogue-File"><code>Save Catalogue File</code></a>」もしくは「 <a href="#File_Save-as-Catalogue-File"><code>Save as Catalogue File</code></a>」を参照してください。<br>
+カタログファイルを保存した時点での分子ファイルへのパスが記述されています。<br>
+元の分子ファイル（*.mol）の場所を変更した場合、保存したときの状態では開かなくなってしまいますので注意してください。</p>
+<p>分子カタログファイル（*.catalogue）を指定するダイアログが現れます。<br>
+ファイルを選択して「Accept」ボタンを押します。</p>
+<p><a href="images/File_Open-Catalogue-File_01.jpg"><img src="thumbnails/File_Open-Catalogue-File_01_jpg.jpg" width="100" height="86" alt="File_Open-Catalogue-File_01_jpg.jpg"></a> <a href="images/File_Open-Catalogue-File_02.jpg"><img src="thumbnails/File_Open-Catalogue-File_02_jpg.jpg" width="100" height="60" alt="File_Open-Catalogue-File_02_jpg.jpg"></a> <a href="images/File_Open-File_03.jpg"><img src="thumbnails/File_Open-File_03_jpg.jpg" width="100" height="37" alt="File_Open-File_03_jpg.jpg"></a> <a href="images/File_Open-Catalogue-File_04.jpg"><img src="thumbnails/File_Open-Catalogue-File_04_jpg.jpg" width="51" height="100" alt="File_Open-Catalogue-File_04_jpg.jpg"></a></p>
+<p>すでに一覧されているウィンドウでメニューを実行すると、前に一覧されているサムネイルは削除されます。</p>
+<h4><a name="File_Open-SD-File">Open SD File<br>
+SDファイルを開く</a></h4>
+<p>SDファイルを指定して、それぞれの分子を一覧に表示します。</p>
+<p>SDファイル（*.sd）を指定するダイアログが現れます。<br>
+ファイルを選択して「Accept」ボタンを押します。</p>
+<p><a href="images/File_Open-SD-File_01.jpg"><img src="thumbnails/File_Open-SD-File_01_jpg.jpg" width="100" height="86" alt="File_Open-SD-File_01_jpg.jpg"></a> <a href="images/File_Open-SD-File_02.jpg"><img src="thumbnails/File_Open-SD-File_02_jpg.jpg" width="100" height="60" alt="File_Open-SD-File_02_jpg.jpg"></a> <a href="images/File_Open-File_03.jpg"><img src="thumbnails/File_Open-File_03_jpg.jpg" width="100" height="37" alt="File_Open-File_03_jpg.jpg"></a> <a href="images/File_Open-SD-File_04.jpg"><img src="thumbnails/File_Open-SD-File_04_jpg.jpg" width="100" height="86" alt="File_Open-SD-File_04_jpg.jpg"></a></p>
+<p>カタログファイル（*.catalogue）を開くと、スティック表示やスペースフィル表示などの設定情報が再現されますが、 SDファイル（*.sd）では、デフォルトの設定で一覧表示されます。</p>
+<p>SDファイルを開くと、SDファイルのあるディレクトリに、SDファイルを分割した分子ファイル（*.mol）を自動的に作成します。</p>
+<p><img src="originals/File_Open-SD-File_11.jpg" width="212" height="101" alt="File_Open-SD-File_11.jpg"></p>
+<p>分子カタログでは、この時に作成される *.mol ファイルを参照してサムネイルを作成したり、分子ビューアを開きます。<br>
+分子カタログを利用した後、同じように分子カタログを利用したり、これらのファイルを再度利用する必要がない場合には、削除してください。</p>
+<p>すでに一覧されているウィンドウでメニューを実行すると、前に一覧されているサムネイルは削除されます。</p>
+<h4><a name="File_Save-Catalogue-File">Save Catalogue File<br>
+カタログファイルを保存</a></h4>
+<p>分子カタログの状態を保存します。<br>
+現在開いている化学カタログファイル（*.catalogue）に上書き保存します。</p>
+<p>化学カタログのウィンドウラベルにファイル名が表示されていない場合は、化学カタログファイル名が決定されていません。<br>
+この場合は、このメニューを選んでも、 下記の「<a href="#File_Save-as-Catalogue-File">Save as Catalogue File</a>」と同様の処理になります。</p>
+<h4><a name="File_Save-as-Catalogue-File">Save as Catalogue File<br>
+カタログファイルを別に保存</a></h4>
+<p>分子カタログの状態を、ファイル名を指定して保存します。<br>
+各々の視点方向や表示設定などの情報も保存されます。<br>
+初期状態ではない一覧方法を覚えておく場合に分子カタログファイルを保存しておくと良いでしょう。</p>
+<p>分子カタログファイル（*.catalogue）を入力するダイアログが現れます。<br>
+ファイル名を入力して「Accept」ボタンを押します。<br>
+デフォルトのファイル名は、[年月日時分秒].catalogueです。<br>
+保存すると、ファイル名がウィンドウラベルに表示されます。</p>
+<p><a href="images/File_Save-as-Catalogue-File_01.jpg"><img src="thumbnails/File_Save-as-Catalogue-File_01_jpg.jpg" width="51" height="100" alt="File_Save-as-Catalogue-File_01_jpg.jpg"></a> <a href="images/File_Save-as-Catalogue-File_02.jpg"><img src="thumbnails/File_Save-as-Catalogue-File_02_jpg.jpg" width="100" height="60" alt="File_Save-as-Catalogue-File_02_jpg.jpg"></a> <a href="images/File_Open-Catalogue-File_04.jpg"><img src="thumbnails/File_Open-Catalogue-File_04_jpg.jpg" width="51" height="100" alt="File_Open-Catalogue-File_04_jpg.jpg"></a></p>
+<p>すでに存在するファイル名に保存しようとすると、ダイアログで警告が出ます。<br>
+上書きしないようにする場合は、一度保存を中断して、 違うディレクトリを指定しなおすか、ファイル名を変更してください。</p>
+<p><a href="images/File_Save-as-Catalogue-File_11.jpg"><img src="thumbnails/File_Save-as-Catalogue-File_11_jpg.jpg" width="100" height="22" alt="File_Save-as-Catalogue-File_11_jpg.jpg"></a></p>
+<p><a href="samples/ala.catalogue">保存される分子カタログファイルのサンプル</a></p>
+<h4><a name="File_Save-as-SD-File">Save as SD File<br>
+SDファイルとして保存</a></h4>
+<p>分子カタログに一覧されている分子を、SDファイル（MDLmolファイルのマルチファイル形式）で保存します。</p>
+<p>SDファイル（*.sd）を入力するダイアログが現れます。<br>
+ファイル名を入力して「Accept」ボタンを押します。<br>
+デフォルトのファイル名は、[年月日時分秒].sdです。</p>
+<p><a href="images/File_Save-as-SD-File_01.jpg"><img src="thumbnails/File_Save-as-SD-File_01_jpg.jpg" width="51" height="100" alt="File_Save-as-SD-File_01_jpg.jpg"></a> <a href="images/File_Save-as-SD-File_02.jpg"><img src="thumbnails/File_Save-as-SD-File_02_jpg.jpg" width="100" height="60" alt="File_Save-as-SD-File_02_jpg.jpg"></a></p>
+<p><a href="samples/ala.sd">保存される SDファイルのサンプル</a></p>
+<h4><a name="File_Save-as-Image">Save as Image<br>
+画像として保存</a></h4>
+<p>一覧に表示されている状態の画像ファイルを作成します。</p>
+<p>画像ファイル（*.jpg）を入力するダイアログが現れます。<br>
+ファイル名を入力して「Accept」ボタンを押します。<br>
+デフォルトのファイル名は、[年月日時分秒].jpgです。</p>
+<p><a href="images/File_Save-as-Image_01.jpg"><img src="thumbnails/File_Save-as-Image_01_jpg.jpg" width="51" height="100" alt="File_Save-as-Image_01_jpg.jpg"></a> <a href="images/File_Save-as-Image_02.jpg"><img src="thumbnails/File_Save-as-Image_02_jpg.jpg" width="100" height="60" alt="File_Save-as-Image_02_jpg.jpg"></a></p>
+<p>作成した場所を忘れないようにしましょう。</p>
+<p><a href="images/yyyymmddhhmmss_sample.jpg"><img src="thumbnails/yyyymmddhhmmss_sample_jpg.jpg" width="67" height="100" alt="yyyymmddhhmmss_sample_jpg.jpg"><br>
+保存される画像のサンプル</a></p>
+<p>[Shift] キーもしくは [Alt] キーを押しながらメニューを選択すると、グレースケールの画像を作成します。</p>
+<p><a href="images/yyyymmddhhmmss_gray.jpg"><img src="thumbnails/yyyymmddhhmmss_gray_jpg.jpg" width="67" height="100" alt="yyyymmddhhmmss_gray_jpg.jpg"><br>
+保存されるグレースケールの画像のサンプル</a></p>
+<h4><a name="File_Save-as-HTML">Save as HTML<br>
+HTMLとして保存</a></h4>
+<p>一覧に表示されている状態のHTMLファイルを作成します。</p>
+<p>ディレクトリを入力するダイアログが現れます。<br>
+保存するディレクトリ名を入力して「Accept」ボタンを押します。<br>
+デフォルトのディレクトリ名は、[年月日時分秒]です。</p>
+<p><a href="images/File_Save-as-HTML_01.jpg"><img src="thumbnails/File_Save-as-HTML_01_jpg.jpg" width="51" height="100" alt="File_Save-as-HTML_01_jpg.jpg"></a> <a href="images/File_Save-as-HTML_02.jpg"><img src="thumbnails/File_Save-as-HTML_02_jpg.jpg" width="100" height="60" alt="File_Save-as-HTML_02_jpg.jpg"></a> <a href="images/File_Save-as-HTML_03.jpg"><img src="thumbnails/File_Save-as-HTML_03_jpg.jpg" width="100" height="37" alt="File_Save-as-HTML_03_jpg.jpg"></a></p>
+<p>作成後は、自動的にウェブブラウザで表示されます。</p>
+<p><a href="samples/yyyymmddhhmmss/index.html">保存されるHTMLのサンプル</a></p>
+<h4><a name="File_Quit">Quit<br>
+終了</a></h4>
+<p>ウィンドウを閉じます。</p>
+<hr>
+<h3><a name="Edit">Edit<br>
+編集</a></h3>
+<table summary="table" border="0">
+  <tbody>
+    <tr>
+      <td>
+      <table summary="table" border="1" cellpadding="10" cellspacing="0">
+        <tbody>
+          <tr>
+            <td align="left"><a href="#Edit_Open-Molecular-Viewer"><code>Open Molecular Viewer</code></a><br>
+            <a href="#Edit_Remove"><code>Remove</code></a><br>
+            <hr>
+            <a href="#Edit_Select-All"><code>Select All</code></a></td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+      <td>
+      <table summary="table" border="1" cellpadding="10" cellspacing="0">
+        <tbody>
+          <tr>
+            <td align="left"><a href="#Edit_Open-Molecular-Viewer"><code>分子ビューアを開く</code></a><br>
+            <a href="#Edit_Remove"><code>削除</code></a><br>
+            <hr>
+            <a href="#Edit_Select-All"><code>すべてを選択</code></a></td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h4><a name="Edit_Open-Molecular-Viewer">Open Molecular Viewer<br>
+分子ビューアを開く</a></h4>
+<p>一覧で選択しているサムネイルの分子を、分子ビューアで開きます。</p>
+<p><a href="images/Edit_Open-Molecular-Viewer_01.jpg"><img src="thumbnails/Edit_Open-Molecular-Viewer_01_jpg.jpg" width="100" height="86" alt="Edit_Open-Molecular-Viewer_01_jpg.jpg"></a> <a href="images/Edit_Open-Molecular-Viewer_02.jpg"><img src="thumbnails/Edit_Open-Molecular-Viewer_02_jpg.jpg" width="100" height="86" alt="Edit_Open-Molecular-Viewer_02_jpg.jpg"></a></p>
+<h4><a name="Edit_Remove">Remove<br>
+削除</a></h4>
+<p>一覧で選択しているサムネイルを削除します。</p>
+<p><a href="images/Edit_Remove_01.jpg"><img src="thumbnails/Edit_Remove_01_jpg.jpg" width="100" height="86" alt="Edit_Remove_01_jpg.jpg"></a> <a href="images/Edit_Remove_02.jpg"><img src="thumbnails/Edit_Remove_02_jpg.jpg" width="100" height="47" alt="Edit_Remove_02_jpg.jpg"></a> <a href="images/Edit_Remove_03.jpg"><img src="thumbnails/Edit_Remove_03_jpg.jpg" width="100" height="86" alt="Edit_Remove_03_jpg.jpg"></a></p>
+<h4><a name="Edit_Select-All">Select All<br>
+すべてを選択</a></h4>
+<p>一覧のサムネイルをすべて選択します。</p>
+<p><a href="images/Edit_Select-All_01.jpg"><img src="thumbnails/Edit_Select-All_01_jpg.jpg" width="100" height="86" alt="Edit_Select-All_01_jpg.jpg"></a> <a href="images/Edit_Select-All_02.jpg"><img src="thumbnails/Edit_Select-All_02_jpg.jpg" width="100" height="86" alt="Edit_Select-All_02_jpg.jpg"></a></p>
+<hr>
+<h3><a name="View">View<br>
+表示</a></h3>
+<table summary="table" border="0">
+  <tbody>
+    <tr>
+      <td>
+      <table summary="table" border="1" cellpadding="10" cellspacing="0">
+        <tbody>
+          <tr>
+            <td align="left"><a href="#View_Indexes"><code>Indexes</code></a><br>
+            <a href="#View_File-Name"><code>File Name</code></a><br>
+            <hr>
+            <a href="#View_Column-Size"><code>Column Size</code></a><br>
+            <a href="#View_Condense"><code>Condense</code></a></td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+      <td>
+      <table summary="table" border="1" cellpadding="10" cellspacing="0">
+        <tbody>
+          <tr>
+            <td align="left"><a href="#View_Indexes"><code>番号表示</code></a><br>
+            <a href="#View_File-Name"><code>ファイル名表示</code></a><br>
+            <hr>
+            <a href="#View_Column-Size"><code>列数</code></a><br>
+            <a href="#View_Condense"><code>詰める</code></a></td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h4><a name="View_Indexes">Indexes<br>
+番号表示</a></h4>
+<p>サムネイルの左上に番号を表示します。</p>
+<table summary="table" border="0">
+  <tbody>
+    <tr>
+      <td align="center">チェックON</td>
+      <td align="center">チェックOFF</td>
+    </tr>
+    <tr>
+      <td align="center"><a href="images/View_Indexes_01.jpg"><img src="thumbnails/View_Indexes_01_jpg.jpg" width="51" height="100" alt="View_Indexes_01_jpg.jpg"></a></td>
+      <td align="center"><a href="images/View_Column-Size_03.jpg"><img src="thumbnails/View_Column-Size_03_jpg.jpg" width="51" height="100" alt="View_Column-Size_03_jpg.jpg"></a></td>
+    </tr>
+    <tr>
+      <td align="center">表示</td>
+      <td align="center">非表示</td>
+    </tr>
+  </tbody>
+</table>
+<h4><a name="View_File-Name">File Name<br>
+ファイル名表示</a></h4>
+<p>サムネイルの右下にファイル名を表示します。</p>
+<table summary="table" border="0">
+  <tbody>
+    <tr>
+      <td align="center">チェックON</td>
+      <td align="center">チェックOFF</td>
+    </tr>
+    <tr>
+      <td align="center"><a href="images/View_Column-Size_03.jpg"><img src="thumbnails/View_Column-Size_03_jpg.jpg" width="51" height="100" alt="View_Column-Size_03_jpg.jpg"></a></td>
+      <td align="center"><a href="images/View_File-Name_01.jpg"><img src="thumbnails/View_File-Name_01_jpg.jpg" width="51" height="100" alt="View_File-Name_01_jpg.jpg"></a></td>
+    </tr>
+    <tr>
+      <td align="center">表示</td>
+      <td align="center">非表示</td>
+    </tr>
+  </tbody>
+</table>
+<h4><a name="View_Column-Size">Column Size<br>
+列数</a></h4>
+<p>横並びに、いくつサムネイルを並べるかを指定します。</p>
+<p><a href="images/View_Column-Size_01.jpg"><img src="thumbnails/View_Column-Size_01_jpg.jpg" width="100" height="86" alt="View_Column-Size_01_jpg.jpg"></a> <a href="images/View_Column-Size_02.jpg"><img src="thumbnails/View_Column-Size_02_jpg.jpg" width="100" height="53" alt="View_Column-Size_02_jpg.jpg"></a> <a href="images/View_Column-Size_03.jpg"><img src="thumbnails/View_Column-Size_03_jpg.jpg" width="51" height="100" alt="View_Column-Size_03_jpg.jpg"></a></p>
+<h4><a name="View_Condense">Condense<br>
+詰める</a></h4>
+<p>途中に空き領域がある場合、詰めて並べなおします。</p>
+<p><a href="images/View_Condense_01.jpg"><img src="thumbnails/View_Condense_01_jpg.jpg" width="51" height="100" alt="View_Condense_01_jpg.jpg"></a> <a href="images/View_File-Name_01.jpg"><img src="thumbnails/View_File-Name_01_jpg.jpg" width="51" height="100" alt="View_File-Name_01_jpg.jpg"></a></p>
+<hr>
+<h3><a name="Misc">Misc<br>
+その他</a></h3>
+<table summary="table" border="0">
+  <tbody>
+    <tr>
+      <td>
+      <table summary="table" border="1" cellpadding="10" cellspacing="0">
+        <tbody>
+          <tr>
+            <td align="left"><a href="#Misc_Manual"><code>Manual</code></a><br>
+            <hr>
+            <a href="#Misc_Inspect"><code>Inspect</code></a></td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+      <td>
+      <table summary="table" border="1" cellpadding="10" cellspacing="0">
+        <tbody>
+          <tr>
+            <td align="left"><a href="#Misc_Manual"><code>使用手引き</code></a><br>
+            <hr>
+            <a href="#Misc_Inspect"><code>検査</code></a></td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h4><a name="Misc_Manual">Manual<br>
+使用手引き</a></h4>
+<p>基本説明、メニュー等の説明が記述してある取扱説明書 (このページ)をブラウザで開きます。</p>
+<h4><a name="Misc_Inspect">Inspect<br>
+検査</a></h4>
+<p>このメニューは、ランタイム版では選択することができません。<br>
+開発時にプログラムの状態などを確認するためのメニューです。<br>
+選択可能な場合は、インスペクターが開きます。</p>
+<hr>
+<p class="align-right"><a href="#TOP">このページの TOP へ</a></p>
+</body>
+</html>

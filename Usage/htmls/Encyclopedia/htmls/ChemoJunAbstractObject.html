@@ -1,0 +1,267 @@
+<HTML>
+<HEAD>
+<TITLE>ChemoJunAbstractObject</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<A HREF="../index.html#ChemoJunAbstractObject"><IMG SRC="../images/index.jpg" ALT="index" ALIGN="top" BORDER=1></A>
+<A HREF="../xrefsC.html#ChemoJunAbstractObject"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+2006/08/08 17:41:24
+<HR>
+<!-- (class_name) { -->
+<H2>
+<A NAME="Class.ChemoJunAbstractObject">ChemoJunAbstractObject</A>
+</H2>
+<!-- } (class_name) -->
+<!-- (comment) { -->
+<P>
+<A NAME="Comment.ChemoJunAbstractObject">
+ChemoJun050 (2006/08/08) Copyright 2002-2006 National Institute of Informatics, Research Organization of Information and Systems.
+</A>
+</P>
+<!-- } (comment) -->
+<!-- (category) { -->
+<P>
+<A NAME="Category.ChemoJun-Abstract-Objects"><I>category:</I></A></P>
+<UL>
+<LI><B>
+ChemoJun-Abstract-Objects
+</B>
+<A HREF="../xrefsC.html#ChemoJun-Abstract-Objects"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+</UL>
+<!-- } (category) -->
+<!-- (inheritance) { -->
+<P>
+<A NAME="Inheritance.ChemoJunAbstractObject"><I>inheritance:</I></A>
+</P>
+<UL>
+<LI TYPE="square">Object
+<UL>
+<LI TYPE="square"><B>ChemoJunAbstractObject</B>
+<UL>
+<LI TYPE="square"><A HREF="ChemoJunMoleculeObject.html">ChemoJunMoleculeObject</A>
+</UL>
+</UL>
+</UL>
+<!-- } (inheritance) -->
+<!-- (instance_variables) { -->
+<P>
+<A NAME="InstanceVariables.ChemoJunAbstractObject">
+<I>instance variables:</I>
+</A>
+</P>
+<UL>
+<!-- fileName { -->
+<LI><A NAME="InstanceVariable.fileName"><B>fileName</B></A>
+<A HREF="../xrefsF.html#fileName"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<!-- } fileName -->
+</UL>
+<!-- } (instance_variables) -->
+<!-- (class_instance_variables) { -->
+<P>
+<A NAME="ClassInstanceVariables.ChemoJunAbstractObject">
+<I>class instance variables:</I>
+</A>
+</P>
+<UL>
+</UL>
+<!-- } (class_instance_variables) -->
+<!-- (class_variables) { -->
+<P>
+<A NAME="ClassVariables.ChemoJunAbstractObject">
+<I>class variables:</I>
+</A>
+</P>
+<UL>
+</UL>
+<!-- } (class_variables) -->
+<!-- (pool_variables) { -->
+<P>
+<A NAME="PoolVariables.ChemoJunAbstractObject">
+<I>pool variables:</I>
+</A>
+</P>
+<UL>
+</UL>
+<!-- } (pool_variables) -->
+<!-- (instance_methods) { -->
+<P>
+<A NAME="InstanceMethods.ChemoJunAbstractObject">
+<I>instance methods:</I>
+</A>
+</P>
+<OL>
+<LI><!-- asFilename { -->
+<A NAME="InstanceMethod.asFilename"><B>asFilename</B> <I>[converting]</I></A>
+<A HREF="../xrefsA.html#asFilename"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^self fileName asFilename</PRE>
+<!-- } asFilename -->
+<LI><!-- assert:do:ensure: { -->
+<A NAME="InstanceMethod.assert:do:ensure:"><B>assert:</B> assertBlock <B>do:</B> doBlock <B>ensure:</B> ensureBlock <I>[private]</I></A>
+<A HREF="../xrefsA.html#assert:do:ensure:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	assertBlock value.
+	[doBlock value]
+		ensure: [ensureBlock value]</PRE>
+<!-- } assert:do:ensure: -->
+<LI><!-- asURI { -->
+<A NAME="InstanceMethod.asURI"><B>asURI</B> <I>[converting]</I></A>
+<A HREF="../xrefsA.html#asURI"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^self fileName asURI</PRE>
+<!-- } asURI -->
+<LI><!-- baseName { -->
+<A NAME="InstanceMethod.baseName"><B>baseName</B> <I>[accessing]</I></A>
+<A HREF="../xrefsB.html#baseName"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^self class baseNameFromFilename: self fileName</PRE>
+<!-- } baseName -->
+<LI><!-- extension { -->
+<A NAME="InstanceMethod.extension"><B>extension</B> <I>[accessing]</I></A>
+<A HREF="../xrefsE.html#extension"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^self class extensionFromFilename: self fileName</PRE>
+<!-- } extension -->
+<LI><!-- fileName { -->
+<A NAME="InstanceMethod.fileName"><B>fileName</B> <I>[accessing]</I></A>
+<A HREF="../xrefsF.html#fileName"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^fileName</PRE>
+<!-- } fileName -->
+<LI><!-- fileName: { -->
+<A NAME="InstanceMethod.fileName:"><B>fileName:</B> aFilename <I>[accessing]</I></A>
+<A HREF="../xrefsF.html#fileName:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	aFilename ifNil: [fileName := nil]
+		ifNotNil: [fileName := aFilename asFilename]</PRE>
+<!-- } fileName: -->
+<LI><!-- informationString { -->
+<A NAME="InstanceMethod.informationString"><B>informationString</B> <I>[accessing]</I></A>
+<A HREF="../xrefsI.html#informationString"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	| aStream aString |
+	self
+		assert: [aStream := String new writeStream]
+		do: [self fileName notNil
+				ifTrue: 
+					[aStream tab.
+					aStream nextPutAll: (#jun_file__ &gt;&gt; 'file: ') asString.
+					aStream nextPutAll: (Filename splitPath: self fileName asString) last.
+					aStream cr]]
+		ensure: 
+			[aString := aStream contents.
+			aStream close].
+	^aString</PRE>
+<!-- } informationString -->
+<LI><!-- initialize { -->
+<A NAME="InstanceMethod.initialize"><B>initialize</B> <I>[initialize-release]</I></A>
+<A HREF="../xrefsI.html#initialize"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	fileName := nil</PRE>
+<!-- } initialize -->
+<LI><!-- pathName { -->
+<A NAME="InstanceMethod.pathName"><B>pathName</B> <I>[accessing]</I></A>
+<A HREF="../xrefsP.html#pathName"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^(Filename splitPath: self fileName asString) first</PRE>
+<!-- } pathName -->
+<LI><!-- postCopy { -->
+<A NAME="InstanceMethod.postCopy"><B>postCopy</B> <I>[copying]</I></A>
+<A HREF="../xrefsP.html#postCopy"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	super postCopy.
+	fileName := fileName copy</PRE>
+<!-- } postCopy -->
+<LI><!-- release { -->
+<A NAME="InstanceMethod.release"><B>release</B> <I>[initialize-release]</I></A>
+<A HREF="../xrefsR.html#release"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	super release</PRE>
+<!-- } release -->
+</OL>
+<!-- } (instance_methods) -->
+<!-- (class_methods) { -->
+<P>
+<A NAME="ClassMethods.ChemoJunAbstractObject">
+<I>class methods:</I>
+</A>
+</P>
+<OL>
+<LI><!-- baseNameFromFilename: { -->
+<A NAME="ClassMethod.baseNameFromFilename:"><B>baseNameFromFilename:</B> aFilename <I>[converting]</I></A>
+<A HREF="../xrefsB.html#baseNameFromFilename:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	&quot;ChemoJunAbstractObject baseNameFromFilename: (JunFileDialog request).&quot;
+	&quot;ChemoJunAbstractObject baseNameFromFilename: (nil).&quot;
+
+	| aString |
+	aFilename isNil ifTrue: [^JunSystem defaultBaseName].
+	aString := (Filename splitPath: aFilename asString) last.
+	aString isNil ifTrue: [^JunSystem defaultBaseName].
+	aString := (Filename splitExtension: aString) first.
+	^aString</PRE>
+<!-- } baseNameFromFilename: -->
+<LI><!-- copyright { -->
+<A NAME="ClassMethod.copyright"><B>copyright</B> <I>[copyright]</I></A>
+<A HREF="../xrefsC.html#copyright"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^'ChemoJun050 (2006/08/08) Copyright 2002-2006 National Institute of Informatics, Research Organization of Information and Systems.'</PRE>
+<!-- } copyright -->
+<LI><!-- extensionFromFilename: { -->
+<A NAME="ClassMethod.extensionFromFilename:"><B>extensionFromFilename:</B> aFilename <I>[converting]</I></A>
+<A HREF="../xrefsE.html#extensionFromFilename:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	&quot;ChemoJunAbstractObject extensionFromFilename: (JunFileDialog request).&quot;
+
+	| aString |
+	aFilename isNil ifTrue: [^String new].
+	aString := (Filename splitPath: aFilename asString) last.
+	aString isNil ifTrue: [^String new].
+	^aString copyFrom: (self baseNameFromFilename: aFilename) size + 1
+		to: aString size</PRE>
+<!-- } extensionFromFilename: -->
+<LI><!-- new { -->
+<A NAME="ClassMethod.new"><B>new</B> <I>[instance creation]</I></A>
+<A HREF="../xrefsN.html#new"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^(super new) initialize; yourself</PRE>
+<!-- } new -->
+<LI><!-- system { -->
+<A NAME="ClassMethod.system"><B>system</B> <I>[copyright]</I></A>
+<A HREF="../xrefsS.html#system"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^'ChemoJun'</PRE>
+<!-- } system -->
+<LI><!-- version { -->
+<A NAME="ClassMethod.version"><B>version</B> <I>[copyright]</I></A>
+<A HREF="../xrefsV.html#version"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^'050'</PRE>
+<!-- } version -->
+</OL>
+<!-- } (class_methods) -->
+<HR>
+<A HREF="../index.html#ChemoJunAbstractObject"><IMG SRC="../images/index.jpg" ALT="index" ALIGN="top" BORDER=1></A>
+<A HREF="../xrefsC.html#ChemoJunAbstractObject"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<!-- This Document was generated by JunEncyclopedia. -->
+<!-- JunEncyclopedia was developed by AOKI Atsushi. -->
+</BODY>
+</HTML>

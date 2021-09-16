@@ -1,0 +1,430 @@
+<HTML>
+<HEAD>
+<TITLE>ChemoJunAtomConnection</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<A HREF="../index.html#ChemoJunAtomConnection"><IMG SRC="../images/index.jpg" ALT="index" ALIGN="top" BORDER=1></A>
+<A HREF="../xrefsC.html#ChemoJunAtomConnection"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+2006/08/08 17:41:24
+<HR>
+<!-- (class_name) { -->
+<H2>
+<A NAME="Class.ChemoJunAtomConnection">ChemoJunAtomConnection</A>
+</H2>
+<!-- } (class_name) -->
+<!-- (comment) { -->
+<P>
+<A NAME="Comment.ChemoJunAtomConnection">
+ChemoJun050 (2006/08/08) Copyright 2002-2006 National Institute of Informatics, Research Organization of Information and Systems.
+</A>
+</P>
+<!-- } (comment) -->
+<!-- (category) { -->
+<P>
+<A NAME="Category.ChemoJun-Basic-Objects"><I>category:</I></A></P>
+<UL>
+<LI><B>
+ChemoJun-Basic-Objects
+</B>
+<A HREF="../xrefsC.html#ChemoJun-Basic-Objects"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+</UL>
+<!-- } (category) -->
+<!-- (inheritance) { -->
+<P>
+<A NAME="Inheritance.ChemoJunAtomConnection"><I>inheritance:</I></A>
+</P>
+<UL>
+<LI TYPE="square">Object
+<UL>
+<LI TYPE="square"><B>ChemoJunAtomConnection</B>
+</UL>
+</UL>
+<!-- } (inheritance) -->
+<!-- (instance_variables) { -->
+<P>
+<A NAME="InstanceVariables.ChemoJunAtomConnection">
+<I>instance variables:</I>
+</A>
+</P>
+<UL>
+<!-- attributeTable { -->
+<LI><A NAME="InstanceVariable.attributeTable"><B>attributeTable</B></A>
+<A HREF="../xrefsA.html#attributeTable"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<!-- } attributeTable -->
+<!-- bondType { -->
+<LI><A NAME="InstanceVariable.bondType"><B>bondType</B></A>
+<A HREF="../xrefsB.html#bondType"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<!-- } bondType -->
+<!-- fromAtom { -->
+<LI><A NAME="InstanceVariable.fromAtom"><B>fromAtom</B></A>
+<A HREF="../xrefsF.html#fromAtom"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<!-- } fromAtom -->
+<!-- stereoType { -->
+<LI><A NAME="InstanceVariable.stereoType"><B>stereoType</B></A>
+<A HREF="../xrefsS.html#stereoType"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<!-- } stereoType -->
+<!-- toAtom { -->
+<LI><A NAME="InstanceVariable.toAtom"><B>toAtom</B></A>
+<A HREF="../xrefsT.html#toAtom"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<!-- } toAtom -->
+</UL>
+<!-- } (instance_variables) -->
+<!-- (class_instance_variables) { -->
+<P>
+<A NAME="ClassInstanceVariables.ChemoJunAtomConnection">
+<I>class instance variables:</I>
+</A>
+</P>
+<UL>
+</UL>
+<!-- } (class_instance_variables) -->
+<!-- (class_variables) { -->
+<P>
+<A NAME="ClassVariables.ChemoJunAtomConnection">
+<I>class variables:</I>
+</A>
+</P>
+<UL>
+</UL>
+<!-- } (class_variables) -->
+<!-- (pool_variables) { -->
+<P>
+<A NAME="PoolVariables.ChemoJunAtomConnection">
+<I>pool variables:</I>
+</A>
+</P>
+<UL>
+</UL>
+<!-- } (pool_variables) -->
+<!-- (instance_methods) { -->
+<P>
+<A NAME="InstanceMethods.ChemoJunAtomConnection">
+<I>instance methods:</I>
+</A>
+</P>
+<OL>
+<LI><!-- attributeTable { -->
+<A NAME="InstanceMethod.attributeTable"><B>attributeTable</B> <I>[attribute accessing]</I></A>
+<A HREF="../xrefsA.html#attributeTable"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	attributeTable isNil ifTrue: [attributeTable := JunAttributeTable new].
+	^attributeTable</PRE>
+<!-- } attributeTable -->
+<LI><!-- bondType { -->
+<A NAME="InstanceMethod.bondType"><B>bondType</B> <I>[accessing]</I></A>
+<A HREF="../xrefsB.html#bondType"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	bondType isNil ifTrue: [bondType := self defaultBondType].
+	^bondType</PRE>
+<!-- } bondType -->
+<LI><!-- bondType: { -->
+<A NAME="InstanceMethod.bondType:"><B>bondType:</B> aNumber <I>[accessing]</I></A>
+<A HREF="../xrefsB.html#bondType:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	aNumber isNil 
+		ifTrue: [bondType := self defaultBondType]
+		ifFalse: [bondType := aNumber]</PRE>
+<!-- } bondType: -->
+<LI><!-- bondTypeSymbol { -->
+<A NAME="InstanceMethod.bondTypeSymbol"><B>bondTypeSymbol</B> <I>[accessing]</I></A>
+<A HREF="../xrefsB.html#bondTypeSymbol"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	self bondType = 1 ifTrue: [^#single].
+	self bondType = 2 ifTrue: [^#double].
+	self bondType = 3 ifTrue: [^#triple].
+	self bondType = 4 ifTrue: [^#aromatic].
+	self bondType = 5 ifTrue: [^#single].
+	self bondType = 6 ifTrue: [^#single].
+	self bondType = 7 ifTrue: [^#single].
+	self bondType = 8 ifTrue: [^#none].
+	^#unknown</PRE>
+<!-- } bondTypeSymbol -->
+<LI><!-- connectionColor { -->
+<A NAME="InstanceMethod.connectionColor"><B>connectionColor</B> <I>[attribute accessing]</I></A>
+<A HREF="../xrefsC.html#connectionColor"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^self attributeTable at: #connectionColor
+		ifAbsent: [self defaultConnectionColor]</PRE>
+<!-- } connectionColor -->
+<LI><!-- connectionColor: { -->
+<A NAME="InstanceMethod.connectionColor:"><B>connectionColor:</B> colorValue <I>[attribute accessing]</I></A>
+<A HREF="../xrefsC.html#connectionColor:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	colorValue ifNil: [self attributeTable removeKey: #connectionColor]
+		ifNotNil: [:it | self attributeTable at: #connectionColor put: it]</PRE>
+<!-- } connectionColor: -->
+<LI><!-- defaultBondType { -->
+<A NAME="InstanceMethod.defaultBondType"><B>defaultBondType</B> <I>[defaults]</I></A>
+<A HREF="../xrefsD.html#defaultBondType"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^1</PRE>
+<!-- } defaultBondType -->
+<LI><!-- defaultConnectionColor { -->
+<A NAME="InstanceMethod.defaultConnectionColor"><B>defaultConnectionColor</B> <I>[defaults]</I></A>
+<A HREF="../xrefsD.html#defaultConnectionColor"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^ColorValue veryDarkGray</PRE>
+<!-- } defaultConnectionColor -->
+<LI><!-- defaultFromAtom { -->
+<A NAME="InstanceMethod.defaultFromAtom"><B>defaultFromAtom</B> <I>[defaults]</I></A>
+<A HREF="../xrefsD.html#defaultFromAtom"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^self class defaultAtomObjectClass new</PRE>
+<!-- } defaultFromAtom -->
+<LI><!-- defaultStereoType { -->
+<A NAME="InstanceMethod.defaultStereoType"><B>defaultStereoType</B> <I>[defaults]</I></A>
+<A HREF="../xrefsD.html#defaultStereoType"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^0</PRE>
+<!-- } defaultStereoType -->
+<LI><!-- defaultToAtom { -->
+<A NAME="InstanceMethod.defaultToAtom"><B>defaultToAtom</B> <I>[defaults]</I></A>
+<A HREF="../xrefsD.html#defaultToAtom"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^self class defaultAtomObjectClass new</PRE>
+<!-- } defaultToAtom -->
+<LI><!-- fromAtom { -->
+<A NAME="InstanceMethod.fromAtom"><B>fromAtom</B> <I>[accessing]</I></A>
+<A HREF="../xrefsF.html#fromAtom"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	fromAtom isNil ifTrue: [fromAtom := self defaultFromAtom].
+	^fromAtom</PRE>
+<!-- } fromAtom -->
+<LI><!-- fromAtom: { -->
+<A NAME="InstanceMethod.fromAtom:"><B>fromAtom:</B> atomObject <I>[accessing]</I></A>
+<A HREF="../xrefsF.html#fromAtom:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	atomObject isNil
+		ifTrue: [fromAtom := self defaultFromAtom]
+		ifFalse: [fromAtom := atomObject]</PRE>
+<!-- } fromAtom: -->
+<LI><!-- hasConnectionColor { -->
+<A NAME="InstanceMethod.hasConnectionColor"><B>hasConnectionColor</B> <I>[testing]</I></A>
+<A HREF="../xrefsH.html#hasConnectionColor"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^self attributeTable includesKey: #connectionColor</PRE>
+<!-- } hasConnectionColor -->
+<LI><!-- initialize { -->
+<A NAME="InstanceMethod.initialize"><B>initialize</B> <I>[initialize-release]</I></A>
+<A HREF="../xrefsI.html#initialize"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	super initialize.
+	fromAtom := nil.
+	toAtom := nil.
+	bondType := nil.
+	stereoType := nil.
+	attributeTable := nil</PRE>
+<!-- } initialize -->
+<LI><!-- isAromatic { -->
+<A NAME="InstanceMethod.isAromatic"><B>isAromatic</B> <I>[testing]</I></A>
+<A HREF="../xrefsI.html#isAromatic"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^self bondType = 4</PRE>
+<!-- } isAromatic -->
+<LI><!-- isDouble { -->
+<A NAME="InstanceMethod.isDouble"><B>isDouble</B> <I>[testing]</I></A>
+<A HREF="../xrefsI.html#isDouble"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^self bondType = 2</PRE>
+<!-- } isDouble -->
+<LI><!-- isSingle { -->
+<A NAME="InstanceMethod.isSingle"><B>isSingle</B> <I>[testing]</I></A>
+<A HREF="../xrefsI.html#isSingle"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^self bondType = 1</PRE>
+<!-- } isSingle -->
+<LI><!-- isTriple { -->
+<A NAME="InstanceMethod.isTriple"><B>isTriple</B> <I>[testing]</I></A>
+<A HREF="../xrefsI.html#isTriple"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^self bondType = 3</PRE>
+<!-- } isTriple -->
+<LI><!-- postCopy { -->
+<A NAME="InstanceMethod.postCopy"><B>postCopy</B> <I>[copying]</I></A>
+<A HREF="../xrefsP.html#postCopy"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	super postCopy.
+	attributeTable := attributeTable copy
+
+	&quot;You must copy fromAtom and toAtom.&quot;</PRE>
+<!-- } postCopy -->
+<LI><!-- printOn: { -->
+<A NAME="InstanceMethod.printOn:"><B>printOn:</B> aStream <I>[printing]</I></A>
+<A HREF="../xrefsP.html#printOn:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	aStream nextPutAll: '('.
+	aStream nextPutAll: self fromAtom printString.
+	aStream space.
+	aStream nextPutAll: self toAtom printString.
+	aStream space.
+	aStream nextPutAll: self bondTypeSymbol printString.
+	aStream space.
+	aStream nextPutAll: self stereoTypeSymbol printString.
+	aStream nextPutAll: ')'</PRE>
+<!-- } printOn: -->
+<LI><!-- stereoType { -->
+<A NAME="InstanceMethod.stereoType"><B>stereoType</B> <I>[accessing]</I></A>
+<A HREF="../xrefsS.html#stereoType"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	stereoType isNil ifTrue: [stereoType := self defaultStereoType].
+	^stereoType</PRE>
+<!-- } stereoType -->
+<LI><!-- stereoType: { -->
+<A NAME="InstanceMethod.stereoType:"><B>stereoType:</B> aNumber <I>[accessing]</I></A>
+<A HREF="../xrefsS.html#stereoType:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	aNumber isNil 
+		ifTrue: [stereoType := self defaultBondType]
+		ifFalse: [stereoType := aNumber]</PRE>
+<!-- } stereoType: -->
+<LI><!-- stereoTypeSymbol { -->
+<A NAME="InstanceMethod.stereoTypeSymbol"><B>stereoTypeSymbol</B> <I>[accessing]</I></A>
+<A HREF="../xrefsS.html#stereoTypeSymbol"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	self stereoType = 0 ifTrue: [^#none].
+	self stereoType = 1 ifTrue: [^#up].
+	self stereoType = 4 ifTrue: [^#either].
+	self stereoType = 6 ifTrue: [^#down].
+	^#unknown</PRE>
+<!-- } stereoTypeSymbol -->
+<LI><!-- toAtom { -->
+<A NAME="InstanceMethod.toAtom"><B>toAtom</B> <I>[accessing]</I></A>
+<A HREF="../xrefsT.html#toAtom"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	toAtom isNil ifTrue: [toAtom := self defaultToAtom].
+	^toAtom</PRE>
+<!-- } toAtom -->
+<LI><!-- toAtom: { -->
+<A NAME="InstanceMethod.toAtom:"><B>toAtom:</B> atomObject <I>[accessing]</I></A>
+<A HREF="../xrefsT.html#toAtom:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	atomObject isNil
+		ifTrue: [toAtom := self defaultToAtom]
+		ifFalse: [toAtom := atomObject]</PRE>
+<!-- } toAtom: -->
+</OL>
+<!-- } (instance_methods) -->
+<!-- (class_methods) { -->
+<P>
+<A NAME="ClassMethods.ChemoJunAtomConnection">
+<I>class methods:</I>
+</A>
+</P>
+<OL>
+<LI><!-- copyright { -->
+<A NAME="ClassMethod.copyright"><B>copyright</B> <I>[copyright]</I></A>
+<A HREF="../xrefsC.html#copyright"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^'ChemoJun050 (2006/08/08) Copyright 2002-2006 National Institute of Informatics, Research Organization of Information and Systems.'</PRE>
+<!-- } copyright -->
+<LI><!-- defaultAtomObjectClass { -->
+<A NAME="ClassMethod.defaultAtomObjectClass"><B>defaultAtomObjectClass</B> <I>[defaults]</I></A>
+<A HREF="../xrefsD.html#defaultAtomObjectClass"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^self defaultMoleculeObjectClass defaultAtomObjectClass</PRE>
+<!-- } defaultAtomObjectClass -->
+<LI><!-- defaultMoleculeObjectClass { -->
+<A NAME="ClassMethod.defaultMoleculeObjectClass"><B>defaultMoleculeObjectClass</B> <I>[defaults]</I></A>
+<A HREF="../xrefsD.html#defaultMoleculeObjectClass"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^ChemoJunMoleculeObject</PRE>
+<!-- } defaultMoleculeObjectClass -->
+<LI><!-- example1 { -->
+<A NAME="ClassMethod.example1"><B>example1</B> <I>[examples]</I></A>
+<A HREF="../xrefsE.html#example1"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	&quot;ChemoJunAtomConnection example1.&quot;
+
+	| atomConnection |
+	atomConnection := ChemoJunAtomConnection new.
+	^atomConnection</PRE>
+<!-- } example1 -->
+<LI><!-- fromAtom:toAtom: { -->
+<A NAME="ClassMethod.fromAtom:toAtom:"><B>fromAtom:</B> fromAtomObject <B>toAtom:</B> toAtomObject <I>[instance creation]</I></A>
+<A HREF="../xrefsF.html#fromAtom:toAtom:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	| atomConnection |
+	atomConnection := self new.
+	atomConnection fromAtom: fromAtomObject.
+	atomConnection toAtom: toAtomObject.
+	^atomConnection</PRE>
+<!-- } fromAtom:toAtom: -->
+<LI><!-- fromAtom:toAtom:bondType: { -->
+<A NAME="ClassMethod.fromAtom:toAtom:bondType:"><B>fromAtom:</B> fromAtomObject <B>toAtom:</B> toAtomObject <B>bondType:</B> bondType <I>[instance creation]</I></A>
+<A HREF="../xrefsF.html#fromAtom:toAtom:bondType:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	| atomConnection |
+	atomConnection := self new.
+	atomConnection fromAtom: fromAtomObject.
+	atomConnection toAtom: toAtomObject.
+	atomConnection bondType: bondType.
+	^atomConnection</PRE>
+<!-- } fromAtom:toAtom:bondType: -->
+<LI><!-- fromAtom:toAtom:bondType:stereoType: { -->
+<A NAME="ClassMethod.fromAtom:toAtom:bondType:stereoType:"><B>fromAtom:</B> fromAtomObject <B>toAtom:</B> toAtomObject <B>bondType:</B> bondType <B>stereoType:</B> stereoType <I>[instance creation]</I></A>
+<A HREF="../xrefsF.html#fromAtom:toAtom:bondType:stereoType:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	| atomConnection |
+	atomConnection := self new.
+	atomConnection fromAtom: fromAtomObject.
+	atomConnection toAtom: toAtomObject.
+	atomConnection bondType: bondType.
+	atomConnection stereoType: stereoType.
+	^atomConnection</PRE>
+<!-- } fromAtom:toAtom:bondType:stereoType: -->
+<LI><!-- system { -->
+<A NAME="ClassMethod.system"><B>system</B> <I>[copyright]</I></A>
+<A HREF="../xrefsS.html#system"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^'ChemoJun'</PRE>
+<!-- } system -->
+<LI><!-- version { -->
+<A NAME="ClassMethod.version"><B>version</B> <I>[copyright]</I></A>
+<A HREF="../xrefsV.html#version"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^'050'</PRE>
+<!-- } version -->
+</OL>
+<!-- } (class_methods) -->
+<HR>
+<A HREF="../index.html#ChemoJunAtomConnection"><IMG SRC="../images/index.jpg" ALT="index" ALIGN="top" BORDER=1></A>
+<A HREF="../xrefsC.html#ChemoJunAtomConnection"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<!-- This Document was generated by JunEncyclopedia. -->
+<!-- JunEncyclopedia was developed by AOKI Atsushi. -->
+</BODY>
+</HTML>

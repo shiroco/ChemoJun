@@ -1,0 +1,542 @@
+<HTML>
+<HEAD>
+<TITLE>ChemoJunGeneralViewer</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<A HREF="../index.html#ChemoJunGeneralViewer"><IMG SRC="../images/index.jpg" ALT="index" ALIGN="top" BORDER=1></A>
+<A HREF="../xrefsC.html#ChemoJunGeneralViewer"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+2006/08/08 17:41:25
+<HR>
+<!-- (class_name) { -->
+<H2>
+<A NAME="Class.ChemoJunGeneralViewer">ChemoJunGeneralViewer</A>
+</H2>
+<!-- } (class_name) -->
+<!-- (comment) { -->
+<P>
+<A NAME="Comment.ChemoJunGeneralViewer">
+ChemoJun050 (2006/08/08) Copyright 2002-2006 National Institute of Informatics, Research Organization of Information and Systems.
+</A>
+</P>
+<!-- } (comment) -->
+<!-- (category) { -->
+<P>
+<A NAME="Category.ChemoJun-Abstract-Objects"><I>category:</I></A></P>
+<UL>
+<LI><B>
+ChemoJun-Abstract-Objects
+</B>
+<A HREF="../xrefsC.html#ChemoJun-Abstract-Objects"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+</UL>
+<!-- } (category) -->
+<!-- (inheritance) { -->
+<P>
+<A NAME="Inheritance.ChemoJunGeneralViewer"><I>inheritance:</I></A>
+</P>
+<UL>
+<LI TYPE="square">Object
+<UL>
+<LI TYPE="square">Model
+<UL>
+<LI TYPE="square">ApplicationModel
+<UL>
+<LI TYPE="square">JunApplicationModel
+<UL>
+<LI TYPE="square">JunOpenGLDisplayModel
+<UL>
+<LI TYPE="square"><B>ChemoJunGeneralViewer</B>
+<UL>
+<LI TYPE="square"><A HREF="ChemoJunAbstractViewer.html">ChemoJunAbstractViewer</A>
+<UL>
+<LI TYPE="square"><A HREF="ChemoJunMoleculeViewer.html">ChemoJunMoleculeViewer</A>
+<UL>
+<LI TYPE="square"><A HREF="ChemoJunMoleculeModel.html">ChemoJunMoleculeModel</A>
+</UL>
+</UL>
+</UL>
+</UL>
+</UL>
+</UL>
+</UL>
+</UL>
+</UL>
+<!-- } (inheritance) -->
+<!-- (instance_variables) { -->
+<P>
+<A NAME="InstanceVariables.ChemoJunGeneralViewer">
+<I>instance variables:</I>
+</A>
+</P>
+<UL>
+</UL>
+<!-- } (instance_variables) -->
+<!-- (class_instance_variables) { -->
+<P>
+<A NAME="ClassInstanceVariables.ChemoJunGeneralViewer">
+<I>class instance variables:</I>
+</A>
+</P>
+<UL>
+</UL>
+<!-- } (class_instance_variables) -->
+<!-- (class_variables) { -->
+<P>
+<A NAME="ClassVariables.ChemoJunGeneralViewer">
+<I>class variables:</I>
+</A>
+</P>
+<UL>
+</UL>
+<!-- } (class_variables) -->
+<!-- (pool_variables) { -->
+<P>
+<A NAME="PoolVariables.ChemoJunGeneralViewer">
+<I>pool variables:</I>
+</A>
+</P>
+<UL>
+</UL>
+<!-- } (pool_variables) -->
+<!-- (instance_methods) { -->
+<P>
+<A NAME="InstanceMethods.ChemoJunGeneralViewer">
+<I>instance methods:</I>
+</A>
+</P>
+<OL>
+<LI><!-- asImage { -->
+<A NAME="InstanceMethod.asImage"><B>asImage</B> <I>[converting]</I></A>
+<A HREF="../xrefsA.html#asImage"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	| aView anImage |
+	aView := self getView.
+	(aView isNil or: [aView isOpen not]) 
+		ifTrue: [anImage := super asImage]
+		ifFalse: 
+			[self errorSignal handle: [:exception | anImage := super asImage]
+				do: 
+					[| aWindow aPixmap |
+					aWindow := aView topComponent.
+					aWindow isCollapsed ifTrue: [aWindow expand].
+					aWindow raise.
+					aWindow display.
+					anImage := aWindow asImage.
+					aPixmap := Pixmap extent: aView bounds extent.
+					anImage displayOn: aPixmap graphicsContext
+						at: (aView localPointToGlobal: 0 @ 0) negated.
+					anImage := aPixmap asImage.
+					aPixmap close]].
+	^anImage</PRE>
+<!-- } asImage -->
+<LI><!-- displaySuperimposeInView: { -->
+<A NAME="InstanceMethod.displaySuperimposeInView:"><B>displaySuperimposeInView:</B> aView <I>[displaying]</I></A>
+<A HREF="../xrefsD.html#displaySuperimposeInView:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	| aGraphicsContext aBlock numberOfArbuments aCollection |
+	self exceptIndex ifTrue: [^nil].
+	aView isNil ifTrue: [^nil].
+	aView isOpen ifFalse: [^nil].
+	self moleculeObject isNil ifTrue: [^nil].
+	aGraphicsContext := aView graphicsContext.
+	aBlock := self indexExpressionBlock.
+	numberOfArbuments := aBlock numArgs.
+	aCollection := SortedCollection new: self numberOfAtoms.
+	self atomObjectsAndIndexesDo: 
+			[:atomObject :index | 
+			true = (aBlock 
+						valueWithArguments: ((Array 
+								with: index
+								with: atomObject atomicSymbol
+								with: atomObject atomicPoint) copyFrom: 1 to: numberOfArbuments)) 
+				ifTrue: 
+					[| aText aPoint zValue |
+					(atomObject isHydrogen and: [self exceptHydrogen]) 
+						ifFalse: 
+							[aText := index printString asText.
+							aPoint := self convertModelPointToView3dPoint: atomObject atomicPoint
+										in: aView bounds.
+							zValue := aPoint z.
+							aPoint := (aPoint x @ aPoint y) rounded.
+							aCollection add: zValue -&gt; (Array with: aText with: aPoint)]]].
+	aCollection reverseDo: 
+			[:anAssociation | 
+			| aText aPoint |
+			aText := anAssociation value first.
+			aPoint := anAssociation value last.
+			aView 
+				displayText: aText
+				on: aGraphicsContext
+				at: aPoint
+				textColor: (ColorValue brightness: 0.05)
+				vergeColor: (ColorValue brightness: 0.95)
+				styleSymbol: #small
+				alignmentSymbol: #center]</PRE>
+<!-- } displaySuperimposeInView: -->
+<LI><!-- exceptHydrogen { -->
+<A NAME="InstanceMethod.exceptHydrogen"><B>exceptHydrogen</B> <I>[accessing]</I></A>
+<A HREF="../xrefsE.html#exceptHydrogen"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^false</PRE>
+<!-- } exceptHydrogen -->
+<LI><!-- exceptIndex { -->
+<A NAME="InstanceMethod.exceptIndex"><B>exceptIndex</B> <I>[accessing]</I></A>
+<A HREF="../xrefsE.html#exceptIndex"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^false</PRE>
+<!-- } exceptIndex -->
+<LI><!-- flushDisplayObject { -->
+<A NAME="InstanceMethod.flushDisplayObject"><B>flushDisplayObject</B> <I>[flushing]</I></A>
+<A HREF="../xrefsF.html#flushDisplayObject"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^self</PRE>
+<!-- } flushDisplayObject -->
+<LI><!-- indexExpression { -->
+<A NAME="InstanceMethod.indexExpression"><B>indexExpression</B> <I>[accessing]</I></A>
+<A HREF="../xrefsI.html#indexExpression"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	| index string |
+	index := self class allInstVarNames indexOf: 'indexExpression'.
+	index &lt; 1 ifTrue: [^'[]' copy].
+	(self instVarAt: index) isNil 
+		ifTrue: 
+			[string := '[:index :atom | (atom = ''H'') not]' copy.
+			self setIndexExpression: string
+				setIndexExpressionBlock: (Compiler evaluate: string)].
+	^self instVarAt: index</PRE>
+<!-- } indexExpression -->
+<LI><!-- indexExpression: { -->
+<A NAME="InstanceMethod.indexExpression:"><B>indexExpression:</B> aString <I>[accessing]</I></A>
+<A HREF="../xrefsI.html#indexExpression:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	| aBlock aBoolean |
+	self errorSignal handle: [:exception | aBlock := nil]
+		do: 
+			[aBlock := Compiler 
+						evaluate: aString
+						for: self
+						logged: false.
+			aBoolean := aBlock 
+						valueWithArguments: ((Array 
+								with: 999
+								with: 'H'
+								with: 0 , 0 , 0
+								with: nil) copyFrom: 1 to: aBlock numArgs).
+			(aBoolean isKindOf: Boolean) ifFalse: [self error: 'unexpected error']].
+	aBlock isNil ifTrue: [^nil].
+	self setIndexExpression: aString setIndexExpressionBlock: aBlock</PRE>
+<!-- } indexExpression: -->
+<LI><!-- indexExpressionBlock { -->
+<A NAME="InstanceMethod.indexExpressionBlock"><B>indexExpressionBlock</B> <I>[accessing]</I></A>
+<A HREF="../xrefsI.html#indexExpressionBlock"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	| index |
+	index := self class allInstVarNames indexOf: 'indexExpressionBlock'.
+	index &lt; 1 ifTrue: [^[] yourself].
+	(self instVarAt: index) isNil ifTrue: [self indexExpression].
+	^self instVarAt: index</PRE>
+<!-- } indexExpressionBlock -->
+<LI><!-- initialize { -->
+<A NAME="InstanceMethod.initialize"><B>initialize</B> <I>[initialize-release]</I></A>
+<A HREF="../xrefsI.html#initialize"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	super initialize.
+	self useMovementProcess: false</PRE>
+<!-- } initialize -->
+<LI><!-- isOpen { -->
+<A NAME="InstanceMethod.isOpen"><B>isOpen</B> <I>[testing]</I></A>
+<A HREF="../xrefsI.html#isOpen"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	self getView ifNil: [^false] ifNotNil: [:aView | ^aView isOpen]</PRE>
+<!-- } isOpen -->
+<LI><!-- moleculeObject { -->
+<A NAME="InstanceMethod.moleculeObject"><B>moleculeObject</B> <I>[accessing]</I></A>
+<A HREF="../xrefsM.html#moleculeObject"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^nil</PRE>
+<!-- } moleculeObject -->
+<LI><!-- requestNewImageFilename { -->
+<A NAME="InstanceMethod.requestNewImageFilename"><B>requestNewImageFilename</B> <I>[menu messages]</I></A>
+<A HREF="../xrefsR.html#requestNewImageFilename"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	&quot;ChemoJunGeneralViewer new requestNewImageFilename.&quot;
+
+	| labels values menu message aFilename |
+	labels := Array 
+				with: (Array with: (#jun_Image_files &gt;&gt; 'Image files') asString).
+	values := Array with: JunSystem defaultImageExtensionPatterns.
+	menu := Menu labelList: labels values: values.
+	message := #jun_Input_an_image_file_ &gt;&gt; 'Input an image file.' 
+				expandMacrosWith: 'image'.
+	aFilename := ChemoJunFileRequesterDialog 
+				requestNewFilename: message
+				initialFilename: self defaultBaseName , '.jpg'
+				fileTypeMenu: menu
+				initialFileType: values first.
+	aFilename isNil ifTrue: [^nil].
+	^aFilename</PRE>
+<!-- } requestNewImageFilename -->
+<LI><!-- saveAsImage { -->
+<A NAME="InstanceMethod.saveAsImage"><B>saveAsImage</B> <I>[menu messages]</I></A>
+<A HREF="../xrefsS.html#saveAsImage"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	| aBoolean anImage aFilename |
+	aBoolean := JunSensorUtility shiftDown or: [JunSensorUtility altDown].
+	anImage := self asImage.
+	anImage isNil ifTrue: [^nil].
+	aBoolean 
+		ifTrue: 
+			[anImage := anImage convertToPalette: JunImageProcessor grayPalette256
+						renderedBy: NearestPaint new].
+	aFilename := self requestNewImageFilename.
+	aFilename isNil ifTrue: [^nil].
+	self writeImage: anImage to: aFilename.
+	^anImage</PRE>
+<!-- } saveAsImage -->
+<LI><!-- setIndexExpression:setIndexExpressionBlock: { -->
+<A NAME="InstanceMethod.setIndexExpression:setIndexExpressionBlock:"><B>setIndexExpression:</B> aString <B>setIndexExpressionBlock:</B> aBlock <I>[private]</I></A>
+<A HREF="../xrefsS.html#setIndexExpression:setIndexExpressionBlock:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	^self</PRE>
+<!-- } setIndexExpression:setIndexExpressionBlock: -->
+<LI><!-- settingIndex { -->
+<A NAME="InstanceMethod.settingIndex"><B>settingIndex</B> <I>[menu messages]</I></A>
+<A HREF="../xrefsS.html#settingIndex"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	| aStream aString |
+	aStream := String new writeStream.
+	aStream nextPutAll: (#chemoJun_Expression_ &gt;&gt; 'Expression?') asString.
+	aStream cr.
+	aStream nextPutAll: (#jun_ex_ &gt;&gt; 'ex.') asString , ')'.
+	aStream cr.
+	aStream nextPutAll: '[:index | true]'.
+	aStream cr.
+	aStream nextPutAll: '[:index | index odd]'.
+	aStream cr.
+	aStream nextPutAll: '[:index | index even]'.
+	aStream cr.
+	aStream nextPutAll: '[:index | (index \\ 3) = 1]'.
+	aStream cr.
+	aStream nextPutAll: '[:index | #(1 10 50 100 150 999) includes: index]'.
+	aStream cr.
+	aStream nextPutAll: '[:index :atom | atom = ''C'']'.
+	aStream cr.
+	aStream nextPutAll: '[:index :atom | (atom = ''H'') not]'.
+	aStream cr.
+	aStream nextPutAll: '[:index :atom | (index odd) &amp; (atom = ''C'')]'.
+	aStream cr.
+	aStream nextPutAll: '[:index :atom :point | false]'.
+	aString := aStream contents.
+	aStream close.
+	aString := JunDialog request: aString initialAnswer: self indexExpression.
+	aString isNil ifTrue: [^nil].
+	aString isEmpty ifTrue: [^nil].
+	self indexExpression: aString.
+	self flushDisplayObject.
+	self changed: #object</PRE>
+<!-- } settingIndex -->
+<LI><!-- updateFileMenuIndication { -->
+<A NAME="InstanceMethod.updateFileMenuIndication"><B>updateFileMenuIndication</B> <I>[menu accessing]</I></A>
+<A HREF="../xrefsU.html#updateFileMenuIndication"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	| menuItem aMenu displayObjectIsEmpty |
+	super updateFileMenuIndication.
+	menuItem := self menuItemLabeled: 'File' inMenu: self menuBar.
+	menuItem isNil ifTrue: [^self].
+	aMenu := menuItem submenu.
+	aMenu isNil ifTrue: [^nil].
+	displayObjectIsEmpty := self isEmpty.
+	menuItem := self menuItemLabeled: 'Save as' asString inMenu: aMenu.
+	menuItem notNil 
+		ifTrue: 
+			[displayObjectIsEmpty ifTrue: [menuItem disable] ifFalse: [menuItem enable]]</PRE>
+<!-- } updateFileMenuIndication -->
+</OL>
+<!-- } (instance_methods) -->
+<!-- (class_methods) { -->
+<P>
+<A NAME="ClassMethods.ChemoJunGeneralViewer">
+<I>class methods:</I>
+</A>
+</P>
+<OL>
+<LI><!-- copyright { -->
+<A NAME="ClassMethod.copyright"><B>copyright</B> <I>[copyright]</I></A>
+<A HREF="../xrefsC.html#copyright"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^'ChemoJun050 (2006/08/08) Copyright 2002-2006 National Institute of Informatics, Research Organization of Information and Systems.'</PRE>
+<!-- } copyright -->
+<LI><!-- menuBar { -->
+<A NAME="ClassMethod.menuBar"><B>menuBar</B> <I>[resources]</I></A>
+<A HREF="../xrefsM.html#menuBar"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	&quot;Tools.MenuEditor new openOnClass: self andSelector: #menuBar&quot;
+
+	&lt;resource: #menu&gt;
+	^#(#{UI.Menu} #(
+			#(#{UI.MenuItem} 
+				#rawLabel: 
+				#(#{Kernel.UserMessage} 
+					#key: #jun_File 
+					#defaultString: 'File' ) 
+				#submenu: #(#{UI.Menu} #(
+						#(#{UI.MenuItem} 
+							#rawLabel: 
+							#(#{Kernel.UserMessage} 
+								#key: #chemoJun_Save_as_Image 
+								#defaultString: 'Save as Image' ) 
+							#value: #saveAsImage ) 
+						#(#{UI.MenuItem} 
+							#rawLabel: 
+							#(#{Kernel.UserMessage} 
+								#key: #chemoJun_Save_as_VRML 
+								#defaultString: 'Save as VRML' ) 
+							#value: #saveWRL97 ) 
+						#(#{UI.MenuItem} 
+							#rawLabel: 
+							#(#{Kernel.UserMessage} 
+								#key: #jun_Quit 
+								#defaultString: 'Quit' ) 
+							#value: #quitDoing ) ) #(2 1 ) nil ) ) 
+			#(#{UI.MenuItem} 
+				#rawLabel: 
+				#(#{Kernel.UserMessage} 
+					#key: #chemoJun_View 
+					#defaultString: 'View' ) 
+				#submenu: #(#{UI.Menu} #(
+						#(#{UI.MenuItem} 
+							#rawLabel: 
+							#(#{Kernel.UserMessage} 
+								#key: #jun_Reset 
+								#defaultString: 'Reset' ) 
+							#value: #resetView ) ) #(1 ) nil ) ) 
+			#(#{UI.MenuItem} 
+				#rawLabel: 
+				#(#{Kernel.UserMessage} 
+					#key: #jun_Misc 
+					#defaultString: 'Misc' ) 
+				#submenu: #(#{UI.Menu} #(
+						#(#{UI.MenuItem} 
+							#rawLabel: 
+							#(#{Kernel.UserMessage} 
+								#key: #jun_Spawn 
+								#defaultString: 'Spawn' ) 
+							#value: #spawnObject ) 
+						#(#{UI.MenuItem} 
+							#rawLabel: 
+							#(#{Kernel.UserMessage} 
+								#key: #jun_Viewport 
+								#defaultString: 'Viewport' ) 
+							#value: #spawnViewport ) 
+						#(#{UI.MenuItem} 
+							#rawLabel: 
+							#(#{Kernel.UserMessage} 
+								#key: #jun_Inspect 
+								#defaultString: 'Inspect' ) 
+							#value: #inspectModel ) ) #(2 1 ) nil ) ) ) #(3 ) nil ) decodeAsLiteralArray</PRE>
+<!-- } menuBar -->
+<LI><!-- system { -->
+<A NAME="ClassMethod.system"><B>system</B> <I>[copyright]</I></A>
+<A HREF="../xrefsS.html#system"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^'ChemoJun'</PRE>
+<!-- } system -->
+<LI><!-- version { -->
+<A NAME="ClassMethod.version"><B>version</B> <I>[copyright]</I></A>
+<A HREF="../xrefsV.html#version"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^'050'</PRE>
+<!-- } version -->
+<LI><!-- windowSpec { -->
+<A NAME="ClassMethod.windowSpec"><B>windowSpec</B> <I>[interface specs]</I></A>
+<A HREF="../xrefsW.html#windowSpec"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	&quot;UIPainter new openOnClass: self andSelector: #windowSpec&quot;
+
+	&lt;resource: #canvas&gt;
+	^#(#FullSpec 
+		#window: 
+		#(#WindowSpec 
+			#label: 
+			#(#UserMessage 
+				#key: #jun_Viewfinder 
+				#defaultString: 'Viewfinder' ) 
+			#min: #(#Point 280 280 ) 
+			#bounds: #(#Rectangle 100 100 400 400 ) 
+			#flags: 4 
+			#menu: #menuBar ) 
+		#component: 
+		#(#SpecCollection 
+			#collection: #(
+				#(#ArbitraryComponentSpec 
+					#layout: #(#LayoutFrame 20 0 1 0 -20 1 -20 1 ) 
+					#name: #displayView 
+					#colors: 
+					#(#LookPreferences 
+						#setBackgroundColor: #(#ColorValue #white ) ) 
+					#component: #displayView ) 
+				#(#ArbitraryComponentSpec 
+					#layout: #(#LayoutFrame -19 1 1 0 -1 1 19 0 ) 
+					#name: #pickButtonView 
+					#flags: 0 
+					#component: #pickButtonView ) 
+				#(#ArbitraryComponentSpec 
+					#layout: #(#LayoutFrame -19 1 20 0 -1 1 38 0 ) 
+					#name: #grabButtonView 
+					#flags: 0 
+					#component: #grabButtonView ) 
+				#(#ArbitraryComponentSpec 
+					#layout: #(#LayoutFrame -19 1 39 0 -1 1 57 0 ) 
+					#name: #dragButtonView 
+					#flags: 0 
+					#component: #dragButtonView ) 
+				#(#ArbitraryComponentSpec 
+					#layout: #(#LayoutFrame 1 0 -61 0.5 19 0 61 0.5 ) 
+					#name: #xThumbWheelView 
+					#flags: 0 
+					#component: #xThumbWheelView ) 
+				#(#ArbitraryComponentSpec 
+					#layout: #(#LayoutFrame -61 0.5 -19 1 61 0.5 -1 1 ) 
+					#name: #yThumbWheelView 
+					#flags: 0 
+					#component: #yThumbWheelView ) 
+				#(#ArbitraryComponentSpec 
+					#layout: #(#LayoutFrame -19 1 -61 0.5 -1 1 61 0.5 ) 
+					#name: #zThumbWheelView 
+					#flags: 0 
+					#component: #zThumbWheelView ) 
+				#(#ArbitraryComponentSpec 
+					#layout: #(#LayoutFrame -19 1 62 0.5 -1 1 80 0.5 ) 
+					#name: #focusButtonView 
+					#flags: 0 
+					#component: #focusButtonView ) ) ) )</PRE>
+<!-- } windowSpec -->
+</OL>
+<!-- } (class_methods) -->
+<HR>
+<A HREF="../index.html#ChemoJunGeneralViewer"><IMG SRC="../images/index.jpg" ALT="index" ALIGN="top" BORDER=1></A>
+<A HREF="../xrefsC.html#ChemoJunGeneralViewer"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<!-- This Document was generated by JunEncyclopedia. -->
+<!-- JunEncyclopedia was developed by AOKI Atsushi. -->
+</BODY>
+</HTML>

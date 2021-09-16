@@ -1,0 +1,380 @@
+<HTML>
+<HEAD>
+<TITLE>ChemoJunMolFileReader</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<A HREF="../index.html#ChemoJunMolFileReader"><IMG SRC="../images/index.jpg" ALT="index" ALIGN="top" BORDER=1></A>
+<A HREF="../xrefsC.html#ChemoJunMolFileReader"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+2006/08/08 17:41:29
+<HR>
+<!-- (class_name) { -->
+<H2>
+<A NAME="Class.ChemoJunMolFileReader">ChemoJunMolFileReader</A>
+</H2>
+<!-- } (class_name) -->
+<!-- (comment) { -->
+<P>
+<A NAME="Comment.ChemoJunMolFileReader">
+ChemoJun050 (2006/08/08) Copyright 2002-2006 National Institute of Informatics, Research Organization of Information and Systems.
+</A>
+</P>
+<!-- } (comment) -->
+<!-- (category) { -->
+<P>
+<A NAME="Category.ChemoJun-File-IO"><I>category:</I></A></P>
+<UL>
+<LI><B>
+ChemoJun-File-IO
+</B>
+<A HREF="../xrefsC.html#ChemoJun-File-IO"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+</UL>
+<!-- } (category) -->
+<!-- (inheritance) { -->
+<P>
+<A NAME="Inheritance.ChemoJunMolFileReader"><I>inheritance:</I></A>
+</P>
+<UL>
+<LI TYPE="square">Object
+<UL>
+<LI TYPE="square"><A HREF="ChemoJunAbstractFile.html">ChemoJunAbstractFile</A>
+<UL>
+<LI TYPE="square"><A HREF="ChemoJunAbstractFileReader.html">ChemoJunAbstractFileReader</A>
+<UL>
+<LI TYPE="square"><B>ChemoJunMolFileReader</B>
+</UL>
+</UL>
+</UL>
+</UL>
+<!-- } (inheritance) -->
+<!-- (instance_variables) { -->
+<P>
+<A NAME="InstanceVariables.ChemoJunMolFileReader">
+<I>instance variables:</I>
+</A>
+</P>
+<UL>
+<!-- atomList { -->
+<LI><A NAME="InstanceVariable.atomList"><B>atomList</B></A>
+<A HREF="../xrefsA.html#atomList"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<!-- } atomList -->
+<!-- connectionList { -->
+<LI><A NAME="InstanceVariable.connectionList"><B>connectionList</B></A>
+<A HREF="../xrefsC.html#connectionList"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<!-- } connectionList -->
+<!-- numberOfAtoms { -->
+<LI><A NAME="InstanceVariable.numberOfAtoms"><B>numberOfAtoms</B></A>
+<A HREF="../xrefsN.html#numberOfAtoms"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<!-- } numberOfAtoms -->
+<!-- numberOfConnections { -->
+<LI><A NAME="InstanceVariable.numberOfConnections"><B>numberOfConnections</B></A>
+<A HREF="../xrefsN.html#numberOfConnections"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<!-- } numberOfConnections -->
+</UL>
+<!-- } (instance_variables) -->
+<!-- (class_instance_variables) { -->
+<P>
+<A NAME="ClassInstanceVariables.ChemoJunMolFileReader">
+<I>class instance variables:</I>
+</A>
+</P>
+<UL>
+</UL>
+<!-- } (class_instance_variables) -->
+<!-- (class_variables) { -->
+<P>
+<A NAME="ClassVariables.ChemoJunMolFileReader">
+<I>class variables:</I>
+</A>
+</P>
+<UL>
+</UL>
+<!-- } (class_variables) -->
+<!-- (pool_variables) { -->
+<P>
+<A NAME="PoolVariables.ChemoJunMolFileReader">
+<I>pool variables:</I>
+</A>
+</P>
+<UL>
+</UL>
+<!-- } (pool_variables) -->
+<!-- (instance_methods) { -->
+<P>
+<A NAME="InstanceMethods.ChemoJunMolFileReader">
+<I>instance methods:</I>
+</A>
+</P>
+<OL>
+<LI><!-- atomList { -->
+<A NAME="InstanceMethod.atomList"><B>atomList</B> <I>[accessing]</I></A>
+<A HREF="../xrefsA.html#atomList"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	atomList isNil ifTrue: [atomList := OrderedCollection new].
+	^atomList</PRE>
+<!-- } atomList -->
+<LI><!-- connectionList { -->
+<A NAME="InstanceMethod.connectionList"><B>connectionList</B> <I>[accessing]</I></A>
+<A HREF="../xrefsC.html#connectionList"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	connectionList isNil ifTrue: [connectionList := OrderedCollection new].
+	^connectionList</PRE>
+<!-- } connectionList -->
+<LI><!-- defaultAtomObjectClass { -->
+<A NAME="InstanceMethod.defaultAtomObjectClass"><B>defaultAtomObjectClass</B> <I>[defaults]</I></A>
+<A HREF="../xrefsD.html#defaultAtomObjectClass"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^self class defaultAtomObjectClass</PRE>
+<!-- } defaultAtomObjectClass -->
+<LI><!-- defaultMoleculeObjectClass { -->
+<A NAME="InstanceMethod.defaultMoleculeObjectClass"><B>defaultMoleculeObjectClass</B> <I>[defaults]</I></A>
+<A HREF="../xrefsD.html#defaultMoleculeObjectClass"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^self class defaultMoleculeObjectClass</PRE>
+<!-- } defaultMoleculeObjectClass -->
+<LI><!-- initialize { -->
+<A NAME="InstanceMethod.initialize"><B>initialize</B> <I>[initialize-release]</I></A>
+<A HREF="../xrefsI.html#initialize"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	super initialize.
+	numberOfAtoms := nil.
+	numberOfConnections := nil.
+	atomList := nil.
+	connectionList := nil</PRE>
+<!-- } initialize -->
+<LI><!-- moleculeObject { -->
+<A NAME="InstanceMethod.moleculeObject"><B>moleculeObject</B> <I>[accessing]</I></A>
+<A HREF="../xrefsM.html#moleculeObject"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^self class defaultMoleculeObjectClass fromReader: self</PRE>
+<!-- } moleculeObject -->
+<LI><!-- numberOfAtoms { -->
+<A NAME="InstanceMethod.numberOfAtoms"><B>numberOfAtoms</B> <I>[accessing]</I></A>
+<A HREF="../xrefsN.html#numberOfAtoms"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	numberOfAtoms isNil ifTrue: [numberOfAtoms := 0].
+	^numberOfAtoms</PRE>
+<!-- } numberOfAtoms -->
+<LI><!-- numberOfConnections { -->
+<A NAME="InstanceMethod.numberOfConnections"><B>numberOfConnections</B> <I>[accessing]</I></A>
+<A HREF="../xrefsN.html#numberOfConnections"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	numberOfConnections isNil ifTrue: [numberOfConnections := 0].
+	^numberOfConnections</PRE>
+<!-- } numberOfConnections -->
+<LI><!-- readAtomBlockFrom: { -->
+<A NAME="InstanceMethod.readAtomBlockFrom:"><B>readAtomBlockFrom:</B> aStream <I>[reading]</I></A>
+<A HREF="../xrefsR.html#readAtomBlockFrom:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	numberOfAtoms timesRepeat: 
+			[| line size string x y z atom point |
+			line := self getLine: aStream.
+			size := line size.
+			string := line copyFrom: (1 min: size) to: (10 min: size).
+			x := (string , 'd') asNumber.
+			string := line copyFrom: (11 min: size) to: (20 min: size).
+			y := (string , 'd') asNumber.
+			string := line copyFrom: (21 min: size) to: (30 min: size).
+			z := (string , 'd') asNumber.
+			string := line copyFrom: (32 min: size) to: (34 min: size).
+			[string first isSeparator] 
+				whileTrue: [string := string copyFrom: 2 to: string size].
+			[string last isSeparator] 
+				whileTrue: [string := string copyFrom: 1 to: string size - 1].
+			atom := string.
+			point := x , y , z.
+			self atomList add: (Array with: atom with: point)]</PRE>
+<!-- } readAtomBlockFrom: -->
+<LI><!-- readBondBlockFrom: { -->
+<A NAME="InstanceMethod.readBondBlockFrom:"><B>readBondBlockFrom:</B> aStream <I>[reading]</I></A>
+<A HREF="../xrefsR.html#readBondBlockFrom:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	numberOfConnections timesRepeat: 
+			[| line size string from to bond stereo |
+			line := self getLine: aStream.
+			size := line size.
+			string := line copyFrom: (1 min: size) to: (3 min: size).
+			from := string asNumber.
+			string := line copyFrom: (4 min: size) to: (6 min: size).
+			to := string asNumber.
+			string := line copyFrom: (7 min: size) to: (9 min: size).
+			bond := string asNumber.
+			string := line copyFrom: (10 min: size) to: (12 min: size).
+			stereo := string asNumber.
+			self connectionList add: (Array 
+						with: from
+						with: to
+						with: bond
+						with: stereo)]</PRE>
+<!-- } readBondBlockFrom: -->
+<LI><!-- readCountsLineFrom: { -->
+<A NAME="InstanceMethod.readCountsLineFrom:"><B>readCountsLineFrom:</B> aStream <I>[reading]</I></A>
+<A HREF="../xrefsR.html#readCountsLineFrom:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	| line string |
+	line := self getLine: aStream.
+	string := line copyFrom: 1 to: 3.
+	numberOfAtoms := string asNumber.
+	string := line copyFrom: 4 to: 6.
+	numberOfConnections := string asNumber</PRE>
+<!-- } readCountsLineFrom: -->
+<LI><!-- readFrom: { -->
+<A NAME="InstanceMethod.readFrom:"><B>readFrom:</B> aStream <I>[reading]</I></A>
+<A HREF="../xrefsR.html#readFrom:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	commentList := OrderedCollection new.
+	numberOfAtoms := 0.
+	numberOfConnections := 0.
+	atomList := nil.
+	connectionList := nil.
+	self readHeaderBlockFrom: aStream.
+	self readCountsLineFrom: aStream.
+	self readAtomBlockFrom: aStream.
+	self readBondBlockFrom: aStream.
+	self readPropertiesBlockFrom: aStream</PRE>
+<!-- } readFrom: -->
+<LI><!-- readHeaderBlockFrom: { -->
+<A NAME="InstanceMethod.readHeaderBlockFrom:"><B>readHeaderBlockFrom:</B> aStream <I>[reading]</I></A>
+<A HREF="../xrefsR.html#readHeaderBlockFrom:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	| boolean position line collection |
+	boolean := true.
+	position := aStream position.
+	[aStream atEnd not and: [boolean]] whileTrue: 
+			[position := aStream position.
+			line := self getLine: aStream.
+			collection := self separate: line dividers: self separators , 'Vv'.
+			(collection size &gt;= 2 and: 
+					[((collection at: 1) detect: [:c | c isDigit not] ifNone: [nil]) isNil 
+						and: [((collection at: 2) detect: [:c | c isDigit not] ifNone: [nil]) isNil]]) 
+				ifTrue: [boolean := false]
+				ifFalse: [self commentList add: line]].
+	aStream position: position</PRE>
+<!-- } readHeaderBlockFrom: -->
+<LI><!-- readPropertiesBlockFrom: { -->
+<A NAME="InstanceMethod.readPropertiesBlockFrom:"><B>readPropertiesBlockFrom:</B> aStream <I>[reading]</I></A>
+<A HREF="../xrefsR.html#readPropertiesBlockFrom:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	[aStream atEnd not] whileTrue: 
+			[| aString aCollection |
+			aString := self getLine: aStream.
+			aCollection := self separate: aString.
+			(aCollection size &gt;= 2 
+				and: [(aCollection at: 1) = 'M' and: [(aCollection at: 2) = 'END']]) 
+					ifTrue: [^self]].
+	^self</PRE>
+<!-- } readPropertiesBlockFrom: -->
+</OL>
+<!-- } (instance_methods) -->
+<!-- (class_methods) { -->
+<P>
+<A NAME="ClassMethods.ChemoJunMolFileReader">
+<I>class methods:</I>
+</A>
+</P>
+<OL>
+<LI><!-- copyright { -->
+<A NAME="ClassMethod.copyright"><B>copyright</B> <I>[copyright]</I></A>
+<A HREF="../xrefsC.html#copyright"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^'ChemoJun050 (2006/08/08) Copyright 2002-2006 National Institute of Informatics, Research Organization of Information and Systems.'</PRE>
+<!-- } copyright -->
+<LI><!-- defaultAtomConnectionClass { -->
+<A NAME="ClassMethod.defaultAtomConnectionClass"><B>defaultAtomConnectionClass</B> <I>[defaults]</I></A>
+<A HREF="../xrefsD.html#defaultAtomConnectionClass"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^ChemoJunAtomConnection</PRE>
+<!-- } defaultAtomConnectionClass -->
+<LI><!-- defaultFileDescriptions { -->
+<A NAME="ClassMethod.defaultFileDescriptions"><B>defaultFileDescriptions</B> <I>[defaults]</I></A>
+<A HREF="../xrefsD.html#defaultFileDescriptions"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^Array with: (Array 
+				with: (#chemoJun_Molecular_structure_files &gt;&gt; 'Molecular structure files') 
+						asString)
+		with: (Array with: (#jun_All_files &gt;&gt; 'All files') asString)</PRE>
+<!-- } defaultFileDescriptions -->
+<LI><!-- defaultFilePatterns { -->
+<A NAME="ClassMethod.defaultFilePatterns"><B>defaultFilePatterns</B> <I>[defaults]</I></A>
+<A HREF="../xrefsD.html#defaultFilePatterns"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^Array with: #('*.mol' '*.MOL') with: #('*')</PRE>
+<!-- } defaultFilePatterns -->
+<LI><!-- defaultMoleculeObjectClass { -->
+<A NAME="ClassMethod.defaultMoleculeObjectClass"><B>defaultMoleculeObjectClass</B> <I>[defaults]</I></A>
+<A HREF="../xrefsD.html#defaultMoleculeObjectClass"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^ChemoJunMoleculeObject</PRE>
+<!-- } defaultMoleculeObjectClass -->
+<LI><!-- defaultRequestMessageString { -->
+<A NAME="ClassMethod.defaultRequestMessageString"><B>defaultRequestMessageString</B> <I>[defaults]</I></A>
+<A HREF="../xrefsD.html#defaultRequestMessageString"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^(#chemoJun_Select_a_molecular_file_ &gt;&gt; 'Select a molecular file.') asString</PRE>
+<!-- } defaultRequestMessageString -->
+<LI><!-- example1 { -->
+<A NAME="ClassMethod.example1"><B>example1</B> <I>[examples]</I></A>
+<A HREF="../xrefsE.html#example1"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	&quot;ChemoJunMolFileReader example1.&quot;
+
+	| aReader |
+	aReader := ChemoJunMolFileReader request.
+	aReader isNil ifTrue: [^nil].
+	^aReader</PRE>
+<!-- } example1 -->
+<LI><!-- example2 { -->
+<A NAME="ClassMethod.example2"><B>example2</B> <I>[examples]</I></A>
+<A HREF="../xrefsE.html#example2"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	&quot;ChemoJunMolFileReader example2.&quot;
+
+	| aReader |
+	aReader := ChemoJunMolFileReader request.
+	aReader isNil ifTrue: [^nil].
+	(ChemoJunMoleculeViewer moleculeObject: aReader moleculeObject) open</PRE>
+<!-- } example2 -->
+<LI><!-- system { -->
+<A NAME="ClassMethod.system"><B>system</B> <I>[copyright]</I></A>
+<A HREF="../xrefsS.html#system"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^'ChemoJun'</PRE>
+<!-- } system -->
+<LI><!-- version { -->
+<A NAME="ClassMethod.version"><B>version</B> <I>[copyright]</I></A>
+<A HREF="../xrefsV.html#version"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^'050'</PRE>
+<!-- } version -->
+</OL>
+<!-- } (class_methods) -->
+<HR>
+<A HREF="../index.html#ChemoJunMolFileReader"><IMG SRC="../images/index.jpg" ALT="index" ALIGN="top" BORDER=1></A>
+<A HREF="../xrefsC.html#ChemoJunMolFileReader"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<!-- This Document was generated by JunEncyclopedia. -->
+<!-- JunEncyclopedia was developed by AOKI Atsushi. -->
+</BODY>
+</HTML>

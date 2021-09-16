@@ -1,0 +1,1086 @@
+<HTML>
+<HEAD>
+<TITLE>ChemoJunAbstractViewer</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<A HREF="../index.html#ChemoJunAbstractViewer"><IMG SRC="../images/index.jpg" ALT="index" ALIGN="top" BORDER=1></A>
+<A HREF="../xrefsC.html#ChemoJunAbstractViewer"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+2006/08/08 17:41:24
+<HR>
+<!-- (class_name) { -->
+<H2>
+<A NAME="Class.ChemoJunAbstractViewer">ChemoJunAbstractViewer</A>
+</H2>
+<!-- } (class_name) -->
+<!-- (comment) { -->
+<P>
+<A NAME="Comment.ChemoJunAbstractViewer">
+ChemoJun050 (2006/08/08) Copyright 2002-2006 National Institute of Informatics, Research Organization of Information and Systems.
+</A>
+</P>
+<!-- } (comment) -->
+<!-- (category) { -->
+<P>
+<A NAME="Category.ChemoJun-Abstract-Objects"><I>category:</I></A></P>
+<UL>
+<LI><B>
+ChemoJun-Abstract-Objects
+</B>
+<A HREF="../xrefsC.html#ChemoJun-Abstract-Objects"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+</UL>
+<!-- } (category) -->
+<!-- (inheritance) { -->
+<P>
+<A NAME="Inheritance.ChemoJunAbstractViewer"><I>inheritance:</I></A>
+</P>
+<UL>
+<LI TYPE="square">Object
+<UL>
+<LI TYPE="square">Model
+<UL>
+<LI TYPE="square">ApplicationModel
+<UL>
+<LI TYPE="square">JunApplicationModel
+<UL>
+<LI TYPE="square">JunOpenGLDisplayModel
+<UL>
+<LI TYPE="square"><A HREF="ChemoJunGeneralViewer.html">ChemoJunGeneralViewer</A>
+<UL>
+<LI TYPE="square"><B>ChemoJunAbstractViewer</B>
+<UL>
+<LI TYPE="square"><A HREF="ChemoJunMoleculeViewer.html">ChemoJunMoleculeViewer</A>
+<UL>
+<LI TYPE="square"><A HREF="ChemoJunMoleculeModel.html">ChemoJunMoleculeModel</A>
+</UL>
+</UL>
+</UL>
+</UL>
+</UL>
+</UL>
+</UL>
+</UL>
+</UL>
+<!-- } (inheritance) -->
+<!-- (instance_variables) { -->
+<P>
+<A NAME="InstanceVariables.ChemoJunAbstractViewer">
+<I>instance variables:</I>
+</A>
+</P>
+<UL>
+<!-- defaultResolution { -->
+<LI><A NAME="InstanceVariable.defaultResolution"><B>defaultResolution</B></A>
+<A HREF="../xrefsD.html#defaultResolution"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<!-- } defaultResolution -->
+<!-- informationHolder { -->
+<LI><A NAME="InstanceVariable.informationHolder"><B>informationHolder</B></A>
+<A HREF="../xrefsI.html#informationHolder"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<!-- } informationHolder -->
+<!-- serialNumberSetting { -->
+<LI><A NAME="InstanceVariable.serialNumberSetting"><B>serialNumberSetting</B></A>
+<A HREF="../xrefsS.html#serialNumberSetting"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<!-- } serialNumberSetting -->
+<!-- withoutResetViewWhenOpen { -->
+<LI><A NAME="InstanceVariable.withoutResetViewWhenOpen"><B>withoutResetViewWhenOpen</B></A>
+<A HREF="../xrefsW.html#withoutResetViewWhenOpen"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<!-- } withoutResetViewWhenOpen -->
+</UL>
+<!-- } (instance_variables) -->
+<!-- (class_instance_variables) { -->
+<P>
+<A NAME="ClassInstanceVariables.ChemoJunAbstractViewer">
+<I>class instance variables:</I>
+</A>
+</P>
+<UL>
+</UL>
+<!-- } (class_instance_variables) -->
+<!-- (class_variables) { -->
+<P>
+<A NAME="ClassVariables.ChemoJunAbstractViewer">
+<I>class variables:</I>
+</A>
+</P>
+<UL>
+</UL>
+<!-- } (class_variables) -->
+<!-- (pool_variables) { -->
+<P>
+<A NAME="PoolVariables.ChemoJunAbstractViewer">
+<I>pool variables:</I>
+</A>
+</P>
+<UL>
+</UL>
+<!-- } (pool_variables) -->
+<!-- (instance_methods) { -->
+<P>
+<A NAME="InstanceMethods.ChemoJunAbstractViewer">
+<I>instance methods:</I>
+</A>
+</P>
+<OL>
+<LI><!-- asImage { -->
+<A NAME="InstanceMethod.asImage"><B>asImage</B> <I>[converting]</I></A>
+<A HREF="../xrefsA.html#asImage"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	| aView imageExtent |
+	aView := self getView.
+	(aView isNil or: [aView isOpen not]) 
+		ifTrue: [imageExtent := self defaultImageExtent]
+		ifFalse: [imageExtent := aView bounds extent].
+	^self asImageExtent: imageExtent</PRE>
+<!-- } asImage -->
+<LI><!-- asImageExtent: { -->
+<A NAME="InstanceMethod.asImageExtent:"><B>asImageExtent:</B> imageExtent <I>[converting]</I></A>
+<A HREF="../xrefsA.html#asImageExtent:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	| anImage aPixmap |
+	anImage := super asImageExtent: imageExtent.
+	JunControlUtility 
+		assert: [aPixmap := Pixmap extent: anImage extent]
+		do: 
+			[anImage displayOn: aPixmap graphicsContext.
+			superimposeBlock notNil 
+				ifTrue: 
+					[| arguments |
+					arguments := Array 
+								with: self
+								with: aPixmap
+								with: nil.
+					superimposeBlock 
+						valueWithArguments: (arguments copyFrom: 1 to: superimposeBlock numArgs)]]
+		ensure: 
+			[anImage := aPixmap asImage.
+			aPixmap close].
+	^anImage</PRE>
+<!-- } asImageExtent: -->
+<LI><!-- boundingBoxesFrom: { -->
+<A NAME="InstanceMethod.boundingBoxesFrom:"><B>boundingBoxesFrom:</B> a3dObject <I>[pencil]</I></A>
+<A HREF="../xrefsB.html#boundingBoxesFrom:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	| width height depth denominator point boundingBoxes |
+	width := a3dObject boundingBox width.
+	height := a3dObject boundingBox height.
+	depth := a3dObject boundingBox depth.
+	denominator := width max: (height max: depth).
+	point := width / denominator , (height / denominator) 
+				, (depth / denominator).
+	point := point * self defaultPartitionSize.
+	point := point rounded.
+	boundingBoxes := Jun3dBoundingBoxes fromObject: a3dObject howMany: point.
+	self pencilTrace: 
+			[| aBody aViewfinder aViewport |
+			aBody := JunOpenGL3dCompoundObject new.
+			aBody add: self displayObject.
+			aBody add: a3dObject.
+			aBody 
+				add: (boundingBoxes asJunOpenGL3dObjectColor: ColorValue cyan alpha: 0.1).
+			aViewfinder := JunOpenGLDisplayModel displayObject: aBody.
+			aViewfinder defaultProjectionTable: self projectionTable.
+			aViewfinder openAt: 200 @ 200.
+			aViewfinder parallelProjection.
+			aViewport := JunOpenGLShowModel displayModel: aViewfinder.
+			aViewport useTransparency: true.
+			aViewport openAt: 200 @ 200.
+			aViewport parallelProjection].
+	^boundingBoxes</PRE>
+<!-- } boundingBoxesFrom: -->
+<LI><!-- classToSpawn { -->
+<A NAME="InstanceMethod.classToSpawn"><B>classToSpawn</B> <I>[private]</I></A>
+<A HREF="../xrefsC.html#classToSpawn"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	(JunSensorUtility shiftDown or: [JunSensorUtility altDown]) 
+		ifTrue: [^JunOpenGLDisplayModel].
+	^ChemoJunAbstractViewer</PRE>
+<!-- } classToSpawn -->
+<LI><!-- clickAt: { -->
+<A NAME="InstanceMethod.clickAt:"><B>clickAt:</B> aPoint <I>[actions]</I></A>
+<A HREF="../xrefsC.html#clickAt:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	^self</PRE>
+<!-- } clickAt: -->
+<LI><!-- cloneViewer { -->
+<A NAME="InstanceMethod.cloneViewer"><B>cloneViewer</B> <I>[private]</I></A>
+<A HREF="../xrefsC.html#cloneViewer"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^self cloneViewerUseDisplayList: self useDisplayList</PRE>
+<!-- } cloneViewer -->
+<LI><!-- cloneViewerUseDisplayList: { -->
+<A NAME="InstanceMethod.cloneViewerUseDisplayList:"><B>cloneViewerUseDisplayList:</B> aBoolean <I>[private]</I></A>
+<A HREF="../xrefsC.html#cloneViewerUseDisplayList:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	| aViewer |
+	aViewer := self class new.
+	aBoolean = true 
+		ifTrue: [aViewer useDisplayList: true]
+		ifFalse: [aViewer useDisplayList: false].
+	aViewer displayObject: self displayObject.
+	aViewer defaultProjectionTable: self projectionTable.
+	aViewer allButOpenInterface: #windowSpec.
+	aViewer projectionTable: self projectionTable.
+	^aViewer</PRE>
+<!-- } cloneViewerUseDisplayList: -->
+<LI><!-- convert:triangles:controller: { -->
+<A NAME="InstanceMethod.convert:triangles:controller:"><B>convert:</B> collectionOfPoints <B>triangles:</B> collectionOfTriangles <B>controller:</B> aController <I>[pencil]</I></A>
+<A HREF="../xrefsC.html#convert:triangles:controller:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	| aPlane aProjection pointCollection triangleCollection |
+	aProjection := self displayProjection.
+	pointCollection := collectionOfPoints collect: 
+					[:point | 
+					| aPoint |
+					aPoint := aController regularizePoint: point.
+					aPoint := aProjection translateTo3dPointFromPoint: aPoint.
+					aPoint := aPoint - self sightPoint.
+					aPoint yourself].
+	triangleCollection := collectionOfTriangles collect: 
+					[:triangle | 
+					| aTriangle |
+					aTriangle := triangle collect: 
+									[:point | 
+									| aPoint |
+									aPoint := aController regularizePoint: point.
+									aPoint := aProjection translateTo3dPointFromPoint: aPoint.
+									aPoint := aPoint - self sightPoint.
+									aPoint yourself].
+					aPlane := JunPlane 
+								on: (aTriangle at: 1)
+								on: (aTriangle at: 2)
+								on: (aTriangle at: 3).
+					(aPlane valueF: self eyePoint) sign &lt; 0 
+						ifTrue: [aTriangle := aTriangle reverse].
+					aTriangle yourself].
+	self pencilTrace: 
+			[| aLine aTransformation0 aTransformation1 aTransformation2 aBody aViewfinder aViewport |
+			aLine := (self sightPoint to: self eyePoint) normalized.
+			aTransformation0 := Jun3dTransformation 
+						translate: (aLine atT: self zoomHeight / 2).
+			aTransformation1 := Jun3dTransformation 
+						translate: (aLine atT: self zoomHeight / 1.99).
+			aTransformation2 := Jun3dTransformation 
+						translate: (aLine atT: self zoomHeight / 1.98).
+			aBody := JunOpenGL3dCompoundObject new.
+			aBody add: self displayObject.
+			triangleCollection do: 
+					[:triangle | 
+					| aTriangle aPolyline |
+					aTriangle := (JunOpenGL3dPolygon vertexes: triangle asArray) 
+								transform: aTransformation0.
+					aTriangle paint: (ColorValue red blendWith: ColorValue white).
+					aBody add: aTriangle.
+					aTriangle := (JunOpenGL3dPolylineLoop vertexes: triangle asArray) 
+								transform: aTransformation1.
+					aTriangle lineWidth: 1.
+					aTriangle paint: ColorValue red.
+					aBody add: aTriangle.
+					aPolyline := (JunOpenGL3dPolylineLoop vertexes: pointCollection) 
+								transform: aTransformation2.
+					aPolyline lineWidth: 3.
+					aPolyline paint: ColorValue magenta.
+					aBody add: aPolyline].
+			aViewfinder := JunOpenGLDisplayModel displayObject: aBody.
+			aViewfinder defaultProjectionTable: self projectionTable.
+			aViewfinder openAt: 200 @ 200.
+			aViewfinder parallelProjection.
+			aViewport := JunOpenGLShowModel displayModel: aViewfinder.
+			aViewport useTransparency: true.
+			aViewport openAt: 200 @ 200.
+			aViewport parallelProjection].
+	^Array with: pointCollection with: triangleCollection</PRE>
+<!-- } convert:triangles:controller: -->
+<LI><!-- cylinder:triangles: { -->
+<A NAME="InstanceMethod.cylinder:triangles:"><B>cylinder:</B> pointCollection <B>triangles:</B> triangleCollection <I>[pencil]</I></A>
+<A HREF="../xrefsC.html#cylinder:triangles:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	| baseLine aRadius anInterval anArray aCylinder aPolygon aTransformation |
+	baseLine := (Jun3dLine from: self sightPoint to: self eyePoint) 
+				normalizedLine.
+	aRadius := self zoomHeight / 2.
+	baseLine := Jun3dLine from: (baseLine atT: 0)
+				to: (baseLine atT: aRadius * 1.5).
+	anInterval := 0 to: 1 by: 0.1.
+	anArray := Array new: anInterval size.
+	(1 to: anArray size) 
+		do: [:index | anArray at: index put: (OrderedCollection new: pointCollection size)].
+	pointCollection do: 
+			[:aPoint | 
+			| aLine |
+			aLine := baseLine translatedBy: aPoint.
+			anInterval with: (1 to: anArray size)
+				do: [:t :index | (anArray at: index) add: (aLine atT: t)]].
+	aCylinder := JunOpenGL3dCompoundObject new.
+	(1 to: anArray size - 1) do: 
+			[:arrayIndex | 
+			| fromPoints toPoints fp1 tp1 fp2 tp2 |
+			fromPoints := anArray at: arrayIndex.
+			toPoints := anArray at: arrayIndex + 1.
+			fp1 := fromPoints at: 1.
+			tp1 := toPoints at: 1.
+			(2 to: pointCollection size) do: 
+					[:index | 
+					fp2 := fromPoints at: index.
+					tp2 := toPoints at: index.
+					aPolygon := JunOpenGL3dPolygon vertexes: (Array 
+										with: fp1
+										with: tp1
+										with: tp2
+										with: fp2).
+					self defaultTriangulationClass = JunFormTriangulation3 
+						ifTrue: [aPolygon := aPolygon reversed].
+					aCylinder add: aPolygon.
+					fp1 := fp2.
+					tp1 := tp2]].
+	aTransformation := Jun3dTransformation translate: (baseLine atT: 0).
+	triangleCollection do: 
+			[:aTriangle | 
+			aPolygon := (JunOpenGL3dPolygon vertexes: aTriangle reverse) 
+						transform: aTransformation.
+			aCylinder add: aPolygon].
+	aTransformation := Jun3dTransformation translate: (baseLine atT: 1).
+	triangleCollection do: 
+			[:aTriangle | 
+			aPolygon := (JunOpenGL3dPolygon vertexes: aTriangle yourself) 
+						transform: aTransformation.
+			aCylinder add: aPolygon].
+	aCylinder 
+		primitivesDo: [:primitive | primitive paint: ColorValue magenta alpha: 0.5].
+	self pencilTrace: 
+			[| aBody aViewfinder aViewport |
+			aBody := JunOpenGL3dCompoundObject new.
+			aBody add: self displayObject.
+			aBody add: aCylinder.
+			aViewfinder := JunOpenGLDisplayModel displayObject: aBody.
+			aViewfinder defaultProjectionTable: self projectionTable.
+			aViewfinder openAt: 200 @ 200.
+			aViewfinder parallelProjection.
+			aViewport := JunOpenGLShowModel displayModel: aViewfinder.
+			aViewport useTransparency: true.
+			aViewport openAt: 200 @ 200.
+			aViewport parallelProjection].
+	^aCylinder</PRE>
+<!-- } cylinder:triangles: -->
+<LI><!-- defaulSerialNumberSetting { -->
+<A NAME="InstanceMethod.defaulSerialNumberSetting"><B>defaulSerialNumberSetting</B> <I>[defaults]</I></A>
+<A HREF="../xrefsD.html#defaulSerialNumberSetting"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	| aSerialNumberSetting |
+	aSerialNumberSetting := ChemoJunSerialNumberSetting new.
+	^aSerialNumberSetting</PRE>
+<!-- } defaulSerialNumberSetting -->
+<LI><!-- defaultBaseName { -->
+<A NAME="InstanceMethod.defaultBaseName"><B>defaultBaseName</B> <I>[defaults]</I></A>
+<A HREF="../xrefsD.html#defaultBaseName"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^self displayObject name ifNil: [super defaultBaseName]
+		ifNotNil: [:aString | aString , '_' , JunSystem defaultBaseName]</PRE>
+<!-- } defaultBaseName -->
+<LI><!-- defaultDisplayViewClass { -->
+<A NAME="InstanceMethod.defaultDisplayViewClass"><B>defaultDisplayViewClass</B> <I>[defaults]</I></A>
+<A HREF="../xrefsD.html#defaultDisplayViewClass"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^ChemoJunAbstractViewerView</PRE>
+<!-- } defaultDisplayViewClass -->
+<LI><!-- defaultEyePoint { -->
+<A NAME="InstanceMethod.defaultEyePoint"><B>defaultEyePoint</B> <I>[defaults]</I></A>
+<A HREF="../xrefsD.html#defaultEyePoint"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	| box distance |
+	self displayObject isNil ifTrue: [^10000 , 0 , 0].
+	^self defaultProjectionTable at: #eyePoint
+		ifAbsent: 
+			[box := self boundingBox.
+			distance := box origin distance: box corner.
+			distance := distance * 2.
+			^distance , 0 , 0]</PRE>
+<!-- } defaultEyePoint -->
+<LI><!-- defaultMinimumTriangleArea { -->
+<A NAME="InstanceMethod.defaultMinimumTriangleArea"><B>defaultMinimumTriangleArea</B> <I>[defaults]</I></A>
+<A HREF="../xrefsD.html#defaultMinimumTriangleArea"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	self featureResolution = #high ifTrue: [^0.001]</PRE>
+<!-- } defaultMinimumTriangleArea -->
+<LI><!-- defaultPartitionSize { -->
+<A NAME="InstanceMethod.defaultPartitionSize"><B>defaultPartitionSize</B> <I>[defaults]</I></A>
+<A HREF="../xrefsD.html#defaultPartitionSize"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^16</PRE>
+<!-- } defaultPartitionSize -->
+<LI><!-- defaultResolution { -->
+<A NAME="InstanceMethod.defaultResolution"><B>defaultResolution</B> <I>[defaults]</I></A>
+<A HREF="../xrefsD.html#defaultResolution"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	defaultResolution isNil ifTrue: [defaultResolution := #medium].
+	^defaultResolution</PRE>
+<!-- } defaultResolution -->
+<LI><!-- defaultResolution: { -->
+<A NAME="InstanceMethod.defaultResolution:"><B>defaultResolution:</B> aSymbol <I>[defaults]</I></A>
+<A HREF="../xrefsD.html#defaultResolution:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	(#(#low #medium #high) includes: aSymbol)
+		ifTrue: [defaultResolution := aSymbol]</PRE>
+<!-- } defaultResolution: -->
+<LI><!-- defaultShading { -->
+<A NAME="InstanceMethod.defaultShading"><B>defaultShading</B> <I>[defaults]</I></A>
+<A HREF="../xrefsD.html#defaultShading"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^self defaultProjectionTable at: #shading ifAbsent: [^#smoothShading]</PRE>
+<!-- } defaultShading -->
+<LI><!-- defaultString { -->
+<A NAME="InstanceMethod.defaultString"><B>defaultString</B> <I>[defaults]</I></A>
+<A HREF="../xrefsD.html#defaultString"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^String new</PRE>
+<!-- } defaultString -->
+<LI><!-- defaultTriangulationClass { -->
+<A NAME="InstanceMethod.defaultTriangulationClass"><B>defaultTriangulationClass</B> <I>[defaults]</I></A>
+<A HREF="../xrefsD.html#defaultTriangulationClass"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	&quot;{ JunFormTriangulation2 | JunFormTriangulation3 }&quot;
+
+	^JunFormTriangulation2</PRE>
+<!-- } defaultTriangulationClass -->
+<LI><!-- defaultUpVector { -->
+<A NAME="InstanceMethod.defaultUpVector"><B>defaultUpVector</B> <I>[defaults]</I></A>
+<A HREF="../xrefsD.html#defaultUpVector"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^self defaultProjectionTable at: #upVector ifAbsent: [0 , -1 , 1]</PRE>
+<!-- } defaultUpVector -->
+<LI><!-- defaultWindowLabel { -->
+<A NAME="InstanceMethod.defaultWindowLabel"><B>defaultWindowLabel</B> <I>[defaults]</I></A>
+<A HREF="../xrefsD.html#defaultWindowLabel"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^(#jun_Viewfinder &gt;&gt; 'Viewfinder') asString</PRE>
+<!-- } defaultWindowLabel -->
+<LI><!-- extractPatchesFrom: { -->
+<A NAME="InstanceMethod.extractPatchesFrom:"><B>extractPatchesFrom:</B> boundingBoxes <I>[pencil]</I></A>
+<A HREF="../xrefsE.html#extractPatchesFrom:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	| compoundObject cursorAnimator |
+	compoundObject := JunOpenGL3dCompoundObject new.
+	cursorAnimator := JunCursorAnimator clockCursors.
+	cursorAnimator tick: 1000.
+	cursorAnimator showWhile: 
+			[self displayObject polygonsDo: 
+					[:aPolygon | 
+					| anArray |
+					anArray := aPolygon asPointArray 
+								collect: [:aPoint | boundingBoxes containsPoint: aPoint].
+					(anArray detect: [:aBoolean | aBoolean = false] ifNone: [nil]) isNil 
+						ifTrue: [compoundObject add: aPolygon]]].
+	self pencilTrace: 
+			[| aBody aViewfinder |
+			aBody := JunOpenGL3dCompoundObject new.
+			aBody add: compoundObject.
+			aBody 
+				add: (boundingBoxes asJunOpenGL3dObjectColor: ColorValue cyan alpha: 0.1).
+			aViewfinder := JunOpenGLDisplayModel displayObject: aBody.
+			aViewfinder defaultProjectionTable: self projectionTable.
+			aViewfinder openAt: 200 @ 200.
+			aViewfinder parallelProjection].
+	&quot;[| frontPatches |
+	frontPatches := JunOpenGL3dCompoundObject new.
+	compoundObject polygonsDo: 
+			[:aPolygon | 
+			| pointCollection aPlane |
+			pointCollection := aPolygon vertexes.
+			aPlane := JunPlane 
+						on: (pointCollection at: 1)
+						on: (pointCollection at: pointCollection size // 3 + 1)
+						on: (pointCollection at: pointCollection size // 3 * 2 + 1).
+			(aPlane valueF: self eyePoint) &gt;= 0 ifTrue: [frontPatches add: aPolygon]].
+	compoundObject := frontPatches] value.&quot;
+	^compoundObject</PRE>
+<!-- } extractPatchesFrom: -->
+<LI><!-- featureResolution { -->
+<A NAME="InstanceMethod.featureResolution"><B>featureResolution</B> <I>[accessing]</I></A>
+<A HREF="../xrefsF.html#featureResolution"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^#medium</PRE>
+<!-- } featureResolution -->
+<LI><!-- fileName { -->
+<A NAME="InstanceMethod.fileName"><B>fileName</B> <I>[accessing]</I></A>
+<A HREF="../xrefsF.html#fileName"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^nil</PRE>
+<!-- } fileName -->
+<LI><!-- flushDisplayObject { -->
+<A NAME="InstanceMethod.flushDisplayObject"><B>flushDisplayObject</B> <I>[flushing]</I></A>
+<A HREF="../xrefsF.html#flushDisplayObject"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	self displayObject: nil</PRE>
+<!-- } flushDisplayObject -->
+<LI><!-- getInformationView { -->
+<A NAME="InstanceMethod.getInformationView"><B>getInformationView</B> <I>[private]</I></A>
+<A HREF="../xrefsG.html#getInformationView"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	| window |
+	window := self informationHolder dependents detect: [:each | each isKindOf: ComposedTextView]
+				ifNone: [nil].
+	window isNil ifTrue: [^nil].
+	^window</PRE>
+<!-- } getInformationView -->
+<LI><!-- getInformationWindow { -->
+<A NAME="InstanceMethod.getInformationWindow"><B>getInformationWindow</B> <I>[private]</I></A>
+<A HREF="../xrefsG.html#getInformationWindow"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	| window |
+	window := self informationHolder dependents detect: [:each | each isKindOf: ScheduledWindow]
+				ifNone: [nil].
+	window isNil ifTrue: [^nil].
+	^window</PRE>
+<!-- } getInformationWindow -->
+<LI><!-- highResolution { -->
+<A NAME="InstanceMethod.highResolution"><B>highResolution</B> <I>[menu messages]</I></A>
+<A HREF="../xrefsH.html#highResolution"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	self defaultResolution: #high.
+	self updateViewMenuIndication</PRE>
+<!-- } highResolution -->
+<LI><!-- informationHolder { -->
+<A NAME="InstanceMethod.informationHolder"><B>informationHolder</B> <I>[accessing]</I></A>
+<A HREF="../xrefsI.html#informationHolder"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	informationHolder isNil
+		ifTrue: 
+			[informationHolder := ValueHolder with: String new.
+			informationHolder compute: [:value | self setInformationWindowLabel]].
+	^informationHolder</PRE>
+<!-- } informationHolder -->
+<LI><!-- initialize { -->
+<A NAME="InstanceMethod.initialize"><B>initialize</B> <I>[initialize-release]</I></A>
+<A HREF="../xrefsI.html#initialize"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	super initialize.
+	informationHolder := nil.
+	defaultResolution := nil.
+	withoutResetViewWhenOpen := false.
+	self serialNumberSetting</PRE>
+<!-- } initialize -->
+<LI><!-- is2d { -->
+<A NAME="InstanceMethod.is2d"><B>is2d</B> <I>[testing]</I></A>
+<A HREF="../xrefsI.html#is2d"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^false</PRE>
+<!-- } is2d -->
+<LI><!-- is3d { -->
+<A NAME="InstanceMethod.is3d"><B>is3d</B> <I>[testing]</I></A>
+<A HREF="../xrefsI.html#is3d"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^true</PRE>
+<!-- } is3d -->
+<LI><!-- isElectroViewer { -->
+<A NAME="InstanceMethod.isElectroViewer"><B>isElectroViewer</B> <I>[testing]</I></A>
+<A HREF="../xrefsI.html#isElectroViewer"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^false</PRE>
+<!-- } isElectroViewer -->
+<LI><!-- isFeaturesViewer { -->
+<A NAME="InstanceMethod.isFeaturesViewer"><B>isFeaturesViewer</B> <I>[testing]</I></A>
+<A HREF="../xrefsI.html#isFeaturesViewer"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^false</PRE>
+<!-- } isFeaturesViewer -->
+<LI><!-- isMoleculeViewer { -->
+<A NAME="InstanceMethod.isMoleculeViewer"><B>isMoleculeViewer</B> <I>[testing]</I></A>
+<A HREF="../xrefsI.html#isMoleculeViewer"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^false</PRE>
+<!-- } isMoleculeViewer -->
+<LI><!-- isStericViewer { -->
+<A NAME="InstanceMethod.isStericViewer"><B>isStericViewer</B> <I>[testing]</I></A>
+<A HREF="../xrefsI.html#isStericViewer"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^false</PRE>
+<!-- } isStericViewer -->
+<LI><!-- lowResolution { -->
+<A NAME="InstanceMethod.lowResolution"><B>lowResolution</B> <I>[menu messages]</I></A>
+<A HREF="../xrefsL.html#lowResolution"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	self defaultResolution: #low.
+	self updateViewMenuIndication</PRE>
+<!-- } lowResolution -->
+<LI><!-- mediumResolution { -->
+<A NAME="InstanceMethod.mediumResolution"><B>mediumResolution</B> <I>[menu messages]</I></A>
+<A HREF="../xrefsM.html#mediumResolution"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	self defaultResolution: #medium.
+	self updateViewMenuIndication</PRE>
+<!-- } mediumResolution -->
+<LI><!-- noticeOfWindowClose: { -->
+<A NAME="InstanceMethod.noticeOfWindowClose:"><B>noticeOfWindowClose:</B> aWindow <I>[interface closing]</I></A>
+<A HREF="../xrefsN.html#noticeOfWindowClose:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	| window |
+	super noticeOfWindowClose: aWindow.
+	window := self getInformationWindow.
+	window isNil ifFalse: [window sensor eventQuit: nil].
+	self serialNumberSetting closeRequest</PRE>
+<!-- } noticeOfWindowClose: -->
+<LI><!-- numberOfPolygons { -->
+<A NAME="InstanceMethod.numberOfPolygons"><B>numberOfPolygons</B> <I>[accessing]</I></A>
+<A HREF="../xrefsN.html#numberOfPolygons"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	| numberOfPolygons |
+	self displayObject isNil ifTrue: [^0].
+	numberOfPolygons := 0.
+	self displayObject polygonsDo: [:each | numberOfPolygons := numberOfPolygons + 1].
+	^numberOfPolygons</PRE>
+<!-- } numberOfPolygons -->
+<LI><!-- numberOfPrimitives { -->
+<A NAME="InstanceMethod.numberOfPrimitives"><B>numberOfPrimitives</B> <I>[accessing]</I></A>
+<A HREF="../xrefsN.html#numberOfPrimitives"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	| numberOfPrimitives |
+	self displayObject isNil ifTrue: [^0].
+	numberOfPrimitives := 0.
+	self displayObject primitivesDo: [:each | numberOfPrimitives := numberOfPrimitives + 1].
+	^numberOfPrimitives</PRE>
+<!-- } numberOfPrimitives -->
+<LI><!-- openWithoutResetView { -->
+<A NAME="InstanceMethod.openWithoutResetView"><B>openWithoutResetView</B> <I>[interface opening]</I></A>
+<A HREF="../xrefsO.html#openWithoutResetView"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	withoutResetViewWhenOpen := true.
+	self open</PRE>
+<!-- } openWithoutResetView -->
+<LI><!-- pencilClosedPointCollection:from: { -->
+<A NAME="InstanceMethod.pencilClosedPointCollection:from:"><B>pencilClosedPointCollection:</B> collectionOfPoints <B>from:</B> aController <I>[pencil]</I></A>
+<A HREF="../xrefsP.html#pencilClosedPointCollection:from:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	| aTriangulation anArray aCylinder boundingBoxes patchCollection |
+	self displayObject isNil ifTrue: [^nil].
+	collectionOfPoints size &lt; 3 ifTrue: [^nil].
+	aController isNil ifTrue: [^nil].
+	self errorSignal handle: 
+			[:exception | 
+			JunDialog 
+				warn: (#chemoJun_Can_not_perform_triangulation_ 
+						&gt;&gt; 'Can not perform triangulation.') asString.
+			^nil]
+		do: 
+			[aTriangulation := self 
+						triangulationClass: self defaultTriangulationClass
+						pointCollection: collectionOfPoints
+						controller: aController].
+	self errorSignal handle: 
+			[:exception | 
+			JunDialog 
+				warn: (#chemoJun_Can_not_perform_conversion_ &gt;&gt; 'Can not perform conversion.') 
+						asString.
+			^nil]
+		do: 
+			[anArray := self 
+						convert: aTriangulation points
+						triangles: aTriangulation triangles
+						controller: aController].
+	aCylinder := self cylinder: anArray first triangles: anArray last.
+	aCylinder components isEmpty ifTrue: [^nil].
+	boundingBoxes := self boundingBoxesFrom: aCylinder.
+	boundingBoxes isEmpty ifTrue: [^nil].
+	patchCollection := self extractPatchesFrom: boundingBoxes.
+	patchCollection components isEmpty ifTrue: [^nil].
+	self spawnObject: patchCollection</PRE>
+<!-- } pencilClosedPointCollection:from: -->
+<LI><!-- pencilOpenedPointCollection:from: { -->
+<A NAME="InstanceMethod.pencilOpenedPointCollection:from:"><B>pencilOpenedPointCollection:</B> collectionOfPoints <B>from:</B> aController <I>[pencil]</I></A>
+<A HREF="../xrefsP.html#pencilOpenedPointCollection:from:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	| aPlane patchCollection |
+	self displayObject isNil ifTrue: [^nil].
+	collectionOfPoints size &lt; 3 ifTrue: [^nil].
+	aController isNil ifTrue: [^nil].
+	aPlane := self plane: collectionOfPoints from: aController.
+	patchCollection := self splitPathesFrom: aPlane.
+	patchCollection components isEmpty ifTrue: [^nil].
+	self spawnObject: patchCollection</PRE>
+<!-- } pencilOpenedPointCollection:from: -->
+<LI><!-- pencilTrace: { -->
+<A NAME="InstanceMethod.pencilTrace:"><B>pencilTrace:</B> aBlock <I>[pencil]</I></A>
+<A HREF="../xrefsP.html#pencilTrace:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	&quot;aBlock value&quot;</PRE>
+<!-- } pencilTrace: -->
+<LI><!-- pickedObjectAt: { -->
+<A NAME="InstanceMethod.pickedObjectAt:"><B>pickedObjectAt:</B> mouse2dPoint <I>[actions]</I></A>
+<A HREF="../xrefsP.html#pickedObjectAt:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	| compoundObject pickedObject |
+	self displayObject isNil ifTrue: [^nil].
+	compoundObject := JunOpenGL3dCompoundObject new.
+	self displayObject polygonsDo: [:aPolygon | compoundObject add: aPolygon].
+	pickedObject := JunOpenGLObjectPicker 
+				pickObjectAt: mouse2dPoint
+				fromCompound: compoundObject
+				projection: self displayProjection.
+	pickedObject isNil ifTrue: [^nil].
+	^pickedObject</PRE>
+<!-- } pickedObjectAt: -->
+<LI><!-- plane:from: { -->
+<A NAME="InstanceMethod.plane:from:"><B>plane:</B> collectionOfPoints <B>from:</B> aController <I>[pencil]</I></A>
+<A HREF="../xrefsP.html#plane:from:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	| aProjection pointCollection firstPoint secondPoint thirdPoint aLine aPlane |
+	self pencilTrace: 
+			[aController notNil 
+				ifTrue: 
+					[| anImage aWindow |
+					anImage := aController view topComponent asImage.
+					aWindow := ScheduledWindow new.
+					aWindow label: self getWindow label.
+					aWindow component: anImage.
+					aWindow openIn: (200 @ 200 extent: anImage extent)]].
+	aProjection := self displayProjection.
+	pointCollection := collectionOfPoints collect: 
+					[:point | 
+					| aPoint |
+					aPoint := aController regularizePoint: point.
+					aPoint := aProjection translateTo3dPointFromPoint: aPoint.
+					aPoint := aPoint - self sightPoint.
+					aPoint yourself].
+	aLine := (Jun3dLine from: self sightPoint to: self eyePoint) 
+				normalizedLine.
+	firstPoint := pointCollection first 
+				translatedBy: (aLine atT: self zoomHeight / 2).
+	secondPoint := pointCollection last 
+				translatedBy: (aLine atT: self zoomHeight / 2).
+	aLine := aLine 
+				translatedBy: (firstPoint center: secondPoint) - (aLine atT: 0).
+	thirdPoint := aLine atT: (self zoomHeight * 1.5) negated.
+	aPlane := firstPoint plane: secondPoint and: thirdPoint.
+	^aPlane</PRE>
+<!-- } plane:from: -->
+<LI><!-- postOpenWith: { -->
+<A NAME="InstanceMethod.postOpenWith:"><B>postOpenWith:</B> aBuilder <I>[interface opening]</I></A>
+<A HREF="../xrefsP.html#postOpenWith:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	super postOpenWith: aBuilder.
+	self setWindowLabel.
+	withoutResetViewWhenOpen = false ifTrue: [self resetView]</PRE>
+<!-- } postOpenWith: -->
+<LI><!-- serialNumberSetting { -->
+<A NAME="InstanceMethod.serialNumberSetting"><B>serialNumberSetting</B> <I>[accessing]</I></A>
+<A HREF="../xrefsS.html#serialNumberSetting"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	serialNumberSetting ifNil: 
+			[serialNumberSetting := self defaulSerialNumberSetting.
+			serialNumberSetting compute: 
+					[:expression | 
+					self indexExpression: expression.
+					self flushDisplayObject.
+					self changed: #object].
+			self indexExpression: serialNumberSetting expression].
+	^serialNumberSetting</PRE>
+<!-- } serialNumberSetting -->
+<LI><!-- setInformationWindowLabel { -->
+<A NAME="InstanceMethod.setInformationWindowLabel"><B>setInformationWindowLabel</B> <I>[private]</I></A>
+<A HREF="../xrefsS.html#setInformationWindowLabel"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	| aWindow aString |
+	aWindow := self getInformationWindow.
+	aWindow isNil ifTrue: [^nil].
+	aString := (#chemoJun_Information &gt;&gt; 'Information') asString.
+	self fileName notNil ifTrue: [aString := aString , ' [' , (Filename splitPath: self fileName asString) last , ']'].
+	aWindow label: aString</PRE>
+<!-- } setInformationWindowLabel -->
+<LI><!-- settingIndex { -->
+<A NAME="InstanceMethod.settingIndex"><B>settingIndex</B> <I>[menu messages]</I></A>
+<A HREF="../xrefsS.html#settingIndex"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	self serialNumberSetting ifNotNil: 
+			[:aSerialNumberSetting | 
+			| aWindow |
+			(aWindow := aSerialNumberSetting getWindow) isNil 
+				ifTrue: 
+					[aWindow := self getWindow.
+					aWindow isNil 
+						ifTrue: [self serialNumberSetting open]
+						ifFalse: 
+							[self serialNumberSetting openAt: aWindow displayBox topRight + (8 @ 0)]]
+				ifFalse: 
+					[aWindow isCollapsed ifTrue: [aWindow expand].
+					aWindow raise]]</PRE>
+<!-- } settingIndex -->
+<LI><!-- setWindowLabel { -->
+<A NAME="InstanceMethod.setWindowLabel"><B>setWindowLabel</B> <I>[interface opening]</I></A>
+<A HREF="../xrefsS.html#setWindowLabel"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	| aWindow |
+	aWindow := self getWindow.
+	aWindow isNil ifTrue: [^nil].
+	aWindow model = self ifFalse: [^nil].
+	aWindow label: self defaultWindowLabel</PRE>
+<!-- } setWindowLabel -->
+<LI><!-- showInformation { -->
+<A NAME="InstanceMethod.showInformation"><B>showInformation</B> <I>[menu messages]</I></A>
+<A HREF="../xrefsS.html#showInformation"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	| aWindow myWindow aView |
+	(aWindow := self getInformationWindow) isNil
+		ifTrue: 
+			[aWindow := ComposedTextView
+						createOn: self informationHolder
+						label: (#chemoJun_Information &gt;&gt; 'Information') asString
+						icon: (Icon constantNamed: #workspace).
+			(myWindow := self getWindow) isNil
+				ifTrue: [aWindow openWithExtent: 300 @ 300]
+				ifFalse: [aWindow openIn: (myWindow displayBox bottomRight + (8 @ 27) extent: 300 @ 300)].
+			aView := self getInformationView.
+			aView controller menuHolder: [self class editMenu].
+			self setInformationWindowLabel]
+		ifFalse: 
+			[aWindow isCollapsed ifTrue: [aWindow expand].
+			aWindow raise]</PRE>
+<!-- } showInformation -->
+<LI><!-- spawnObject { -->
+<A NAME="InstanceMethod.spawnObject"><B>spawnObject</B> <I>[menu messages]</I></A>
+<A HREF="../xrefsS.html#spawnObject"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	| displayModel |
+	displayModel := super spawnObject.
+	self moleculeObject 
+		ifNotNil: [:it | displayModel displayObject name: it baseName].
+	displayModel setWindowLabel.
+	displayModel updateMenuIndication.
+	^displayModel</PRE>
+<!-- } spawnObject -->
+<LI><!-- spawnObject: { -->
+<A NAME="InstanceMethod.spawnObject:"><B>spawnObject:</B> spawningObject <I>[menu messages]</I></A>
+<A HREF="../xrefsS.html#spawnObject:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	| aViewer aWindow |
+	aViewer := self cloneViewer.
+	aViewer displayObject: spawningObject.
+	aWindow := aViewer builder window.
+	aWindow openWithExtent: aWindow bounds extent.
+	aWindow displayPendingInvalidation.
+	aViewer setWindowLabel.
+	aViewer updateMenuIndication.
+	^aWindow</PRE>
+<!-- } spawnObject: -->
+<LI><!-- splitPathesFrom: { -->
+<A NAME="InstanceMethod.splitPathesFrom:"><B>splitPathesFrom:</B> aPlane <I>[pencil]</I></A>
+<A HREF="../xrefsS.html#splitPathesFrom:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	| compoundObject cursorAnimator |
+	self pencilTrace: 
+			[| aCircle aBody aViewfinder |
+			aCircle := Jun3dCircle 
+						center: aPlane asTriangle centerOfGravity
+						radius: self zoomHeight / 2
+						upVector: aPlane normalVector.
+			aBody := JunOpenGL3dCompoundObject new.
+			aBody add: self displayObject.
+			aBody 
+				add: (aCircle asJunOpenGL3dObjectColor: ColorValue magenta alpha: 0.5) 
+						reversed.
+			aBody 
+				add: (aCircle asJunOpenGL3dObjectColor: ColorValue magenta alpha: 0.5).
+			aViewfinder := JunOpenGLDisplayModel displayObject: aBody.
+			aViewfinder defaultProjectionTable: self projectionTable.
+			aViewfinder openAt: 200 @ 200
+			&quot;aViewfinder parallelProjection&quot;].
+	compoundObject := JunOpenGL3dCompoundObject new.
+	cursorAnimator := JunCursorAnimator handCursors.
+	cursorAnimator tick: 1000.
+	cursorAnimator showWhile: 
+			[self displayObject polygonsDo: 
+					[:aPolygon | 
+					| anArray |
+					anArray := aPolygon asPointArray 
+								collect: [:aPoint | (aPlane valueF: aPoint) &gt;= 0].
+					(anArray detect: [:aBoolean | aBoolean = false] ifNone: [nil]) isNil 
+						ifTrue: [compoundObject add: aPolygon]]].
+	self pencilTrace: 
+			[| aCircle aBody aViewfinder |
+			aCircle := Jun3dCircle 
+						center: aPlane asTriangle centerOfGravity
+						radius: self zoomHeight / 2
+						upVector: aPlane normalVector.
+			aBody := JunOpenGL3dCompoundObject new.
+			aBody add: compoundObject.
+			aBody 
+				add: (aCircle asJunOpenGL3dObjectColor: ColorValue magenta alpha: 0.5) 
+						reversed.
+			aBody 
+				add: (aCircle asJunOpenGL3dObjectColor: ColorValue magenta alpha: 0.5).
+			aViewfinder := JunOpenGLDisplayModel displayObject: aBody.
+			aViewfinder defaultProjectionTable: self projectionTable.
+			aViewfinder openAt: 200 @ 200
+			&quot;aViewfinder parallelProjection&quot;].
+	^compoundObject</PRE>
+<!-- } splitPathesFrom: -->
+<LI><!-- triangulationClass:pointCollection:controller: { -->
+<A NAME="InstanceMethod.triangulationClass:pointCollection:controller:"><B>triangulationClass:</B> aClass <B>pointCollection:</B> collectionOfPoints <B>controller:</B> aController <I>[pencil]</I></A>
+<A HREF="../xrefsT.html#triangulationClass:pointCollection:controller:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	| formTriangulation |
+	self pencilTrace: 
+			[aController notNil 
+				ifTrue: 
+					[| anImage aWindow |
+					anImage := aController view topComponent asImage.
+					aWindow := ScheduledWindow new.
+					aWindow label: self getWindow label.
+					aWindow component: anImage.
+					aWindow openIn: (200 @ 200 extent: anImage extent)]].
+	formTriangulation := aClass points: collectionOfPoints.
+	self pencilTrace: 
+			[| aWindow aPixmap graphicsContext |
+			aWindow := ScheduledWindow new.
+			aWindow label: 'Triangulation'.
+			aWindow 
+				openIn: (200 @ 200 extent: formTriangulation boundingBox extent rounded).
+			aPixmap := Pixmap extent: aWindow bounds extent.
+			
+			[self errorSignal handle: 
+					[:exception | 
+					aWindow controller closeAndUnschedule.
+					exception reject]
+				do: 
+					[graphicsContext := aPixmap graphicsContext.
+					graphicsContext paint: ColorValue white.
+					graphicsContext displayRectangle: aPixmap bounds.
+					JunApplicationModel displayPendingInvalidation.
+					Cursor wait showWhile: 
+							[self defaultTriangulationClass = JunFormTriangulation2 
+								ifTrue: 
+									[formTriangulation trianglesInterim: 
+											[:triangles :triangle :pending | 
+											formTriangulation 
+												displayOn: graphicsContext
+												triangles: triangles
+												triangle: triangle
+												pending: pending.
+											JunApplicationModel displayPendingInvalidation.
+											aWindow raise.
+											aWindow graphicsContext displayPixmap: aPixmap at: Point zero]].
+							self defaultTriangulationClass = JunFormTriangulation3 
+								ifTrue: 
+									[formTriangulation trianglesInterim: 
+											[:triangles | 
+											formTriangulation displayOn: graphicsContext triangles: triangles.
+											JunApplicationModel displayPendingInvalidation.
+											aWindow raise.
+											aWindow graphicsContext displayPixmap: aPixmap at: Point zero]]].
+					formTriangulation displayOn: graphicsContext.
+					JunApplicationModel displayPendingInvalidation.
+					aWindow raise.
+					aWindow graphicsContext displayPixmap: aPixmap at: Point zero.
+					aWindow component: aPixmap asImage.
+					aWindow display.
+					JunApplicationModel displayPendingInvalidation]] 
+					ensure: [aPixmap close]].
+	^formTriangulation</PRE>
+<!-- } triangulationClass:pointCollection:controller: -->
+<LI><!-- updateStringHolder: { -->
+<A NAME="InstanceMethod.updateStringHolder:"><B>updateStringHolder:</B> aValue <I>[updating]</I></A>
+<A HREF="../xrefsU.html#updateStringHolder:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	^self</PRE>
+<!-- } updateStringHolder: -->
+<LI><!-- updateViewMenuIndication { -->
+<A NAME="InstanceMethod.updateViewMenuIndication"><B>updateViewMenuIndication</B> <I>[menu accessing]</I></A>
+<A HREF="../xrefsU.html#updateViewMenuIndication"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^self</PRE>
+<!-- } updateViewMenuIndication -->
+</OL>
+<!-- } (instance_methods) -->
+<!-- (class_methods) { -->
+<P>
+<A NAME="ClassMethods.ChemoJunAbstractViewer">
+<I>class methods:</I>
+</A>
+</P>
+<OL>
+<LI><!-- copyright { -->
+<A NAME="ClassMethod.copyright"><B>copyright</B> <I>[copyright]</I></A>
+<A HREF="../xrefsC.html#copyright"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^'ChemoJun050 (2006/08/08) Copyright 2002-2006 National Institute of Informatics, Research Organization of Information and Systems.'</PRE>
+<!-- } copyright -->
+<LI><!-- system { -->
+<A NAME="ClassMethod.system"><B>system</B> <I>[copyright]</I></A>
+<A HREF="../xrefsS.html#system"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^'ChemoJun'</PRE>
+<!-- } system -->
+<LI><!-- version { -->
+<A NAME="ClassMethod.version"><B>version</B> <I>[copyright]</I></A>
+<A HREF="../xrefsV.html#version"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^'050'</PRE>
+<!-- } version -->
+</OL>
+<!-- } (class_methods) -->
+<HR>
+<A HREF="../index.html#ChemoJunAbstractViewer"><IMG SRC="../images/index.jpg" ALT="index" ALIGN="top" BORDER=1></A>
+<A HREF="../xrefsC.html#ChemoJunAbstractViewer"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<!-- This Document was generated by JunEncyclopedia. -->
+<!-- JunEncyclopedia was developed by AOKI Atsushi. -->
+</BODY>
+</HTML>

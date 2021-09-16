@@ -1,0 +1,424 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<link rel="stylesheet" href="../importstyle.css" type="text/css">
+<link rev="made" href="http://www.sra.co.jp/people/h-asaoka/">
+<link rel="index" href="index.html">
+<link rel="shortcut icon" href="../ChemoJun.ico">
+<title>ChemoJunMoleculeViewer</title>
+</head>
+<body>
+<p class="align-right">2006年08月08日 文責：<a name="TOP" href="http://www.sra.co.jp/people/h-asaoka/" target="_blank">浅岡 浩子</a></p>
+<hr>
+<h1>分子ビューア</h1>
+<p>もくじ：</p>
+<ul>
+  <li><a href="#About">分子ビューアとは</a>
+  <li><a href="#Open">分子ビューアを開く</a>
+  <li><a href="#Screen">画面</a>
+  <li><a href="#Menu">メニュー</a>
+  <ul>
+    <li><a href="#File">ファイル</a>
+    <ul>
+      <li><a href="#File_New">新規</a>
+      <li><a href="#File_Open">開く</a>
+      <li><a href="#File_Save-as">別名で保存</a>
+      <li><a href="#File_Save-as-Image">画像として保存</a>
+      <li><a href="#File_Quit">終了</a>
+    </ul>
+    <li><a href="#View">表示</a>
+    <ul>
+      <li><a href="#View_2D">２Ｄ</a>
+      <li><a href="#View_Sticks">スティック</a>
+      <li><a href="#View_Ball-&amp;&amp;-Stick">ボール＆スティック</a>
+      <li><a href="#View_Space-Filling">スペースフィル</a>
+      <li><a href="#View_Stick-&amp;&amp;-Space-Filling">スティック＆スペースフィル</a>
+      <li><a href="#View_Hydrogens">水素表示</a>
+      <li><a href="#View_Serial-Nos.-of-Atoms">原子のシリアル番号表示</a>
+      <li><a href="#View_Setting-Serial-Nos.">原子のシリアル番号設定</a>
+      <li><a href="#View_Low-Resolution">低解像度</a>
+      <li><a href="#View_Medium-Resolution">中解像度</a>
+      <li><a href="#View_High-Resolution">高解像度</a>
+      <li><a href="#View_Reset">リセット</a>
+    </ul>
+    <li><a href="#Misc">その他</a>
+    <ul>
+      <li><a href="#Misc_Manual">使用手引き</a>
+      <li><a href="#Misc_Information">詳細情報</a>
+      <li><a href="#Misc_Viewfinder">ビューファインダ</a>
+      <li><a href="#Misc_Viewport">ビューポート</a>
+      <li><a href="#Misc_Inspect">検査</a>
+    </ul>
+  </ul>
+</ul>
+<hr>
+<h2><a name="About">分子ビューアとは</a></h2>
+<p>分子ビューアは、分子の構造を２Ｄや３Ｄで表示します。<br>
+原子数・結合数などの詳細情報も表示します。</p>
+<hr>
+<h2><a name="Open">分子ビューアを開く</a></h2>
+<p>空の分子ビューアを開くには、 ケモじゅんランチャー の 「Tools」-&gt;「Molecular Viewer」メニューを選択します。<br>
+分子ビューアで「File」-&gt;「Open」メニューを選択して、分子ファイルを好きなフォルダから選んでください。</p>
+<p><a href="images/Launcher_Tools_Molecular-Viewer.jpg"><img src="thumbnails/Launcher_Tools_Molecular-Viewer_jpg.jpg" width="100" height="74" alt="Launcher_Tools_Molecular-Viewer_jpg.jpg"></a> <a href="images/File_New_02.jpg"><img src="thumbnails/File_New_02_jpg.jpg" width="94" height="100" alt="File_New_02_jpg.jpg"></a> <a href="images/File_Open_01.jpg"><img src="thumbnails/File_Open_01_jpg.jpg" width="94" height="100" alt="File_Open_01_jpg.jpg"></a> <a href="images/File_Open_02.jpg"><img src="thumbnails/File_Open_02_jpg.jpg" width="100" height="60" alt="File_Open_02_jpg.jpg"></a> <a href="images/View_Sticks.jpg"><img src="thumbnails/View_Sticks_jpg.jpg" width="94" height="100" alt="View_Sticks_jpg.jpg"></a></p>
+<p>サンプルデータフォルダ内にある分子を表示する場合には、 ケモじゅんランチャー の 「Tools」-&gt;「Molecular Viewer
+- Select Data」メニューが便利です。<br>
+特定のフォルダ内にある分子ファイルのリストが出てくるので、その中から選んでください。</p>
+<p><a href="images/Launcher_Tools_Molecular-Viewer---Select-Data_01.jpg"><img src="thumbnails/Launcher_Tools_Molecular-Viewer---Select-Data_01_jpg.jpg" width="100" height="74" alt="Launcher_Tools_Molecular-Viewer---Select-Data_01_jpg.jpg"></a> <a href="images/Launcher_Tools_Molecular-Viewer---Select-Data_02.jpg"><img src="thumbnails/Launcher_Tools_Molecular-Viewer---Select-Data_02_jpg.jpg" width="60" height="100" alt="Launcher_Tools_Molecular-Viewer---Select-Data_02_jpg.jpg"></a> <a href="images/View_Sticks.jpg"><img src="thumbnails/View_Sticks_jpg.jpg" width="94" height="100" alt="View_Sticks_jpg.jpg"></a></p>
+<hr>
+<h2><a name="Screen">画面</a></h2>
+<h3>画面説明</h3>
+<p>分子ビューアの画面は以下のようになっています。</p>
+<map name="Screen">
+  <area shape="rect" coords="382,291,404,318" href="#5" alt="5">
+  <area shape="rect" coords="382,220,404,247" href="#4" alt="4">
+  <area shape="rect" coords="310,10,334,37" href="#A" alt="A">
+  <area shape="rect" coords="10,202,33,229" href="#B" alt="B">
+  <area shape="rect" coords="382,149,404,176" href="#3" alt="3">
+  <area shape="rect" coords="382,71,404,98" href="#1" alt="1">
+  <area shape="rect" coords="379,110,407,137" href="#2" alt="2">
+</map>
+<p><img src="map/MolecularViewer.jpg" width="417" height="389" border="0" alt="MolecularViewer.jpg" usemap="#Screen"></p>
+<ul>
+  <li><a name="1">1</a> : <strong>ピックボタン</strong>
+  <li><a name="2">2</a> : <strong>グラブボタン</strong>
+  <li><a name="3">3</a> : <strong>ドラッグボタン</strong>
+  <li><a name="4">4</a> : <strong>Ｚホィール</strong>
+  <li><a name="5">5</a> : <strong>フォーカスボタン</strong><br>
+  <p><a href="../CommonWindowOperation/index.html" target="_blank">ビューアのウィンドウ操作</a> で見る方向や範囲を変更できます。</p>
+  <li><a name="A">A</a> : <strong>ウィンドウラベル</strong><br>
+  開いているファイル名が表示されます。
+  <li><a name="B">B</a> : <strong>分子の表示</strong><br>
+  <a href="#View"><code>表示</code></a>のサブメニューで、表示方法などの変更が出来ます。
+</ul>
+<hr>
+<h2><a name="Menu">メニュー</a></h2>
+<p>ウィンドウの上部にあるメニューです。</p>
+<table summary="table" border="0">
+  <tbody>
+    <tr>
+      <td>
+      <table summary="table" border="1" cellpadding="10" cellspacing="0">
+        <tbody>
+          <tr>
+            <td align="left"><a href="#File"><code>File -&gt;</code></a><br>
+            <a href="#View"><code>View -&gt;</code></a><br>
+            <a href="#Misc"><code>Misc -&gt;</code></a></td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+      <td>
+      <table summary="table" border="1" cellpadding="10" cellspacing="0">
+        <tbody>
+          <tr>
+            <td align="left"><a href="#File"><code>ファイル -&gt;</code></a><br>
+            <a href="#View"><code>表示 -&gt;</code></a><br>
+            <a href="#Misc"><code>その他 -&gt;</code></a></td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<hr>
+<h3><a name="File">File<br>
+ファイル</a></h3>
+<table summary="table" border="0">
+  <tbody>
+    <tr>
+      <td>
+      <table summary="table" border="1" cellpadding="10" cellspacing="0">
+        <tbody>
+          <tr>
+            <td align="left"><a href="#File_New"><code>New</code></a><br>
+            <a href="#File_Open"><code>Open</code></a><br>
+            <hr>
+            <a href="#File_Save-as"><code>Save as</code></a><br>
+            <a href="#File_Save-as-Image"><code>Save as Image</code></a><br>
+            <hr>
+            <a href="#File_Quit"><code>Quit</code></a></td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+      <td>
+      <table summary="table" border="1" cellpadding="10" cellspacing="0">
+        <tbody>
+          <tr>
+            <td align="left"><a href="#File_New"><code>新規</code></a><br>
+            <a href="#File_Open"><code>開く</code></a><br>
+            <hr>
+            <a href="#File_Save-as"><code>別名で保存</code></a><br>
+            <a href="#File_Save-as-Image"><code>画像として保存</code></a><br>
+            <hr>
+            <a href="#File_Quit"><code>終了</code></a></td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h4><a name="File_New">New<br>
+新規</a></h4>
+<p>新しい空の分子ビューアが開きます。</p>
+<p><a href="images/File_New_01.jpg"><img src="thumbnails/File_New_01_jpg.jpg" width="94" height="100" alt="File_New_01_jpg.jpg"></a> <a href="images/File_New_02.jpg"><img src="thumbnails/File_New_02_jpg.jpg" width="94" height="100" alt="File_New_02_jpg.jpg"></a></p>
+<h4><a name="File_Open">Open<br>
+開く</a></h4>
+<p>分子ファイルを指定して、ファイルの内容をビューア内に表示します。</p>
+<p>分子ファイル（*.mol）を指定するダイアログが現れます。<br>
+ファイルを選択して「Accept」ボタンを押します。</p>
+<p><a href="images/File_Open_01.jpg"><img src="thumbnails/File_Open_01_jpg.jpg" width="94" height="100" alt="File_Open_01_jpg.jpg"></a> <a href="images/File_Open_02.jpg"><img src="thumbnails/File_Open_02_jpg.jpg" width="100" height="60" alt="File_Open_02_jpg.jpg"></a> <a href="images/View_Sticks.jpg"><img src="thumbnails/View_Sticks_jpg.jpg" width="94" height="100" alt="View_Sticks_jpg.jpg"></a></p>
+<h4><a name="File_Save-as">Save as<br>
+別名で保存</a></h4>
+<p>ビューア内に開いている分子ファイルを、別名で保存します。</p>
+<p>分子ファイル（*.mol）を入力するダイアログが現れます。<br>
+ファイル名を入力して「Accept」ボタンを押します。<br>
+デフォルトのファイル名は、[元のファイル名]_[年月日時分秒].molです。</p>
+<p><a href="images/File_Save-as_01.jpg"><img src="thumbnails/File_Save-as_01_jpg.jpg" width="94" height="100" alt="File_Save-as_01_jpg.jpg"></a> <a href="images/File_Save-as_02.jpg"><img src="thumbnails/File_Save-as_02_jpg.jpg" width="100" height="60" alt="File_Save-as_02_jpg.jpg"></a> <a href="images/File_Save-as_03.jpg"><img src="thumbnails/File_Save-as_03_jpg.jpg" width="94" height="100" alt="File_Save-as_03_jpg.jpg"></a></p>
+<h4><a name="File_Save-as-Image">Save as Image<br>
+画像として保存</a></h4>
+<p>ビューアに表示されている状態の画像ファイルを作成します。</p>
+<p>画像ファイル（*.jpg）を入力するダイアログが現れます。<br>
+ファイル名を入力して「Accept」ボタンを押します。<br>
+デフォルトのファイル名は、[元のファイル名]_[年月日時分秒].jpgです。</p>
+<p><a href="images/View_Serial-Nos-of-Atoms.jpg"><img src="thumbnails/View_Serial-Nos-of-Atoms_jpg.jpg" width="94" height="100" alt="View_Serial-Nos-of-Atoms_jpg.jpg"></a> -- (Save as Image) --&gt; <a href="images/File_Save-as-Image.jpg"><img src="thumbnails/File_Save-as-Image_jpg.jpg" width="100" height="60" alt="File_Save-as-Image_jpg.jpg"></a></p>
+<p>作成した場所を忘れないようにしましょう。</p>
+<p><a href="images/phe_yyyymmddhhmmss_sample.jpg"><img src="thumbnails/phe_yyyymmddhhmmss_sample_jpg.jpg" width="100" height="100" alt="phe_yyyymmddhhmmss_sample_jpg.jpg"><br>
+保存される画像のサンプル</a></p>
+<p>[Shift] キーもしくは [Alt] キーを押しながらメニューを選択すると、グレースケールの画像を作成します。</p>
+<p><a href="images/phe_yyyymmddhhmmss_gray.jpg"><img src="thumbnails/phe_yyyymmddhhmmss_gray_jpg.jpg" width="100" height="100" alt="phe_yyyymmddhhmmss_gray_jpg.jpg"><br>
+保存されるグレースケールの画像のサンプル</a></p>
+<h4><a name="File_Quit">Quit<br>
+終了</a></h4>
+<p>ウィンドウを閉じます。<br>
+このウィンドウに関連した、詳細情報やビューポートのウィンドウも同時に閉じます。</p>
+<p><a href="images/File_Quit.jpg"><img src="thumbnails/File_Quit_jpg.jpg" width="94" height="100" alt="File_Quit_jpg.jpg"></a></p>
+<hr>
+<h3><a name="View">View<br>
+表示</a></h3>
+<table summary="table" border="0">
+  <tbody>
+    <tr>
+      <td>
+      <table summary="table" border="1" cellpadding="10" cellspacing="0">
+        <tbody>
+          <tr>
+            <td align="left"><a href="#View_2D"><code>2D</code></a><br>
+            <a href="#View_Sticks"><code>Sticks</code></a><br>
+            <a href="#View_Ball-&amp;&amp;-Stick"><code>Ball &amp; Stick</code></a><br>
+            <a href="#View_Space-Filling"><code>Space Filling</code></a><br>
+            <a href="#View_Stick-&amp;&amp;-Space-Filling"><code>Stick &amp; Space Filling</code></a><br>
+            <hr>
+            <a href="#View_Hydrogens"><code>Hydrogens</code></a><br>
+            <a href="#View_Serial-Nos.-of-Atoms"><code>Serial Nos. of Atoms</code></a><br>
+            <a href="#View_Setting-Serial-Nos."><code>Setting Serial Nos.</code></a><br>
+            <hr>
+            <a href="#View_Low-Resolution"><code>Low Resolution</code></a><br>
+            <a href="#View_Medium-Resolution"><code>Medium Resolution</code></a><br>
+            <a href="#View_High-Resolution"><code>High Resolution</code></a><br>
+            <hr>
+            <a href="#View_Reset"><code>Reset</code></a></td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+      <td>
+      <table summary="table" border="1" cellpadding="10" cellspacing="0">
+        <tbody>
+          <tr>
+            <td align="left"><a href="#View_2D"><code>２Ｄ</code></a><br>
+            <a href="#View_Sticks"><code>スティック</code></a><br>
+            <a href="#View_Ball-&amp;&amp;-Stick"><code>ボール＆スティック</code></a><br>
+            <a href="#View_Space-Filling"><code>スペースフィル</code></a><br>
+            <a href="#View_Stick-&amp;&amp;-Space-Filling"><code>スティック＆スペースフィル</code></a><br>
+            <hr>
+            <a href="#View_Hydrogens"><code>水素表示</code></a><br>
+            <a href="#View_Serial-Nos.-of-Atoms"><code>原子のシリアル番号表示</code></a><br>
+            <a href="#View_Setting-Serial-Nos."><code>原子のシリアル番号設定</code></a><br>
+            <hr>
+            <a href="#View_Low-Resolution"><code>低解像度</code></a><br>
+            <a href="#View_Medium-Resolution"><code>中解像度</code></a><br>
+            <a href="#View_High-Resolution"><code>高解像度</code></a><br>
+            <hr>
+            <a href="#View_Reset"><code>リセット</code></a></td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h4><a name="View_2D">2D<br>
+２Ｄ</a></h4>
+<p>平面構造で表示します。<br>
+ファイル名が *.2D.mol の分子ファイルを開いたときは、このメニューが自動的に選択されます。</p>
+<p><a href="images/View_2D.jpg"><img src="thumbnails/View_2D_jpg.jpg" width="94" height="100" alt="View_2D_jpg.jpg"></a></p>
+<h4><a name="View_Sticks">Sticks<br>
+スティック</a></h4>
+<p>結合を太い軸で表示します。<br>
+軸の色は、原子毎に決まっています。<br>
+軸の数は、結合タイプを表しています。<br>
+最初はこのメニューに設定されています。</p>
+<p><a href="images/View_Sticks.jpg"><img src="thumbnails/View_Sticks_jpg.jpg" width="94" height="100" alt="View_Sticks_jpg.jpg"></a></p>
+<h4><a name="View_Ball-&amp;&amp;-Stick">Ball &amp; Stick<br>
+ボール＆スティック</a></h4>
+<p>上記のスティックに加え、原子を小さな球で表示します。<br>
+原子球の大きさは、 van der Waals 半径 の約８分の１です。<br>
+球の色は、原子毎に決まっています。</p>
+<p><a href="images/View_Ball-Stick.jpg"><img src="thumbnails/View_Ball-Stick_jpg.jpg" width="94" height="100" alt="View_Ball-Stick_jpg.jpg"></a></p>
+<h4><a name="View_Space-Filling">Space Filling<br>
+スペースフィル</a></h4>
+<p>原子を van der Waals 半径の球で表示します。<br>
+球の色は、原子毎に決まっています。</p>
+<p><a href="images/View_Space-Filling.jpg"><img src="thumbnails/View_Space-Filling_jpg.jpg" width="94" height="100" alt="View_Space-Filling_jpg.jpg"></a></p>
+<h4><a name="View_Stick-&amp;&amp;-Space-Filling">Stick &amp; Space Filling<br>
+スティック＆スペースフィル</a></h4>
+<p>上記のスティックとスペースフィルを同時に表示します。<br>
+スペースフィルは透過色で表示します。</p>
+<p><a href="images/View_Stick-Space-Filling.jpg"><img src="thumbnails/View_Stick-Space-Filling_jpg.jpg" width="94" height="100" alt="View_Stick-Space-Filling_jpg.jpg"></a></p>
+<h4><a name="View_Hydrogens">Hydrogens<br>
+水素表示</a></h4>
+<p>水素の表示／非表示の設定をします。<br>
+チェックがついている状態で、水素が表示されます。<br>
+スペースフィル表示の場合は、このメニューのチェック状態にかかわらず水素を表示します。</p>
+<table summary="table" border="0">
+  <tbody>
+    <tr>
+      <td align="center">チェックON</td>
+      <td align="center">チェックOFF</td>
+    </tr>
+    <tr>
+      <td align="center"><a href="images/View_Sticks.jpg"><img src="thumbnails/View_Sticks_jpg.jpg" width="94" height="100" alt="View_Sticks_jpg.jpg"></a></td>
+      <td align="center"><a href="images/View_Hydrogens.jpg"><img src="thumbnails/View_Hydrogens_jpg.jpg" width="94" height="100" alt="View_Hydrogens_jpg.jpg"></a></td>
+    </tr>
+    <tr>
+      <td align="center">表示</td>
+      <td align="center">非表示</td>
+    </tr>
+  </tbody>
+</table>
+<h4><a name="View_Serial-Nos.-of-Atoms">Serial Nos. of Atoms<br>
+原子のシリアル番号表示</a></h4>
+<p>シリアル番号の表示／非表示の設定をします。<br>
+チェックがついている状態で、シリアル番号が表示されます。<br>
+スペースフィル表示の場合は、自動的にシリアル番号は非表示の状態になります。</p>
+<table summary="table" border="0">
+  <tbody>
+    <tr>
+      <td align="center">チェックON</td>
+      <td align="center">チェックOFF</td>
+    </tr>
+    <tr>
+      <td align="center"><a href="images/View_Serial-Nos-of-Atoms.jpg"><img src="thumbnails/View_Serial-Nos-of-Atoms_jpg.jpg" width="94" height="100" alt="View_Serial-Nos-of-Atoms_jpg.jpg"></a></td>
+      <td align="center"><a href="images/View_Ball-Stick.jpg"><img src="thumbnails/View_Ball-Stick_jpg.jpg" width="94" height="100" alt="View_Ball-Stick_jpg.jpg"></a></td>
+    </tr>
+    <tr>
+      <td align="center">表示</td>
+      <td align="center">非表示</td>
+    </tr>
+  </tbody>
+</table>
+<h4><a name="View_Setting-Serial-Nos.">Setting Serial Nos.<br>
+原子のシリアル番号設定</a></h4>
+<p>どのシリアル番号を表示するかの設定をします。<br>
+原子種を選ぶウィンドウが現れますので、チェックボックスで表示／非表示を設定してください。</p>
+<p><a href="images/View_Setting-Serial-Nos_01.jpg"><img src="thumbnails/View_Setting-Serial-Nos_01_jpg.jpg" width="100" height="71" alt="View_Setting-Serial-Nos_01_jpg.jpg"></a> <a href="images/View_Setting-Serial-Nos_02.jpg"><img src="thumbnails/View_Setting-Serial-Nos_02_jpg.jpg" width="100" height="71" alt="View_Setting-Serial-Nos_02_jpg.jpg"></a></p>
+<p>上記の「Serial Nos. of Atoms」メニューで、シリアル番号を表示する状態にしていないと、このメニューを選択できません。</p>
+<h4><a name="View_Low-Resolution">Low Resolution<br>
+低解像度</a></h4>
+<p>低解像度でビューア内に表示します。<br>
+表示は荒くなりますが、描画面数が少なくなるので処理が速くなります。</p>
+<p><a href="images/View_Low-Resolution.jpg"><img src="thumbnails/View_Low-Resolution_jpg.jpg" width="94" height="100" alt="View_Low-Resolution_jpg.jpg"></a></p>
+<h4><a name="View_Medium-Resolution">Medium Resolution<br>
+中解像度</a></h4>
+<p>中解像度でビューア内に表示します。<br>
+最初はこの解像度に設定されています。</p>
+<p><a href="images/View_Medium-Resolution.jpg"><img src="thumbnails/View_Medium-Resolution_jpg.jpg" width="94" height="100" alt="View_Medium-Resolution_jpg.jpg"></a></p>
+<h4><a name="View_High-Resolution">High Resolution<br>
+高解像度</a></h4>
+<p>高解像度でビューア内に表示します。<br>
+表示は詳細になりますが、描画面数が多くなるので処理が遅くなります。<br>
+画面をキャプチャする時などに使用すると良いでしょう。</p>
+<p><a href="images/View_High-Resolution.jpg"><img src="thumbnails/View_High-Resolution_jpg.jpg" width="94" height="100" alt="View_High-Resolution_jpg.jpg"></a></p>
+<h4><a name="View_Reset">Reset<br>
+リセット</a></h4>
+<p>ビューア内に表示しているものの全体が見られます。</p>
+<p><a href="images/View_Medium-Resolution.jpg"><img src="thumbnails/View_Medium-Resolution_jpg.jpg" width="94" height="100" alt="View_Medium-Resolution_jpg.jpg"></a> -- (Reset) --&gt; <a href="images/View_Reset.jpg"><img src="thumbnails/View_Reset_jpg.jpg" width="94" height="100" alt="View_Reset_jpg.jpg"></a></p>
+<hr>
+<h3><a name="Misc">Misc<br>
+その他</a></h3>
+<table summary="table" border="0">
+  <tbody>
+    <tr>
+      <td>
+      <table summary="table" border="1" cellpadding="10" cellspacing="0">
+        <tbody>
+          <tr>
+            <td align="left"><a href="#Misc_Manual"><code>Manual</code></a><br>
+            <hr>
+            <a href="#Misc_Information"><code>Information</code></a><br>
+            <hr>
+            <a href="#Misc_Viewfinder"><code>Viewfinder</code></a><br>
+            <a href="#Misc_Viewport"><code>Viewport</code></a><br>
+            <hr>
+            <a href="#Misc_Inspect"><code>Inspect</code></a></td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+      <td>
+      <table summary="table" border="1" cellpadding="10" cellspacing="0">
+        <tbody>
+          <tr>
+            <td align="left"><a href="#Misc_Manual"><code>使用手引き</code></a><br>
+            <hr>
+            <a href="#Misc_Information"><code>詳細情報</code></a><br>
+            <hr>
+            <a href="#Misc_Viewfinder"><code>ビューファインダ</code></a><br>
+            <a href="#Misc_Viewport"><code>ビューポート</code></a><br>
+            <hr>
+            <a href="#Misc_Inspect"><code>検査</code></a></td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h4><a name="Misc_Manual">Manual<br>
+使用手引き</a></h4>
+<p>基本説明、メニュー等の説明が記述してある取扱説明書 (このページ)をブラウザで開きます。</p>
+<h4><a name="Misc_Information">Information<br>
+詳細情報</a></h4>
+<p>右下に詳細情報のウィンドウが開きます。<br>
+ファイル名や原子数、結合数などを表示します。</p>
+<p><a href="images/View_Serial-Nos-of-Atoms.jpg"><img src="thumbnails/View_Serial-Nos-of-Atoms_jpg.jpg" width="94" height="100" alt="View_Serial-Nos-of-Atoms_jpg.jpg"></a> <a href="images/Misc_Information.jpg"><img src="thumbnails/Misc_Information_jpg.jpg" width="94" height="100" alt="Misc_Information_jpg.jpg"></a></p>
+<h4><a name="Misc_Viewfinder">Viewfinder<br>
+ビューファインダ</a></h4>
+<p><a href="../ChemoJunGeneralViewer/index.html" target="_blank">ビューファインダ</a> のウィンドウが開きます。<br>
+分子ビューア内に３Ｄで描かれている物体が、ビューファインダ内に開きます。<br>
+しかし、シリアル番号や修飾基などの文字情報は表示されなくなります。<br>
+ＶＲＭＬとして保存する場合などに利用してください。</p>
+<p><a href="images/View_Serial-Nos-of-Atoms.jpg"><img src="thumbnails/View_Serial-Nos-of-Atoms_jpg.jpg" width="94" height="100" alt="View_Serial-Nos-of-Atoms_jpg.jpg"></a> <a href="images/Misc_Viewfinder.jpg"><img src="thumbnails/Misc_Viewfinder_jpg.jpg" width="94" height="100" alt="Misc_Viewfinder_jpg.jpg"></a></p>
+<h4><a name="Misc_Viewport">Viewport<br>
+ビューポート</a></h4>
+<p>右隣にビューポートのウィンドウが開きます。<br>
+ビューポート内に描かれている黄色い板が、分子ビューアのウィンドウに相当しています。<br>
+ビューアでどの方向からどの範囲が表示されているのか分かります。</p>
+<p><a href="images/View_Serial-Nos-of-Atoms.jpg"><img src="thumbnails/View_Serial-Nos-of-Atoms_jpg.jpg" width="94" height="100" alt="View_Serial-Nos-of-Atoms_jpg.jpg"></a> <a href="images/Misc_Viewport_01.jpg"><img src="thumbnails/Misc_Viewport_01_jpg.jpg" width="94" height="100" alt="Misc_Viewport_01_jpg.jpg"></a> &nbsp;&nbsp;--&nbsp;ビューポート回転&nbsp;--&gt;&nbsp;&nbsp; <a href="images/Misc_Viewport_02.jpg"><img src="thumbnails/Misc_Viewport_02_jpg.jpg" width="94" height="100" alt="Misc_Viewport_02_jpg.jpg"></a></p>
+<p>ビューポートの詳細については、下記のページにまとめられています。<br>
+<a href="http://www.sra.co.jp/people/h-asaoka/study/TextbookAboutJun/17/" target="_blank">http://www.sra.co.jp/people/h-asaoka/study/TextbookAboutJun/17/</a> 「視体積」<br>
+参照してみてください。</p>
+<h4><a name="Misc_Inspect">Inspect<br>
+検査</a></h4>
+<p>このメニューは、ランタイム版では選択することができません。<br>
+開発時にプログラムの状態などを確認するためのメニューです。<br>
+選択可能な場合は、インスペクターが開きます。</p>
+<hr>
+<p class="align-right"><a href="#TOP">このページの TOP へ</a></p>
+</body>
+</html>

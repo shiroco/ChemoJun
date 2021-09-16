@@ -1,0 +1,455 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<link rel="stylesheet" href="../importstyle.css" type="text/css">
+<link rev="made" href="http://www.sra.co.jp/people/h-asaoka/">
+<link rel="index" href="index.html">
+<link rel="shortcut icon" href="../ChemoJun.ico">
+<title>CommonTracker</title>
+</head>
+<body>
+<p class="align-right">2006年08月08日 文責：<a name="TOP" href="http://www.sra.co.jp/people/h-asaoka/" target="_blank">浅岡 浩子</a></p>
+<hr>
+<h1>トラッカー</h1>
+<p>もくじ：</p>
+<ul>
+  <li><a href="#About">トラッカーとは</a>
+  <li><a href="#windowSpec">配置されているボタン、スライダー</a>
+  <ul>
+    <li><a href="#previousButton"><img src="buttons/previousButton.jpg" width="18" height="18" border="1" alt="previousButton.jpg" align="top"> 前へボタン</a>
+    <li><a href="#nextButton"><img src="buttons/nextButton.jpg" width="18" height="18" border="1" alt="nextButton.jpg" align="top"> 次へボタン</a>
+    <li><a href="#Slider"><img src="sliders/Slider_MarkersOff.jpg" width="182" height="18" border="1" alt="Slider_MarkersOff.jpg" align="top"> 第１スライダー</a>
+    <li><a href="#loopButton"><img src="buttons/loopButton.jpg" width="18" height="18" border="1" alt="loopButton.jpg" align="top"> 繰り返し再生ボタン</a>
+    <li><a href="#oneWayButton"><img src="buttons/oneWayButton.jpg" width="18" height="18" border="1" alt="oneWayButton.jpg" align="top"> 一方向再生ボタン</a>
+    <li><a href="#backAndForthButton"><img src="buttons/backAndForthButton.jpg" width="18" height="18" border="1" alt="backAndForthButton.jpg" align="top"> 往復再生ボタン</a>
+    <li><a href="#playButton"><img src="buttons/playButton.jpg" width="18" height="18" border="1" alt="playButton.jpg" align="top"> 開始ボタン</a>
+    <li><a href="#pauseButtonOn"><img src="buttons/pauseButtonOn.jpg" width="18" height="18" border="1" alt="pauseButtonOn.jpg" align="top"> 停止ボタン</a>
+    <li><a href="#speakerButton"><img src="buttons/speakerButton.jpg" width="19" height="18" border="1" alt="speakerButton.jpg" align="top"> 音量ボタン</a>
+    <li><a href="#firstButton"><img src="buttons/firstButton.jpg" width="18" height="18" border="1" alt="firstButton.jpg" align="top"> 開始点ボタン</a>
+    <li><a href="#lastButton"><img src="buttons/lastButton.jpg" width="18" height="18" border="1" alt="lastButton.jpg" align="top"> 終了点ボタン</a>
+    <li><a href="#firstMarkerButton"><img src="buttons/firstMarkerButton.jpg" width="18" height="18" border="1" alt="firstMarkerButton.jpg" align="top"> 開始点マーカーボタン</a>
+    <li><a href="#lastMarkerButton"><img src="buttons/lastMarkerButton.jpg" width="18" height="18" border="1" alt="lastMarkerButton.jpg" align="top"> 終了点マーカーボタン</a>
+    <li><a href="#NormalizedSlider"><img src="sliders/NormalizedSlider.jpg" width="258" height="18" border="1" alt="NormalizedSlider.jpg" align="top"> 第２スライダー</a>
+  </ul>
+  <p>（ツールによっては、上記が全て配置されていません。）</p>
+  <li><a href="#TrackerMenu">トラッカーメニュー</a>
+  <ul>
+    <li><a href="#MarkersOffMenu">マーカー無効時</a>
+    <ul>
+      <li><a href="#Enable-markers">マーカーを有効にする</a>
+    </ul>
+    <li><a href="#MarkersOnMenu">マーカー有効時</a>
+    <ul>
+      <li><a href="#Select-all">すべてを選択</a>
+      <li><a href="#Set-first-marker">開始点マーカーを設定する</a>
+      <li><a href="#Set-last-marker">終了点マーカーを設定する</a>
+      <li><a href="#Flush-markers">マーカーを水に流す</a>
+      <li><a href="#Disable-markers">マーカーを無効にする</a>
+    </ul>
+  </ul>
+  <li><a href="#ShortCutKeyCommand">ショートカットキーコマンド</a>
+  <ul>
+    <li><a href="#SpecialKeyCommand">特殊キー</a>
+    <li><a href="#AlphabetKeyCommand">アルファベット</a>
+    <li><a href="#MarkKeyCommand">記号キー</a>
+  </ul>
+</ul>
+<hr>
+<h2><a name="About">トラッカーとは</a></h2>
+<p>トラッカーは、以下の操作などを行うためのインタフェースを提供します。</p>
+<ul>
+  <li>コマ送り／コマ戻し
+  <li>再生ポジションの表示／位置変更
+  <li>再生モードの変更
+  <li>再生開始／停止
+  <li>開始点マーカー（ <img src="markers/firstMarker.jpg" width="20" height="20" border="0" alt="firstMarker.jpg" align="top"> ) 表示／位置変更
+  <li>終了点マーカー（ <img src="markers/lastMarker.jpg" width="20" height="20" border="0" alt="lastMarker.jpg" align="top"> ) 表示／位置変更
+  <li>音量変更
+</ul>
+<p>ムービーやサウンドファイルを再生する際にもトラッカーで操作するのが便利です。</p>
+<p><img src="sliders/JunMoviePlayer_TrackerMarkersOff.jpg" width="238" height="18" border="1" alt="JunMoviePlayer_TrackerMarkersOff.jpg" align="top"> &nbsp;&nbsp; <img src="sliders/JunMoviePlayer_TrackerMarkersOn.jpg" width="258" height="37" border="1" alt="JunMoviePlayer_TrackerMarkersOn.jpg" align="top"></p>
+<p>以下のような配置のトラッカーもあります。</p>
+<p><img src="sliders/Viewfinder_TrackerMarkersOff.jpg" width="258" height="18" border="1" alt="Viewfinder_TrackerMarkersOff.jpg" align="top"> &nbsp;&nbsp; <img src="sliders/Viewfinder_TrackerMarkersOn.jpg" width="258" height="18" border="1" alt="Viewfinder_TrackerMarkersOn.jpg" align="top"></p>
+<p>それぞれのトラッカーでボタンの配置などは多少異なりますが、基本的な操作は同じです。</p>
+<hr>
+<h2><a name="windowSpec">配置されているボタン、スライダー</a></h2>
+<p>ボタンやスライダーは、ウィンドウ内の下部に配置されています。</p>
+<p>設定確認ビューファインダ、計算実行ビューファインダには以下のボタンやスライダーが配置されています。</p>
+<ul>
+  <li><a href="#previousButton"><img src="buttons/previousButton.jpg" width="18" height="18" border="1" alt="previousButton.jpg" align="top"> 前へボタン</a>
+  <li><a href="#nextButton"><img src="buttons/nextButton.jpg" width="18" height="18" border="1" alt="nextButton.jpg" align="top"> 次へボタン</a>
+  <li><a href="#Slider"><img src="sliders/Slider_MarkersOff.jpg" width="182" height="18" border="1" alt="Slider_MarkersOff.jpg" align="top"> 第１スライダー</a>
+  <li><a href="#loopButton"><img src="buttons/loopButton.jpg" width="18" height="18" border="1" alt="loopButton.jpg" align="top"> 繰り返し再生ボタン</a> <br>
+  <a href="#oneWayButton"><img src="buttons/oneWayButton.jpg" width="18" height="18" border="1" alt="oneWayButton.jpg" align="top"> 一方向再生ボタン</a> <br>
+  <a href="#backAndForthButton"><img src="buttons/backAndForthButton.jpg" width="18" height="18" border="1" alt="backAndForthButton.jpg" align="top"> 往復再生ボタン</a>
+  <li><a href="#playButton"><img src="buttons/playButton.jpg" width="18" height="18" border="1" alt="playButton.jpg" align="top"> 開始ボタン</a> <br>
+  <a href="#pauseButtonOn"><img src="buttons/pauseButtonOn.jpg" width="18" height="18" border="1" alt="pauseButtonOn.jpg" align="top"> 停止ボタン</a>
+</ul>
+<p>基本的にはじゅんのムービープレイヤでも上記のボタンやスライダーが配置されています。<br>
+ただし、音量を変更できるボタンも配置されています。</p>
+<ul>
+  <li><a href="#speakerButton"><img src="buttons/speakerButton.jpg" width="19" height="18" border="1" alt="speakerButton.jpg" align="top"> 音量ボタン</a>
+</ul>
+<p>また、じゅんのムービープレイヤでは、マーカーを有効にするとトラッカーのボタンが増えます。<br>
+以下のボタンやスライダーが配置されます。</p>
+<ul>
+  <li><a href="#firstButton"><img src="buttons/firstButton.jpg" width="18" height="18" border="1" alt="firstButton.jpg" align="top"> 開始点ボタン</a>
+  <li><a href="#lastButton"><img src="buttons/lastButton.jpg" width="18" height="18" border="1" alt="lastButton.jpg" align="top"> 終了点ボタン</a>
+  <li><a href="#firstMarkerButton"><img src="buttons/firstMarkerButton.jpg" width="18" height="18" border="1" alt="firstMarkerButton.jpg" align="top"> 開始点マーカーボタン</a>
+  <li><a href="#lastMarkerButton"><img src="buttons/lastMarkerButton.jpg" width="18" height="18" border="1" alt="lastMarkerButton.jpg" align="top"> 終了点マーカーボタン</a>
+  <li><a href="#NormalizedSlider"><img src="sliders/NormalizedSlider.jpg" width="258" height="18" border="1" alt="NormalizedSlider.jpg" align="top"> 第２スライダー</a>
+</ul>
+<hr>
+<h3><img src="buttons/previousButton.jpg" width="18" height="18" border="1" alt="previousButton.jpg" align="top"> <a name="previousButton">前へボタン</a></h3>
+<div class="indent">
+<p>1コマ戻しを行います。</p>
+<p><img src="sliders/Slider_nextButtonAction.jpg" width="182" height="18" border="1" alt="Slider_nextButtonAction.jpg" align="top"> <br>
+&nbsp;&nbsp;↓ ボタン<br>
+<img src="sliders/Slider_MarkersOn.jpg" width="182" height="18" border="1" alt="Slider_MarkersOn.jpg" align="top"></p>
+<p>マーカー無効時に、 [Shift]キーを押しながらボタンを選択すると、 再生ポジションが最初の位置に移動します。</p>
+<p><img src="sliders/Slider_MarkersOff.jpg" width="182" height="18" border="1" alt="Slider_MarkersOff.jpg" align="top"> <br>
+&nbsp;&nbsp;↓ [Shift]キー ＋ ボタン<br>
+<img src="sliders/Slider_NoMackerAt_0.jpg" width="182" height="18" border="1" alt="Slider_NoMackerAt_0.jpg" align="top"></p>
+<p>マーカー有効時に、 [Shift]キーを押しながらボタンを選択すると、 再生ポジションが開始点マーカーに移動します。</p>
+<p><img src="sliders/Slider_nextButtonAction.jpg" width="182" height="18" border="1" alt="Slider_nextButtonAction.jpg" align="top"> <br>
+&nbsp;&nbsp;↓ [Shift]キー ＋ ボタン<br>
+<img src="sliders/Slider_firstButtonAction.jpg" width="182" height="18" border="1" alt="Slider_firstButtonAction.jpg" align="top"></p>
+</div>
+<hr>
+<h3><img src="buttons/nextButton.jpg" width="18" height="18" border="1" alt="nextButton.jpg" align="top"> <a name="nextButton">次へボタン</a></h3>
+<div class="indent">
+<p>1コマ送りを行います。</p>
+<p><img src="sliders/Slider_MarkersOn.jpg" width="182" height="18" border="1" alt="Slider_MarkersOn.jpg" align="top"> <br>
+&nbsp;&nbsp;↓ ボタン<br>
+<img src="sliders/Slider_nextButtonAction.jpg" width="182" height="18" border="1" alt="Slider_nextButtonAction.jpg" align="top"></p>
+<p>マーカー無効時に、 [Shift]キーを押しながらボタンを選択すると、 再生ポジションが最後の位置に移動します。</p>
+<p><img src="sliders/Slider_MarkersOff.jpg" width="182" height="18" border="1" alt="Slider_MarkersOff.jpg" align="top"> <br>
+&nbsp;&nbsp;↓ [Shift]キー ＋ ボタン<br>
+<img src="sliders/Slider_NoMackerAt_1.jpg" width="182" height="18" border="1" alt="Slider_NoMackerAt_1.jpg" align="top"></p>
+<p>マーカー有効時に、 [Shift]キーを押しながらボタンを選択すると、 再生ポジションが終了点マーカーに移動します。</p>
+<p><img src="sliders/Slider_MarkersOn.jpg" width="182" height="18" border="1" alt="Slider_MarkersOn.jpg" align="top"> <br>
+&nbsp;&nbsp;↓ [Shift]キー ＋ ボタン<br>
+<img src="sliders/Slider_lastButtonAction.jpg" width="182" height="18" border="1" alt="Slider_lastButtonAction.jpg" align="top"></p>
+</div>
+<hr>
+<h3><img src="sliders/Slider_MarkersOff.jpg" width="182" height="18" border="1" alt="Slider_MarkersOff.jpg" align="top"> <a name="Slider">第１スライダー</a></h3>
+<div class="indent">
+<p>再生ポジションの位置の変更を行います。<br>
+第１スライダーの部分にマウスをもってゆき、 カーソルが <img src="cursors/crossCursor.jpg" width="20" height="20" border="0" alt="crossCursor.jpg" align="top"> (cross) の形になったところでクリックすると、 再生ポジションが移動します。<br>
+ドラッグでも変更できます。</p>
+<p>トラッカーメニューでマーカーを有効にすると、 開始点マーカー、終了点マーカーを表示し、その位置の変更も行えます。</p>
+<p><img src="sliders/Slider_MarkersOn.jpg" width="182" height="18" border="1" alt="Slider_MarkersOn.jpg" align="top"></p>
+<p>開始点マーカー（ <img src="markers/firstMarker.jpg" width="20" height="20" border="0" alt="firstMarker.jpg" align="top"> ) の部分にマウスをもってゆき、 カーソルが <img src="cursors/corner3Cursor.jpg" width="20" height="20" border="0" alt="corner3Cursor.jpg" align="top"> (corner3) の形になったところでクリックすると、 開始点マーカーが移動します。</p>
+<p>終了点マーカー（ <img src="markers/lastMarker.jpg" width="20" height="20" border="0" alt="lastMarker.jpg" align="top"> ) の部分にマウスをもってゆき、 カーソルが <img src="cursors/corner1Cursor.jpg" width="20" height="20" border="0" alt="corner1Cursor.jpg" align="top"> (corner1) の形になったところでクリックすると、 終了点マーカーが移動します。</p>
+<p>また、第１スライダーの緑色でクリップされた部分の下にマウスをもってゆき、 カーソルが <img src="cursors/betweenCursor.jpg" width="20" height="20" border="0" alt="betweenCursor.jpg" align="top"> (between) の形になったところでドラッグすると、 開始点マーカー、終了点マーカーの幅を保ちながら選択範囲をスライドさせることができます。</p>
+<p><img src="sliders/Tracker_SlideScope.jpg" width="182" height="18" border="1" alt="Tracker_SlideScope.jpg" align="top"></p>
+</div>
+<hr>
+<h3><img src="buttons/loopButton.jpg" width="18" height="18" border="1" alt="loopButton.jpg" align="top"> <a name="loopButton">繰り返し再生ボタン</a> <br>
+<img src="buttons/oneWayButton.jpg" width="18" height="18" border="1" alt="oneWayButton.jpg" align="top"> <a name="oneWayButton">一方向再生ボタン</a> <br>
+<img src="buttons/backAndForthButton.jpg" width="18" height="18" border="1" alt="backAndForthButton.jpg" align="top"> <a name="backAndForthButton">往復再生ボタン</a></h3>
+<div class="indent">
+<p>再生するモードを選択します。<br>
+これらを交互（順番）に設定する toggle（トグル）ボタンになっています。</p>
+</div>
+<hr>
+<h3><img src="buttons/playButton.jpg" width="18" height="18" border="1" alt="playButton.jpg" align="top"> <a name="playButton">開始ボタン</a> <br>
+<img src="buttons/pauseButtonOn.jpg" width="18" height="18" border="1" alt="pauseButtonOn.jpg" align="top"> <a name="pauseButtonOn">停止ボタン</a></h3>
+<div class="indent">
+<p>再生開始および停止を行います。<br>
+再生開始と停止を交互に繰り返す toggle（トグル）ボタンになっています。</p>
+</div>
+<hr>
+<h3><img src="buttons/speakerButton.jpg" width="19" height="18" border="1" alt="speakerButton.jpg" align="top"> <a name="speakerButton">音量ボタン</a></h3>
+<div class="indent">
+<p>音量を調節します。<br>
+ボタンを押すとメニューが現れます。</p>
+<p><img src="buttons/speakerButtonMenu.jpg" width="76" height="207" border="1" alt="speakerButtonMenu.jpg"></p>
+</div>
+<hr>
+<h3><img src="buttons/firstButton.jpg" width="18" height="18" border="1" alt="firstButton.jpg" align="top"> <a name="firstButton">開始点ボタン</a></h3>
+<div class="indent">
+<p>再生ポジションが開始点マーカーに移動します。</p>
+<p><img src="sliders/Slider_MarkersOn.jpg" width="182" height="18" border="1" alt="Slider_MarkersOn.jpg" align="top"> <br>
+&nbsp;&nbsp;↓ ボタン<br>
+<img src="sliders/Slider_firstButtonAction.jpg" width="182" height="18" border="1" alt="Slider_firstButtonAction.jpg" align="top"></p>
+</div>
+<hr>
+<h3><img src="buttons/lastButton.jpg" width="18" height="18" border="1" alt="lastButton.jpg" align="top"> <a name="lastButton">終了点ボタン</a></h3>
+<div class="indent">
+<p>再生ポジションが終了点マーカーに移動します。</p>
+<p><img src="sliders/Slider_MarkersOn.jpg" width="182" height="18" border="1" alt="Slider_MarkersOn.jpg" align="top"> <br>
+&nbsp;&nbsp;↓ ボタン<br>
+<img src="sliders/Slider_lastButtonAction.jpg" width="182" height="18" border="1" alt="Slider_lastButtonAction.jpg" align="top"></p>
+</div>
+<hr>
+<h3><img src="buttons/firstMarkerButton.jpg" width="18" height="18" border="1" alt="firstMarkerButton.jpg" align="top"> <a name="firstMarkerButton">開始点マーカーボタン</a></h3>
+<div class="indent">
+<p>現在の再生ポジションを開始点マーカーに設定します。</p>
+<p><img src="sliders/Slider_MarkersOn.jpg" width="182" height="18" border="1" alt="Slider_MarkersOn.jpg" align="top"> <br>
+&nbsp;&nbsp;↓ ボタン<br>
+<img src="sliders/Slider_Set-first-marker.jpg" width="182" height="18" border="1" alt="Slider_Set-first-marker.jpg" align="top"></p>
+</div>
+<hr>
+<h3><img src="buttons/lastMarkerButton.jpg" width="18" height="18" border="1" alt="lastMarkerButton.jpg" align="top"> <a name="lastMarkerButton">終了点マーカーボタン</a></h3>
+<div class="indent">
+<p>現在の再生ポジションを終了点マーカーに設定します。</p>
+<p><img src="sliders/Slider_MarkersOn.jpg" width="182" height="18" border="1" alt="Slider_MarkersOn.jpg" align="top"> <br>
+&nbsp;&nbsp;↓ ボタン<br>
+<img src="sliders/Slider_Set-last-marker.jpg" width="182" height="18" border="1" alt="Slider_Set-last-marker.jpg" align="top"></p>
+</div>
+<hr>
+<h3><img src="sliders/NormalizedSlider.jpg" width="258" height="18" border="1" alt="NormalizedSlider.jpg" align="top"> <a name="NormalizedSlider">第２スライダー</a></h3>
+<div class="indent">
+<p>開始点マーカーと終了点マーカーに囲まれた部分を、常に 0.1～0.9 の間に正規化して表示します。<br>
+たとえば、長いムービーで、しかも開始点マーカーと終了点マーカーに囲まれた部分が短い時に、 第１スライダーで再生ポジションをコントロールするのは非常に難しいですが、
+この第２スライダーを使えば簡単です。</p>
+</div>
+<hr>
+<h3><a name="TrackerMenu">トラッカーメニュー</a></h3>
+<p>スライダーの上で、右ボタンをクリックすると、トラッカーメニューが表示されます。</p>
+<hr>
+<h3><a name="MarkersOffMenu">マーカー無効時</a></h3>
+<p><img src="sliders/TrackerMenu_MarkersOff.jpg" width="378" height="30" alt="TrackerMenu_MarkersOff"></p>
+<table summary="table" border="0">
+  <tbody>
+    <tr>
+      <td>
+      <table summary="table" border="1" cellpadding="10" cellspacing="0">
+        <tbody>
+          <tr>
+            <td align="left"><a href="#Enable-markers"><code>Enable markers</code></a></td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+      <td>
+      <table summary="table" border="1" cellpadding="10" cellspacing="0">
+        <tbody>
+          <tr>
+            <td align="left"><a href="#Enable-markers"><code>マーカーを有効にする</code></a></td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h4><a name="Enable-markers">Enable markers<br>
+マーカーを有効にする</a></h4>
+<p>第１スライダーに、開始点マーカーや終了点マーカーが表示されます。<br>
+それぞれをの位置をマウスでドラッグで指定することができます。</p>
+<p><img src="sliders/Slider_MarkersOff.jpg" width="182" height="18" border="1" alt="Slider_MarkersOff.jpg" align="top"> <br>
+&nbsp;&nbsp;↓ メニュー実行<br>
+<img src="sliders/Slider_MarkersOn.jpg" width="182" height="18" border="1" alt="Slider_MarkersOn.jpg" align="top"></p>
+<p>ムービープレイヤでこのメニューを実行すると、第２スライダーやマーカーに関する操作が可能なボタンの表示が増えます。</p>
+<p><img src="sliders/JunMoviePlayer_TrackerMarkersOff.jpg" width="238" height="18" border="1" alt="JunMoviePlayer_TrackerMarkersOff.jpg" align="top"> <br>
+&nbsp;&nbsp;↓ メニュー実行<br>
+<img src="sliders/JunMoviePlayer_TrackerMarkersOn.jpg" width="258" height="37" border="1" alt="JunMoviePlayer_TrackerMarkersOn.jpg" align="top"></p>
+<hr>
+<h3><a name="MarkersOnMenu">マーカー有効時</a></h3>
+<p><img src="sliders/TrackerMenu_MarkersOn.jpg" width="388" height="126" alt="TrackerMenu_MarkersOn"></p>
+<table summary="table" border="0">
+  <tbody>
+    <tr>
+      <td>
+      <table summary="table" border="1" cellpadding="10" cellspacing="0">
+        <tbody>
+          <tr>
+            <td align="left"><a href="#Select-all"><code>Select all</code></a><br>
+            <hr>
+            <a href="#Set-first-marker"><code>Set first marker</code></a><br>
+            <a href="#Set-last-marker"><code>Set last marker</code></a><br>
+            <a href="#Flush-markers"><code>Flush markers</code></a><br>
+            <hr>
+            <a href="#Disable-markers"><code>Disable markers</code></a></td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+      <td>
+      <table summary="table" border="1" cellpadding="10" cellspacing="0">
+        <tbody>
+          <tr>
+            <td align="left"><a href="#Select-all"><code>すべてを選択</code></a><br>
+            <hr>
+            <a href="#Set-first-marker"><code>開始点マーカーを設定する</code></a><br>
+            <a href="#Set-last-marker"><code>終了点マーカーを設定する</code></a><br>
+            <a href="#Flush-markers"><code>マーカーを水に流す</code></a><br>
+            <hr>
+            <a href="#Disable-markers"><code>マーカーを無効にする</code></a></td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h4><a name="Select-all">Select all<br>
+すべてを選択</a></h4>
+<p>開始点マーカーと終了点マーカーの設定を全体に設定します。</p>
+<p><img src="sliders/Slider_MarkersOn.jpg" width="182" height="18" border="1" alt="Slider_MarkersOn.jpg" align="top"> <br>
+&nbsp;&nbsp;↓ メニュー実行<br>
+<img src="sliders/Slider_Select-all.jpg" width="182" height="18" border="1" alt="Slider_Select-all.jpg" align="top"></p>
+<h4><a name="Set-first-marker">Set first marker<br>
+開始点マーカーを設定する</a></h4>
+<p>現在の再生ポジションを開始点マーカーに設定します。</p>
+<p><img src="sliders/Slider_MarkersOn.jpg" width="182" height="18" border="1" alt="Slider_MarkersOn.jpg" align="top"> <br>
+&nbsp;&nbsp;↓ メニュー実行<br>
+<img src="sliders/Slider_Set-first-marker.jpg" width="182" height="18" border="1" alt="Slider_Set-first-marker.jpg" align="top"></p>
+<h4><a name="Set-last-marker">Set last marker<br>
+終了点マーカーを設定する</a></h4>
+<p>現在の再生ポジションを終了点マーカーに設定します。</p>
+<p><img src="sliders/Slider_MarkersOn.jpg" width="182" height="18" border="1" alt="Slider_MarkersOn.jpg" align="top"> <br>
+&nbsp;&nbsp;↓ メニュー実行<br>
+<img src="sliders/Slider_Set-last-marker.jpg" width="182" height="18" border="1" alt="Slider_Set-last-marker.jpg" align="top"></p>
+<h4><a name="Flush-markers">Flush markers<br>
+マーカーを水に流す</a></h4>
+<p>開始点マーカーと終了点マーカーを両方とも一番最初の位置にします。</p>
+<p><img src="sliders/Slider_MarkersOn.jpg" width="182" height="18" border="1" alt="Slider_MarkersOn.jpg" align="top"> <br>
+&nbsp;&nbsp;↓ メニュー実行<br>
+<img src="sliders/Slider_Flush-markers.jpg" width="182" height="18" border="1" alt="Slider_Flush-markers.jpg" align="top"></p>
+<h4><a name="Disable-markers">Disable markers<br>
+マーカーを無効にする</a></h4>
+<p>開始点マーカーと終了点マーカーが消えて、マーカー無効時の状態にします。</p>
+<p><img src="sliders/Slider_MarkersOn.jpg" width="182" height="18" border="1" alt="Slider_MarkersOn.jpg" align="top"> <br>
+&nbsp;&nbsp;↓ メニュー実行<br>
+<img src="sliders/Slider_MarkersOff.jpg" width="182" height="18" border="1" alt="Slider_MarkersOff.jpg" align="top"></p>
+<p><img src="sliders/JunMoviePlayer_TrackerMarkersOn.jpg" width="258" height="37" border="1" alt="JunMoviePlayer_TrackerMarkersOn.jpg" align="top"> <br>
+&nbsp;&nbsp;↓ メニュー実行<br>
+<img src="sliders/JunMoviePlayer_TrackerMarkersOff.jpg" width="238" height="18" border="1" alt="JunMoviePlayer_TrackerMarkersOff.jpg" align="top"></p>
+<hr>
+<h2><a name="ShortCutKeyCommand">ショートカットキーコマンド</a></h2>
+<p>じゅんのムービープレイヤのウィンドウを選択している時に、 下表のキーボードショートカットが使用できます。<br>
+※ 106 かな漢字キーボード対応</p>
+<h3><a name="SpecialKeyCommand">特殊キー</a></h3>
+<table summary="table" border="1" cellpadding="10" cellspacing="0" width="100%">
+  <tbody>
+    <tr align="center">
+      <th width="10%" nowrap><br>
+      </th>
+      <th width="30%" nowrap><br>
+      </th>
+      <th width="30%" nowrap>[Shift]+</th>
+      <th width="30%" nowrap>[Ctrl]+</th>
+    </tr>
+    <tr>
+      <th nowrap>Tab</th>
+      <td nowrap>繰り返し再生／一方向再生</td>
+      <td nowrap><br>
+      </td>
+      <td nowrap><br>
+      </td>
+    </tr>
+    <tr>
+      <th nowrap>Enter</th>
+      <td nowrap>再生／停止</td>
+      <td nowrap><br>
+      </td>
+      <td nowrap><br>
+      </td>
+    </tr>
+    <tr>
+      <th nowrap>Space</th>
+      <td nowrap>再生／停止</td>
+      <td nowrap><br>
+      </td>
+      <td nowrap><br>
+      </td>
+    </tr>
+    <tr>
+      <th nowrap>←</th>
+      <td nowrap>１コマ戻し</td>
+      <td nowrap>開始点マーカーへ移動</td>
+      <td nowrap><br>
+      </td>
+    </tr>
+    <tr>
+      <th nowrap>→</th>
+      <td nowrap>１コマ送り</td>
+      <td nowrap>終了点マーカーへ移動</td>
+      <td nowrap><br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h3><a name="AlphabetKeyCommand">アルファベット</a></h3>
+<table summary="table" border="1" cellpadding="10" cellspacing="0" width="100%">
+  <tbody>
+    <tr align="center">
+      <th width="10%" nowrap><br>
+      </th>
+      <th width="30%" nowrap><br>
+      </th>
+      <th width="30%" nowrap>[Shift]+</th>
+      <th width="30%" nowrap>[Ctrl]+</th>
+    </tr>
+    <tr>
+      <th nowrap>p</th>
+      <td nowrap>ムービーの先頭へ移動</td>
+      <td nowrap><br>
+      </td>
+      <td nowrap><br>
+      </td>
+    </tr>
+    <tr>
+      <th nowrap>e</th>
+      <td nowrap>ムービーの末尾へ移動</td>
+      <td nowrap><br>
+      </td>
+      <td nowrap><br>
+      </td>
+    </tr>
+    <tr>
+      <th nowrap>f</th>
+      <td nowrap>開始点マーカーへ移動</td>
+      <td nowrap><br>
+      </td>
+      <td nowrap><br>
+      </td>
+    </tr>
+    <tr>
+      <th nowrap>l</th>
+      <td nowrap>終了点マーカーへ移動</td>
+      <td nowrap><br>
+      </td>
+      <td nowrap><br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h3><a name="MarkKeyCommand">記号キー</a></h3>
+<table summary="table" border="1" cellpadding="10" cellspacing="0" width="100%">
+  <tbody>
+    <tr align="center">
+      <th width="10%" nowrap><br>
+      </th>
+      <th width="30%" nowrap><br>
+      </th>
+      <th width="30%" nowrap>[Shift]+</th>
+      <th width="30%" nowrap>[Ctrl]+</th>
+    </tr>
+    <tr>
+      <th nowrap>[</th>
+      <td nowrap>現在位置を開始点マーカーへ設定</td>
+      <td nowrap><br>
+      </td>
+      <td nowrap><br>
+      </td>
+    </tr>
+    <tr>
+      <th nowrap>]</th>
+      <td nowrap>現在位置を終了点マーカーへ設定</td>
+      <td nowrap><br>
+      </td>
+      <td nowrap><br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<hr>
+<p class="align-right"><a href="#TOP">このページの TOP へ</a></p>
+</body>
+</html>

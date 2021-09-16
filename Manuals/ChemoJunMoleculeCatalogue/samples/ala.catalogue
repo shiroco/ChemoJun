@@ -1,0 +1,41 @@
+%
+% Molecular Catalogue created by ChemoJun049 at 2006/07/26 19:34:10
+%
+(ChemoJunMoleculeCatalogue (columnSize . 2)
+  (catalogueElements (ChemoJunMoleculeCatalogueElement (preferenceTable JunAttributeTable
+        (size . 7)
+        (attributeTable (atomResolution . medium)
+	  (exceptHydrogen . {false})
+	  (exceptIndex . {true})
+	  (moleculePresentation . moleculeAsStick)
+	  (projectionTable . {((Core.Dictionary new) add: (#eyePoint -> (0.0d , 0.0d , 13.32247805461d)); add: (#presentation -> #solidPresentation); add: (#sightPoint -> (0.2479211303259d , 0.0143d , -0.05675d)); add: (#projection -> #perspectiveProjection); add: (#upVector -> (-1.9798765904868d-5 , 0.99999942900738d , 0.0010684535194433d)); add: (#zoomHeight -> 4.5878628533964d); add: (#viewFactor -> 10); add: (#shading -> #smoothShading); yourself)})
+	  (serialNumberSetting . {((Core.OrderedCollection new) add: (#carbon: -> true); add: (#oxygen: -> true); add: (#nitrogen: -> true); add: (#hydrogen: -> false); add: (#others: -> true); yourself)})
+	  (viewerExtent . {377@377})))
+      (moleculeFilename . "ChemoJunMolData/amino-acid/ala.mol"))
+    (ChemoJunMoleculeCatalogueElement (moleculeFilename . "ChemoJunMolData/amino-acid/ala.mol"))
+    (ChemoJunMoleculeCatalogueElement (preferenceTable JunAttributeTable
+        (size . 7)
+        (attributeTable (atomResolution . medium)
+	  (exceptHydrogen . {false})
+	  (exceptIndex . {true})
+	  (moleculePresentation . moleculeAsSpaceFill)
+	  (projectionTable . {((Core.Dictionary new) add: (#eyePoint -> (0.0d , 0.0d , 13.32247805461d)); add: (#presentation -> #solidPresentation); add: (#sightPoint -> (0.2592d , 0.0228d , -0.05675d)); add: (#projection -> #perspectiveProjection); add: (#upVector -> (-3.2101911085784d-5 , 0.99999854851086d , 0.0017035097987466d)); add: (#zoomHeight -> 7.6526020321829d); add: (#viewFactor -> 10); add: (#shading -> #smoothShading); yourself)})
+	  (serialNumberSetting . {((Core.OrderedCollection new) add: (#carbon: -> true); add: (#oxygen: -> true); add: (#nitrogen: -> true); add: (#hydrogen: -> false); add: (#others: -> true); yourself)})
+	  (viewerExtent . {354@354})))
+      (moleculeFilename . "ChemoJunMolData/amino-acid/ala.mol"))
+    (ChemoJunMoleculeCatalogueElement (preferenceTable JunAttributeTable
+        (size . 7)
+        (attributeTable (atomResolution . medium)
+	  (exceptHydrogen . {false})
+	  (exceptIndex . {true})
+	  (moleculePresentation . moleculeAsStickAndSpaceFill)
+	  (projectionTable . {((Core.Dictionary new) add: (#eyePoint -> (0.0d , 0.0d , 21.261465576013d)); add: (#presentation -> #solidPresentation); add: (#sightPoint -> (0.2592d , 0.0228d , -0.05675d)); add: (#projection -> #perspectiveProjection); add: (#upVector -> (-1.3001806513187d-5 , 0.99999942816145d , 0.001069349205732d)); add: (#zoomHeight -> 7.6491099235366d); add: (#viewFactor -> 10); add: (#shading -> #smoothShading); yourself)})
+	  (serialNumberSetting . {((Core.OrderedCollection new) add: (#carbon: -> true); add: (#oxygen: -> true); add: (#nitrogen: -> true); add: (#hydrogen: -> false); add: (#others: -> true); yourself)})
+	  (viewerExtent . {377@377})))
+      (moleculeFilename . "ChemoJunMolData/amino-acid/ala.mol"))
+    (ChemoJunMoleculeCatalogueElement (moleculeFilename . "ChemoJunMolData/amino-acid/ala.2D.mol")))
+  (preferenceTable JunAttributeTable
+    (size . 3)
+    (attributeTable (multiSelections . {true})
+      (visibleCatalogIndex . {false})
+      (visibleFileName . {true}))))

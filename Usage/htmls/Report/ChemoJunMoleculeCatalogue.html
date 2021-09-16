@@ -1,0 +1,214 @@
+<HTML>
+<HEAD>
+<TITLE>ChemoJunMoleculeCatalogue</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+
+<A HREF="index.html"><B>index</B></A><BR>
+<HR>
+
+<H2>ChemoJunMoleculeCatalogue</H2>
+
+ChemoJun050 (2006/08/08) Copyright 2002-2006 National Institute of Informatics, Research Organization of Information and Systems.
+
+<P>
+<I>superclass:</I>
+</P>
+<UL>
+<LI><B>JunApplicationModel</B>
+</UL>
+
+<P>
+<I>instance variables:</I>
+</P>
+<UL>
+<LI><B>columnSize</B>
+<LI><B>catalogueElements</B>
+<LI><B>boundingBox</B>
+<LI><B>selectedElements</B>
+<LI><B>catalogueFilename</B>
+<LI><B>preferenceTable</B>
+<LI><B>menuBar</B>
+</UL>
+
+<P>
+<I>class instance variables:</I>
+</P>
+<UL>
+<LI><B>catalogueProgress</B>
+</UL>
+
+<P>
+<I>class variabels:</I>
+</P>
+<UL>
+</UL>
+
+<P>
+<I>pool variabels:</I>
+</P>
+<UL>
+</UL>
+
+<P>
+<I>instance methods:</I>
+</P>
+<OL>
+<LI><B>addSelection:</B> catalogueElement <I>[selecting]</I><BR>
+<LI><B>arrangeColumnSize</B> <I>[menu messages]</I><BR>
+<LI><B>asImage</B> <I>[converting]</I><BR>
+<LI><B>asImageOfElement:</B> element <I>[converting]</I><BR>
+<LI><B>asImageOfElement:</B> element <B>selectionColor:</B> selectionColor <B>backgroundColor:</B> backgroundColor <I>[converting]</I><BR>
+<LI><B>asImageOfElements:</B> elements <I>[converting]</I><BR>
+<LI><B>asImageOfElements:</B> elements <B>selectionColor:</B> selectionColor <B>backgroundColor:</B> backgroundColor <I>[converting]</I><BR>
+<LI><B>backgroundColor</B> <I>[displaying]</I><BR>
+<LI><B>boundingBox</B> <I>[bounds accessing]</I><BR>
+<LI><B>browseManual</B> <I>[menu messages]</I><BR>
+<LI><B>catalogueElementsToLispList</B> <I>[lisp support]</I><BR>
+<LI><B>catalogueView</B> <I>[interface opening]</I><BR>
+<LI><B>clearAndRedisplay</B> <I>[displaying]</I><BR>
+<LI><B>clearSelections</B> <I>[selecting]</I><BR>
+<LI><B>columnSize</B> <I>[accessing]</I><BR>
+<LI><B>columnSize:</B> numberOfColumns <I>[accessing]</I><BR>
+<LI><B>columnSizeToLispList</B> <I>[lisp support]</I><BR>
+<LI><B>condenseElements</B> <I>[menu messages]</I><BR>
+<LI><B>defaultWindowLabel</B> <I>[defaults]</I><BR>
+<LI><B>displayElement:</B> element <B>index:</B> index <B>into:</B> aPixmap <I>[displaying]</I><BR>
+<LI><B>displayElement:</B> element <B>index:</B> index <B>into:</B> aPixmap <B>selectionColor:</B> selectionColor <B>backgroundColor:</B> backgroundColor <I>[displaying]</I><BR>
+<LI><B>displayElement:</B> element <B>pixmapOn:</B> pixmapContext <I>[displaying]</I><BR>
+<LI><B>displayIndex:</B> index <B>pixmapOn:</B> pixmapContext <I>[displaying]</I><BR>
+<LI><B>displayName:</B> element <B>pixmapOn:</B> pixmapContext <I>[displaying]</I><BR>
+<LI><B>displayOn:</B> graphicsContext <I>[displaying]</I><BR>
+<LI><B>displaySelection:</B> element <B>pixmapOn:</B> pixmapContext <B>selectionColor:</B> selectionColor <B>backgroundColor:</B> backgroundColor <I>[displaying]</I><BR>
+<LI><B>dropElements:</B> elements <B>toCatalogue:</B> catalogue <I>[actions]</I><BR>
+<LI><B>dropTargetCatalogue</B> <I>[actions]</I><BR>
+<LI><B>elements</B> <I>[accessing]</I><BR>
+<LI><B>elements:</B> aCollection <I>[accessing]</I><BR>
+<LI><B>filename</B> <I>[accessing]</I><BR>
+<LI><B>filename:</B> aFilename <I>[accessing]</I><BR>
+<LI><B>fitWindowSize</B> <I>[interface opening]</I><BR>
+<LI><B>getView</B> <I>[private]</I><BR>
+<LI><B>hasVoidElement</B> <I>[testing]</I><BR>
+<LI><B>htmlTo:</B> aFilename <B>with:</B> aCollection <I>[private]</I><BR>
+<LI><B>initialize</B> <I>[initialize-release]</I><BR>
+<LI><B>isAllSelections</B> <I>[testing]</I><BR>
+<LI><B>isAllVoidSelections</B> <I>[testing]</I><BR>
+<LI><B>isEmpty</B> <I>[testing]</I><BR>
+<LI><B>keyboardDispatchTable</B> <I>[keyboard]</I><BR>
+<LI><B>keyboardDispathDebug</B> <I>[keyboard]</I><BR>
+<LI><B>keyboardEvent:</B> event <B>fromController:</B> controller <I>[keyboard]</I><BR>
+<LI><B>menuBar</B> <I>[menu accessing]</I><BR>
+<LI><B>moleculeObjects</B> <I>[accessing]</I><BR>
+<LI><B>move1Elements:</B> elements <B>toElement:</B> target <I>[actions]</I><BR>
+<LI><B>move2Elements:</B> elements <B>toElement:</B> target <I>[actions]</I><BR>
+<LI><B>moveElements:</B> elements <B>toElement:</B> target <I>[actions]</I><BR>
+<LI><B>multiSelections</B> <I>[preferences]</I><BR>
+<LI><B>multiSelections:</B> aBoolean <I>[preferences]</I><BR>
+<LI><B>openCatalogueElement:</B> element <I>[menu messages]</I><BR>
+<LI><B>openCatalogueElement:</B> element <B>at:</B> point <I>[menu messages]</I><BR>
+<LI><B>openCatalogueFile</B> <I>[menu messages]</I><BR>
+<LI><B>openMoleculeViewer</B> <I>[menu messages]</I><BR>
+<LI><B>openSDFile</B> <I>[menu messages]</I><BR>
+<LI><B>pixmapExtent</B> <I>[displaying]</I><BR>
+<LI><B>postOpenWith:</B> aBuilder <I>[interface opening]</I><BR>
+<LI><B>preferenceTable</B> <I>[preferences]</I><BR>
+<LI><B>preferenceTable:</B> attributeTable <I>[preferences]</I><BR>
+<LI><B>preferenceTableToLispList</B> <I>[lisp support]</I><BR>
+<LI><B>pressedCameraButtonOf:</B> anElement <B>in:</B> aViewer <I>[actions]</I><BR>
+<LI><B>printOn:</B> aStream <I>[printing]</I><BR>
+<LI><B>quitDoing</B> <I>[menu messages]</I><BR>
+<LI><B>redisplay</B> <I>[displaying]</I><BR>
+<LI><B>removeElements</B> <I>[menu messages]</I><BR>
+<LI><B>removeSelection:</B> catalogueElement <I>[selecting]</I><BR>
+<LI><B>requestNewImageFilename</B> <I>[menu messages]</I><BR>
+ChemoJunMoleculeCatalogue new requestNewImageFilename.
+<LI><B>saveAsCatalogue</B> <I>[menu messages]</I><BR>
+<LI><B>saveAsHTML</B> <I>[menu messages]</I><BR>
+<LI><B>saveAsImage</B> <I>[menu messages]</I><BR>
+<LI><B>saveAsSDFile</B> <I>[menu messages]</I><BR>
+<LI><B>saveCatalogue</B> <I>[menu messages]</I><BR>
+<LI><B>saveCatalogueTo:</B> aFilename <I>[menu messages]</I><BR>
+<LI><B>scrollDown</B> <I>[scrolling]</I><BR>
+<LI><B>scrollFor:</B> element <I>[scrolling]</I><BR>
+<LI><B>scrollGrid</B> <I>[scrolling]</I><BR>
+<LI><B>scrollLeft</B> <I>[scrolling]</I><BR>
+<LI><B>scrollRight</B> <I>[scrolling]</I><BR>
+<LI><B>scrollUp</B> <I>[scrolling]</I><BR>
+<LI><B>selectAll</B> <I>[menu messages]</I><BR>
+<LI><B>selectDirectory</B> <I>[menu messages]</I><BR>
+<LI><B>selectedElementsToLispList</B> <I>[lisp support]</I><BR>
+<LI><B>selection</B> <I>[selecting]</I><BR>
+<LI><B>selection:</B> element <I>[selecting]</I><BR>
+<LI><B>selectionColor</B> <I>[displaying]</I><BR>
+<LI><B>selectionMargin</B> <I>[displaying]</I><BR>
+<LI><B>selections</B> <I>[selecting]</I><BR>
+<LI><B>selections:</B> elementCollection <I>[selecting]</I><BR>
+<LI><B>setWindowLabel</B> <I>[interface opening]</I><BR>
+<LI><B>singleSelection</B> <I>[preferences]</I><BR>
+<LI><B>singleSelection:</B> aBoolean <I>[preferences]</I><BR>
+<LI><B>toggleCatalogIndex</B> <I>[menu messages]</I><BR>
+<LI><B>toggleFileName</B> <I>[menu messages]</I><BR>
+<LI><B>toLispList</B> <I>[lisp support]</I><BR>
+<LI><B>updateEditMenuIndication</B> <I>[menu accessing]</I><BR>
+<LI><B>updateFileMenuIndication</B> <I>[menu accessing]</I><BR>
+<LI><B>updateMenuIndication</B> <I>[menu accessing]</I><BR>
+<LI><B>updateViewMenuIndication</B> <I>[menu accessing]</I><BR>
+<LI><B>visibleCatalogIndex</B> <I>[preferences]</I><BR>
+<LI><B>visibleCatalogIndex:</B> aBoolean <I>[preferences]</I><BR>
+<LI><B>visibleFileName</B> <I>[preferences]</I><BR>
+<LI><B>visibleFileName:</B> aBoolean <I>[preferences]</I><BR>
+<LI><B>where:</B> aPoint <I>[selecting]</I><BR>
+<LI><B>which:</B> aPoint <I>[selecting]</I><BR>
+<LI><B>yellowButtonMenu</B> <I>[menu accessing]</I><BR>
+</OL>
+
+<P>
+<I>class methods:</I>
+</P>
+<OL>
+<LI><B>catalogueElementsFromTable:</B> aTable <B>for:</B> aCatalogue <I>[lisp support]</I><BR>
+<LI><B>catalogueProgress</B> <I>[accessing]</I><BR>
+<LI><B>columnSizeFromTable:</B> aTable <B>for:</B> aCatalogue <I>[lisp support]</I><BR>
+<LI><B>copyright</B> <I>[copyright]</I><BR>
+<LI><B>defaultCatalogueElementClass</B> <I>[defaults]</I><BR>
+<LI><B>defaultCatalogueVoidClass</B> <I>[defaults]</I><BR>
+<LI><B>defaultColumnSize</B> <I>[defaults]</I><BR>
+<LI><B>defaultMolecueCatalogueViewClass</B> <I>[defaults]</I><BR>
+<LI><B>defaultThumbnailExtent</B> <I>[defaults]</I><BR>
+<LI><B>defaultThumbnailMargin</B> <I>[defaults]</I><BR>
+<LI><B>directories:</B> directoryFilenames <I>[instance creation]</I><BR>
+<LI><B>directory:</B> directoryFilename <I>[instance creation]</I><BR>
+<LI><B>elementsFrom:</B> filenameCollection <I>[utilities]</I><BR>
+<LI><B>example1</B> <I>[examples]</I><BR>
+ChemoJunMoleculeCatalogue example1.
+<LI><B>example2</B> <I>[examples]</I><BR>
+ChemoJunMoleculeCatalogue example2.
+<LI><B>example3</B> <I>[examples]</I><BR>
+ChemoJunMoleculeCatalogue example3.
+<LI><B>example4</B> <I>[examples]</I><BR>
+ChemoJunMoleculeCatalogue example4.
+<LI><B>example5</B> <I>[examples]</I><BR>
+ChemoJunMoleculeCatalogue example5.
+<LI><B>example6</B> <I>[examples]</I><BR>
+ChemoJunMoleculeCatalogue example6.
+<LI><B>filename:</B> catalogueFilename <I>[instance creation]</I><BR>
+<LI><B>fromLispList:</B> aList <I>[lisp support]</I><BR>
+<LI><B>menuBar</B> <I>[resources]</I><BR>
+Tools.MenuEditor new openOnClass: self andSelector: #menuBar
+<LI><B>preferenceTableFromTable:</B> aTable <B>for:</B> aCatalogue <I>[lisp support]</I><BR>
+<LI><B>request</B> <I>[utilities]</I><BR>
+ChemoJunMoleculeCatalogue request.
+<LI><B>selectedElementsFromTable:</B> aTable <B>for:</B> aCatalogue <I>[lisp support]</I><BR>
+<LI><B>system</B> <I>[copyright]</I><BR>
+<LI><B>tableFromLispList:</B> aList <I>[lisp support]</I><BR>
+<LI><B>version</B> <I>[copyright]</I><BR>
+<LI><B>windowSpec</B> <I>[interface specs]</I><BR>
+Tools.UIPainter new openOnClass: self andSelector: #windowSpec
+</OL>
+
+
+<HR>
+<A HREF="index.html"><B>index</B></A><BR>
+
+</BODY>
+</HTML>

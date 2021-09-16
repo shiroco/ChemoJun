@@ -1,0 +1,774 @@
+<HTML>
+<HEAD>
+<TITLE>ChemoJunUtility</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<A HREF="../index.html#ChemoJunUtility"><IMG SRC="../images/index.jpg" ALT="index" ALIGN="top" BORDER=1></A>
+<A HREF="../xrefsC.html#ChemoJunUtility"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+2006/08/08 17:41:31
+<HR>
+<!-- (class_name) { -->
+<H2>
+<A NAME="Class.ChemoJunUtility">ChemoJunUtility</A>
+</H2>
+<!-- } (class_name) -->
+<!-- (comment) { -->
+<P>
+<A NAME="Comment.ChemoJunUtility">
+ChemoJun050 (2006/08/08) Copyright 2002-2006 National Institute of Informatics, Research Organization of Information and Systems.
+</A>
+</P>
+<!-- } (comment) -->
+<!-- (category) { -->
+<P>
+<A NAME="Category.ChemoJun-Basic-Utilities"><I>category:</I></A></P>
+<UL>
+<LI><B>
+ChemoJun-Basic-Utilities
+</B>
+<A HREF="../xrefsC.html#ChemoJun-Basic-Utilities"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+</UL>
+<!-- } (category) -->
+<!-- (inheritance) { -->
+<P>
+<A NAME="Inheritance.ChemoJunUtility"><I>inheritance:</I></A>
+</P>
+<UL>
+<LI TYPE="square">Object
+<UL>
+<LI TYPE="square"><B>ChemoJunUtility</B>
+</UL>
+</UL>
+<!-- } (inheritance) -->
+<!-- (instance_variables) { -->
+<P>
+<A NAME="InstanceVariables.ChemoJunUtility">
+<I>instance variables:</I>
+</A>
+</P>
+<UL>
+</UL>
+<!-- } (instance_variables) -->
+<!-- (class_instance_variables) { -->
+<P>
+<A NAME="ClassInstanceVariables.ChemoJunUtility">
+<I>class instance variables:</I>
+</A>
+</P>
+<UL>
+</UL>
+<!-- } (class_instance_variables) -->
+<!-- (class_variables) { -->
+<P>
+<A NAME="ClassVariables.ChemoJunUtility">
+<I>class variables:</I>
+</A>
+</P>
+<UL>
+</UL>
+<!-- } (class_variables) -->
+<!-- (pool_variables) { -->
+<P>
+<A NAME="PoolVariables.ChemoJunUtility">
+<I>pool variables:</I>
+</A>
+</P>
+<UL>
+</UL>
+<!-- } (pool_variables) -->
+<!-- (instance_methods) { -->
+<P>
+<A NAME="InstanceMethods.ChemoJunUtility">
+<I>instance methods:</I>
+</A>
+</P>
+<OL>
+</OL>
+<!-- } (instance_methods) -->
+<!-- (class_methods) { -->
+<P>
+<A NAME="ClassMethods.ChemoJunUtility">
+<I>class methods:</I>
+</A>
+</P>
+<OL>
+<LI><!-- addOrReplaceSource:pattern:with: { -->
+<A NAME="ClassMethod.addOrReplaceSource:pattern:with:"><B>addOrReplaceSource:</B> sourceCodeString <B>pattern:</B> patternString <B>with:</B> newString <I>[pseudo]</I></A>
+<A HREF="../xrefsA.html#addOrReplaceSource:pattern:with:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	&quot;ChemoJunUtility addOrReplaceSource: 'zzz ^1234' pattern: nil with: '  tsuika'.&quot;
+	&quot;ChemoJunUtility addOrReplaceSource: 'zzz ^1234' pattern: 'zzz' with: 'yyy'.&quot;
+	&quot;ChemoJunUtility addOrReplaceSource: 'zzz ^1234' pattern: 'zZz' with: 'yyy'.&quot;
+	&quot;ChemoJunUtility addOrReplaceSource: 'zzz ^1234' pattern: '^1' with: '^98'.&quot;
+	&quot;ChemoJunUtility addOrReplaceSource: 'zzz ^1234' pattern: '^1##' with: '98765'.&quot;
+	&quot;ChemoJunUtility addOrReplaceSource: 'abcdefghijklmnopqrstuvwxyz' pattern: 'c*m' with: '9876'.&quot;
+
+	| firstIndex interval lastIndex newSourceCodeString |
+	patternString ifNil: [firstIndex := 0]
+		ifNotNil: 
+			[interval := sourceCodeString 
+						findString: patternString
+						startingAt: 1
+						ignoreCase: false
+						useWildcards: true.
+			lastIndex := interval last.
+			firstIndex := interval first min: lastIndex].
+	firstIndex = 0 
+		ifTrue: [newSourceCodeString := sourceCodeString , newString]
+		ifFalse: 
+			[newSourceCodeString := sourceCodeString 
+						copyReplaceFrom: firstIndex
+						to: lastIndex
+						with: newString].
+	^newSourceCodeString</PRE>
+<!-- } addOrReplaceSource:pattern:with: -->
+<LI><!-- categoryOfSelector:inClass: { -->
+<A NAME="ClassMethod.categoryOfSelector:inClass:"><B>categoryOfSelector:</B> aSelector <B>inClass:</B> aClass <I>[pseudo]</I></A>
+<A HREF="../xrefsC.html#categoryOfSelector:inClass:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	&quot;ChemoJunUtility categoryOfSelector: #abs inClass: ArithmeticValue.&quot;
+
+	^aClass organization categoryOfElement: aSelector</PRE>
+<!-- } categoryOfSelector:inClass: -->
+<LI><!-- chemoJunMolDataUriString { -->
+<A NAME="ClassMethod.chemoJunMolDataUriString"><B>chemoJunMolDataUriString</B> <I>[sample data]</I></A>
+<A HREF="../xrefsC.html#chemoJunMolDataUriString"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	&quot;JunURL browse: (ChemoJunUtility chemoJunMolDataUriString).&quot;
+
+	| uriString |
+	uriString := JunEnvironmentUtility 
+				environmentVariableAt: 'ChemoJunMolDataUri'
+				ifAbsent: 
+					[(Filename defaultDirectory construct: 'ChemoJunMolData') asURI asString].
+	^uriString</PRE>
+<!-- } chemoJunMolDataUriString -->
+<LI><!-- compileSource:inClass:classified: { -->
+<A NAME="ClassMethod.compileSource:inClass:classified:"><B>compileSource:</B> sourceCodeString <B>inClass:</B> aClass <B>classified:</B> aCategory <I>[pseudo]</I></A>
+<A HREF="../xrefsC.html#compileSource:inClass:classified:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	&quot;ChemoJunUtility compileSource: 'zzz ^self' inClass: ChemoJunUtility class classified: #'zzz'.&quot;
+
+	^aClass compile: sourceCodeString classified: aCategory</PRE>
+<!-- } compileSource:inClass:classified: -->
+<LI><!-- copyright { -->
+<A NAME="ClassMethod.copyright"><B>copyright</B> <I>[copyright]</I></A>
+<A HREF="../xrefsC.html#copyright"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^'ChemoJun050 (2006/08/08) Copyright 2002-2006 National Institute of Informatics, Research Organization of Information and Systems.'</PRE>
+<!-- } copyright -->
+<LI><!-- directoriesInChemoJunSampleData { -->
+<A NAME="ClassMethod.directoriesInChemoJunSampleData"><B>directoriesInChemoJunSampleData</B> <I>[sample data]</I></A>
+<A HREF="../xrefsD.html#directoriesInChemoJunSampleData"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	&quot;ChemoJunUtility directoriesInChemoJunSampleData.&quot;
+
+	| aDirectory aCollection aString |
+	aDirectory := self chemoJunMolDataUriString asURI asFilename.
+	aDirectory exists ifFalse: [^Array new].
+	aDirectory isDirectory ifFalse: [^Array new].
+	aCollection := aDirectory directoryContents 
+				collect: [:each | aDirectory construct: each].
+	aCollection := aCollection select: [:each | each isDirectory].
+	self isWeakInJapanese 
+		ifTrue: 
+			[aCollection := aCollection select: 
+							[:each | 
+							aString := (Filename splitPath: each asString) last.
+							aString ~= (Filename splitPath: aDirectory asString) last and: 
+									[(aString isKindOf: ByteString) 
+										and: [(aString detect: [:char | char asInteger &gt;= 255] ifNone: [nil]) isNil]]]]
+		ifFalse: 
+			[aCollection := aCollection select: 
+							[:each | 
+							aString := (Filename splitPath: each asString) last.
+							aString ~= (Filename splitPath: aDirectory asString) last 
+								and: [(aString isKindOf: ByteString) or: [aString isKindOf: TwoByteString]]]].
+	^(aCollection asSortedCollection: [:f1 :f2 | f1 asString &lt; f2 asString]) 
+		asArray</PRE>
+<!-- } directoriesInChemoJunSampleData -->
+<LI><!-- expanded:by: { -->
+<A NAME="ClassMethod.expanded:by:"><B>expanded:</B> moleculeObject <B>by:</B> serialNumbers <I>[tips]</I></A>
+<A HREF="../xrefsE.html#expanded:by:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	&quot;(ChemoJunMoleculeViewer moleculeObject: (ChemoJunUtility 
+				expanded: (ChemoJunMoleculeObject fileName: (JunUniFileName named: './ChemoJunSampleData/fullerene.mol'))
+				by: #(21 34 41 35 22))) open.&quot;
+
+	&quot;(ChemoJunMoleculeViewer moleculeObject: (ChemoJunUtility 
+				expanded: (ChemoJunMoleculeObject fileName: (JunUniFileName named: './ChemoJunSampleData/tyr.mol'))
+				by: #(10 13 17 19 15 14))) open.&quot;
+
+	&quot;(ChemoJunMoleculeViewer moleculeObject: (ChemoJunUtility 
+				expanded: (ChemoJunMoleculeObject fileName: (JunUniFileName named: './ChemoJunSampleData/trp.mol'))
+				by: #(13 16 19 23 21 17))) open.&quot;
+
+	| pointAssociations compoundObject basePolygon aTransformation firstPoint anAngle xzPlane pointCollection polylineCollection basePoint assocCollection vertexCollection edgeCollection loopCollection newMoleculeObject |
+	pointAssociations := moleculeObject atomObjects 
+				collect: [:atomObject | atomObject atomicPoint -&gt; atomObject atomicPoint].
+	compoundObject := JunOpenGL3dCompoundObject new.
+	moleculeObject atomConnectionsDo: 
+			[:atomConnection | 
+			compoundObject 
+				add: (((atomConnection fromAtom atomicPoint 
+						to: atomConnection toAtom atomicPoint) asJunOpenGL3dObject)
+						paint: ColorValue black;
+						lineWidth: 3;
+						yourself)].
+	basePolygon := JunOpenGL3dPolygon vertexes: (serialNumbers 
+						collect: [:serialNumber | (moleculeObject atomObjects at: serialNumber) atomicPoint]).
+	aTransformation := Jun3dTransformation 
+				translate: basePolygon averagePoint negated.
+	compoundObject := compoundObject transform: aTransformation.
+	basePolygon := basePolygon transform: aTransformation.
+	pointAssociations := pointAssociations 
+				collect: [:assoc | assoc value: (assoc value transform: aTransformation)].
+	&quot;compoundObject showWithAxes hiddenlinePresentation.&quot;
+	aTransformation := Jun3dTransformation 
+				alignVector: basePolygon normalUnitVector
+				withVector: 0 , 0 , 1.
+	compoundObject := compoundObject transform: aTransformation.
+	basePolygon := basePolygon transform: aTransformation.
+	pointAssociations := pointAssociations 
+				collect: [:assoc | assoc value: (assoc value transform: aTransformation)].
+	&quot;compoundObject showWithAxes hiddenlinePresentation.&quot;
+	firstPoint := basePolygon vertexes first.
+	anAngle := (0 , 0 , 0 to: 1 , 0 , 0) 
+				angleWithLine: (0 , 0 , 0 to: firstPoint).
+	xzPlane := JunPlane 
+				on: 0 , 0 , 0
+				on: 0 , 0 , 1
+				on: 1 , 0 , 0.
+	(xzPlane whichSide: firstPoint) &gt;= 0 
+		ifTrue: [aTransformation := Jun3dTransformation rotateZ: anAngle negated]
+		ifFalse: [aTransformation := Jun3dTransformation rotateZ: anAngle].
+	compoundObject := compoundObject transform: aTransformation.
+	basePolygon := basePolygon transform: aTransformation.
+	pointAssociations := pointAssociations 
+				collect: [:assoc | assoc value: (assoc value transform: aTransformation)].
+	&quot;compoundObject showWithAxes hiddenlinePresentation.&quot;
+	pointCollection := JunHashEqualitySet new.
+	pointCollection addAll: compoundObject asPointArray.
+	polylineCollection := OrderedCollection new.
+	compoundObject 
+		primitivesDo: [:aPolyline | polylineCollection add: aPolyline asArrayOfLines].
+	basePoint := 0 , 0 , (compoundObject boundingBox origin z - 1).
+	assocCollection := OrderedCollection new: pointCollection size.
+	pointCollection do: 
+			[:point | 
+			| distance |
+			distance := basePoint distance: point.
+			assocCollection add: point -&gt; distance].
+	assocCollection := (assocCollection 
+				asSortedCollection: [:a1 :a2 | a1 value &lt; a2 value]) asArray.
+	vertexCollection := OrderedCollection new: pointCollection size.
+	edgeCollection := OrderedCollection new: polylineCollection size * 3.
+	loopCollection := OrderedCollection new: polylineCollection size.
+	assocCollection := assocCollection collect: 
+					[:assoc | 
+					| point distance p1 p2 vertex |
+					point := assoc key.
+					distance := assoc value.
+					distance := distance * distance.
+					p1 := basePoint x , basePoint y , 0.
+					p2 := point x , point y , 0.
+					(p1 equal: p2) 
+						ifTrue: [vertex := p1]
+						ifFalse: [vertex := (p1 to: p2) normalized atT: distance].
+					vertexCollection add: vertex.
+					point -&gt; vertex].
+	polylineCollection do: 
+			[:polyline | 
+			| edges |
+			edges := OrderedCollection new: polyline size.
+			polyline do: 
+					[:line | 
+					| edge |
+					edge := (assocCollection detect: [:a | line from equal: a key]) value 
+								to: (assocCollection detect: [:a | line to equal: a key]) value.
+					edgeCollection add: edge.
+					edges add: edge].
+			loopCollection add: edges asArray].
+	pointAssociations := pointAssociations collect: 
+					[:assoc | 
+					assoc 
+						value: (assocCollection detect: [:a | assoc value equal: a key]) value].
+	newMoleculeObject := moleculeObject copy.
+	newMoleculeObject atomObjectsDo: 
+			[:atomObject | 
+			atomObject 
+				atomicPoint: (pointAssociations 
+						detect: [:assoc | assoc key equal: atomObject atomicPoint]) value].
+	^newMoleculeObject</PRE>
+<!-- } expanded:by: -->
+<LI><!-- isWeakInJapanese { -->
+<A NAME="ClassMethod.isWeakInJapanese"><B>isWeakInJapanese</B> <I>[testing]</I></A>
+<A HREF="../xrefsI.html#isWeakInJapanese"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	&quot;ChemoJunUtility isWeakInJapanese.&quot;
+
+	^(Parcel parcelNamed: 'Jpl') isNil or: 
+			[(VisualWorksSettings files20MessageDirectories target value asArray 
+				detect: 
+					[:aFilename | 
+					| aString aBoolean |
+					aString := aFilename asString.
+					(aString = '.' or: 
+							[(aString findString: 'messages' startingAt: 1) &gt; 0 
+								and: [(aString findString: 'jun' startingAt: 1) &gt; 0]]) 
+						ifTrue: 
+							[| aDirectory |
+							aDirectory := aFilename asFilename construct: 'ja'.
+							aBoolean := aDirectory exists and: [aDirectory isDirectory]]
+						ifFalse: [aBoolean := false].
+					aBoolean yourself]
+				ifNone: [nil]) isNil]</PRE>
+<!-- } isWeakInJapanese -->
+<LI><!-- makeMolfileOfFullerene { -->
+<A NAME="ClassMethod.makeMolfileOfFullerene"><B>makeMolfileOfFullerene</B> <I>[tips]</I></A>
+<A HREF="../xrefsM.html#makeMolfileOfFullerene"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	&quot;ChemoJunUtility makeMolfileOfFullerene.&quot;
+
+	| aHedron lineCollection pointCollection aStream |
+	aHedron := JunOpenGL3dObject truncatedIcosahedron scaledBy: 3.5.
+	pointCollection := JunHashEqualitySet new: 60.
+	pointCollection addAll: aHedron asPointArray.
+	lineCollection := OrderedCollection new.
+	aHedron 
+		polygonsDo: [:aPolygon | lineCollection addAll: aPolygon asArrayOfLines].
+	pointCollection := (pointCollection asSortedCollection: 
+					[:point1 :point2 | 
+					| value1 value2 |
+					value1 := point1 x.
+					value2 := point2 x.
+					(value1 - value2) abs &lt; JunGeometry accuracy 
+						ifTrue: 
+							[value1 := point1 y.
+							value2 := point2 y.
+							(value1 - value2) abs &lt; JunGeometry accuracy 
+								ifTrue: 
+									[value1 := point1 z.
+									value2 := point2 z]].
+					value1 &lt; value2]) 
+				asArray.
+	lineCollection := (lineCollection asSortedCollection: 
+					[:line1 :line2 | 
+					| index1 index2 |
+					index1 := pointCollection findFirst: [:p | p equal: line1 from].
+					index2 := pointCollection findFirst: [:p | p equal: line2 from].
+					index1 = index2 
+						ifTrue: 
+							[index1 := pointCollection findFirst: [:p | p equal: line1 to].
+							index2 := pointCollection findFirst: [:p | p equal: line2 to]].
+					index1 &lt; index2]) 
+				asArray.
+	JunControlUtility 
+		assert: [aStream := 'fullerene.mol' asFilename writeStream]
+		do: 
+			[aStream
+				nextPutAll: 'fullerene.mol';
+				cr.
+			aStream cr.
+			aStream cr.
+			aStream 
+				nextPutAll: (JunStringUtility format: 'i3' value: pointCollection size).
+			aStream 
+				nextPutAll: (JunStringUtility format: 'i3' value: lineCollection size).
+			9 
+				timesRepeat: [aStream nextPutAll: (JunStringUtility format: 'i3' value: 0)].
+			aStream nextPutAll: (JunStringUtility format: 'x1' value: nil).
+			aStream nextPutAll: (JunStringUtility format: 'a5' value: 'V2000').
+			aStream cr.
+			pointCollection do: 
+					[:point | 
+					aStream nextPutAll: (JunStringUtility format: 'f10.4' value: point x).
+					aStream nextPutAll: (JunStringUtility format: 'f10.4' value: point y).
+					aStream nextPutAll: (JunStringUtility format: 'f10.4' value: point z).
+					aStream nextPutAll: (JunStringUtility format: 'x1' value: nil).
+					aStream nextPutAll: (JunStringUtility format: 'a3' value: 'C').
+					aStream nextPutAll: (JunStringUtility format: 'i2' value: 0).
+					11 
+						timesRepeat: [aStream nextPutAll: (JunStringUtility format: 'i3' value: 0)].
+					aStream cr].
+			lineCollection do: 
+					[:line | 
+					aStream nextPutAll: (JunStringUtility format: 'i3'
+								value: (pointCollection findFirst: [:p | line from equal: p])).
+					aStream nextPutAll: (JunStringUtility format: 'i3'
+								value: (pointCollection findFirst: [:p | line to equal: p])).
+					aStream nextPutAll: (JunStringUtility format: 'i3' value: 1).
+					aStream nextPutAll: (JunStringUtility format: 'i3' value: 0).
+					3 
+						timesRepeat: [aStream nextPutAll: (JunStringUtility format: 'i3' value: 0)].
+					aStream cr].
+			aStream nextPutAll: 'M  END'.
+			aStream cr]
+		ensure: [aStream close]</PRE>
+<!-- } makeMolfileOfFullerene -->
+<LI><!-- makeMolfileOfFullereneExpanded { -->
+<A NAME="ClassMethod.makeMolfileOfFullereneExpanded"><B>makeMolfileOfFullereneExpanded</B> <I>[tips]</I></A>
+<A HREF="../xrefsM.html#makeMolfileOfFullereneExpanded"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	&quot;ChemoJunUtility makeMolfileOfFullereneExpanded.&quot;
+
+	| aHedron polygonCollection lineCollection pointCollection basePoint assocCollection scaleFactor aBody aStream |
+	aHedron := JunOpenGL3dObject truncatedIcosahedron.
+	polygonCollection := OrderedCollection new: 32.
+	aHedron polygonsDo: [:aPolygon | polygonCollection add: aPolygon].
+	lineCollection := OrderedCollection new: 32 * 6.
+	polygonCollection 
+		do: [:aPolygon | lineCollection addAll: aPolygon asArrayOfLines].
+	pointCollection := JunHashEqualitySet new: 60.
+	pointCollection addAll: aHedron asPointArray.
+	pointCollection := (pointCollection asSortedCollection: 
+					[:point1 :point2 | 
+					| value1 value2 |
+					value1 := point1 x.
+					value2 := point2 x.
+					(value1 - value2) abs &lt; JunGeometry accuracy 
+						ifTrue: 
+							[value1 := point1 y.
+							value2 := point2 y.
+							(value1 - value2) abs &lt; JunGeometry accuracy 
+								ifTrue: 
+									[value1 := point1 z.
+									value2 := point2 z]].
+					value1 &lt; value2]) 
+				asArray.
+	basePoint := 0 , 0 , (2 sqrt * 2 + 1) negated.
+	assocCollection := OrderedCollection new.
+	scaleFactor := 0.75.
+	aBody := JunOpenGL3dCompoundObject new.
+	pointCollection := pointCollection collect: 
+					[:each | 
+					| distance line point |
+					distance := (basePoint distance: each) - 1.
+					distance &gt; 3.5 
+						ifTrue: [distance := distance ** 2.2]
+						ifFalse: [distance := distance ** 2].
+					line := (basePoint x , basePoint y , 0 to: each x , each y , 0) normalized.
+					point := line atT: distance.
+					assocCollection add: each -&gt; point.
+					aBody add: ((point asJunOpenGL3dObject)
+								paint: ColorValue black;
+								size: 5;
+								yourself).
+					(point scaledBy: scaleFactor) yourself].
+	lineCollection := lineCollection collect: 
+					[:each | 
+					| line |
+					line := (assocCollection detect: [:a | each from equal: a key]) value 
+								to: (assocCollection detect: [:a | each to equal: a key]) value.
+					aBody add: ((line asJunOpenGL3dObject)
+								paint: ColorValue black;
+								lineWidth: 3;
+								yourself).
+					(line scaledBy: scaleFactor) yourself].
+	&quot;aBody showWithAxes.&quot;
+	lineCollection := (lineCollection asSortedCollection: 
+					[:line1 :line2 | 
+					| index1 index2 |
+					index1 := pointCollection findFirst: [:p | p equal: line1 from].
+					index2 := pointCollection findFirst: [:p | p equal: line2 from].
+					index1 = index2 
+						ifTrue: 
+							[index1 := pointCollection findFirst: [:p | p equal: line1 to].
+							index2 := pointCollection findFirst: [:p | p equal: line2 to]].
+					index1 &lt; index2]) 
+				asArray.
+	JunControlUtility 
+		assert: [aStream := 'fullerene_expanded.mol' asFilename writeStream]
+		do: 
+			[aStream
+				nextPutAll: 'fullerene.mol';
+				cr.
+			aStream cr.
+			aStream cr.
+			aStream 
+				nextPutAll: (JunStringUtility format: 'i3' value: pointCollection size).
+			aStream 
+				nextPutAll: (JunStringUtility format: 'i3' value: lineCollection size).
+			9 
+				timesRepeat: [aStream nextPutAll: (JunStringUtility format: 'i3' value: 0)].
+			aStream nextPutAll: (JunStringUtility format: 'x1' value: nil).
+			aStream nextPutAll: (JunStringUtility format: 'a5' value: 'V2000').
+			aStream cr.
+			pointCollection do: 
+					[:point | 
+					aStream nextPutAll: (JunStringUtility format: 'f10.4' value: point x).
+					aStream nextPutAll: (JunStringUtility format: 'f10.4' value: point y).
+					aStream nextPutAll: (JunStringUtility format: 'f10.4' value: point z).
+					aStream nextPutAll: (JunStringUtility format: 'x1' value: nil).
+					aStream nextPutAll: (JunStringUtility format: 'a3' value: 'C').
+					aStream nextPutAll: (JunStringUtility format: 'i2' value: 0).
+					11 
+						timesRepeat: [aStream nextPutAll: (JunStringUtility format: 'i3' value: 0)].
+					aStream cr].
+			lineCollection do: 
+					[:line | 
+					aStream nextPutAll: (JunStringUtility format: 'i3'
+								value: (pointCollection findFirst: [:p | line from equal: p])).
+					aStream nextPutAll: (JunStringUtility format: 'i3'
+								value: (pointCollection findFirst: [:p | line to equal: p])).
+					aStream nextPutAll: (JunStringUtility format: 'i3' value: 1).
+					aStream nextPutAll: (JunStringUtility format: 'i3' value: 0).
+					3 
+						timesRepeat: [aStream nextPutAll: (JunStringUtility format: 'i3' value: 0)].
+					aStream cr].
+			aStream nextPutAll: 'M  END'.
+			aStream cr]
+		ensure: [aStream close]</PRE>
+<!-- } makeMolfileOfFullereneExpanded -->
+<LI><!-- manualBaseUriString { -->
+<A NAME="ClassMethod.manualBaseUriString"><B>manualBaseUriString</B> <I>[manuals]</I></A>
+<A HREF="../xrefsM.html#manualBaseUriString"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	&quot;JunURL browse: (ChemoJunUtility manualBaseUriString).&quot;
+
+	| uriString |
+	uriString := JunEnvironmentUtility 
+				environmentVariableAt: 'ChemoJunManualBaseUri'
+				ifAbsent: 
+					[&quot;((Filename defaultDirectory construct: 'Manuals') construct: 'ChemoJun') 
+						asURI asString&quot;
+
+					'http://research.nii.ac.jp/~cheminfo/ChemoJun/Documents/Manuals/' yourself].
+	^uriString</PRE>
+<!-- } manualBaseUriString -->
+<LI><!-- manualUriStringConstruct: { -->
+<A NAME="ClassMethod.manualUriStringConstruct:"><B>manualUriStringConstruct:</B> aString <I>[manuals]</I></A>
+<A HREF="../xrefsM.html#manualUriStringConstruct:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	&quot;JunURL browse: (ChemoJunUtility manualUriStringConstruct: 'index.html').&quot;
+
+	| uriString |
+	uriString := self manualBaseUriString asString.
+	uriString last = $/ ifFalse: [uriString := uriString , '/'].
+	uriString := uriString , aString.
+	^uriString</PRE>
+<!-- } manualUriStringConstruct: -->
+<LI><!-- molfilesInChemoJunSampleData { -->
+<A NAME="ClassMethod.molfilesInChemoJunSampleData"><B>molfilesInChemoJunSampleData</B> <I>[sample data]</I></A>
+<A HREF="../xrefsM.html#molfilesInChemoJunSampleData"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	&quot;ChemoJunUtility molfilesInChemoJunSampleData.&quot;
+
+	| aDirectory aCollection aString |
+	aDirectory := self chemoJunMolDataUriString asURI asFilename.
+	aDirectory exists ifFalse: [^Array new].
+	aDirectory isDirectory ifFalse: [^Array new].
+	aCollection := (JunFileModel 
+				dive: aDirectory
+				level: 2
+				patterns: #('*.mol' '*.MOL')) collect: [:each | each asFilename].
+	self isWeakInJapanese 
+		ifTrue: 
+			[aCollection := aCollection select: 
+							[:each | 
+							aString := (Filename splitPath: each asString) first.
+							[aString isEmpty not and: [aString last = Filename separator]] 
+								whileTrue: [aString := aString copyFrom: 1 to: aString size - 1].
+							aString := (Filename splitPath: aString) last.
+							(aString isKindOf: ByteString) 
+								and: [(aString detect: [:char | char asInteger &gt;= 255] ifNone: [nil]) isNil]]]
+		ifFalse: 
+			[aCollection := aCollection select: 
+							[:each | 
+							aString := (Filename splitPath: each asString) first.
+							[aString isEmpty not and: [aString last = Filename separator]] 
+								whileTrue: [aString := aString copyFrom: 1 to: aString size - 1].
+							aString := (Filename splitPath: aString) last.
+							(aString isKindOf: ByteString) or: [aString isKindOf: TwoByteString]]].
+	^(aCollection asSortedCollection: [:f1 :f2 | f1 asString &lt; f2 asString]) 
+		asArray</PRE>
+<!-- } molfilesInChemoJunSampleData -->
+<LI><!-- pesude:pattern:with: { -->
+<A NAME="ClassMethod.pesude:pattern:with:"><B>pesude:</B> aClass <B>pattern:</B> patternString <B>with:</B> newString <I>[pseudo]</I></A>
+<A HREF="../xrefsP.html#pesude:pattern:with:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	&quot;ChemoJunSystem classes do: [:aClass | ChemoJunUtility pesude: aClass pattern: patternString with: newString].&quot;
+
+	| selectorCollection sourceCodeString newSourceCodeString aCategory |
+	selectorCollection := self selectorsOfClass: aClass.
+	selectorCollection do: 
+			[:aSelector | 
+			sourceCodeString := self sourceOfSelector: aSelector inClass: aClass.
+			newSourceCodeString := self 
+						addOrReplaceSource: sourceCodeString
+						pattern: patternString
+						with: newString.
+			aCategory := self categoryOfSelector: aSelector inClass: aClass.
+			self 
+				compileSource: newSourceCodeString
+				inClass: aClass
+				classified: aCategory]</PRE>
+<!-- } pesude:pattern:with: -->
+<LI><!-- selectBlockForDirectoryContents { -->
+<A NAME="ClassMethod.selectBlockForDirectoryContents"><B>selectBlockForDirectoryContents</B> <I>[blocks]</I></A>
+<A HREF="../xrefsS.html#selectBlockForDirectoryContents"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	&quot;ChemoJunUtility selectBlockForDirectoryContents.&quot;
+
+	| selectBlock |
+	selectBlock := 
+			[:aFilename | 
+			| aString aBoolean |
+			aString := aFilename asString.
+			&quot;Transcript
+						cr;
+						show: aString printString.&quot;
+			ChemoJunUtility isWeakInJapanese 
+				ifTrue: 
+					[aBoolean := (aString isKindOf: ByteString) 
+								and: [(aString detect: [:char | char asInteger &gt;= 255] ifNone: [nil]) isNil]]
+				ifFalse: [aBoolean := true].
+			aBoolean yourself].
+	^selectBlock</PRE>
+<!-- } selectBlockForDirectoryContents -->
+<LI><!-- selectDirectoriesInChemoJunSampleData { -->
+<A NAME="ClassMethod.selectDirectoriesInChemoJunSampleData"><B>selectDirectoriesInChemoJunSampleData</B> <I>[sample data]</I></A>
+<A HREF="../xrefsS.html#selectDirectoriesInChemoJunSampleData"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	&quot;ChemoJunUtility selectDirectoriesInChemoJunSampleData.&quot;
+
+	| aCollection |
+	aCollection := self directoriesInChemoJunSampleData.
+	aCollection isEmpty ifTrue: [^nil].
+	^ChemoJunDialog new 
+		chooseMultiple: (#chemoJun_Select_some_directories_ &gt;&gt; 'Select some directories.') 
+				asString
+		fromList: (aCollection 
+				collect: [:each | (Filename splitPath: each asString) last])
+		values: aCollection
+		lines: (aCollection size min: 32)
+		cancel: [nil]</PRE>
+<!-- } selectDirectoriesInChemoJunSampleData -->
+<LI><!-- selectDirectoryInChemoJunSampleData { -->
+<A NAME="ClassMethod.selectDirectoryInChemoJunSampleData"><B>selectDirectoryInChemoJunSampleData</B> <I>[sample data]</I></A>
+<A HREF="../xrefsS.html#selectDirectoryInChemoJunSampleData"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	&quot;ChemoJunUtility selectDirectoryInChemoJunSampleData.&quot;
+
+	| aCollection |
+	aCollection := self directoriesInChemoJunSampleData.
+	aCollection isEmpty ifTrue: [^nil].
+	^ChemoJunDialog 
+		choose: (#jun_Select_a_directory_ &gt;&gt; 'Select a directory.') 
+				asString
+		fromList: (aCollection 
+				collect: [:each | (Filename splitPath: each asString) last])
+		values: aCollection
+		lines: (aCollection size min: 32)
+		cancel: [nil]</PRE>
+<!-- } selectDirectoryInChemoJunSampleData -->
+<LI><!-- selectMolfileInChemoJunSampleData { -->
+<A NAME="ClassMethod.selectMolfileInChemoJunSampleData"><B>selectMolfileInChemoJunSampleData</B> <I>[sample data]</I></A>
+<A HREF="../xrefsS.html#selectMolfileInChemoJunSampleData"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	&quot;ChemoJunUtility selectMolfileInChemoJunSampleData.&quot;
+
+	| aCollection |
+	aCollection := self molfilesInChemoJunSampleData.
+	aCollection isEmpty ifTrue: [^nil].
+	^ChemoJunDialog 
+		choose: (#jun_Select_a_file_ &gt;&gt; 'Select a file.') asString
+		fromList: (aCollection collect: 
+					[:each | 
+					
+					[| aString |
+					aString := (Filename splitPath: each asString) first.
+					[aString isEmpty not and: [aString last = Filename separator]] 
+						whileTrue: [aString := aString copyFrom: 1 to: aString size - 1].
+					aString := '(' , (Filename splitPath: aString) last , ') '.
+					aString yourself] 
+							value , (Filename splitPath: each asString) last])
+		values: aCollection
+		lines: (aCollection size min: 32)
+		cancel: [nil]</PRE>
+<!-- } selectMolfileInChemoJunSampleData -->
+<LI><!-- selectMolfilesInChemoJunSampleData { -->
+<A NAME="ClassMethod.selectMolfilesInChemoJunSampleData"><B>selectMolfilesInChemoJunSampleData</B> <I>[sample data]</I></A>
+<A HREF="../xrefsS.html#selectMolfilesInChemoJunSampleData"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	&quot;ChemoJunUtility selectMolfilesInChemoJunSampleData.&quot;
+
+	| aCollection |
+	aCollection := self molfilesInChemoJunSampleData.
+	aCollection isEmpty ifTrue: [^nil].
+	^ChemoJunDialog new 
+		chooseMultiple: (#chemoJun_Select_some_files_ &gt;&gt; 'Select some files.') asString
+		fromList: (aCollection collect: 
+					[:each | 
+					
+					[| aString |
+					aString := (Filename splitPath: each asString) first.
+					[aString isEmpty not and: [aString last = Filename separator]] 
+						whileTrue: [aString := aString copyFrom: 1 to: aString size - 1].
+					aString := '(' , (Filename splitPath: aString) last , ') '.
+					aString yourself] 
+							value , (Filename splitPath: each asString) last])
+		values: aCollection
+		lines: (aCollection size min: 32)
+		cancel: [nil]</PRE>
+<!-- } selectMolfilesInChemoJunSampleData -->
+<LI><!-- selectorsOfClass: { -->
+<A NAME="ClassMethod.selectorsOfClass:"><B>selectorsOfClass:</B> aClass <I>[pseudo]</I></A>
+<A HREF="../xrefsS.html#selectorsOfClass:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	&quot;ChemoJunUtility selectorsOfClass: ChemoJunUtility class.&quot;
+
+	^aClass selectors</PRE>
+<!-- } selectorsOfClass: -->
+<LI><!-- sourceOfSelector:inClass: { -->
+<A NAME="ClassMethod.sourceOfSelector:inClass:"><B>sourceOfSelector:</B> aSelector <B>inClass:</B> aClass <I>[pseudo]</I></A>
+<A HREF="../xrefsS.html#sourceOfSelector:inClass:"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE> 
+	&quot;ChemoJunUtility sourceOfSelector: #abs inClass: ArithmeticValue.&quot;
+
+	^aClass sourceCodeAt: aSelector</PRE>
+<!-- } sourceOfSelector:inClass: -->
+<LI><!-- system { -->
+<A NAME="ClassMethod.system"><B>system</B> <I>[copyright]</I></A>
+<A HREF="../xrefsS.html#system"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^'ChemoJun'</PRE>
+<!-- } system -->
+<LI><!-- version { -->
+<A NAME="ClassMethod.version"><B>version</B> <I>[copyright]</I></A>
+<A HREF="../xrefsV.html#version"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<BR>
+<PRE>
+	^'050'</PRE>
+<!-- } version -->
+</OL>
+<!-- } (class_methods) -->
+<HR>
+<A HREF="../index.html#ChemoJunUtility"><IMG SRC="../images/index.jpg" ALT="index" ALIGN="top" BORDER=1></A>
+<A HREF="../xrefsC.html#ChemoJunUtility"><IMG SRC="../images/xrefs.jpg" ALT="xrefs" ALIGN="top" BORDER=1></A>
+<!-- This Document was generated by JunEncyclopedia. -->
+<!-- JunEncyclopedia was developed by AOKI Atsushi. -->
+</BODY>
+</HTML>

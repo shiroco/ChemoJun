@@ -1,0 +1,54 @@
+body {
+	margin				: 0px;
+	padding				: 0px;
+	font-family			: "Hiragino Maru Gothic Pro", "ƒqƒ‰ƒMƒmŠÛƒS Pro W4", "Osaka", "Arial", sans-serif;
+	background-color	: #FFFFFF;
+	color				: #000000;
+	text-align			: left;
+	vertical-align		: middle;
+	line-height			: 1.4;
+}
+a {
+	text-decoration		: none;
+	text-align			: center;
+}
+a:link {
+	color				: #0000FF;
+}
+a:visited {
+	color				: #663399;
+}
+a:hover {
+	background-color	: #FFFFAA;
+}
+a:active {
+	color				: #FF0000;
+}
+.menu-table {
+	width				: 100%;
+	border-color		: #AAAAEE;
+	border-style		: double;
+	border-top-width	: 0px;
+	border-bottom-width	: 5px;
+	border-left-width	: 0px;
+	border-right-width	: 0px;
+}
+.menu-logo {
+	background-image	: url(images/ChemoJunLogo_s.jpg);
+	background-position	: top center;
+	background-repeat	: no-repeat;
+	width				: 100px;
+	height				: 85px;
+	text-align			: center;
+	vertical-align		: bottom;
+	font-size			: small;
+}
+.menu-td {
+	padding-top			: 0.5em;
+	padding-bottom		: 0.5em;
+	padding-left		: 1em;
+	padding-right		: 1em;
+	text-align			: left;
+	font-size			: small;
+	line-height			: 1.8;
+}

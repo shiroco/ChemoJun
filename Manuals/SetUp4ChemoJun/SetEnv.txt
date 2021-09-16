@@ -1,0 +1,9 @@
+# setenv <variable name> <variable value>
+
+# ------------------------------
+# ChemoJun
+#
+setenv ChemoJunWebPageUri 'http://research.nii.ac.jp/~cheminfo/ChemoJun/'
+setenv ChemoJunMailUri 'mailto:cheminfo@@nii.ac.jp'
+setenv ChemoJunManualBaseUri 'http://research.nii.ac.jp/~cheminfo/ChemoJun/Documents/Manuals/'
+setenv ChemoJunMolDataUri 'file:///c:/username/ChemoJunMolData/'
